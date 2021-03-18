@@ -5,4 +5,12 @@
     <RootNamespace>E_Commerce_App.Data</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\E-Commerce-App.Core\E-Commerce-App.Core.csproj" />
+  </ItemGroup>
+
 </Project>
