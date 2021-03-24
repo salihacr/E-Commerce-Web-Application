@@ -1,0 +1,132 @@
+﻿@section Css{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/ui/trumbowyg.min.css" integrity="sha512-iw/TO6rC/bRmSOiXlanoUCVdNrnJBCOufp2s3vhTPyP1Z0CtTSBNbEd5wIo8VJanpONGJSyPOZ5ZRjZ/ojmc7g==" crossorigin="anonymous" />
+}
+@if (ViewData["ProductId"].ToString() != "0")
+{
+    ViewData["CurrentPage"] = "Ürünler / Düzenle / " + ViewData["ProductId"];
+    ViewData["CurrentPageUrl"] = "Product/Edit/" + ViewData["ProductId"];
+}
+else
+{
+    ViewData["CurrentPage"] = "Ürünler / Ürün Ekle";
+    ViewData["CurrentPageUrl"] = "Product/Edit/" + ViewData["ProductId"];
+}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card p-2">
+            <div class="form-row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="ProductName" placeholder="Ürün Adı" />
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="ProductUrl" placeholder="Ürün URL" disabled />
+                </div>
+            </div>
+            <br />
+            <textarea id="html-editor">
+                Ürünün Detaylı Açıklamasını Burada Yapınız
+            </textarea>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-2">
+            <label>Kategoriler</label>
+            @*@for (int i = 0; i < Model.SelectedCategories.Count; i++)
+                {
+                    <input type="hidden" name="SelectedCategories[@i].CategoryId" value="@Model.SelectedCategories[@i].CategoryId">
+                    <input type="hidden" name="SelectedCategories[@i].Name" value="@Model.SelectedCategories[@i].Name">
+                }
+                @foreach (var item in (List<Category>)ViewBag.Categories)
+                {
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="categoryIds" value="@item.CategoryId"
+                               id="category_@(item.CategoryId)"
+                               @(Model.SelectedCategories.Any(i => i.CategoryId == item.CategoryId) ? "checked" : "")>
+                        <label class="custom-control-label" for="category_@(item.CategoryId)">@item.Name</label>
+                    </div>
+                }*@
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="form-check-input" name="IsHome" />
+                <label class="form-check-label" for="IsHome">Satışa Hazır mı ?</label>
+            </div>
+            <br />
+            <button class="btn btn-primary btn-block">Kaydet</button>
+
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card p-2">
+            <div class="form-group">
+                <p>Ana Resim</p>
+                <input type="file" name="mainFile" onchange="showpreview(this);" />
+                <input type="hidden" />
+                @*@if (Model.Product.MainImage == "")
+                    {
+                        <img id="imgpreview" height="200" width="200" style="border-width: 0px;" />
+                    }
+                    else
+                    {
+                        <img src="~/img/@Model.Product.MainImage" id="imgpreview" height="200" width="200" style="border-width: 0px;" />
+                    }*@
+                <img id="imgpreview" height="200" width="200" style="border-width: 0px;display: none;" />
+            </div>
+            <div class="form-group">
+                <p>Ürün Resimleri</p>
+                <input type="file" name="files" multiple onchange="previewFiles();" id="browse" />
+                <div id="preview">
+                    @*@foreach (var image in ViewBag.ProductImages)
+                        {
+                            <img src="~/img/@image.ImagePath" id="img" height="200" width="200" style="border-width: 0px;" />
+                        }*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/trumbowyg.min.js"
+            integrity="sha512-sffB9/tXFFTwradcJHhojkhmrCj0hWeaz8M05Aaap5/vlYBfLx5Y7woKi6y0NrqVNgben6OIANTGGlojPTQGEw=="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/langs/tr.min.js"
+            integrity="sha512-+HGzdrYvtA0U9cp5kJad8OpjTvUi6ywZ9z9kXFGiV3EaAR1II5X6lfulUm6/F9GKesHW+jHFfAqwXK0juybvMw=="
+            crossorigin="anonymous"></script>
+    <script>
+        $('#html-editor').trumbowyg({
+            lang: 'tr'
+        });
+        function showpreview(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imgpreview').css('display', 'block');
+                    $('#imgpreview').attr('src', e.target.result);
+                    $('#imgpreview').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        function previewFiles() {
+            var preview = document.querySelector('#preview');
+            var files = document.querySelector('#browse').files;
+            preview.innerHTML = "";
+            function readAndPreview(file) {
+                // Make sure `file.name` matches our extensions criteria
+                if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+                    var reader = new FileReader();
+                    reader.addEventListener("load", function () {
+                        var image = new Image();
+                        image.height = 100;
+                        image.title = file.name;
+                        image.src = this.result;
+                        preview.appendChild(image);
+                    }, false);
+                    reader.readAsDataURL(file);
+                }
+            }
+            if (files) {
+                [].forEach.call(files, readAndPreview);
+            }
+        }
+    </script>
+}
