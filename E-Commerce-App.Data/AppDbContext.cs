@@ -7,7 +7,7 @@ namespace E_Commerce_App.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            optionsBuilder.UseSqlServer(@"Server=SALIH; Initial Catalog=my-e-commerce-db;Integrated Security=True;");
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }

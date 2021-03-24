@@ -1,4 +1,6 @@
-﻿using System;
+﻿using E_Commerce_App.Core.Repositories;
+using E_Commerce_App.Core.UnitOfWorks;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;

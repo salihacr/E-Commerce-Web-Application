@@ -1,3 +1,10 @@
+using E_Commerce_App.Business.Services;
+using E_Commerce_App.Core.Repositories;
+using E_Commerce_App.Core.Services;
+using E_Commerce_App.Core.UnitOfWorks;
+using E_Commerce_App.Data;
+using E_Commerce_App.Data.Repositories;
+using E_Commerce_App.Data.UnitOfWorks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -22,6 +29,24 @@ namespace E_Commerce_App.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+            // DbContext
+            services.AddDbContext<AppDbContext>();
+
+            // API Services
+
+            // Automapper
+            services.AddAutoMapper(typeof(Startup));
+
+            // unitofwork
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            // Dependency Injection
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(Core.Services.IService<>), typeof(Business.Services.Service<>));
+
+
+            services.AddScoped<ICategoryService, CategoryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +67,7 @@ namespace E_Commerce_App.WebUI
             {
                 FileProvider = new PhysicalFileProvider(
                     Path.Combine(Directory.GetCurrentDirectory(), "node_modules")),
-                RequestPath="/node_modules"
+                RequestPath = "/node_modules"
             });
 
             app.UseRouting();
@@ -51,6 +76,11 @@ namespace E_Commerce_App.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "admincategory",
+                    pattern: "Admin/Category",
+                    defaults: new { controller = "AdminCategory", Action = "Index" }
+                    );
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=AdminProduct}/{action=Index}/{id?}");

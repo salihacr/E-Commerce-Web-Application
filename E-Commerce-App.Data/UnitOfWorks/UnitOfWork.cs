@@ -1,4 +1,6 @@
-﻿using E_Commerce_App.Core.UnitOfWorks;
+﻿using E_Commerce_App.Core.Repositories;
+using E_Commerce_App.Core.UnitOfWorks;
+using E_Commerce_App.Data.Repositories;
 using System.Threading.Tasks;
 
 namespace E_Commerce_App.Data.UnitOfWorks
@@ -10,6 +12,11 @@ namespace E_Commerce_App.Data.UnitOfWorks
         {
             _context = context;
         }
+        // Repositories
+        private CategoryRepository _categoryRepository;
+
+        public ICategoryRepository CategoryRepository => _categoryRepository = _categoryRepository ?? new CategoryRepository(_context);
+
         public void Commit()
         {
             _context.SaveChanges();
@@ -18,11 +25,6 @@ namespace E_Commerce_App.Data.UnitOfWorks
         public async Task CommitAsync()
         {
             await _context.SaveChangesAsync();
-        }
-
-        public void Dispose()
-        {
-            _context.Dispose();
         }
     }
 }

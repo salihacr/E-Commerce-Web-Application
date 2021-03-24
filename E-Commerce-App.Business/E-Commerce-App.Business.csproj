@@ -5,4 +5,9 @@
     <RootNamespace>E_Commerce_App.Business</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\E-Commerce-App.Core\E-Commerce-App.Core.csproj" />
+    <ProjectReference Include="..\E-Commerce-App.Data\E-Commerce-App.Data.csproj" />
+  </ItemGroup>
+
 </Project>

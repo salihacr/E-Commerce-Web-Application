@@ -1,6 +1,14 @@
-﻿@{
-    ViewData["CurrentPage"] = "Ürünler";
-    ViewData["CurrentPageUrl"] = "Product";
+﻿@model IEnumerable<E_Commerce_App.Core.Entities.Category>
+
+@{
+    ViewData["CurrentPage"] = "Kategoriler";
+    ViewData["CurrentPageUrl"] = "Category";
 }
 
-<h1>Product Page</h1>
+<div id="view-all">
+    @await Html.PartialAsync("_AllCategories", Model)
+</div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard 3</title>
 
+    <!-- Site Css -->
+    <link rel="stylesheet" href="~/css/site.css" />
+
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Bootstrap Css -->
@@ -128,13 +131,20 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                             with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="/Admin/Product" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Widgets
-                                    <span class="right badge badge-danger">New</span>
+                                    Ürünler
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/Category" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Ürünler
                                 </p>
                             </a>
                         </li>
@@ -235,10 +245,32 @@
         </footer>
     </div>
     <!-- ./wrapper -->
+    <!-- AddOrEdit Modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="form-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Of Modal -->
+
     <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
     <script src="~/js/adminlte.js"></script>
+    <!-- Site JS-->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
