@@ -15,5 +15,10 @@ namespace E_Commerce_App.Business.Services
         {
             return await _unitOfWork.ProductRepository.GetProductsByCategory(name, page, pageSize);
         }
+
+        public async Task<Product> GetProductWithCategoriesById(int productId)
+        {
+            return await _unitOfWork.ProductRepository.GetProductWithCategoriesById(productId);
+        }
     }
 }

@@ -2,7 +2,10 @@
 using E_Commerce_App.Core.Entities;
 using E_Commerce_App.Core.Services;
 using E_Commerce_App.WebUI.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace E_Commerce_App.WebUI.Controllers
@@ -11,10 +14,18 @@ namespace E_Commerce_App.WebUI.Controllers
     public class AdminProductController : Controller
     {
         private readonly IMapper _mapper;
+        private readonly IService<Color> _colorService;
         private readonly IProductService _productService;
-        public AdminProductController(IProductService productService, IMapper mapper)
+        private readonly ICategoryService _categoryService;
+        public AdminProductController(
+            IService<Color> colorService,
+            IProductService productService,
+            ICategoryService categoryService,
+            IMapper mapper)
         {
+            _colorService = colorService;
             _productService = productService;
+            _categoryService = categoryService;
             _mapper = mapper;
         }
         [HttpGet]
@@ -25,18 +36,47 @@ namespace E_Commerce_App.WebUI.Controllers
         }
         [Route("Add")]
         [Route("Edit/{id}")]
+        [HttpGet]
         public async Task<IActionResult> AddOrEdit(int id = 0)
         {
             ViewData["ProductId"] = id.ToString();
-            var product = await _productService.GetByIdAsync(id);
-            if (id == 0 && product == null)
-                return View(new ProductViewModel());
-            else
-                return View(product);
+            var categories = await _categoryService.GetAllAsync();
+            var colors = await _colorService.GetAllAsync();
+            try
+            {
+                if (id == 0)
+                {
+                    return View(new ProductViewModel()
+                    {
+                        Product = new Product() { MainImage = "" },
+                        Categories = categories,
+                        Images = null,
+                        Colors = colors
+                    });
+                }
+                else
+                {
+                    var product = await _productService.GetProductWithCategoriesById(id);
+                    var productViewModel = new ProductViewModel()
+                    {
+                        Product = product,
+                        Categories = categories,
+                        Colors = colors,
+                        Images = product.Images
+                    };
+                    return View(productViewModel);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                System.Console.WriteLine(ex);
+                throw;
+            }
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddOrEdit([FromForm] Product product)
+        public async Task<IActionResult> AddOrEdit([FromForm] Product product, IFormFile mainImage, List<IFormFile> allImages, int[] categoryIds, int[] colorIds)
         {
             if (ModelState.IsValid)
             {

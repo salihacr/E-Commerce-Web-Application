@@ -8,6 +8,7 @@ namespace E_Commerce_App.Core.Entities
         public string Name { get; set; }
         public string Url { get; set; }
         public double? Price { get; set; }
+        public double? Discount { get; set; }
         public string Description { get; set; }
         public bool IsHome { get; set; }
         public string MainImage { get; set; }

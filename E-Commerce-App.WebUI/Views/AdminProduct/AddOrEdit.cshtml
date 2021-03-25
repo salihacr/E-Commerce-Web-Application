@@ -1,4 +1,5 @@
-﻿@section Css{
+﻿@model E_Commerce_App.WebUI.ViewModels.ProductViewModel
+@section Css{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/ui/trumbowyg.min.css" integrity="sha512-iw/TO6rC/bRmSOiXlanoUCVdNrnJBCOufp2s3vhTPyP1Z0CtTSBNbEd5wIo8VJanpONGJSyPOZ5ZRjZ/ojmc7g==" crossorigin="anonymous" />
 }
 @if (ViewData["ProductId"].ToString() != "0")
@@ -11,78 +12,106 @@ else
     ViewData["CurrentPage"] = "Ürünler / Ürün Ekle";
     ViewData["CurrentPageUrl"] = "Product/Edit/" + ViewData["ProductId"];
 }
-<div class="row">
-    <div class="col-md-8">
-        <div class="card p-2">
-            <div class="form-row">
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="ProductName" placeholder="Ürün Adı" />
+<form enctype="multipart/form-data" id="productForm" method="post" onsubmit="submit()">
+    <input type="hidden" asp-for="Product.Id" />
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card p-2">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" asp-for="Product.Name" placeholder="Ürün Adı" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" asp-for="Product.Url" placeholder="Ürün URL" disabled />
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="ProductUrl" placeholder="Ürün URL" disabled />
+                <br />
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <input type="number" step="0.1" min="1" max="1000000" class="form-control" asp-for="Product.Price" placeholder="Ürün Fiyatı" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" step="0.1" min="1" max="100" class="form-control" asp-for="Product.Discount" placeholder="İndirim %" />
+                    </div>
                 </div>
-            </div>
-            <br />
-            <textarea id="html-editor">
+                <br />
+                <textarea id="html-editor" asp-for="Product.Description">
                 Ürünün Detaylı Açıklamasını Burada Yapınız
             </textarea>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card p-2">
-            <label>Kategoriler</label>
-            @*@for (int i = 0; i < Model.SelectedCategories.Count; i++)
-                {
-                    <input type="hidden" name="SelectedCategories[@i].CategoryId" value="@Model.SelectedCategories[@i].CategoryId">
-                    <input type="hidden" name="SelectedCategories[@i].Name" value="@Model.SelectedCategories[@i].Name">
-                }
-                @foreach (var item in (List<Category>)ViewBag.Categories)
-                {
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" name="categoryIds" value="@item.CategoryId"
-                               id="category_@(item.CategoryId)"
-                               @(Model.SelectedCategories.Any(i => i.CategoryId == item.CategoryId) ? "checked" : "")>
-                        <label class="custom-control-label" for="category_@(item.CategoryId)">@item.Name</label>
-                    </div>
-                }*@
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="form-check-input" name="IsHome" />
-                <label class="form-check-label" for="IsHome">Satışa Hazır mı ?</label>
             </div>
-            <br />
-            <button class="btn btn-primary btn-block">Kaydet</button>
-
         </div>
-    </div>
-    <div class="col-md-12">
-        <div class="card p-2">
-            <div class="form-group">
-                <p>Ana Resim</p>
-                <input type="file" name="mainFile" onchange="showpreview(this);" />
-                <input type="hidden" />
-                @*@if (Model.Product.MainImage == "")
+        <div class="col-md-4">
+            <div class="card p-2">
+                <label>Kategoriler</label>
+                <div class="bg-gradient-secondary p-2" style="border-radius:10px;">
+                    @foreach (var category in Model.Categories)
                     {
-                        <img id="imgpreview" height="200" width="200" style="border-width: 0px;" />
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" value="@category.Id" name="categoryIds"
+                                   id="category_@(category.Id)" />
+                            <label class="form-check-label" for="category_@(category.Id)">@category.Name</label>
+                        </div>
+                    }
+                </div>
+                <hr />
+                <label>Renkler</label>
+                <div class="bg-gradient-secondary p-2" style="border-radius:10px;">
+                    @foreach (var color in Model.Colors)
+                    {
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" value="@color.Id" name="colorIds"
+                                   id="color_@(color.Id)" />
+                            <label class="form-check-label" for="color_@(color.Id)">
+                                @color.Name
+                                <i class="fa fa-circle" style="color:@color.Code"></i>
+                            </label>
+                        </div>
+                    }
+                </div>
+                <hr />
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" asp-for="Product.IsHome" />
+                    <label class="form-check-label" asp-for="Product.IsHome">Satışa Çıkarılsın mı ?</label>
+                </div>
+                <br />
+                @*Submit Button*@
+                <input type="submit" id="btnSubmit" class="btn btn-primary btn-block" value="Kaydet" />
+
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card p-2">
+                <div class="form-group">
+                    <p>Ana Resim</p>
+                    <input type="file" name="mainImage" onchange="showpreview(this);" />
+                    <input type="hidden" />
+                    @if (Model.Product.MainImage == "")
+                    {
+                        <img id="imgpreview" height="200" width="200" style="border-width: 0px;display: none;" />
                     }
                     else
                     {
                         <img src="~/img/@Model.Product.MainImage" id="imgpreview" height="200" width="200" style="border-width: 0px;" />
-                    }*@
-                <img id="imgpreview" height="200" width="200" style="border-width: 0px;display: none;" />
-            </div>
-            <div class="form-group">
-                <p>Ürün Resimleri</p>
-                <input type="file" name="files" multiple onchange="previewFiles();" id="browse" />
-                <div id="preview">
-                    @*@foreach (var image in ViewBag.ProductImages)
+                    }
+                </div>
+                <div class="form-group">
+                    <p>Ürün Resimleri</p>
+                    <input type="file" name="allImages" multiple onchange="previewFiles();" id="browse" />
+                    <div id="preview">
+                        @if (Model.Images != null)
                         {
-                            <img src="~/img/@image.ImagePath" id="img" height="200" width="200" style="border-width: 0px;" />
-                        }*@
+                            @foreach (var image in Model.Images)
+                            {
+                                <img src="~/img/@image.ImagePath" id="img" height="200" width="200" style="border-width: 0px;" />
+                            }
+                        }
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</form>
 @section Scripts{
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/trumbowyg.min.js"
@@ -92,9 +121,21 @@ else
             integrity="sha512-+HGzdrYvtA0U9cp5kJad8OpjTvUi6ywZ9z9kXFGiV3EaAR1II5X6lfulUm6/F9GKesHW+jHFfAqwXK0juybvMw=="
             crossorigin="anonymous"></script>
     <script>
+
+
         $('#html-editor').trumbowyg({
             lang: 'tr'
         });
+
+        function submit() {
+            var url = "@Context.Request.Path";
+            console.log(url);
+            $.ajax({
+
+            });
+        }
+
+
         function showpreview(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

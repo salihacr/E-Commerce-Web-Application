@@ -7,5 +7,6 @@ namespace E_Commerce_App.Core.Services
     public interface IProductService : IService<Product>
     {
         Task<List<Product>> GetProductsByCategory(string name, int page, int pageSize);
+        Task<Product> GetProductWithCategoriesById(int productId);
     }
 }

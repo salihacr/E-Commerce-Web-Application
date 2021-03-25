@@ -9,7 +9,8 @@ namespace E_Commerce_App.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=SALIH; Initial Catalog=my-e-commerce-db;Integrated Security=True;");
+            optionsBuilder.UseSqlServer(@"Server=SALIH; Initial Catalog=my-e-commerce-db;Integrated Security=True;
+                MultipleActiveResultSets = True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

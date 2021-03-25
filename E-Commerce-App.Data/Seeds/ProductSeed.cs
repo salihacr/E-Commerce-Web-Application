@@ -12,25 +12,29 @@ namespace E_Commerce_App.Data.Seeds
         {
             List<Product> products = new List<Product>
             {
-                new Product(){Id=1, Name="Product2", CreationDate=DateTime.Now,
-                    Description="test desc1", Price=11,
+                new Product(){Id=1, Name="Ürün 1", CreationDate=DateTime.Now,
+                    Description="aciklama 1", Price=11,
                     Url="product1", IsHome=true, MainImage="none"
                 },
-                new Product(){Id=2, Name="Product2", CreationDate=DateTime.Now,
-                    Description="test desc2", Price=12,
+                new Product(){Id=2, Name="Ürün 2", CreationDate=DateTime.Now,
+                    Description="aciklama 2", Price=12,
                     Url="product2", IsHome=true, MainImage="none"
                 },
-                new Product(){Id=3, Name="Product3", CreationDate=DateTime.Now,
-                    Description="test desc3", Price=13,
+                new Product(){Id=3, Name="Ürün 3", CreationDate=DateTime.Now,
+                    Description="aciklama 3", Price=13,
                     Url="product3", IsHome=true, MainImage="none"
                 },
-                new Product(){Id=4, Name="Product3", CreationDate=DateTime.Now,
-                    Description="test desc4", Price=13,
+                new Product(){Id=4, Name="Ürün 4", CreationDate=DateTime.Now,
+                    Description="aciklama 4", Price=14,
                     Url="product4", IsHome=true, MainImage="none"
                 },
-                new Product(){Id=5, Name="Product5", CreationDate=DateTime.Now,
-                    Description="test desc5", Price=15,
+                new Product(){Id=5, Name="Ürün 5", CreationDate=DateTime.Now,
+                    Description="aciklama 5", Price=15,
                     Url="product5", IsHome=true, MainImage="none"
+                },
+                new Product(){Id=6, Name="Ürün 6", CreationDate=DateTime.Now,
+                    Description="aciklama 6", Price=16,
+                    Url="product6", IsHome=true, MainImage="none"
                 },
             };
             builder.HasData(products);
@@ -42,9 +46,14 @@ namespace E_Commerce_App.Data.Seeds
         {
             List<Category> categories = new List<Category>
             {
-                new Category(){Id=1, Name="Category1" },
-                new Category(){Id=2, Name="Category2" },
-                new Category(){Id=3, Name="Category3" },
+                new Category(){Id=1, Name="Telefon" },
+                new Category(){Id=2, Name="Bilgisayar" },
+                new Category(){Id=3, Name="Tv, Ev Elektroniği" },
+                new Category(){Id=4, Name="Bilgisayar Parçaları" },
+                new Category(){Id=5, Name="Foto, Kamera" },
+                new Category(){Id=6, Name="Aksesuar" },
+                new Category(){Id=7, Name="Oyun, Hobi" },
+                new Category(){Id=8, Name="Ev, Mutfak" },
             };
             builder.HasData(categories);
         }
@@ -55,9 +64,12 @@ namespace E_Commerce_App.Data.Seeds
         {
             List<Color> colors = new List<Color>
             {
-                new Color(){Id=1, Name="Black", Code="#111111" },
-                new Color(){Id=2, Name="White", Code="#ffffff" },
-                new Color(){Id=3, Name="Test", Code="#test" },
+                new Color(){Id=1, Name="Beyaz", Code="#f9f6ef" },
+                new Color(){Id=2, Name="Siyah", Code="#202020" },
+                new Color(){Id=3, Name="Kırmızı", Code="#ba0c2f" },
+                new Color(){Id=4, Name="Sarı", Code="#FECB2E" },
+                new Color(){Id=5, Name="Mavi", Code="#147EFB" },
+                new Color(){Id=6, Name="Yeşil", Code="#53D769" },
             };
             builder.HasData(colors);
         }
@@ -76,6 +88,7 @@ namespace E_Commerce_App.Data.Seeds
                 new ProductCategory(){ ProductId=3, CategoryId=1 },
                 new ProductCategory(){ ProductId=4, CategoryId=2 },
                 new ProductCategory(){ ProductId=5, CategoryId=3 },
+                new ProductCategory(){ ProductId=6, CategoryId=4 },
             };
             builder.HasData(productCategories);
         }
