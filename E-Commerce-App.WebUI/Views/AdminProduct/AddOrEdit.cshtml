@@ -12,7 +12,7 @@ else
     ViewData["CurrentPage"] = "Ürünler / Ürün Ekle";
     ViewData["CurrentPageUrl"] = "Product/Edit/" + ViewData["ProductId"];
 }
-<form enctype="multipart/form-data" id="productForm" method="post" onsubmit="submit()">
+<form enctype="multipart/form-data" id="productForm" method="post">
     <input type="hidden" asp-for="Product.Id" />
     <div class="row">
         <div class="col-md-8">
@@ -75,7 +75,7 @@ else
                 </div>
                 <br />
                 @*Submit Button*@
-                <input type="submit" id="btnSubmit" class="btn btn-primary btn-block" value="Kaydet" />
+                <input type="submit" id="btnSubmit" class="btn btn-primary btn-block" value="Kaydet" onclick="submit()" />
 
             </div>
         </div>

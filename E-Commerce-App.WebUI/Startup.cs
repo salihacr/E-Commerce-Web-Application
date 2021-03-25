@@ -79,6 +79,16 @@ namespace E_Commerce_App.WebUI
             {
                 endpoints.MapControllerRoute(
                    name: "adminproductadd",
+                   pattern: "Admin/Product/Add",
+                   defaults: new { controller = "AdminProduct", Action = "AddOrEdit" }
+                   );
+                endpoints.MapControllerRoute(
+                   name: "adminproductadd",
+                   pattern: "Admin/Product/Edit/{id}",
+                   defaults: new { controller = "AdminProduct", Action = "AddOrEdit" }
+                   );
+                endpoints.MapControllerRoute(
+                   name: "adminproductadd",
                    pattern: "Admin/Product",
                    defaults: new { controller = "AdminProduct", Action = "Index" }
                    );

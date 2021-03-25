@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace E_Commerce_App.WebUI.Controllers
 {
-    [Route("Admin/Product")]
+    //[Route("Admin/Product")]
     public class AdminProductController : Controller
     {
         private readonly IMapper _mapper;
@@ -34,8 +34,8 @@ namespace E_Commerce_App.WebUI.Controllers
             var products = await _productService.GetAllAsync();
             return View(products);
         }
-        [Route("Add")]
-        [Route("Edit/{id}")]
+        //[Route("Add")]
+        //[Route("Edit/{id}")]
         [HttpGet]
         public async Task<IActionResult> AddOrEdit(int id = 0)
         {
@@ -56,7 +56,7 @@ namespace E_Commerce_App.WebUI.Controllers
                 }
                 else
                 {
-                    var product = await _productService.GetProductWithCategoriesById(id);
+                    var product = await _productService.GetByIdAsync(id);
                     var productViewModel = new ProductViewModel()
                     {
                         Product = product,
