@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace E_Commerce_App.Data.Migrations
 {
-    public partial class inital : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -124,30 +124,6 @@ namespace E_Commerce_App.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CategoryProduct",
-                columns: table => new
-                {
-                    CategoriesId = table.Column<int>(type: "int", nullable: false),
-                    ProductsId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CategoryProduct", x => new { x.CategoriesId, x.ProductsId });
-                    table.ForeignKey(
-                        name: "FK_CategoryProduct_Categories_CategoriesId",
-                        column: x => x.CategoriesId,
-                        principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CategoryProduct_Products_ProductsId",
-                        column: x => x.ProductsId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Color",
                 columns: table => new
                 {
@@ -228,6 +204,30 @@ namespace E_Commerce_App.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ProductCategory",
+                columns: table => new
+                {
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductCategory", x => new { x.ProductId, x.CategoryId });
+                    table.ForeignKey(
+                        name: "FK_ProductCategory_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProductCategory_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_CartItems_CartId",
                 table: "CartItems",
@@ -237,11 +237,6 @@ namespace E_Commerce_App.Data.Migrations
                 name: "IX_CartItems_ProductId",
                 table: "CartItems",
                 column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CategoryProduct_ProductsId",
-                table: "CategoryProduct",
-                column: "ProductsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Color_ProductId",
@@ -262,15 +257,17 @@ namespace E_Commerce_App.Data.Migrations
                 name: "IX_OrderItems_ProductId",
                 table: "OrderItems",
                 column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductCategory_CategoryId",
+                table: "ProductCategory",
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "CartItems");
-
-            migrationBuilder.DropTable(
-                name: "CategoryProduct");
 
             migrationBuilder.DropTable(
                 name: "Color");
@@ -282,13 +279,16 @@ namespace E_Commerce_App.Data.Migrations
                 name: "OrderItems");
 
             migrationBuilder.DropTable(
+                name: "ProductCategory");
+
+            migrationBuilder.DropTable(
                 name: "Carts");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Products");

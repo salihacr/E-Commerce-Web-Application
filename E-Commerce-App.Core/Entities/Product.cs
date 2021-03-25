@@ -13,12 +13,14 @@ namespace E_Commerce_App.Core.Entities
         public string MainImage { get; set; }
 
         // Product Category Relation
-        public IEnumerable<Category> Categories { get; set; }
+        public ICollection<Category> Categories { get; set; }
+        // n to n relationship
+        public List<ProductCategory> ProductCategories { get; set; }
 
         // Product Image Relation
-        public IEnumerable<Image> Images { get; set; }
+        public ICollection<Image> Images { get; set; }
 
         // Product Color Relation
-        public IEnumerable<Color> Colors { get; set; }
+        public ICollection<Color> Colors { get; set; }
     }
 }

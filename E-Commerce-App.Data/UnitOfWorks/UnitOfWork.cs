@@ -14,8 +14,11 @@ namespace E_Commerce_App.Data.UnitOfWorks
         }
         // Repositories
         private CategoryRepository _categoryRepository;
+        private ProductRepository _productRepository;
 
         public ICategoryRepository CategoryRepository => _categoryRepository = _categoryRepository ?? new CategoryRepository(_context);
+
+        public IProductRepository ProductRepository => _productRepository = _productRepository ?? new ProductRepository(_context);
 
         public void Commit()
         {

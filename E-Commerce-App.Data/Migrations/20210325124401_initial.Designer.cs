@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce_App.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210324160248_inital")]
-    partial class inital
+    [Migration("20210325124401_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,21 +20,6 @@ namespace E_Commerce_App.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("CategoryProduct", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriesId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("CategoryProduct");
-                });
 
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Cart", b =>
                 {
@@ -339,19 +324,19 @@ namespace E_Commerce_App.Data.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("CategoryProduct", b =>
+            modelBuilder.Entity("E_Commerce_App.Core.Entities.ProductCategory", b =>
                 {
-                    b.HasOne("E_Commerce_App.Core.Entities.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
 
-                    b.HasOne("E_Commerce_App.Core.Entities.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("ProductCategory");
                 });
 
             modelBuilder.Entity("E_Commerce_App.Core.Entities.CartItem", b =>
@@ -408,9 +393,33 @@ namespace E_Commerce_App.Data.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("E_Commerce_App.Core.Entities.ProductCategory", b =>
+                {
+                    b.HasOne("E_Commerce_App.Core.Entities.Category", "Category")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("E_Commerce_App.Core.Entities.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Cart", b =>
                 {
                     b.Navigation("CartItems");
+                });
+
+            modelBuilder.Entity("E_Commerce_App.Core.Entities.Category", b =>
+                {
+                    b.Navigation("ProductCategories");
                 });
 
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Product", b =>
@@ -418,6 +427,8 @@ namespace E_Commerce_App.Data.Migrations
                     b.Navigation("Colors");
 
                     b.Navigation("Images");
+
+                    b.Navigation("ProductCategories");
                 });
 #pragma warning restore 612, 618
         }
