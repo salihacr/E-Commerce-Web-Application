@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce_App.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210325175609_third")]
-    partial class third
+    [Migration("20210326114649_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -76,6 +76,9 @@ namespace E_Commerce_App.Data.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ProductId1")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -83,7 +86,7 @@ namespace E_Commerce_App.Data.Migrations
 
                     b.HasIndex("CartId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId1");
 
                     b.ToTable("CartItems");
                 });
@@ -118,56 +121,56 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 9, 0, DateTimeKind.Local).AddTicks(4977),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(6415),
                             IsActive = false,
                             Name = "Telefon"
                         },
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 9, 0, DateTimeKind.Local).AddTicks(6174),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8278),
                             IsActive = false,
                             Name = "Bilgisayar"
                         },
                         new
                         {
                             Id = 3,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 9, 0, DateTimeKind.Local).AddTicks(6202),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8324),
                             IsActive = false,
                             Name = "Tv, Ev Elektroniği"
                         },
                         new
                         {
                             Id = 4,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 9, 0, DateTimeKind.Local).AddTicks(6205),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8328),
                             IsActive = false,
                             Name = "Bilgisayar Parçaları"
                         },
                         new
                         {
                             Id = 5,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 9, 0, DateTimeKind.Local).AddTicks(6207),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8331),
                             IsActive = false,
                             Name = "Foto, Kamera"
                         },
                         new
                         {
                             Id = 6,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 9, 0, DateTimeKind.Local).AddTicks(6212),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8341),
                             IsActive = false,
                             Name = "Aksesuar"
                         },
                         new
                         {
                             Id = 7,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 9, 0, DateTimeKind.Local).AddTicks(6214),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8345),
                             IsActive = false,
                             Name = "Oyun, Hobi"
                         },
                         new
                         {
                             Id = 8,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 9, 0, DateTimeKind.Local).AddTicks(6216),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8348),
                             IsActive = false,
                             Name = "Ev, Mutfak"
                         });
@@ -198,8 +201,8 @@ namespace E_Commerce_App.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -212,7 +215,7 @@ namespace E_Commerce_App.Data.Migrations
                         {
                             Id = 1,
                             Code = "#f9f6ef",
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 8, 995, DateTimeKind.Local).AddTicks(7880),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 91, DateTimeKind.Local).AddTicks(7468),
                             IsActive = false,
                             Name = "Beyaz"
                         },
@@ -220,7 +223,7 @@ namespace E_Commerce_App.Data.Migrations
                         {
                             Id = 2,
                             Code = "#202020",
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 8, 997, DateTimeKind.Local).AddTicks(479),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 93, DateTimeKind.Local).AddTicks(7222),
                             IsActive = false,
                             Name = "Siyah"
                         },
@@ -228,7 +231,7 @@ namespace E_Commerce_App.Data.Migrations
                         {
                             Id = 3,
                             Code = "#ba0c2f",
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 8, 997, DateTimeKind.Local).AddTicks(529),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 93, DateTimeKind.Local).AddTicks(7312),
                             IsActive = false,
                             Name = "Kırmızı"
                         },
@@ -236,7 +239,7 @@ namespace E_Commerce_App.Data.Migrations
                         {
                             Id = 4,
                             Code = "#FECB2E",
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 8, 997, DateTimeKind.Local).AddTicks(533),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 93, DateTimeKind.Local).AddTicks(7318),
                             IsActive = false,
                             Name = "Sarı"
                         },
@@ -244,7 +247,7 @@ namespace E_Commerce_App.Data.Migrations
                         {
                             Id = 5,
                             Code = "#147EFB",
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 8, 997, DateTimeKind.Local).AddTicks(535),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 93, DateTimeKind.Local).AddTicks(7321),
                             IsActive = false,
                             Name = "Mavi"
                         },
@@ -252,7 +255,7 @@ namespace E_Commerce_App.Data.Migrations
                         {
                             Id = 6,
                             Code = "#53D769",
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 8, 997, DateTimeKind.Local).AddTicks(541),
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 93, DateTimeKind.Local).AddTicks(7346),
                             IsActive = false,
                             Name = "Yeşil"
                         });
@@ -280,8 +283,8 @@ namespace E_Commerce_App.Data.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -372,8 +375,8 @@ namespace E_Commerce_App.Data.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -392,10 +395,8 @@ namespace E_Commerce_App.Data.Migrations
 
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Product", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("CreationDate")
                         .HasColumnType("datetime2");
@@ -437,8 +438,8 @@ namespace E_Commerce_App.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 8, 999, DateTimeKind.Local).AddTicks(5301),
+                            Id = "1",
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 98, DateTimeKind.Local).AddTicks(364),
                             Description = "aciklama 1",
                             IsActive = false,
                             IsHome = true,
@@ -449,8 +450,8 @@ namespace E_Commerce_App.Data.Migrations
                         },
                         new
                         {
-                            Id = 2,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 8, 999, DateTimeKind.Local).AddTicks(9138),
+                            Id = "2",
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 98, DateTimeKind.Local).AddTicks(6264),
                             Description = "aciklama 2",
                             IsActive = false,
                             IsHome = true,
@@ -461,8 +462,8 @@ namespace E_Commerce_App.Data.Migrations
                         },
                         new
                         {
-                            Id = 3,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 8, 999, DateTimeKind.Local).AddTicks(9351),
+                            Id = "3",
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 98, DateTimeKind.Local).AddTicks(6385),
                             Description = "aciklama 3",
                             IsActive = false,
                             IsHome = true,
@@ -473,8 +474,8 @@ namespace E_Commerce_App.Data.Migrations
                         },
                         new
                         {
-                            Id = 4,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 8, 999, DateTimeKind.Local).AddTicks(9357),
+                            Id = "4",
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 98, DateTimeKind.Local).AddTicks(6392),
                             Description = "aciklama 4",
                             IsActive = false,
                             IsHome = true,
@@ -485,8 +486,8 @@ namespace E_Commerce_App.Data.Migrations
                         },
                         new
                         {
-                            Id = 5,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 8, 999, DateTimeKind.Local).AddTicks(9361),
+                            Id = "5",
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 98, DateTimeKind.Local).AddTicks(6400),
                             Description = "aciklama 5",
                             IsActive = false,
                             IsHome = true,
@@ -497,8 +498,8 @@ namespace E_Commerce_App.Data.Migrations
                         },
                         new
                         {
-                            Id = 6,
-                            CreationDate = new DateTime(2021, 3, 25, 20, 56, 8, 999, DateTimeKind.Local).AddTicks(9370),
+                            Id = "6",
+                            CreationDate = new DateTime(2021, 3, 26, 14, 46, 49, 98, DateTimeKind.Local).AddTicks(6417),
                             Description = "aciklama 6",
                             IsActive = false,
                             IsHome = true,
@@ -511,8 +512,8 @@ namespace E_Commerce_App.Data.Migrations
 
             modelBuilder.Entity("E_Commerce_App.Core.Entities.ProductCategory", b =>
                 {
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -526,47 +527,47 @@ namespace E_Commerce_App.Data.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = 1,
+                            ProductId = "1",
                             CategoryId = 1
                         },
                         new
                         {
-                            ProductId = 1,
+                            ProductId = "1",
                             CategoryId = 2
                         },
                         new
                         {
-                            ProductId = 1,
+                            ProductId = "1",
                             CategoryId = 3
                         },
                         new
                         {
-                            ProductId = 2,
+                            ProductId = "2",
                             CategoryId = 1
                         },
                         new
                         {
-                            ProductId = 2,
+                            ProductId = "2",
                             CategoryId = 2
                         },
                         new
                         {
-                            ProductId = 3,
+                            ProductId = "3",
                             CategoryId = 1
                         },
                         new
                         {
-                            ProductId = 4,
+                            ProductId = "4",
                             CategoryId = 2
                         },
                         new
                         {
-                            ProductId = 5,
+                            ProductId = "5",
                             CategoryId = 3
                         },
                         new
                         {
-                            ProductId = 6,
+                            ProductId = "6",
                             CategoryId = 4
                         });
                 });
@@ -579,9 +580,7 @@ namespace E_Commerce_App.Data.Migrations
 
                     b.HasOne("E_Commerce_App.Core.Entities.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId1");
 
                     b.Navigation("Cart");
 
@@ -599,9 +598,7 @@ namespace E_Commerce_App.Data.Migrations
                 {
                     b.HasOne("E_Commerce_App.Core.Entities.Product", "Product")
                         .WithMany("Images")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Product");
                 });
@@ -616,9 +613,7 @@ namespace E_Commerce_App.Data.Migrations
 
                     b.HasOne("E_Commerce_App.Core.Entities.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Order");
 

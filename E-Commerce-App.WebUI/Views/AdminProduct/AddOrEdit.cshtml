@@ -2,7 +2,7 @@
 @section Css{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/ui/trumbowyg.min.css" integrity="sha512-iw/TO6rC/bRmSOiXlanoUCVdNrnJBCOufp2s3vhTPyP1Z0CtTSBNbEd5wIo8VJanpONGJSyPOZ5ZRjZ/ojmc7g==" crossorigin="anonymous" />
 }
-@if (ViewData["ProductId"].ToString() != "0")
+@if (ViewData["ProductId"].ToString() != "")
 {
     ViewData["CurrentPage"] = "Ürünler / Düzenle / " + ViewData["ProductId"];
     ViewData["CurrentPageUrl"] = "Product/Edit/" + ViewData["ProductId"];
@@ -13,7 +13,11 @@ else
     ViewData["CurrentPageUrl"] = "Product/Edit/" + ViewData["ProductId"];
 }
 <form enctype="multipart/form-data" id="productForm" method="post">
+
     <input type="hidden" asp-for="Product.Id" />
+
+    <input type="hidden" asp-for="Product.CreationDate" />
+
     <div class="row">
         <div class="col-md-8">
             <div class="card p-2">
@@ -22,7 +26,7 @@ else
                         <input type="text" class="form-control" asp-for="Product.Name" placeholder="Ürün Adı" />
                     </div>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" asp-for="Product.Url" placeholder="Ürün URL" disabled />
+                        <input type="text" class="form-control" asp-for="Product.Url" placeholder="Ürün URL" />
                     </div>
                 </div>
                 <br />
@@ -48,7 +52,8 @@ else
                     {
                         <div class="form-check form-check-inline">
                             <input type="checkbox" class="form-check-input" value="@category.Id" name="categoryIds"
-                                   id="category_@(category.Id)" />
+                                   id="category_@(category.Id)"
+                                   @if (Model.SelectedCategories != null) { @(Model.SelectedCategories.Any(i => i.CategoryId == category.Id) ? "checked" : "") ; } />
                             <label class="form-check-label" for="category_@(category.Id)">@category.Name</label>
                         </div>
                     }
@@ -60,7 +65,8 @@ else
                     {
                         <div class="form-check form-check-inline">
                             <input type="checkbox" class="form-check-input" value="@color.Id" name="colorIds"
-                                   id="color_@(color.Id)" />
+                                   id="color_@(color.Id)"
+                                   @if (Model.SelectedColors != null) { @(Model.SelectedColors.Any(i => i.Id == color.Id) ? "checked" : "") ; } />
                             <label class="form-check-label" for="color_@(color.Id)">
                                 @color.Name
                                 <i class="fa fa-circle" style="color:@color.Code"></i>

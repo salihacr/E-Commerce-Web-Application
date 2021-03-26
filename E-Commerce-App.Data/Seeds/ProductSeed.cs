@@ -12,27 +12,27 @@ namespace E_Commerce_App.Data.Seeds
         {
             List<Product> products = new List<Product>
             {
-                new Product(){Id=1, Name="Ürün 1", CreationDate=DateTime.Now,
+                new Product(){Id="1", Name="Ürün 1", CreationDate=DateTime.Now,
                     Description="aciklama 1", Price=11,
                     Url="product1", IsHome=true, MainImage="none"
                 },
-                new Product(){Id=2, Name="Ürün 2", CreationDate=DateTime.Now,
+                new Product(){Id="2", Name="Ürün 2", CreationDate=DateTime.Now,
                     Description="aciklama 2", Price=12,
                     Url="product2", IsHome=true, MainImage="none"
                 },
-                new Product(){Id=3, Name="Ürün 3", CreationDate=DateTime.Now,
+                new Product(){Id="3", Name="Ürün 3", CreationDate=DateTime.Now,
                     Description="aciklama 3", Price=13,
                     Url="product3", IsHome=true, MainImage="none"
                 },
-                new Product(){Id=4, Name="Ürün 4", CreationDate=DateTime.Now,
+                new Product(){Id="4", Name="Ürün 4", CreationDate=DateTime.Now,
                     Description="aciklama 4", Price=14,
                     Url="product4", IsHome=true, MainImage="none"
                 },
-                new Product(){Id=5, Name="Ürün 5", CreationDate=DateTime.Now,
+                new Product(){Id="5", Name="Ürün 5", CreationDate=DateTime.Now,
                     Description="aciklama 5", Price=15,
                     Url="product5", IsHome=true, MainImage="none"
                 },
-                new Product(){Id=6, Name="Ürün 6", CreationDate=DateTime.Now,
+                new Product(){Id="6", Name="Ürün 6", CreationDate=DateTime.Now,
                     Description="aciklama 6", Price=16,
                     Url="product6", IsHome=true, MainImage="none"
                 },
@@ -80,15 +80,15 @@ namespace E_Commerce_App.Data.Seeds
         {
             List<ProductCategory> productCategories = new List<ProductCategory>
             {
-                new ProductCategory(){ ProductId=1, CategoryId=1 },
-                new ProductCategory(){ ProductId=1, CategoryId=2 },
-                new ProductCategory(){ ProductId=1, CategoryId=3 },
-                new ProductCategory(){ ProductId=2, CategoryId=1 },
-                new ProductCategory(){ ProductId=2, CategoryId=2 },
-                new ProductCategory(){ ProductId=3, CategoryId=1 },
-                new ProductCategory(){ ProductId=4, CategoryId=2 },
-                new ProductCategory(){ ProductId=5, CategoryId=3 },
-                new ProductCategory(){ ProductId=6, CategoryId=4 },
+                new ProductCategory(){ ProductId="1", CategoryId=1 },
+                new ProductCategory(){ ProductId="1", CategoryId=2 },
+                new ProductCategory(){ ProductId="1", CategoryId=3 },
+                new ProductCategory(){ ProductId="2", CategoryId=1 },
+                new ProductCategory(){ ProductId="2", CategoryId=2 },
+                new ProductCategory(){ ProductId="3", CategoryId=1 },
+                new ProductCategory(){ ProductId="4", CategoryId=2 },
+                new ProductCategory(){ ProductId="5", CategoryId=3 },
+                new ProductCategory(){ ProductId="6", CategoryId=4 },
             };
             builder.HasData(productCategories);
         }

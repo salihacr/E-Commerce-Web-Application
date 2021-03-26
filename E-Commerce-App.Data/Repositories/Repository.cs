@@ -10,7 +10,7 @@ namespace E_Commerce_App.Data.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        private readonly AppDbContext _context;
+        protected readonly AppDbContext _context;
         private readonly DbSet<TEntity> _dbSet;
         public Repository(AppDbContext context)
         {

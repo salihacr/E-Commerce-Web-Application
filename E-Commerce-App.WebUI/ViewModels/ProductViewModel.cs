@@ -8,8 +8,10 @@ namespace E_Commerce_App.WebUI.ViewModels
         public Product Product { get; set; }
         public int[] categoryIds { get; set; }
         public IEnumerable<Category> Categories { get; set; }
+        public IEnumerable<ProductCategory> SelectedCategories { get; set; }
         public IEnumerable<Image> Images { get; set; }
         // TODO comments tablosu eklenecek
         public IEnumerable<Color> Colors { get; set; }
+        public IEnumerable<Color> SelectedColors { get; set; }
     }
 }

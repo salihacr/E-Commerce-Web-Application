@@ -4,7 +4,7 @@ namespace E_Commerce_App.Core.Entities
 {
     public class Product : BaseEntity
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Url { get; set; }
         public double? Price { get; set; }
