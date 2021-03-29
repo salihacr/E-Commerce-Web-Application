@@ -1,16 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using E_Commerce_App.Core.Repositories;
+using E_Commerce_App.Core.Services;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace E_Commerce_App.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
+        private readonly IProductService _productService;
+        public HomeController(IProductService productService)
         {
+            _productService = productService;
         }
         [Route("/")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _productService.GetHomePageProducts());
         }
     }
 }

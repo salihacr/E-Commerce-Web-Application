@@ -11,6 +11,16 @@ namespace E_Commerce_App.Business.Services
     {
         public ProductService(IUnitOfWork unitOfWork, IRepository<Product> repository) : base(unitOfWork, repository) { }
 
+        public int GetCountByCategory(string category)
+        {
+            return _unitOfWork.ProductRepository.GetCountByCategory(category);
+        }
+
+        public async Task<List<Product>> GetHomePageProducts()
+        {
+            return await _unitOfWork.ProductRepository.GetHomePageProducts();
+        }
+
         public async Task<List<Product>> GetProductsByCategory(string name, int page, int pageSize)
         {
             return await _unitOfWork.ProductRepository.GetProductsByCategory(name, page, pageSize);
@@ -19,6 +29,11 @@ namespace E_Commerce_App.Business.Services
         public async Task<Product> GetProductWithCategoriesById(string productId)
         {
             return await _unitOfWork.ProductRepository.GetProductWithCategoriesById(productId);
+        }
+
+        public async Task<List<Product>> GetSearchResult(string searchString)
+        {
+            return await _unitOfWork.ProductRepository.GetSearchResult(searchString);
         }
     }
 }
