@@ -77,6 +77,7 @@ namespace E_Commerce_App.WebUI
 
             app.UseEndpoints(endpoints =>
             {
+                // Admin Pages
                 endpoints.MapControllerRoute(
                    name: "adminproductadd",
                    pattern: "Admin/Product/Add",
@@ -97,9 +98,19 @@ namespace E_Commerce_App.WebUI
                     pattern: "Admin/Category",
                     defaults: new { controller = "AdminCategory", Action = "Index" }
                     );
+
+                // Home Pages
+
+                endpoints.MapControllerRoute(
+                    name: "productdetails",
+                    pattern: "{url}",
+                    defaults: new { controller = "Home", Action = "Detail" }
+                    );
+
+
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=AdminProduct}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

@@ -16,15 +16,18 @@ namespace E_Commerce_App.WebUI.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IService<Color> _colorService;
+        private readonly IService<Image> _imageService;
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
         public AdminProductController(
             IService<Color> colorService,
+            IService<Image> imageService,
             IProductService productService,
             ICategoryService categoryService,
             IMapper mapper)
         {
             _colorService = colorService;
+            _imageService = imageService;
             _productService = productService;
             _categoryService = categoryService;
             _mapper = mapper;
@@ -61,6 +64,7 @@ namespace E_Commerce_App.WebUI.Controllers
                     var product = await _productService.GetProductWithCategoriesById(id);
                     var selectedCategories = product.ProductCategories;
                     var selectedColors = product.Colors;
+                    var productImages = await _imageService.Where(i => i.ProductId == product.Id);
                     var productViewModel = new ProductViewModel()
                     {
                         Product = product,
@@ -68,7 +72,7 @@ namespace E_Commerce_App.WebUI.Controllers
                         SelectedCategories = selectedCategories,
                         Colors = colors,
                         SelectedColors = selectedColors,
-                        Images = product.Images
+                        Images = productImages
                     };
                     return View(productViewModel);
                 }
@@ -110,18 +114,33 @@ namespace E_Commerce_App.WebUI.Controllers
             else
                 product.DateOfUpdate = DateTime.Now;
 
+            var before = await _imageService.Where(i => i.ProductId == product.Id);
+
             var productImages = new List<Image>();
             if (mainImage != null)
                 product.MainImage = await Helpers.ImageHelper.SaveImage(mainImage);
-            if (allImages.Count > 0)// count 0 dan büyükse
+
+            if (allImages.Count > 0) // count 0 dan büyükse
             {
+                // remove before images
+                if (before != null)
+                {
+                    foreach (var image in before)
+                    {
+                        var beforeImage = await _imageService.GetByIdAsync(image.Id);
+                        _imageService.Remove(beforeImage);
+                    }
+                }
+                // add new images
                 foreach (var image in allImages)
                 {
                     string path = await Helpers.ImageHelper.SaveImage(image);
-                    var productImage = new Image() { ImagePath = path };
+                    var productImage = new Image() { ImagePath = path, ProductId = product.Id };
                     productImages.Add(productImage);
                 }
                 product.Images = productImages;
+                // save images to database
+                await _imageService.AddRangeAsync(productImages);
             }
             if (categoryIds.Length > 0)
             {
