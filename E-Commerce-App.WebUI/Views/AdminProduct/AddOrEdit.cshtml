@@ -41,9 +41,11 @@ else
                     </div>
                 </div>
                 <br />
+                <textarea asp-for="Product.ShortDescription" maxlength="240" class="form-control" placeholder="Ön açıklama yazınızı buraya giriniz."></textarea>
+                <br />
                 <textarea id="html-editor" asp-for="Product.Description">
-                Ürünün Detaylı Açıklamasını Burada Yapınız
-            </textarea>
+                    Ürünün Detaylı Açıklamasını Burada Yapınız
+                </textarea>
             </div>
         </div>
         <div class="col-md-4">

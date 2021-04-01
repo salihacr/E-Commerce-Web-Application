@@ -1,8 +1,10 @@
 ﻿using E_Commerce_App.Core.Entities;
 using E_Commerce_App.Core.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace E_Commerce_App.Data.Repositories
@@ -60,6 +62,15 @@ namespace E_Commerce_App.Data.Repositories
                 return products.Count();
             }
             return -1;
+        }
+
+        public async Task<Product> GetProductWithAllColumns(Expression<Func<Product, bool>> predicate)
+        {
+            return await _appDbContext.Products
+                .Include(p => p.Colors)
+                .Include(product => product.ProductCategories)
+                .ThenInclude(productCategory => productCategory.Category)
+                .SingleOrDefaultAsync(predicate);
         }
     }
 }

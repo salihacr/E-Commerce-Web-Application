@@ -24,7 +24,8 @@ namespace E_Commerce_App.WebUI.Controllers
         }
         public async Task<IActionResult> Detail(string url)
         {
-            var product = await _productService.SingleOrDefaultAsync(p => p.Url == url);
+            //var product = await _productService.SingleOrDefaultAsync(p => p.Url == url);
+            var product = await _productService.GetProductWithAllColumns(p => p.Url == url);
             var productImages = await _imageService.Where(i => i.ProductId == product.Id);
             if (product == null)
             {

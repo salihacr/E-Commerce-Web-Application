@@ -2,7 +2,9 @@
 using E_Commerce_App.Core.Repositories;
 using E_Commerce_App.Core.Services;
 using E_Commerce_App.Core.UnitOfWorks;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace E_Commerce_App.Business.Services
@@ -24,6 +26,11 @@ namespace E_Commerce_App.Business.Services
         public async Task<List<Product>> GetProductsByCategory(string name, int page, int pageSize)
         {
             return await _unitOfWork.ProductRepository.GetProductsByCategory(name, page, pageSize);
+        }
+
+        public async Task<Product> GetProductWithAllColumns(Expression<Func<Product, bool>> predicate)
+        {
+            return await _unitOfWork.ProductRepository.GetProductWithAllColumns(predicate);
         }
 
         public async Task<Product> GetProductWithCategoriesById(string productId)

@@ -1,11 +1,14 @@
 ﻿using E_Commerce_App.Core.Entities;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace E_Commerce_App.Core.Repositories
 {
     public interface IProductRepository : IRepository<Product>
     {
+        Task<Product> GetProductWithAllColumns(Expression<Func<Product, bool>> predicate);
         /// <summary>
         /// For pagination
         /// </summary>

@@ -8,7 +8,6 @@
 }
 @section Css{
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <style>
@@ -329,24 +328,66 @@
             cursor: pointer;
         }
     </style>
+
+    <style>
+
+        .toolbar {
+            display: inline-block;
+            border-radius: 4px;
+            background: lightgrey;
+        }
+
+        .colorSelector {
+            width: 100%;
+            display: inline;
+        }
+
+            .colorSelector .buttonContainer {
+                display: inline-block;
+            }
+
+            .colorSelector input[type="radio"] {
+                display: none;
+                height: 0;
+                width: 0;
+            }
+
+            .colorSelector label:hover .colorOption {
+                transform: scale(1.25);
+            }
+
+        .buttonContainer input:checked ~ .colorOption {
+            transform: scale(1.45);
+        }
+
+        .colorOption {
+            background: #4CAF50;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            transition: all 0.15s ease;
+            margin: 15px 15px 0px 15px;
+        }
+    </style>
 }
 <br />
-<div>
+<form>
     <div class="pd-wrap">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div id="slider" class="owl-carousel product-slider">
+                    <div id="slider" class="owl-carousel product-slider" style="border-color:black; border-style:solid;">
                         @if (imageList != null)
                         {
                             @foreach (var image in imageList)
                             {
                                 <div class="item">
-                                    <img src="~/img/@image.ImagePath" style="max-height:300px;" />
+                                    <img src="~/img/@image.ImagePath" style="max-height: 300px;" class="p-1" />
                                 </div>
                             }
                         }
                     </div>
+                    <hr />
                     <div id="thumb" class="owl-carousel product-thumb">
                         @if (imageList != null)
                         {
@@ -367,9 +408,9 @@
                                 <div class="rate">
                                     <input type="radio" id="star5" name="rate" value="5" checked />
                                     <label for="star5" title="text">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4" checked />
+                                    <input type="radio" id="star4" name="rate" value="4" />
                                     <label for="star4" title="text">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3" checked />
+                                    <input type="radio" id="star3" name="rate" value="3" />
                                     <label for="star3" title="text">3 stars</label>
                                     <input type="radio" id="star2" name="rate" value="2" />
                                     <label for="star2" title="text">2 stars</label>
@@ -379,35 +420,44 @@
                                 <span>3 Reviews</span>
                             </div>
                             <div class="product-price-discount">
-                                <span>
-                                    @if (product.Discount != null && product.Discount > 0)
-                                    {
-                                        @(product.Price - product.Price / (product.Discount * 100 ))
-                                    } ₺
-                                </span>
-                                <span class="line-through">
-                                    @Model.Product.Price ₺
-                                </span> @*TODO ÖN AÇIKLAMA KISMI EKLE ÜRÜN EKLE DÜZENLEYE*@
+                                @if (product.Discount != null && product.Discount > 0)
+                                {
+                                    <span>
+                                        @if (product.Discount != null && product.Discount > 0)
+                                        {
+                                            @(product.Price - product.Price / (product.Discount * 100))
+                                        } ₺
+                                    </span>
+                                    <span class="line-through">
+                                        @Model.Product.Price ₺
+                                    </span>
+
+                                    @*TODO ÖN AÇIKLAMA KISMI EKLE ÜRÜN EKLE DÜZENLEYE*@
+                                }
+                                else
+                                {
+                                    <span>@Model.Product.Price ₺</span>
+                                }
                             </div>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="size">Size</label>
-                                <select id="size" name="size" class="form-control">
-                                    <option>S</option>
-                                    <option>M</option>
-                                    <option>L</option>
-                                    <option>XL</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="color">Color</label>
-                                <select id="color" name="color" class="form-control">
-                                    <option>Blue</option>
-                                    <option>Green</option>
-                                    <option>Red</option>
-                                </select>
+                                <label for="size">Renk</label><br />
+                                <div class="toolbar">
+                                    <div id="myColorSelector" class="colorSelector">
+                                        @if (Model.SelectedColors != null)
+                                        {
+                                            @foreach (var color in Model.SelectedColors)
+                                            {
+                                                <label class="buttonContainer">
+                                                    <input type="radio" name="color" value="@color.Name" checked>
+                                                    <div class="colorOption" style="background:@color.Code"></div>
+                                                </label>
+                                            }
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="product-count">
@@ -487,13 +537,26 @@
             <div style="text-align:center;font-size:14px;padding-bottom:20px;">Get free icon packs for your next project at <a href="http://iiicons.in/" target="_blank" style="color:#ff5e63;font-weight:bold;">www.iiicons.in</a></div>
         </div>
     </div>
-</div>
+</form>
 
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="	sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <script>
+        function getChecked() {
+            var colorList = document.getElementsByName('color')
+            for (i in colorList) {
+                if (colorList[i].checked == true) {
+                    return Number.parseInt(i) + 1;
+                }
+            }
+        }
+        setTimeout(function () {
+            console.log("Selected color: " + getChecked());
+        }
+            , 1000);
+    </script>
     <script>
         $(document).ready(function () {
             var slider = $("#slider");
