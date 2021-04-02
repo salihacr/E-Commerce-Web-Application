@@ -27,22 +27,26 @@
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Sil !'
-            }).then(() => {
+                confirmButtonText: 'Sil !',
+                cancelButtonText: 'İptal !'
+            }).then((data) => {
+                console.log(data);
                 try {
-                    $.ajax({
-                        type: 'POST',
-                        url: "/Admin/Product/DeleteProduct/" + id,
-                        data: "{id:'" + id + "'}",
-                        contentType: false,
-                        processData: false,
-                        success: function (res) {
-                            $('#view-all').html(res.html);
-                        },
-                        error: function (err) {
-                            console.log(err)
-                        }
-                    })
+                    if (data.isConfirmed) {
+                        $.ajax({
+                            type: 'POST',
+                            url: "/Admin/Product/DeleteProduct/" + id,
+                            data: "{id:'" + id + "'}",
+                            contentType: false,
+                            processData: false,
+                            success: function (res) {
+                                $('#view-all').html(res.html);
+                            },
+                            error: function (err) {
+                                console.log(err)
+                            }
+                        })
+                    }
                 } catch (ex) {
                     console.log(ex)
                 }

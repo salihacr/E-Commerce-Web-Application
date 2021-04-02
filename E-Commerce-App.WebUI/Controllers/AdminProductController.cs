@@ -168,7 +168,7 @@ namespace E_Commerce_App.WebUI.Controllers
         {
             try
             {
-                var product = await _productService.GetProductWithCategoriesById(id);
+                var product = await _productService.SingleOrDefaultAsync(p => p.Id == id);
                 _productService.Remove(product);
                 return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllProducts", await _productService.GetAllAsync()) });
             }
