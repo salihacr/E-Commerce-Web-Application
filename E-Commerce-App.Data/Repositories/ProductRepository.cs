@@ -67,9 +67,11 @@ namespace E_Commerce_App.Data.Repositories
         public async Task<Product> GetProductWithAllColumns(Expression<Func<Product, bool>> predicate)
         {
             return await _appDbContext.Products
-                .Include(p => p.Colors)
+                .Include(product => product.ProductColors)
+                .ThenInclude(productColor => productColor.Color)
                 .Include(product => product.ProductCategories)
                 .ThenInclude(productCategory => productCategory.Category)
+                .Include(product => product.Images)
                 .SingleOrDefaultAsync(predicate);
         }
     }

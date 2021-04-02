@@ -6,12 +6,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace E_Commerce_App.WebUI.Controllers
 {
-    //[Route("Admin/Product")]
     public class AdminProductController : Controller
     {
         private readonly IMapper _mapper;
@@ -60,8 +58,7 @@ namespace E_Commerce_App.WebUI.Controllers
                 }
                 else
                 {
-                    //var product = await _productService.SingleOrDefaultAsync(p => p.Id == id);
-                    var product = await _productService.GetProductWithCategoriesById(id);
+                    var product = await _productService.GetProductWithAllColumns(p => p.Id == id);
                     var selectedCategories = product.ProductCategories;
                     var selectedColors = product.Colors;
                     var productImages = await _imageService.Where(i => i.ProductId == product.Id);
@@ -140,7 +137,7 @@ namespace E_Commerce_App.WebUI.Controllers
                 }
                 product.Images = productImages;
                 // save images to database
-                await _imageService.AddRangeAsync(productImages);
+                //await _imageService.AddRangeAsync(productImages);
             }
             if (categoryIds.Length > 0)
             {
@@ -155,24 +152,31 @@ namespace E_Commerce_App.WebUI.Controllers
             }
             if (colorIds.Length > 0)
             {
-                var productColors = new List<Color>();
+                var productColors = new List<ProductColor>();
 
                 for (int i = 0; i < colorIds.Length; i++)
                 {
-                    var productColor = await _colorService.GetByIdAsync(colorIds[i]);
+                    var productColor = new ProductColor() { ProductId = product.Id, ColorId = colorIds[i] };
                     productColors.Add(productColor);
                 }
-                product.Colors = productColors;
+                product.ProductColors = productColors;
             }
             return product;
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteProduct(string id)
         {
-            var category = await _productService.GetByIdAsync(id);
-            _productService.Remove(category);
-            return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await _productService.GetAllAsync()) });
+            try
+            {
+                var product = await _productService.GetProductWithCategoriesById(id);
+                _productService.Remove(product);
+                return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllProducts", await _productService.GetAllAsync()) });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
         }
     }
 }

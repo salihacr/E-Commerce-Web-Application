@@ -4,14 +4,16 @@ using E_Commerce_App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace E_Commerce_App.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210402143238_notMapping")]
+    partial class notMapping
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -240,38 +242,6 @@ namespace E_Commerce_App.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("E_Commerce_App.Core.Entities.Image", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DateOfDelete")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DateOfUpdate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ProductId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Image");
-                });
-
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -360,9 +330,6 @@ namespace E_Commerce_App.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<string>("SelectedColor")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<double>("TotalPrice")
                         .HasColumnType("float");
 
@@ -424,85 +391,73 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "1",
-                            CreationDate = new DateTime(2021, 4, 2, 18, 3, 46, 322, DateTimeKind.Local).AddTicks(4063),
+                            CreationDate = new DateTime(2021, 4, 2, 17, 32, 37, 632, DateTimeKind.Local).AddTicks(853),
                             Description = "aciklama 1",
-                            Discount = 5.0,
                             IsActive = false,
                             IsHome = true,
                             MainImage = "none",
                             Name = "Ürün 1",
-                            Price = 1000.0,
-                            ShortDescription = "lorem ipsum dat color...",
+                            Price = 11.0,
                             Url = "product1"
                         },
                         new
                         {
                             Id = "2",
-                            CreationDate = new DateTime(2021, 4, 2, 18, 3, 46, 324, DateTimeKind.Local).AddTicks(164),
+                            CreationDate = new DateTime(2021, 4, 2, 17, 32, 37, 633, DateTimeKind.Local).AddTicks(5297),
                             Description = "aciklama 2",
-                            Discount = 5.0,
                             IsActive = false,
                             IsHome = true,
                             MainImage = "none",
                             Name = "Ürün 2",
-                            Price = 1200.0,
-                            ShortDescription = "lorem ipsum dat color...",
+                            Price = 12.0,
                             Url = "product2"
                         },
                         new
                         {
                             Id = "3",
-                            CreationDate = new DateTime(2021, 4, 2, 18, 3, 46, 324, DateTimeKind.Local).AddTicks(292),
+                            CreationDate = new DateTime(2021, 4, 2, 17, 32, 37, 633, DateTimeKind.Local).AddTicks(5399),
                             Description = "aciklama 3",
-                            Discount = 5.0,
                             IsActive = false,
                             IsHome = true,
                             MainImage = "none",
                             Name = "Ürün 3",
-                            Price = 1300.0,
-                            ShortDescription = "lorem ipsum dat color...",
+                            Price = 13.0,
                             Url = "product3"
                         },
                         new
                         {
                             Id = "4",
-                            CreationDate = new DateTime(2021, 4, 2, 18, 3, 46, 324, DateTimeKind.Local).AddTicks(297),
+                            CreationDate = new DateTime(2021, 4, 2, 17, 32, 37, 633, DateTimeKind.Local).AddTicks(5403),
                             Description = "aciklama 4",
-                            Discount = 5.0,
                             IsActive = false,
                             IsHome = true,
                             MainImage = "none",
                             Name = "Ürün 4",
-                            Price = 1400.0,
-                            ShortDescription = "lorem ipsum dat color...",
+                            Price = 14.0,
                             Url = "product4"
                         },
                         new
                         {
                             Id = "5",
-                            CreationDate = new DateTime(2021, 4, 2, 18, 3, 46, 324, DateTimeKind.Local).AddTicks(300),
+                            CreationDate = new DateTime(2021, 4, 2, 17, 32, 37, 633, DateTimeKind.Local).AddTicks(5406),
                             Description = "aciklama 5",
-                            Discount = 10.0,
                             IsActive = false,
                             IsHome = true,
                             MainImage = "none",
                             Name = "Ürün 5",
-                            Price = 1500.0,
-                            ShortDescription = "lorem ipsum dat color...",
+                            Price = 15.0,
                             Url = "product5"
                         },
                         new
                         {
                             Id = "6",
-                            CreationDate = new DateTime(2021, 4, 2, 18, 3, 46, 324, DateTimeKind.Local).AddTicks(312),
+                            CreationDate = new DateTime(2021, 4, 2, 17, 32, 37, 633, DateTimeKind.Local).AddTicks(5415),
                             Description = "aciklama 6",
-                            Discount = 20.0,
                             IsActive = false,
                             IsHome = true,
                             MainImage = "none",
                             Name = "Ürün 6",
-                            Price = 2000.0,
-                            ShortDescription = "lorem ipsum dat color...",
+                            Price = 16.0,
                             Url = "product6"
                         });
                 });
@@ -569,68 +524,6 @@ namespace E_Commerce_App.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("E_Commerce_App.Core.Entities.ProductColor", b =>
-                {
-                    b.Property<string>("ProductId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("ColorId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductId", "ColorId");
-
-                    b.HasIndex("ColorId");
-
-                    b.ToTable("ProductColor");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductId = "1",
-                            ColorId = 1
-                        },
-                        new
-                        {
-                            ProductId = "1",
-                            ColorId = 2
-                        },
-                        new
-                        {
-                            ProductId = "1",
-                            ColorId = 3
-                        },
-                        new
-                        {
-                            ProductId = "2",
-                            ColorId = 1
-                        },
-                        new
-                        {
-                            ProductId = "2",
-                            ColorId = 2
-                        },
-                        new
-                        {
-                            ProductId = "3",
-                            ColorId = 1
-                        },
-                        new
-                        {
-                            ProductId = "4",
-                            ColorId = 2
-                        },
-                        new
-                        {
-                            ProductId = "5",
-                            ColorId = 3
-                        },
-                        new
-                        {
-                            ProductId = "6",
-                            ColorId = 4
-                        });
-                });
-
             modelBuilder.Entity("E_Commerce_App.Core.Entities.CartItem", b =>
                 {
                     b.HasOne("E_Commerce_App.Core.Entities.Cart", "Cart")
@@ -642,15 +535,6 @@ namespace E_Commerce_App.Data.Migrations
                         .HasForeignKey("ProductId1");
 
                     b.Navigation("Cart");
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("E_Commerce_App.Core.Entities.Image", b =>
-                {
-                    b.HasOne("E_Commerce_App.Core.Entities.Product", "Product")
-                        .WithMany("Images")
-                        .HasForeignKey("ProductId");
 
                     b.Navigation("Product");
                 });
@@ -691,25 +575,6 @@ namespace E_Commerce_App.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("E_Commerce_App.Core.Entities.ProductColor", b =>
-                {
-                    b.HasOne("E_Commerce_App.Core.Entities.Color", "Color")
-                        .WithMany("ProductColors")
-                        .HasForeignKey("ColorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("E_Commerce_App.Core.Entities.Product", "Product")
-                        .WithMany("ProductColors")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Color");
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Cart", b =>
                 {
                     b.Navigation("CartItems");
@@ -720,18 +585,9 @@ namespace E_Commerce_App.Data.Migrations
                     b.Navigation("ProductCategories");
                 });
 
-            modelBuilder.Entity("E_Commerce_App.Core.Entities.Color", b =>
-                {
-                    b.Navigation("ProductColors");
-                });
-
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Product", b =>
                 {
-                    b.Navigation("Images");
-
                     b.Navigation("ProductCategories");
-
-                    b.Navigation("ProductColors");
                 });
 #pragma warning restore 612, 618
         }

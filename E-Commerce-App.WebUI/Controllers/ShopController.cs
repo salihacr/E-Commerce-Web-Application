@@ -1,5 +1,4 @@
 ﻿using E_Commerce_App.Core.Entities;
-using E_Commerce_App.Core.Repositories;
 using E_Commerce_App.Core.Services;
 using E_Commerce_App.WebUI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -8,11 +7,11 @@ using System.Threading.Tasks;
 namespace E_Commerce_App.WebUI.Controllers
 {
 
-    public class HomeController : Controller
+    public class ShopController : Controller
     {
         private readonly IProductService _productService;
         private readonly IService<Image> _imageService;
-        public HomeController(IProductService productService, IService<Image> imageService)
+        public ShopController(IProductService productService, IService<Image> imageService)
         {
             _productService = productService;
             _imageService = imageService;
@@ -24,7 +23,6 @@ namespace E_Commerce_App.WebUI.Controllers
         }
         public async Task<IActionResult> Detail(string url)
         {
-            //var product = await _productService.SingleOrDefaultAsync(p => p.Url == url);
             var product = await _productService.GetProductWithAllColumns(p => p.Url == url);
             var productImages = await _imageService.Where(i => i.ProductId == product.Id);
             if (product == null)

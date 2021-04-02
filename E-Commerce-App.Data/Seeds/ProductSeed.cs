@@ -13,28 +13,28 @@ namespace E_Commerce_App.Data.Seeds
             List<Product> products = new List<Product>
             {
                 new Product(){Id="1", Name="Ürün 1", CreationDate=DateTime.Now,
-                    Description="aciklama 1", Price=11,
-                    Url="product1", IsHome=true, MainImage="none"
+                    Description="aciklama 1", Price=1000, Discount=5,
+                    Url="product1", IsHome=true, MainImage="none", ShortDescription="lorem ipsum dat color...",
                 },
                 new Product(){Id="2", Name="Ürün 2", CreationDate=DateTime.Now,
-                    Description="aciklama 2", Price=12,
-                    Url="product2", IsHome=true, MainImage="none"
+                    Description="aciklama 2", Price=1200, Discount=5,
+                    Url="product2", IsHome=true, MainImage="none", ShortDescription="lorem ipsum dat color...",
                 },
                 new Product(){Id="3", Name="Ürün 3", CreationDate=DateTime.Now,
-                    Description="aciklama 3", Price=13,
-                    Url="product3", IsHome=true, MainImage="none"
+                    Description="aciklama 3", Price=1300, Discount=5,
+                    Url="product3", IsHome=true, MainImage="none", ShortDescription="lorem ipsum dat color...",
                 },
                 new Product(){Id="4", Name="Ürün 4", CreationDate=DateTime.Now,
-                    Description="aciklama 4", Price=14,
-                    Url="product4", IsHome=true, MainImage="none"
+                    Description="aciklama 4", Price=1400, Discount=5,
+                    Url="product4", IsHome=true, MainImage="none", ShortDescription="lorem ipsum dat color...",
                 },
                 new Product(){Id="5", Name="Ürün 5", CreationDate=DateTime.Now,
-                    Description="aciklama 5", Price=15,
-                    Url="product5", IsHome=true, MainImage="none"
+                    Description="aciklama 5", Price=1500, Discount=10,
+                    Url="product5", IsHome=true, MainImage="none", ShortDescription="lorem ipsum dat color...",
                 },
                 new Product(){Id="6", Name="Ürün 6", CreationDate=DateTime.Now,
-                    Description="aciklama 6", Price=16,
-                    Url="product6", IsHome=true, MainImage="none"
+                    Description="aciklama 6", Price=2000, Discount=20,
+                    Url="product6", IsHome=true, MainImage="none", ShortDescription="lorem ipsum dat color...",
                 },
             };
             builder.HasData(products);
@@ -91,6 +91,25 @@ namespace E_Commerce_App.Data.Seeds
                 new ProductCategory(){ ProductId="6", CategoryId=4 },
             };
             builder.HasData(productCategories);
+        }
+    }
+    public class ProductColorSeed : IEntityTypeConfiguration<ProductColor>
+    {
+        public void Configure(EntityTypeBuilder<ProductColor> builder)
+        {
+            List<ProductColor> productColors = new List<ProductColor>
+            {
+                new ProductColor(){ ProductId="1", ColorId=1 },
+                new ProductColor(){ ProductId="1", ColorId=2 },
+                new ProductColor(){ ProductId="1", ColorId=3 },
+                new ProductColor(){ ProductId="2", ColorId=1 },
+                new ProductColor(){ ProductId="2", ColorId=2 },
+                new ProductColor(){ ProductId="3", ColorId=1 },
+                new ProductColor(){ ProductId="4", ColorId=2 },
+                new ProductColor(){ ProductId="5", ColorId=3 },
+                new ProductColor(){ ProductId="6", ColorId=4 },
+            };
+            builder.HasData(productColors);
         }
     }
 }

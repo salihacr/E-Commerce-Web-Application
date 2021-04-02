@@ -14,11 +14,15 @@ namespace E_Commerce_App.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            /* Seeds */
             modelBuilder.ApplyConfiguration(new ColorSeed());
             modelBuilder.ApplyConfiguration(new ProductSeed());
             modelBuilder.ApplyConfiguration(new CategorySeed());
             modelBuilder.ApplyConfiguration(new ProductCategorySeed());
+            modelBuilder.ApplyConfiguration(new ProductColorSeed());
+            /* Configurations */
             modelBuilder.ApplyConfiguration(new ProductCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductColorConfiguration());
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }

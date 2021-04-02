@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace E_Commerce_App.Core.Entities
 {
@@ -19,10 +21,12 @@ namespace E_Commerce_App.Core.Entities
         // n to n relationship
         public List<ProductCategory> ProductCategories { get; set; }
 
-        // Product Image Relation
-        public ICollection<Image> Images { get; set; }
-
         // Product Color Relation
         public ICollection<Color> Colors { get; set; }
+        // n to n relationship
+        public ICollection<ProductColor> ProductColors { get; set; }
+
+        // Product Image Relation
+        public ICollection<Image> Images { get; set; }
     }
 }

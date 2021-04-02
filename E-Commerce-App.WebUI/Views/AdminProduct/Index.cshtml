@@ -3,59 +3,50 @@
     ViewData["CurrentPage"] = "Ürünler";
     ViewData["CurrentPageUrl"] = "Product";
 }
+@section Css{
+    <link href="~/node_modules/toastr/build/toastr.min.css" />
+    <link href="~/node_modules/sweetalert2/dist/sweetalert2.all.min.css" />
+}
+<div id="view-all">
+    @await Html.PartialAsync("_AllProducts", Model)
+</div>
 
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MainImage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Url)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreationDate)
-            </th>
-            <th>
-                <a href="/Admin/Product/Add"
-                   class="btn btn-success text-white">Ürün Ekle</a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    <img src="~/img/@item.MainImage" width="100" height="100" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Url)
-                </td>
-                <td>
-                    @item.CreationDate
-                </td>
-                <td>
-                    <div>
-                        <a href="/Admin/Product/Edit/@item.Id" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i>&nbsp;Düzenle</a>
-                        <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
-                            <button type="submit" value="Delete" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp; Sil</button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
+@section Scripts{
+
+    <!-- Sweet Alert  -->
+    <script src="~/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/node_modules/toastr/build/toastr.min.css"></script>
+
+    <script>
+        function removeProduct(id) {
+            Swal.fire({
+                title: "Silmek istediğinizden emin misiniz ?",
+                text: 'Silinen veri geri kullanılamaz!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sil !'
+            }).then(() => {
+                try {
+                    $.ajax({
+                        type: 'POST',
+                        url: "/Admin/Product/DeleteProduct/" + id,
+                        data: "{id:'" + id + "'}",
+                        contentType: false,
+                        processData: false,
+                        success: function (res) {
+                            $('#view-all').html(res.html);
+                        },
+                        error: function (err) {
+                            console.log(err)
+                        }
+                    })
+                } catch (ex) {
+                    console.log(ex)
+                }
+            });
         }
-    </tbody>
-</table>
+    </script>
+}

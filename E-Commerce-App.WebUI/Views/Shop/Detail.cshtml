@@ -431,8 +431,6 @@
                                     <span class="line-through">
                                         @Model.Product.Price ₺
                                     </span>
-
-                                    @*TODO ÖN AÇIKLAMA KISMI EKLE ÜRÜN EKLE DÜZENLEYE*@
                                 }
                                 else
                                 {
@@ -440,7 +438,7 @@
                                 }
                             </div>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>@Model.Product.ShortDescription</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="size">Renk</label><br />

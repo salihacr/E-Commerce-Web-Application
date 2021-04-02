@@ -89,6 +89,11 @@ namespace E_Commerce_App.WebUI
                    defaults: new { controller = "AdminProduct", Action = "AddOrEdit" }
                    );
                 endpoints.MapControllerRoute(
+                   name: "adminproductdelete",
+                   pattern: "Admin/Product/DeleteProduct/{id}",
+                   defaults: new { controller = "AdminProduct", Action = "DeleteProduct" }
+                   );
+                endpoints.MapControllerRoute(
                    name: "adminproductadd",
                    pattern: "Admin/Product",
                    defaults: new { controller = "AdminProduct", Action = "Index" }
@@ -104,13 +109,13 @@ namespace E_Commerce_App.WebUI
                 endpoints.MapControllerRoute(
                     name: "productdetails",
                     pattern: "{url}",
-                    defaults: new { controller = "Home", Action = "Detail" }
+                    defaults: new { controller = "Shop", Action = "Detail" }
                     );
 
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Shop}/{action=Index}/{id?}");
             });
         }
     }
