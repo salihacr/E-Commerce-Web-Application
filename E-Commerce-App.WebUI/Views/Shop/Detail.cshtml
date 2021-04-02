@@ -425,7 +425,7 @@
                                     <span>
                                         @if (product.Discount != null && product.Discount > 0)
                                         {
-                                            @(product.Price - product.Price / (product.Discount * 100))
+                                            @(product.Price - (product.Price / product.Discount))
                                         } ₺
                                     </span>
                                     <span class="line-through">

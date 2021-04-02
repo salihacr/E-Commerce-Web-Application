@@ -14,17 +14,23 @@ namespace E_Commerce_App.WebUI.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IService<Color> _colorService;
+        private readonly IService<ProductColor> _productColorService;
+        private readonly IService<ProductCategory> _productCategoryService;
         private readonly IService<Image> _imageService;
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
         public AdminProductController(
             IService<Color> colorService,
+            IService<ProductColor> productColorService,
+            IService<ProductCategory> productCategoryService,
             IService<Image> imageService,
             IProductService productService,
             ICategoryService categoryService,
             IMapper mapper)
         {
             _colorService = colorService;
+            _productColorService = productColorService;
+            _productCategoryService = productCategoryService;
             _imageService = imageService;
             _productService = productService;
             _categoryService = categoryService;
@@ -137,10 +143,18 @@ namespace E_Commerce_App.WebUI.Controllers
                 }
                 product.Images = productImages;
                 // save images to database
-                //await _imageService.AddRangeAsync(productImages);
+                await _imageService.AddRangeAsync(productImages);
             }
+            var beforeCategories = await _productCategoryService.Where(i => i.ProductId == product.Id);
             if (categoryIds.Length > 0)
             {
+                if (beforeCategories != null)
+                {
+                    foreach (var pCategory in beforeCategories)
+                    {
+                        _productCategoryService.Remove(pCategory);
+                    }
+                }
                 var productCategories = new List<ProductCategory>();
 
                 for (int i = 0; i < categoryIds.Length; i++)
@@ -149,9 +163,18 @@ namespace E_Commerce_App.WebUI.Controllers
                     productCategories.Add(productCategory);
                 }
                 product.ProductCategories = productCategories;
+                await _productCategoryService.AddRangeAsync(productCategories);
             }
+            var beforeColors = await _productColorService.Where(i => i.ProductId == product.Id);
             if (colorIds.Length > 0)
             {
+                if (beforeColors != null)
+                {
+                    foreach (var pColor in beforeColors)
+                    {
+                        _productColorService.Remove(pColor);
+                    }
+                }
                 var productColors = new List<ProductColor>();
 
                 for (int i = 0; i < colorIds.Length; i++)
@@ -160,6 +183,7 @@ namespace E_Commerce_App.WebUI.Controllers
                     productColors.Add(productColor);
                 }
                 product.ProductColors = productColors;
+                await _productColorService.AddRangeAsync(productColors);
             }
             return product;
         }
@@ -170,6 +194,10 @@ namespace E_Commerce_App.WebUI.Controllers
             {
                 var product = await _productService.SingleOrDefaultAsync(p => p.Id == id);
                 _productService.Remove(product);
+                var productColors = await _productColorService.Where(p => p.ProductId == product.Id);
+                var productCategories = await _productCategoryService.Where(p => p.ProductId == product.Id);
+                _productColorService.RemoveRange(productColors);
+                _productCategoryService.RemoveRange(productCategories);
                 return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllProducts", await _productService.GetAllAsync()) });
             }
             catch (Exception ex)
