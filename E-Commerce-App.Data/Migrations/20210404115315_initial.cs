@@ -42,6 +42,24 @@ namespace E_Commerce_App.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Color",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DateOfUpdate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DateOfDelete = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Color", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Orders",
                 columns: table => new
                 {
@@ -78,6 +96,7 @@ namespace E_Commerce_App.Data.Migrations
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: true),
                     Discount = table.Column<double>(type: "float", nullable: true),
+                    ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsHome = table.Column<bool>(type: "bit", nullable: false),
                     MainImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -125,31 +144,6 @@ namespace E_Commerce_App.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Color",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProductId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DateOfUpdate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DateOfDelete = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Color", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Color_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Image",
                 columns: table => new
                 {
@@ -179,8 +173,9 @@ namespace E_Commerce_App.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TotalPrice = table.Column<double>(type: "float", nullable: false),
+                    SelectedColor = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Quantity = table.Column<int>(type: "int", nullable: false),
+                    TotalPrice = table.Column<double>(type: "float", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -229,45 +224,69 @@ namespace E_Commerce_App.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ProductColor",
+                columns: table => new
+                {
+                    ProductId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ColorId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductColor", x => new { x.ProductId, x.ColorId });
+                    table.ForeignKey(
+                        name: "FK_ProductColor_Color_ColorId",
+                        column: x => x.ColorId,
+                        principalTable: "Color",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProductColor_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "CreationDate", "DateOfDelete", "DateOfUpdate", "IsActive", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(6415), null, null, false, "Telefon" },
-                    { 2, new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8278), null, null, false, "Bilgisayar" },
-                    { 3, new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8324), null, null, false, "Tv, Ev Elektroniği" },
-                    { 4, new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8328), null, null, false, "Bilgisayar Parçaları" },
-                    { 5, new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8331), null, null, false, "Foto, Kamera" },
-                    { 6, new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8341), null, null, false, "Aksesuar" },
-                    { 7, new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8345), null, null, false, "Oyun, Hobi" },
-                    { 8, new DateTime(2021, 3, 26, 14, 46, 49, 99, DateTimeKind.Local).AddTicks(8348), null, null, false, "Ev, Mutfak" }
+                    { 1, null, null, null, false, "Telefon" },
+                    { 2, null, null, null, false, "Bilgisayar" },
+                    { 3, null, null, null, false, "Tv, Ev Elektroniği" },
+                    { 4, null, null, null, false, "Bilgisayar Parçaları" },
+                    { 5, null, null, null, false, "Foto, Kamera" },
+                    { 6, null, null, null, false, "Aksesuar" },
+                    { 7, null, null, null, false, "Oyun, Hobi" },
+                    { 8, null, null, null, false, "Ev, Mutfak" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Color",
-                columns: new[] { "Id", "Code", "CreationDate", "DateOfDelete", "DateOfUpdate", "IsActive", "Name", "ProductId" },
+                columns: new[] { "Id", "Code", "CreationDate", "DateOfDelete", "DateOfUpdate", "IsActive", "Name" },
                 values: new object[,]
                 {
-                    { 6, "#53D769", new DateTime(2021, 3, 26, 14, 46, 49, 93, DateTimeKind.Local).AddTicks(7346), null, null, false, "Yeşil", null },
-                    { 5, "#147EFB", new DateTime(2021, 3, 26, 14, 46, 49, 93, DateTimeKind.Local).AddTicks(7321), null, null, false, "Mavi", null },
-                    { 4, "#FECB2E", new DateTime(2021, 3, 26, 14, 46, 49, 93, DateTimeKind.Local).AddTicks(7318), null, null, false, "Sarı", null },
-                    { 2, "#202020", new DateTime(2021, 3, 26, 14, 46, 49, 93, DateTimeKind.Local).AddTicks(7222), null, null, false, "Siyah", null },
-                    { 1, "#f9f6ef", new DateTime(2021, 3, 26, 14, 46, 49, 91, DateTimeKind.Local).AddTicks(7468), null, null, false, "Beyaz", null },
-                    { 3, "#ba0c2f", new DateTime(2021, 3, 26, 14, 46, 49, 93, DateTimeKind.Local).AddTicks(7312), null, null, false, "Kırmızı", null }
+                    { 6, "#53D769", null, null, null, false, "Yeşil" },
+                    { 5, "#147EFB", null, null, null, false, "Mavi" },
+                    { 4, "#FECB2E", null, null, null, false, "Sarı" },
+                    { 2, "#202020", null, null, null, false, "Siyah" },
+                    { 1, "#f9f6ef", null, null, null, false, "Beyaz" },
+                    { 3, "#ba0c2f", null, null, null, false, "Kırmızı" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "Id", "CreationDate", "DateOfDelete", "DateOfUpdate", "Description", "Discount", "IsActive", "IsHome", "MainImage", "Name", "Price", "Url" },
+                columns: new[] { "Id", "CreationDate", "DateOfDelete", "DateOfUpdate", "Description", "Discount", "IsActive", "IsHome", "MainImage", "Name", "Price", "ShortDescription", "Url" },
                 values: new object[,]
                 {
-                    { "5", new DateTime(2021, 3, 26, 14, 46, 49, 98, DateTimeKind.Local).AddTicks(6400), null, null, "aciklama 5", null, false, true, "none", "Ürün 5", 15.0, "product5" },
-                    { "1", new DateTime(2021, 3, 26, 14, 46, 49, 98, DateTimeKind.Local).AddTicks(364), null, null, "aciklama 1", null, false, true, "none", "Ürün 1", 11.0, "product1" },
-                    { "2", new DateTime(2021, 3, 26, 14, 46, 49, 98, DateTimeKind.Local).AddTicks(6264), null, null, "aciklama 2", null, false, true, "none", "Ürün 2", 12.0, "product2" },
-                    { "3", new DateTime(2021, 3, 26, 14, 46, 49, 98, DateTimeKind.Local).AddTicks(6385), null, null, "aciklama 3", null, false, true, "none", "Ürün 3", 13.0, "product3" },
-                    { "4", new DateTime(2021, 3, 26, 14, 46, 49, 98, DateTimeKind.Local).AddTicks(6392), null, null, "aciklama 4", null, false, true, "none", "Ürün 4", 14.0, "product4" },
-                    { "6", new DateTime(2021, 3, 26, 14, 46, 49, 98, DateTimeKind.Local).AddTicks(6417), null, null, "aciklama 6", null, false, true, "none", "Ürün 6", 16.0, "product6" }
+                    { "5", new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(4082), null, null, "aciklama 5", 10.0, false, true, "none", "Ürün 5", 1500.0, "lorem ipsum dat color...", "product5" },
+                    { "1", new DateTime(2021, 4, 4, 14, 53, 15, 42, DateTimeKind.Local).AddTicks(7011), null, null, "aciklama 1", 5.0, false, true, "none", "Ürün 1", 1000.0, "lorem ipsum dat color...", "product1" },
+                    { "2", new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(3922), null, null, "aciklama 2", 5.0, false, true, "none", "Ürün 2", 1200.0, "lorem ipsum dat color...", "product2" },
+                    { "3", new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(4074), null, null, "aciklama 3", 5.0, false, true, "none", "Ürün 3", 1300.0, "lorem ipsum dat color...", "product3" },
+                    { "4", new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(4079), null, null, "aciklama 4", 5.0, false, true, "none", "Ürün 4", 1400.0, "lorem ipsum dat color...", "product4" },
+                    { "6", new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(4196), null, null, "aciklama 6", 20.0, false, true, "none", "Ürün 6", 2000.0, "lorem ipsum dat color...", "product6" }
                 });
 
             migrationBuilder.InsertData(
@@ -278,11 +297,27 @@ namespace E_Commerce_App.Data.Migrations
                     { 1, "1" },
                     { 2, "1" },
                     { 3, "1" },
+                    { 3, "5" },
                     { 1, "2" },
                     { 2, "2" },
-                    { 1, "3" },
+                    { 4, "6" },
                     { 2, "4" },
+                    { 1, "3" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProductColor",
+                columns: new[] { "ColorId", "ProductId" },
+                values: new object[,]
+                {
                     { 3, "5" },
+                    { 2, "4" },
+                    { 1, "2" },
+                    { 2, "2" },
+                    { 3, "1" },
+                    { 2, "1" },
+                    { 1, "1" },
+                    { 1, "3" },
                     { 4, "6" }
                 });
 
@@ -295,11 +330,6 @@ namespace E_Commerce_App.Data.Migrations
                 name: "IX_CartItems_ProductId1",
                 table: "CartItems",
                 column: "ProductId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Color_ProductId",
-                table: "Color",
-                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Image_ProductId",
@@ -320,15 +350,17 @@ namespace E_Commerce_App.Data.Migrations
                 name: "IX_ProductCategory_CategoryId",
                 table: "ProductCategory",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductColor_ColorId",
+                table: "ProductColor",
+                column: "ColorId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "CartItems");
-
-            migrationBuilder.DropTable(
-                name: "Color");
 
             migrationBuilder.DropTable(
                 name: "Image");
@@ -340,6 +372,9 @@ namespace E_Commerce_App.Data.Migrations
                 name: "ProductCategory");
 
             migrationBuilder.DropTable(
+                name: "ProductColor");
+
+            migrationBuilder.DropTable(
                 name: "Carts");
 
             migrationBuilder.DropTable(
@@ -347,6 +382,9 @@ namespace E_Commerce_App.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Color");
 
             migrationBuilder.DropTable(
                 name: "Products");

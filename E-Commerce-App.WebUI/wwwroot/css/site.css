@@ -1,1 +1,18 @@
-﻿
+﻿#toast-container > .toast-success {
+    background-color: #28a745 !important;
+}
+
+#toast-container > .toast-info {
+    background-color: #17a2b8 !important;
+}
+
+#toast-container > .toast-warning {
+    background-color: #e0a800 !important;
+}
+
+#toast-container > .toast-error {
+    background-color: #bd2130 !important;
+}
+#toast-container > div {
+    opacity: 1 !important;
+}

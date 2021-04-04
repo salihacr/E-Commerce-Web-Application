@@ -13,12 +13,14 @@
     <!-- Bootstrap Css -->
     <link rel="stylesheet" href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" />
 
+    <!-- Toastr Css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="~/node_modules/@@fortawesome/fontawesome-free/css/all.min.css" />
 
     <!-- Theme style -->
     <link href="~/css/adminlte.min.css" rel="stylesheet" />
-
     @RenderSection("Css", false)
 
 </head>
@@ -99,7 +101,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="dist/img/AdminLTELogo.png" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="#" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">AdminLTE 3</span>
             </a>
 
@@ -108,7 +110,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2">
+                        <img src="#" class="img-circle elevation-2">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">ADMİN</a>
@@ -262,11 +264,14 @@
         </div>
     </div>
     <!-- End Of Modal -->
-
+    <!-- Bootstrap & Jquery -->
     <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
-    <script src="~/js/adminlte.js"></script>
+    <script src="~/js/adminlte.min.js"></script>
     <!-- Site JS-->
     <script src="~/js/site.js" asp-append-version="true"></script>
 

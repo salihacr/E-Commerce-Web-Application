@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce_App.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210401190126_productTableEdit")]
-    partial class productTableEdit
+    [Migration("20210404115315_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -193,12 +193,7 @@ namespace E_Commerce_App.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProductId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("Color");
 
@@ -367,6 +362,9 @@ namespace E_Commerce_App.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<string>("SelectedColor")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("TotalPrice")
                         .HasColumnType("float");
 
@@ -428,73 +426,85 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "1",
-                            CreationDate = new DateTime(2021, 4, 1, 22, 1, 25, 686, DateTimeKind.Local).AddTicks(4638),
+                            CreationDate = new DateTime(2021, 4, 4, 14, 53, 15, 42, DateTimeKind.Local).AddTicks(7011),
                             Description = "aciklama 1",
+                            Discount = 5.0,
                             IsActive = false,
                             IsHome = true,
                             MainImage = "none",
                             Name = "Ürün 1",
-                            Price = 11.0,
+                            Price = 1000.0,
+                            ShortDescription = "lorem ipsum dat color...",
                             Url = "product1"
                         },
                         new
                         {
                             Id = "2",
-                            CreationDate = new DateTime(2021, 4, 1, 22, 1, 25, 687, DateTimeKind.Local).AddTicks(9210),
+                            CreationDate = new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(3922),
                             Description = "aciklama 2",
+                            Discount = 5.0,
                             IsActive = false,
                             IsHome = true,
                             MainImage = "none",
                             Name = "Ürün 2",
-                            Price = 12.0,
+                            Price = 1200.0,
+                            ShortDescription = "lorem ipsum dat color...",
                             Url = "product2"
                         },
                         new
                         {
                             Id = "3",
-                            CreationDate = new DateTime(2021, 4, 1, 22, 1, 25, 687, DateTimeKind.Local).AddTicks(9314),
+                            CreationDate = new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(4074),
                             Description = "aciklama 3",
+                            Discount = 5.0,
                             IsActive = false,
                             IsHome = true,
                             MainImage = "none",
                             Name = "Ürün 3",
-                            Price = 13.0,
+                            Price = 1300.0,
+                            ShortDescription = "lorem ipsum dat color...",
                             Url = "product3"
                         },
                         new
                         {
                             Id = "4",
-                            CreationDate = new DateTime(2021, 4, 1, 22, 1, 25, 687, DateTimeKind.Local).AddTicks(9319),
+                            CreationDate = new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(4079),
                             Description = "aciklama 4",
+                            Discount = 5.0,
                             IsActive = false,
                             IsHome = true,
                             MainImage = "none",
                             Name = "Ürün 4",
-                            Price = 14.0,
+                            Price = 1400.0,
+                            ShortDescription = "lorem ipsum dat color...",
                             Url = "product4"
                         },
                         new
                         {
                             Id = "5",
-                            CreationDate = new DateTime(2021, 4, 1, 22, 1, 25, 687, DateTimeKind.Local).AddTicks(9384),
+                            CreationDate = new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(4082),
                             Description = "aciklama 5",
+                            Discount = 10.0,
                             IsActive = false,
                             IsHome = true,
                             MainImage = "none",
                             Name = "Ürün 5",
-                            Price = 15.0,
+                            Price = 1500.0,
+                            ShortDescription = "lorem ipsum dat color...",
                             Url = "product5"
                         },
                         new
                         {
                             Id = "6",
-                            CreationDate = new DateTime(2021, 4, 1, 22, 1, 25, 687, DateTimeKind.Local).AddTicks(9393),
+                            CreationDate = new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(4196),
                             Description = "aciklama 6",
+                            Discount = 20.0,
                             IsActive = false,
                             IsHome = true,
                             MainImage = "none",
                             Name = "Ürün 6",
-                            Price = 16.0,
+                            Price = 2000.0,
+                            ShortDescription = "lorem ipsum dat color...",
                             Url = "product6"
                         });
                 });
@@ -561,6 +571,68 @@ namespace E_Commerce_App.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("E_Commerce_App.Core.Entities.ProductColor", b =>
+                {
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ColorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "ColorId");
+
+                    b.HasIndex("ColorId");
+
+                    b.ToTable("ProductColor");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = "1",
+                            ColorId = 1
+                        },
+                        new
+                        {
+                            ProductId = "1",
+                            ColorId = 2
+                        },
+                        new
+                        {
+                            ProductId = "1",
+                            ColorId = 3
+                        },
+                        new
+                        {
+                            ProductId = "2",
+                            ColorId = 1
+                        },
+                        new
+                        {
+                            ProductId = "2",
+                            ColorId = 2
+                        },
+                        new
+                        {
+                            ProductId = "3",
+                            ColorId = 1
+                        },
+                        new
+                        {
+                            ProductId = "4",
+                            ColorId = 2
+                        },
+                        new
+                        {
+                            ProductId = "5",
+                            ColorId = 3
+                        },
+                        new
+                        {
+                            ProductId = "6",
+                            ColorId = 4
+                        });
+                });
+
             modelBuilder.Entity("E_Commerce_App.Core.Entities.CartItem", b =>
                 {
                     b.HasOne("E_Commerce_App.Core.Entities.Cart", "Cart")
@@ -574,13 +646,6 @@ namespace E_Commerce_App.Data.Migrations
                     b.Navigation("Cart");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("E_Commerce_App.Core.Entities.Color", b =>
-                {
-                    b.HasOne("E_Commerce_App.Core.Entities.Product", null)
-                        .WithMany("Colors")
-                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Image", b =>
@@ -628,6 +693,25 @@ namespace E_Commerce_App.Data.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("E_Commerce_App.Core.Entities.ProductColor", b =>
+                {
+                    b.HasOne("E_Commerce_App.Core.Entities.Color", "Color")
+                        .WithMany("ProductColors")
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("E_Commerce_App.Core.Entities.Product", "Product")
+                        .WithMany("ProductColors")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Color");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Cart", b =>
                 {
                     b.Navigation("CartItems");
@@ -638,13 +722,18 @@ namespace E_Commerce_App.Data.Migrations
                     b.Navigation("ProductCategories");
                 });
 
+            modelBuilder.Entity("E_Commerce_App.Core.Entities.Color", b =>
+                {
+                    b.Navigation("ProductColors");
+                });
+
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Product", b =>
                 {
-                    b.Navigation("Colors");
-
                     b.Navigation("Images");
 
                     b.Navigation("ProductCategories");
+
+                    b.Navigation("ProductColors");
                 });
 #pragma warning restore 612, 618
         }

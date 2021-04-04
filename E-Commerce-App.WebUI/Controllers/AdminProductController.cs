@@ -92,43 +92,38 @@ namespace E_Commerce_App.WebUI.Controllers
         public async Task<IActionResult> AddOrEdit([FromForm] Product product, IFormFile mainImage, List<IFormFile> allImages, int[] categoryIds, int[] colorIds)
         {
             // TODO url tekrarlama durumunu kontrol et ona göre hata gönder
-            var id = product.Id;
-            var newProduct = await GetProduct(product, mainImage, allImages, categoryIds, colorIds);
             if (ModelState.IsValid)
             {
-                if (string.IsNullOrEmpty(id))
+                if (string.IsNullOrEmpty(product.Id))
+                {
+                    var newProduct = await ProductForAdd(product, mainImage, allImages, categoryIds, colorIds);
                     await _productService.AddAsync(newProduct);
+                }
                 else
-                    _productService.Update(newProduct);
-
+                {
+                    var editedProduct = await ProductForEdit(product, mainImage, allImages, categoryIds, colorIds);
+                    _productService.Update(editedProduct);
+                }
                 return Json(new { isValid = true, message = "Ürün kaydı başarılı." });
             }
             return Json(new { isValid = false, message = "Ürün kayıt hatası." });
         }
-        public async Task<Product> GetProduct(Product product, IFormFile mainImage, List<IFormFile> allImages, int[] categoryIds, int[] colorIds)
+        public async Task<Product> ProductForEdit(Product product, IFormFile mainImage, List<IFormFile> allImages, int[] categoryIds, int[] colorIds)
         {
-            if (string.IsNullOrEmpty(product.Id))
-            {
-                product.Id = Guid.NewGuid().ToString();
-                product.CreationDate = DateTime.Now;
-                // Url
-                product.Url += "-" + DateTime.Now.ToString("HHmmFFFFF");
-            }
-            else
-                product.DateOfUpdate = DateTime.Now;
+            product.DateOfUpdate = DateTime.Now;
 
-            var before = await _imageService.Where(i => i.ProductId == product.Id);
+            var beforeImages = await _imageService.Where(i => i.ProductId == product.Id);
 
-            var productImages = new List<Image>();
             if (mainImage != null)
                 product.MainImage = await Helpers.ImageHelper.SaveImage(mainImage);
 
             if (allImages.Count > 0) // count 0 dan büyükse
             {
+                var productImages = new List<Image>();
                 // remove before images
-                if (before != null)
+                if (beforeImages != null)
                 {
-                    foreach (var image in before)
+                    foreach (var image in beforeImages)
                     {
                         var beforeImage = await _imageService.GetByIdAsync(image.Id);
                         _imageService.Remove(beforeImage);
@@ -145,9 +140,9 @@ namespace E_Commerce_App.WebUI.Controllers
                 // save images to database
                 await _imageService.AddRangeAsync(productImages);
             }
-            var beforeCategories = await _productCategoryService.Where(i => i.ProductId == product.Id);
-            if (categoryIds.Length > 0)
+            if (categoryIds.Length >= 0)
             {
+                var beforeCategories = await _productCategoryService.Where(i => i.ProductId == product.Id);
                 if (beforeCategories != null)
                 {
                     foreach (var pCategory in beforeCategories)
@@ -165,9 +160,9 @@ namespace E_Commerce_App.WebUI.Controllers
                 product.ProductCategories = productCategories;
                 await _productCategoryService.AddRangeAsync(productCategories);
             }
-            var beforeColors = await _productColorService.Where(i => i.ProductId == product.Id);
-            if (colorIds.Length > 0)
+            if (colorIds.Length >= 0)
             {
+                var beforeColors = await _productColorService.Where(i => i.ProductId == product.Id);
                 if (beforeColors != null)
                 {
                     foreach (var pColor in beforeColors)
@@ -184,6 +179,52 @@ namespace E_Commerce_App.WebUI.Controllers
                 }
                 product.ProductColors = productColors;
                 await _productColorService.AddRangeAsync(productColors);
+            }
+            return product;
+        }
+        public async Task<Product> ProductForAdd(Product product, IFormFile mainImage, List<IFormFile> allImages, int[] categoryIds, int[] colorIds)
+        {
+            product.Id = Guid.NewGuid().ToString();
+
+            product.CreationDate = DateTime.Now;
+
+            // Url
+            product.Url += "-" + DateTime.Now.ToString("HHmmFFFFF");
+
+            if (mainImage != null)
+                product.MainImage = await Helpers.ImageHelper.SaveImage(mainImage);
+
+            if (allImages.Count > 0) // count 0 dan büyükse
+            {
+                var productImages = new List<Image>();
+                // add new images
+                foreach (var image in allImages)
+                {
+                    string path = await Helpers.ImageHelper.SaveImage(image);
+                    var productImage = new Image() { ImagePath = path, ProductId = product.Id };
+                    productImages.Add(productImage);
+                }
+                product.Images = productImages;
+            }
+            if (categoryIds.Length > 0)
+            {
+                var productCategories = new List<ProductCategory>();
+                for (int i = 0; i < categoryIds.Length; i++)
+                {
+                    var productCategory = new ProductCategory() { ProductId = product.Id, CategoryId = categoryIds[i] };
+                    productCategories.Add(productCategory);
+                }
+                product.ProductCategories = productCategories;
+            }
+            if (colorIds.Length > 0)
+            {
+                var productColors = new List<ProductColor>();
+                for (int i = 0; i < colorIds.Length; i++)
+                {
+                    var productColor = new ProductColor() { ProductId = product.Id, ColorId = colorIds[i] };
+                    productColors.Add(productColor);
+                }
+                product.ProductColors = productColors;
             }
             return product;
         }

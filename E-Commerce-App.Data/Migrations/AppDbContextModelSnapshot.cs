@@ -424,7 +424,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "1",
-                            CreationDate = new DateTime(2021, 4, 2, 18, 3, 46, 322, DateTimeKind.Local).AddTicks(4063),
+                            CreationDate = new DateTime(2021, 4, 4, 14, 53, 15, 42, DateTimeKind.Local).AddTicks(7011),
                             Description = "aciklama 1",
                             Discount = 5.0,
                             IsActive = false,
@@ -438,7 +438,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "2",
-                            CreationDate = new DateTime(2021, 4, 2, 18, 3, 46, 324, DateTimeKind.Local).AddTicks(164),
+                            CreationDate = new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(3922),
                             Description = "aciklama 2",
                             Discount = 5.0,
                             IsActive = false,
@@ -452,7 +452,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "3",
-                            CreationDate = new DateTime(2021, 4, 2, 18, 3, 46, 324, DateTimeKind.Local).AddTicks(292),
+                            CreationDate = new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(4074),
                             Description = "aciklama 3",
                             Discount = 5.0,
                             IsActive = false,
@@ -466,7 +466,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "4",
-                            CreationDate = new DateTime(2021, 4, 2, 18, 3, 46, 324, DateTimeKind.Local).AddTicks(297),
+                            CreationDate = new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(4079),
                             Description = "aciklama 4",
                             Discount = 5.0,
                             IsActive = false,
@@ -480,7 +480,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "5",
-                            CreationDate = new DateTime(2021, 4, 2, 18, 3, 46, 324, DateTimeKind.Local).AddTicks(300),
+                            CreationDate = new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(4082),
                             Description = "aciklama 5",
                             Discount = 10.0,
                             IsActive = false,
@@ -494,7 +494,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "6",
-                            CreationDate = new DateTime(2021, 4, 2, 18, 3, 46, 324, DateTimeKind.Local).AddTicks(312),
+                            CreationDate = new DateTime(2021, 4, 4, 14, 53, 15, 44, DateTimeKind.Local).AddTicks(4196),
                             Description = "aciklama 6",
                             Discount = 20.0,
                             IsActive = false,
