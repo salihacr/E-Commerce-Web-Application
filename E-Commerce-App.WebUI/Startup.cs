@@ -105,6 +105,11 @@ namespace E_Commerce_App.WebUI
                     );
 
                 // Home Pages
+                endpoints.MapControllerRoute(
+                    name: "productdetails2",
+                    pattern: "products/{category?}",
+                    defaults: new { controller = "Shop", Action = "List" }
+                    );
 
                 endpoints.MapControllerRoute(
                     name: "productdetails",
@@ -112,10 +117,9 @@ namespace E_Commerce_App.WebUI
                     defaults: new { controller = "Shop", Action = "Detail" }
                     );
 
-
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Shop}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

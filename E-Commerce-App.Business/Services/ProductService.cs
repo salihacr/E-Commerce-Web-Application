@@ -18,9 +18,9 @@ namespace E_Commerce_App.Business.Services
             return _unitOfWork.ProductRepository.GetCountByCategory(category);
         }
 
-        public async Task<List<Product>> GetHomePageProducts()
+        public async Task<List<Product>> GetHomePageProducts(int page, int pageSize)
         {
-            return await _unitOfWork.ProductRepository.GetHomePageProducts();
+            return await _unitOfWork.ProductRepository.GetHomePageProducts(page, pageSize);
         }
 
         public async Task<List<Product>> GetProductsByCategory(string name, int page, int pageSize)
@@ -41,6 +41,10 @@ namespace E_Commerce_App.Business.Services
         public async Task<List<Product>> GetSearchResult(string searchString)
         {
             return await _unitOfWork.ProductRepository.GetSearchResult(searchString);
+        }
+        public int GetProductCount()
+        {
+            return _unitOfWork.ProductRepository.GetProductCount();
         }
     }
 }

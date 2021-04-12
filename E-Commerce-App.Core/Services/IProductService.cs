@@ -8,6 +8,7 @@ namespace E_Commerce_App.Core.Services
 {
     public interface IProductService : IService<Product>
     {
+        public int GetProductCount();
         Task<Product> GetProductWithAllColumns(Expression<Func<Product, bool>> predicate);
         /// <summary>
         /// For pagination
@@ -33,7 +34,7 @@ namespace E_Commerce_App.Core.Services
         /// Get products to display on the home page. 
         /// </summary>
         /// <returns></returns>
-        Task<List<Product>> GetHomePageProducts();
+        Task<List<Product>> GetHomePageProducts(int page, int pageSize);
         /// <summary>
         /// Get product count by category name
         /// </summary>

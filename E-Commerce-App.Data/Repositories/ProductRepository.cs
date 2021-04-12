@@ -19,7 +19,7 @@ namespace E_Commerce_App.Data.Repositories
             var products = _context.Products.Where(p => p.IsHome).AsQueryable();
             if (string.IsNullOrEmpty(name))
             {
-                products = products.Include(p => p.ProductCategories).ThenInclude(i => i.Category).Where(i => i.ProductCategories.Any(p => p.Category.Name.ToLower() == name.ToLower()));
+                products = products.Include(p => p.ProductCategories).ThenInclude(i => i.Category).Where(i => i.ProductCategories.Any(p => p.Category.Url.ToLower() == name.ToLower()));
             }
             return await products.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
         }
@@ -46,10 +46,13 @@ namespace E_Commerce_App.Data.Repositories
             return await products.ToListAsync();
         }
 
-        public async Task<List<Product>> GetHomePageProducts()
+        public async Task<List<Product>> GetHomePageProducts(int page, int pageSize)
         {
-            return await _context.Products.Where(p => p.IsHome == true).ToListAsync();
+            var products = _context.Products.Where(p => p.IsHome == true).AsQueryable();
+            return await products.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
         }
+
+        public int GetProductCount() => _context.Products.Where(p => p.IsHome == true).Count();
 
         public int GetCountByCategory(string category)
         {

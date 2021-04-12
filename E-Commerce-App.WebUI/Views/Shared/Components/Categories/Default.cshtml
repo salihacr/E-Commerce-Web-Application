@@ -1,0 +1,24 @@
+﻿@model IEnumerable<E_Commerce_App.Core.Entities.Category>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-4">
+            <ul class="navbar-nav mr-auto">
+                @foreach (var category in Model)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Shop" asp-action="List" asp-route-category="@category.Url">@category.Name</a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+</nav>

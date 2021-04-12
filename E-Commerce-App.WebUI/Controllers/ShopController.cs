@@ -16,11 +16,6 @@ namespace E_Commerce_App.WebUI.Controllers
             _productService = productService;
             _imageService = imageService;
         }
-        [Route("/")]
-        public async Task<IActionResult> Index()
-        {
-            return View(await _productService.GetHomePageProducts());
-        }
         public async Task<IActionResult> Detail(string url)
         {
             var product = await _productService.GetProductWithAllColumns(p => p.Url == url);
@@ -39,6 +34,23 @@ namespace E_Commerce_App.WebUI.Controllers
                 Images = productImages
             };
             return View(productViewModel);
+        }
+        public async Task<IActionResult> List(string category, int page = 1)
+        {
+            const int pageSize = 3;
+            var productListViewModel = new ProductListViewModel()
+            {
+                PageInfo = new PageInfo
+                {
+                    TotalItem = _productService.GetCountByCategory(category),
+                    CurrentPage = page,
+                    ItemsPerPage = pageSize,
+                    CurrentCategory = category
+                },
+                Products = await _productService.GetProductsByCategory(category, page, pageSize)
+            };
+            return View(productListViewModel);
+
         }
     }
 }
