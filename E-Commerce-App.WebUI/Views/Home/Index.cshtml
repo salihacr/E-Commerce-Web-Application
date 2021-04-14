@@ -54,3 +54,60 @@
         </nav>
     </div>
 </div>
+
+<div>
+    <ul id="pagination-demo" class="pagination-sm"></ul>
+</div>
+
+@section Scripts{
+    <script src="~/node_modules/twbs-pagination/jquery.twbsPagination.min.js"></script>
+    <script>
+        $('#pagination-demo').twbsPagination({
+            totalPages: @Model.PageInfo.GetTotalPage(),
+            visiblePages: 6,
+            next: 'Sonraki',
+            prev: 'Önceki',
+            onPageClick: function (event, page) {
+                //fetch content and render here
+                console.log(page);
+                $.ajax({
+                    type: 'GET',
+                    url: '/GetProducts/' + page,
+                    data: '{page:' + page + '}',
+                    contentType: false,
+                    processData: false,
+                    success: function (res) {
+                        console.log(res.data);
+                    }
+                });
+            }
+        });
+    </script>
+}
+<style>
+    .wrapper {
+        margin: 60px auto;
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 1.25em;
+    }
+
+    #pagination-demo {
+        display: inline-block;
+        margin-bottom: 1.75em;
+    }
+
+        #pagination-demo li {
+            display: inline-block;
+        }
+
+    .page-content {
+        background: #eee;
+        display: inline-block;
+        padding: 10px;
+        width: 100%;
+        max-width: 660px;
+    }
+</style>

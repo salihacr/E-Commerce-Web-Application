@@ -31,5 +31,23 @@ namespace E_Commerce_App.WebUI.Controllers
             };
             return View(productListViewModel);
         }
+        [Route("/GetProducts/{page}")]
+        [HttpGet]
+        public async Task<IActionResult> GetProducts(string page)
+        {
+            Convert.ToInt32(page);
+            const int pageSize = 3;
+            var productListViewModel = new ProductListViewModel()
+            {
+                PageInfo = new PageInfo
+                {
+                    TotalItem = _productService.GetProductCount(),
+                    CurrentPage = Convert.ToInt32(page),
+                    ItemsPerPage = pageSize,
+                },
+                Products = await _productService.GetHomePageProducts(Convert.ToInt32(page), pageSize)
+            };
+            return Json(new { data = productListViewModel });
+        }
     }
 }
