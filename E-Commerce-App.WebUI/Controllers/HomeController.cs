@@ -1,5 +1,4 @@
-﻿using E_Commerce_App.Core.Entities;
-using E_Commerce_App.Core.Services;
+﻿using E_Commerce_App.Core.Services;
 using E_Commerce_App.WebUI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,11 +13,11 @@ namespace E_Commerce_App.WebUI.Controllers
         {
             _productService = productService;
         }
-        [Route("products/page={page}")]
-        public async Task<IActionResult> Index(string page)
+        public async Task<IActionResult> Index()
         {
+            string page = "1";
             Convert.ToInt32(page);
-            const int pageSize = 3;
+            const int pageSize = 4;
             var productListViewModel = new ProductListViewModel()
             {
                 PageInfo = new PageInfo
@@ -36,7 +35,7 @@ namespace E_Commerce_App.WebUI.Controllers
         public async Task<IActionResult> GetProducts(string page)
         {
             Convert.ToInt32(page);
-            const int pageSize = 3;
+            const int pageSize = 4;
             var productListViewModel = new ProductListViewModel()
             {
                 PageInfo = new PageInfo
