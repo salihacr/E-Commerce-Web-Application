@@ -28,7 +28,6 @@
 @section Scripts{
     <script src="~/node_modules/twbs-pagination/jquery.twbsPagination.min.js"></script>
     <script>
-        // todo yine bir regex işlemi qğer query varsa oraya istek at yoksa normal page a istek at
         $('#pagination-demo').twbsPagination({
             totalPages: @Model.PageInfo.GetTotalPage(),
             visiblePages: 6,

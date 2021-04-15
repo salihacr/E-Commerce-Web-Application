@@ -27,9 +27,9 @@ namespace E_Commerce_App.Core.Repositories
         /// <summary>
         /// Get products by search text.
         /// </summary>
-        /// <param name="searchString"></param>
+        /// <param name="query"></param>
         /// <returns></returns>
-        Task<List<Product>> GetSearchResult(string searchString);
+        Task<List<Product>> GetSearchResult(string query, int page, int pageSize);
         /// <summary>
         /// Get products to display on the home page. 
         /// </summary>

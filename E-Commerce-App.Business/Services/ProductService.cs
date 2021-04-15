@@ -38,9 +38,9 @@ namespace E_Commerce_App.Business.Services
             return await _unitOfWork.ProductRepository.GetProductWithCategoriesById(productId);
         }
 
-        public async Task<List<Product>> GetSearchResult(string searchString)
+        public async Task<List<Product>> GetSearchResult(string query, int page, int pageSize)
         {
-            return await _unitOfWork.ProductRepository.GetSearchResult(searchString);
+            return await _unitOfWork.ProductRepository.GetSearchResult(query, page, pageSize);
         }
         public int GetProductCount()
         {

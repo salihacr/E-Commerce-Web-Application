@@ -36,15 +36,15 @@ namespace E_Commerce_App.Data.Repositories
             return product;
         }
 
-        public async Task<List<Product>> GetSearchResult(string searchString)
-        {
-            var products = _context
-                     .Products
-                     .Where(i => i.IsHome && (i.Name.ToLower().Contains(searchString.ToLower()) || i.Description.ToLower().Contains(searchString.ToLower())))
-                     .AsQueryable();
+        //public async Task<List<Product>> GetSearchResult(string searchString)
+        //{
+        //    var products = _context
+        //             .Products
+        //             .Where(i => i.IsHome && (i.Name.ToLower().Contains(searchString.ToLower()) || i.Description.ToLower().Contains(searchString.ToLower())))
+        //             .AsQueryable();
 
-            return await products.ToListAsync();
-        }
+        //    return await products.ToListAsync();
+        //}
 
         public async Task<List<Product>> GetHomePageProducts(int page, int pageSize)
         {
@@ -76,6 +76,17 @@ namespace E_Commerce_App.Data.Repositories
                 .ThenInclude(productCategory => productCategory.Category)
                 .Include(product => product.Images)
                 .SingleOrDefaultAsync(predicate);
+        }
+        public async Task<List<Product>> GetSearchResult(string query, int page, int pageSize)
+        {
+            query.ToLower();
+            var products = _appDbContext.Products
+                .Where(p => p.IsHome &&
+                (p.Name.ToLower().Contains(query)
+                || p.ShortDescription.ToLower().Contains(query)
+                || p.Description.ToLower().Contains(query))).AsQueryable();
+
+            return await products.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
         }
     }
 }
