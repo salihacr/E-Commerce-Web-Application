@@ -30,18 +30,20 @@ namespace E_Commerce_App.WebUI.Controllers
                     },
                     Products = await _productService.GetHomePageProducts(Convert.ToInt32(page), pageSize)
                 };
+                ViewData["query"] = "";
                 return View(productListViewModel1);
             }
             var productListViewModel2 = new ProductListViewModel()
             {
                 PageInfo = new PageInfo
                 {
-                    TotalItem = _productService.GetProductCount(),
+                    TotalItem = _productService.GetProductCountBySearch(query),
                     CurrentPage = Convert.ToInt32(page),
                     ItemsPerPage = pageSize,
                 },
                 Products = await _productService.GetSearchResult(query, Convert.ToInt32(page), pageSize)
             };
+            ViewData["query"] = query;
             return View(productListViewModel2);
 
         }
@@ -63,8 +65,9 @@ namespace E_Commerce_App.WebUI.Controllers
             };
             return Json(new { data = productListViewModel });
         }
+        [Route("/GetSearchedProducts/{query}/{page}")]
         [HttpGet]
-        public async Task<IActionResult> GetSearchResults(string query, string page = "1")
+        public async Task<IActionResult> GetSearchResults(string query, string page)
         {
             // string page = "1";
             Convert.ToInt32(page);
@@ -73,7 +76,7 @@ namespace E_Commerce_App.WebUI.Controllers
             {
                 PageInfo = new PageInfo
                 {
-                    TotalItem = _productService.GetProductCount(),
+                    TotalItem = _productService.GetProductCountBySearch(query),
                     CurrentPage = Convert.ToInt32(page),
                     ItemsPerPage = pageSize,
                 },

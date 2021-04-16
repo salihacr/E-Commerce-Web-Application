@@ -46,5 +46,10 @@ namespace E_Commerce_App.Business.Services
         {
             return _unitOfWork.ProductRepository.GetProductCount();
         }
+
+        public int GetProductCountBySearch(string query)
+        {
+            return _unitOfWork.ProductRepository.GetProductCountBySearch(query);
+        }
     }
 }

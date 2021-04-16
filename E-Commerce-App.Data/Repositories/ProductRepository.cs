@@ -36,16 +36,6 @@ namespace E_Commerce_App.Data.Repositories
             return product;
         }
 
-        //public async Task<List<Product>> GetSearchResult(string searchString)
-        //{
-        //    var products = _context
-        //             .Products
-        //             .Where(i => i.IsHome && (i.Name.ToLower().Contains(searchString.ToLower()) || i.Description.ToLower().Contains(searchString.ToLower())))
-        //             .AsQueryable();
-
-        //    return await products.ToListAsync();
-        //}
-
         public async Task<List<Product>> GetHomePageProducts(int page, int pageSize)
         {
             var products = _context.Products.Where(p => p.IsHome == true).AsQueryable();
@@ -53,6 +43,16 @@ namespace E_Commerce_App.Data.Repositories
         }
 
         public int GetProductCount() => _context.Products.Where(p => p.IsHome == true).Count();
+
+        public int GetProductCountBySearch(string query)
+        {
+            var products = _appDbContext.Products
+                            .Where(p => p.IsHome &&
+                            (p.Name.ToLower().Contains(query)
+                            || p.ShortDescription.ToLower().Contains(query)
+                            || p.Description.ToLower().Contains(query))).AsQueryable();
+            return products.Count();
+        }
 
         public int GetCountByCategory(string category)
         {
@@ -79,7 +79,7 @@ namespace E_Commerce_App.Data.Repositories
         }
         public async Task<List<Product>> GetSearchResult(string query, int page, int pageSize)
         {
-            query.ToLower();
+            query = query.ToLower();
             var products = _appDbContext.Products
                 .Where(p => p.IsHome &&
                 (p.Name.ToLower().Contains(query)

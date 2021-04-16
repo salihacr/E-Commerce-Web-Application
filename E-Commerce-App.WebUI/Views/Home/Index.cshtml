@@ -28,19 +28,62 @@
 @section Scripts{
     <script src="~/node_modules/twbs-pagination/jquery.twbsPagination.min.js"></script>
     <script>
+
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+
         // todo yine bir regex işlemi qğer query varsa oraya istek at yoksa normal page a istek at
         $('#pagination-demo').twbsPagination({
-            totalPages: @Model.PageInfo.GetTotalPage(),
+
+            // \/Admin\/Product\/Add Regex for add url
+            // \/Admin\/Product\/Edit\/\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b Regex for Edit Url
+            // şuan guid kullanma
+
+            // https://localhost:44373/Home/Index?query=%C3%BCr%C3%BCn
+            // boş ise url normal
+            // query = ""
+            totalPages: @Model.PageInfo.GetTotalPage(), // todo sayıları arama kriterine göre değiştir
             visiblePages: 6,
             next: 'Sonraki',
             prev: 'Önceki',
             onPageClick: function (event, page) {
+
+                var url = "@Context.Request.Path@Context.Request.QueryString";
+                url = decodeURI(url);
+                console.log(url);
+
+                var query = decodeURI(getUrlVars()["query"]);
+
+
+                console.log(query);
+
+
+
+                const queryUrlRegex = new RegExp('(\/Home\/Index[(\?)]query=(.)*)');
+
+                var actionUrl = "";
+                var data = "";
+                if (queryUrlRegex.test(url)) {
+                    actionUrl = '/GetSearchedProducts/' + query + '/';
+                    data = '{query:' + query + ', page:' + page + '}';
+                } else {
+                    actionUrl = '/GetProducts/';
+                    data = '{page:' + page + '}';
+                }
+                console.log(actionUrl);
                 //fetch content and render here
-                console.log(page);
                 $.ajax({
                     type: 'GET',
-                    url: '/GetProducts/' + page,
-                    data: '{page:' + page + '}',
+                    url: actionUrl + page,
+                    data: data,
                     contentType: false,
                     processData: false,
                     success: function (res) {

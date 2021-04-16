@@ -9,6 +9,7 @@ namespace E_Commerce_App.Core.Repositories
     public interface IProductRepository : IRepository<Product>
     {
         public int GetProductCount();
+        public int GetProductCountBySearch(string query);
         Task<Product> GetProductWithAllColumns(Expression<Func<Product, bool>> predicate);
         /// <summary>
         /// For pagination
