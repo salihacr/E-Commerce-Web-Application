@@ -5,6 +5,28 @@
 @section Css{
     <!-- Product Css -->
     <link rel="stylesheet" href="~/css/product.css" />
+    <style>
+        .bag-button {
+            border: 1px solid #386ded;
+            background: #386ded;
+            color: #fff;
+        }
+            .bag-button:hover {
+                background-image: linear-gradient(to right, #386ded, #3b4dd4);
+                color: #fff;
+            }
+
+        .wish-button:hover {
+            background-image: linear-gradient(to right, #386ded, #3b4dd4);
+            color: #fff;
+        }
+
+        .wish-button {
+            border: 1px solid #386ded;
+            background: #386ded;
+            color: #fff;
+        }
+    </style>
 }
 <br />
 @await Component.InvokeAsync("Categories")
@@ -133,7 +155,7 @@
                             ${ getPrice(data, index) }
                             <div class="row">
                               <div class="col-md-6 card-button"><a href=""><div class="card-button-inner bag-button">Sepete Ekle</div></a></div>
-                              <div class="col-md-6 card-button"><a href=""><div class="card-button-inner wish-button">İncele > </div></a></div>
+                              <div class="col-md-6 card-button"><a href="${data[index].url}"><div class="card-button-inner wish-button">İncele > </div></a></div>
                             </div>
                       </div>
                     </div>
