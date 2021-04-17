@@ -1,4 +1,13 @@
-﻿/* card */
+﻿/*!
+ * Start Bootstrap - Busines Frontpage (https://startbootstrap.com/template-overviews/business-frontpage)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-business-frontpage/blob/master/LICENSE)
+ */
+body {
+    padding-top: 56px;
+}
+
+/* card */
 .dress-card-img-top {
     width: 100%;
     border-radius: 7px 7px 0 0;
@@ -114,13 +123,19 @@
     border-radius: 3px;
 }
 
+    .card-button-inner:hover {
+        background: #E06C9F;
+        color: #fff;
+    }
+
 .bag-button {
     background: #E06C9F;
     color: white;
 }
 
-    .bag-button :hover {
-        background: #e299b9;
+    .bag-button:hover {
+        background: #fff;
+        color: #E06C9F;
     }
 
 .wish-button {

@@ -99,7 +99,21 @@
             }
         });
 
-
+        //${
+        //    data[index].discount != null && data[index].discount > 0 ? data[index].price - (data[index].price / data[index].discount) + "₺" : data[index].price + "₺"
+        //}
+        function getPrice(data, index) {
+            let html = ``;
+            if (data[index].discount != null && data[index].discount > 0) {
+                html = `<p class="dress-card-para"><span class="dress-card-price">${data[index].price - (data[index].price / data[index].discount) + "₺"}</span>
+                        <span class="dress-card-crossed">${data[index].price} ₺</span><span class="dress-card-off float-right">&ensp; (% ${data[index].discount} İndirim)</span>
+                        </p>`
+            }
+            else {
+                html = `<p class="dress-card-para"><span class="dress-card-price">${data[index].price} ₺ &ensp;</span></p>`;
+            }
+            return html;
+        }
         function product(data, index){
             let html =
                 `
@@ -114,17 +128,14 @@
                             </div>
                         </div>
                         <div class="dress-card-body">
-                            <h4 class="dress-card-title" style="text-align:center;">${data[index].name}</h4>
+                            <h4 class="dress-card-title">${data[index].name}</h4>
+                            <p class="dress-card-para">
+                            ${ getPrice(data, index) }
                             <div class="row">
-                                <div class="col-md-12 card-button">
-                                    <a href="/${data[index].url}">
-                                        <div class="card-button-inner wish-button">
-                                            <p class="dress-card-para"><span class="dress-card-price">${data[index].price} ₺</span><b>İncele</b></p>
-                                        </div>
-                                    </a>
-                                </div>
+                              <div class="col-md-6 card-button"><a href=""><div class="card-button-inner bag-button">Sepete Ekle</div></a></div>
+                              <div class="col-md-6 card-button"><a href=""><div class="card-button-inner wish-button">İncele > </div></a></div>
                             </div>
-                        </div>
+                      </div>
                     </div>
                 </div>
                 `;
