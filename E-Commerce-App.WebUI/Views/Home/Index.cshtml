@@ -6,15 +6,17 @@
     <!-- Product Css -->
     <link rel="stylesheet" href="~/css/product.css" />
     <style>
+
         .bag-button {
             border: 1px solid #386ded;
             background: #386ded;
             color: #fff;
         }
-            .bag-button:hover {
-                background-image: linear-gradient(to right, #386ded, #3b4dd4);
-                color: #fff;
-            }
+
+        .bag-button:hover {
+            background-image: linear-gradient(to right, #386ded, #3b4dd4);
+            color: #fff;
+        }
 
         .wish-button:hover {
             background-image: linear-gradient(to right, #386ded, #3b4dd4);
@@ -25,6 +27,10 @@
             border: 1px solid #386ded;
             background: #386ded;
             color: #fff;
+        }
+
+        .dress-card-off {
+            color: #e34b60 !important;
         }
     </style>
 }
@@ -127,12 +133,12 @@
         function getPrice(data, index) {
             let html = ``;
             if (data[index].discount != null && data[index].discount > 0) {
-                html = `<p class="dress-card-para"><span class="dress-card-price">${data[index].price - (data[index].price / data[index].discount) + "₺"}</span>
-                        <span class="dress-card-crossed">${data[index].price} ₺</span><span class="dress-card-off float-right">&ensp; (% ${data[index].discount} İndirim)</span>
+                html = `<p class="dress-card-para"><span class="dress-card-price">${data[index].price - (data[index].price / data[index].discount) + "&nbsp;₺"}</span>
+                        <span class="dress-card-crossed">${data[index].price}&nbsp;₺</span><span class="dress-card-off float-right">&ensp; (% ${data[index].discount} İndirim)</span>
                         </p>`
             }
             else {
-                html = `<p class="dress-card-para"><span class="dress-card-price">${data[index].price} ₺ &ensp;</span></p>`;
+                html = `<p class="dress-card-para"><span class="dress-card-price">${data[index].price} &nbsp;₺ &ensp;</span></p>`;
             }
             return html;
         }

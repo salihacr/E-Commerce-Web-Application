@@ -3,26 +3,27 @@
     <thead class="thead-light">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                #
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Kategori
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreationDate)
+                Oluşturma Tarihi
             </th>
             <th>
-                <a onclick="showInPopup('@Url.Action("AddOrEdit","AdminCategory",null,Context.Request.Scheme)','Add Category')"
+                <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", null, Context.Request.Scheme)','Add Category')"
                    class="btn btn-success text-white">Kategori Ekle</a>
             </th>
         </tr>
     </thead>
     <tbody>
+        @{ var counter = 1;}
         @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
+                    @counter
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
@@ -32,12 +33,13 @@
                 </td>
                 <td>
                     <div>
-                        <a onclick="showInPopup('@Url.Action("AddOrEdit","AdminCategory",new {id=item.Id},Context.Request.Scheme)','Update Category')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a>
-                        <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
-                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", new { id = item.Id }, Context.Request.Scheme)','Kategori Güncelleme')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Düzenle</a>
+                        <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return removeCategory(this)" class="d-inline">
+                            <input type="submit" value="Sil" class="btn btn-danger" />
                         </form>
                     </div>
                 </td>
+                @{counter++;}
             </tr>
         }
     </tbody>
