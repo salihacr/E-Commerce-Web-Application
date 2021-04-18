@@ -17,9 +17,9 @@
     <div class="form">
         <img src="https://raw.githubusercontent.com/bedimcode/responsive-login-form/eafbae66248bc27a0b1e26e2a5ddd2ad0d01956b/assets/img/authentication.svg" alt="" class="form__img">
 
-        <form action="" class="form__content">
+        <form asp-controller="Account" asp-action="Login" method="post" class="form__content">
 
-            <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl">
+            @*<input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl">*@
 
             <h1 class="form__title">Hoşgeldiniz</h1>
 
@@ -33,6 +33,7 @@
                     <input type="text" class="form__input" asp-for="Email" />
                 </div>
             </div>
+            <span asp-validation-for="Email" class="text-danger"></span>
             <div class="form__div">
                 <div class="form__icon">
                     <i class='fa fa-lock'></i>
@@ -45,15 +46,20 @@
                         <i class="fa fa-eye" id="eye"></i>
                     </div>
                 </div>
-
             </div>
-            <a href="#" class="form__forgot">Kayıtlı mısınız ? (Giriş Yap)</a>
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <a href="#" class="form__forgot">Şifremi Unuttum</a>
 
             <input type="submit" class="form__button" value="Giriş Yap" />
         </form>
     </div>
 
 </div>
+<script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
 
 <style>
     /*===== GOOGLE FONTS =====*/

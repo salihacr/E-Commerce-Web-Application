@@ -17,7 +17,8 @@ namespace E_Commerce_App.WebUI.Controllers
             _signInManager = signInManager;
         }
         // Pages
-        [Route("signin")]
+        //[Route("signin")]
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
@@ -31,6 +32,11 @@ namespace E_Commerce_App.WebUI.Controllers
         public IActionResult ForgotPassword()
         {
             return View();
+        }
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return Redirect("~/");
         }
         public IActionResult ResetPassword(string userId, string token)
         {
@@ -60,7 +66,7 @@ namespace E_Commerce_App.WebUI.Controllers
             {
                 var user = await _userManager.FindByEmailAsync(model.Email);
 
-                if (user == null) return Json(new { message = "E-mail adresi ile zaten kayıt yapılmış." });
+                if (user == null) return Json(new { message = "Email adı veya parola hatalı." });
 
                 if (!await _userManager.IsEmailConfirmedAsync(user))
                     return Json(new { message = "E-mail adresi ile zaten kayıt yapılmış." });
@@ -69,7 +75,7 @@ namespace E_Commerce_App.WebUI.Controllers
 
                 if (result.Succeeded) return Redirect(model.ReturnUrl ?? "~/");
 
-                else return Json(new { message = "Kullanıcı adı veya parola hatalı." });
+                else return Json(new { message = "Email adı veya parola hatalı." });
             }
             return View(model);
         }
