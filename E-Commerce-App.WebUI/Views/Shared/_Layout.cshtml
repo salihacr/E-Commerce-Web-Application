@@ -14,48 +14,8 @@
     @RenderSection("Css", false)
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light p-4 fixed-top" style="box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);">
-        <div class="col-md-4">
-            <a class="navbar-brand" href="#">
-                <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="30" class="d-inline-block align-top" alt="">
-                Bootstrap
-            </a>
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="col-md-6">
-                <form action="/Home/Index">
-                    <div class="input-group">
-                        <input type="text" id="searchForm" class="form-control" name="query" placeholder="Aramak istediğiniz ürünü yazın." style="border-radius: 16px 0px 0px 16px;outline: 0 !important;" required />
-                        <div class="input-group-append">
-                            <button class="btn text-white" type="submit" style="background-image: linear-gradient(to right, #386ded, #3b4dd4);
-        border-radius: 0px 16px 16px 0px;outline: 0 !important;">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-4">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Sepetim <span class="sr-only"></span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/signin"><i class="fa fa-user"></i> Giriş Yap <span class="sr-only"></span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/signup">Kayıt Ol <span class="sr-only"></span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div style="margin-bottom:100px;"></div>
+    @await Html.PartialAsync("_Navbar")
+-
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

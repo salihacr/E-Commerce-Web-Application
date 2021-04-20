@@ -8,7 +8,7 @@ namespace E_Commerce_App.WebUI.Identity
     {
         public UserContext(DbContextOptions<UserContext> options) : base(options)
         {
-
+            
         }
     }
     public class User : IdentityUser

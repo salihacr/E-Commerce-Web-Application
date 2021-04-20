@@ -64,8 +64,9 @@ namespace E_Commerce_App.WebUI
 
             services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = "signin";
-                options.LogoutPath = "logout";
+                options.LoginPath = "/Account/Login";
+                options.LogoutPath = "/Account/logout";
+                options.AccessDeniedPath = "/account/accessdenied";
                 options.SlidingExpiration = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
                 options.Cookie = new CookieBuilder
@@ -99,7 +100,8 @@ namespace E_Commerce_App.WebUI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
+            RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
         {
             if (env.IsDevelopment())
             {
@@ -118,6 +120,8 @@ namespace E_Commerce_App.WebUI
                     Path.Combine(Directory.GetCurrentDirectory(), "node_modules")),
                 RequestPath = "/node_modules"
             });
+
+            app.UseAuthentication();
 
             app.UseRouting();
 
@@ -169,6 +173,7 @@ namespace E_Commerce_App.WebUI
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            IdentitySeed.Seed(Configuration, userManager, roleManager).Wait();
         }
     }
 }

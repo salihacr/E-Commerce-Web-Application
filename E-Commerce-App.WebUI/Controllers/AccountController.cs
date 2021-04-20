@@ -1,6 +1,7 @@
 ﻿using E_Commerce_App.WebUI.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using static E_Commerce_App.WebUI.ViewModels.UserViewModel;
 
@@ -23,7 +24,6 @@ namespace E_Commerce_App.WebUI.Controllers
         {
             return View();
         }
-        [Route("signup")]
         public IActionResult Register()
         {
             return View();
@@ -48,8 +48,8 @@ namespace E_Commerce_App.WebUI.Controllers
         private async Task<bool> EmailExist(string email)
         {
             var resultUser = await _userManager.FindByEmailAsync(email);
-
-            return resultUser.Email != null ? true : false;
+            if (resultUser != null) return resultUser.Email != null ? true : false;
+            return false;
         }
         // Helper
         private async Task SendVerificationEmail(string email, string baseUrl)
@@ -69,11 +69,15 @@ namespace E_Commerce_App.WebUI.Controllers
                 if (user == null) return Json(new { message = "Email adı veya parola hatalı." });
 
                 if (!await _userManager.IsEmailConfirmedAsync(user))
-                    return Json(new { message = "E-mail adresi ile zaten kayıt yapılmış." });
+                    return Json(new { message = "E-mail adresinizi onaylamak için lütfen maillerinizi kontrol ediniz." });
 
                 var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
 
-                if (result.Succeeded) return Redirect(model.ReturnUrl ?? "~/");
+                if (result.Succeeded)
+                {
+                    ViewData["user"] = user.Id;
+                    return Redirect(model.ReturnUrl ?? "~/");
+                }
 
                 else return Json(new { message = "Email adı veya parola hatalı." });
             }
@@ -88,8 +92,9 @@ namespace E_Commerce_App.WebUI.Controllers
                 // email exist control
                 if (await EmailExist(model.Email)) return Json(new { message = "E-mail adresi ile zaten kayıt yapılmış." });
 
-                var user = new User { FullName = model.FullName, Email = model.Email };
+                var user = new User { FullName = model.FullName, Email = model.Email, UserName = model.FullName + "__" + DateTime.Now.ToString("dd-mm-HH-mm-ss-f") };
                 var resultUser = await _userManager.CreateAsync(user, model.Password);
+
 
                 // default user role adding
                 await _userManager.AddToRoleAsync(user, "customer");
@@ -104,7 +109,6 @@ namespace E_Commerce_App.WebUI.Controllers
 
                     return RedirectToAction("Login", "Account");
                 }
-                ModelState.AddModelError("", "Beklenmedik bir hata meydana geldi. Lütfen tekrar kayıt olunuz.");
             }
             return View(model);
         }
