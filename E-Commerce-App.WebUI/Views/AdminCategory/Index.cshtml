@@ -1,4 +1,4 @@
-﻿@model IEnumerable<E_Commerce_App.Core.Entities.Category>
+﻿@model IEnumerable<E_Commerce_App.Core.Shared.DTOs.CategoryDto>
 
 @{
     ViewData["CurrentPage"] = "Kategoriler";
@@ -10,50 +10,49 @@
 </div>
 
 @section Scripts{
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
+<!-- Sweet Alert  -->
+<script src="~/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
-    <!-- Sweet Alert  -->
-    <script src="~/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-
-    <script>
-        removeCategory = form => {
-            Swal.fire({
-                title: "Silmek istediğinizden emin misiniz ?",
-                text: 'Silinen veri geri kullanılamaz!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sil !',
-                cancelButtonText: 'İptal !'
-            }).then((data) => {
-                console.log(data);
-                try {
-                    if (data.isConfirmed) {
-                        $.ajax({
-                            type: 'POST',
-                            url: form.action,
-                            data: new FormData(form),
-                            contentType: false,
-                            processData: false,
-                            success: function (res) {
-                                $('#view-all').html(res.html);
-                            },
-                            error: function (err) {
-                                console.log(err)
-                            }
-                        })
-                        toastr.success("Kategori başarıyla silindi.");
-                    }
-                } catch (ex) {
-                    console.log(ex)
+<script>
+    removeCategory = form => {
+        Swal.fire({
+            title: "Silmek istediğinizden emin misiniz ?",
+            text: 'Silinen veri geri kullanılamaz!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sil !',
+            cancelButtonText: 'İptal !'
+        }).then((data) => {
+            console.log(data);
+            try {
+                if (data.isConfirmed) {
+                    $.ajax({
+                        type: 'POST',
+                        url: form.action,
+                        data: new FormData(form),
+                        contentType: false,
+                        processData: false,
+                        success: function (res) {
+                            $('#view-all').html(res.html);
+                        },
+                        error: function (err) {
+                            console.log(err)
+                        }
+                    })
+                    toastr.success("Kategori başarıyla silindi.");
                 }
-            });
-            //prevent default form submit event
-            return false;
-        }
-    </script>
+            } catch (ex) {
+                console.log(ex)
+            }
+        });
+        //prevent default form submit event
+        return false;
+    }
+</script>
 
 }

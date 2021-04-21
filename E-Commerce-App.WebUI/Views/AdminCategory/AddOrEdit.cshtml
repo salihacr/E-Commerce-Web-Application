@@ -1,7 +1,7 @@
-﻿@model E_Commerce_App.Core.Entities.Category
+﻿@model E_Commerce_App.Core.Shared.DTOs.CategoryDto
 
-@{ 
-    Layout = null; 
+@{
+    Layout = null;
 }
 
 <div class="row">
@@ -17,15 +17,42 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text">#</div>
                     </div>
-                    <input asp-for="Name" class="form-control" />
+                    <input asp-for="Name" class="form-control" id="categoryName" />
                 </div>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+            <label asp-for="Url" class="control-label"></label>
+            <input type="text" asp-for="Url" id="categoryUrl" />
+            <span asp-validation-for="Url" class="text-danger"></span>
             <div class="form-group">
                 <div class="col-md-6 offset-md-3">
-                    <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                    <input type="submit" value="Kaydet" class="btn btn-primary btn-block" />
                 </div>
             </div>
         </form>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+
+        $('#categoryName').keyup(function () {
+
+            const trCharsMap = {
+                Ç: 'C', Ö: 'O', Ş: 'S', İ: 'I', I: 'i', Ü: 'U', Ğ: 'G',
+                ç: 'c', ö: 'o', ş: 's', ı: 'i', ü: 'u', ğ: 'g'
+            };
+
+            var text = $('#categoryName').val();
+
+            for (var char in trCharsMap) {
+                text = text.replace(new RegExp('[' + char + ']', 'g'), trCharsMap[char]);
+            }
+            var url = text.replace(/[^-a-zA-Z0-9\s]+/ig, '')
+                .replace(/\s/gi, "-")
+                .replace(/[-]+/gi, "-")
+                .toLowerCase();
+
+            $('#categoryUrl').val(url);
+        });
+    });
+</script>

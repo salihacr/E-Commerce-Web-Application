@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace E_Commerce_App.Core.Common.DTOs
+namespace E_Commerce_App.Core.Shared.DTOs
 {
     public class ProductDto
     {

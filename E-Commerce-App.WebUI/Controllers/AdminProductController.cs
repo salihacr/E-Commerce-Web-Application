@@ -2,6 +2,7 @@
 using E_Commerce_App.Core.Entities;
 using E_Commerce_App.Core.Services;
 using E_Commerce_App.WebUI.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace E_Commerce_App.WebUI.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class AdminProductController : Controller
     {
         private readonly IMapper _mapper;

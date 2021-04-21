@@ -1,4 +1,4 @@
-﻿@model IEnumerable<E_Commerce_App.Core.Entities.Category>
+﻿@model IEnumerable<E_Commerce_App.Core.Shared.DTOs.CategoryDto>
 <table class="table table-striped table-bordered">
     <thead class="thead-light">
         <tr>
@@ -9,10 +9,13 @@
                 Kategori
             </th>
             <th>
+                Bağlantı
+            </th>
+            <th>
                 Oluşturma Tarihi
             </th>
             <th>
-                <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", null, Context.Request.Scheme)','Add Category')"
+                <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", null, Context.Request.Scheme)','Kategori Ekle')"
                    class="btn btn-success text-white">Kategori Ekle</a>
             </th>
         </tr>
@@ -21,26 +24,29 @@
         @{ var counter = 1;}
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @counter
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreationDate)
-                </td>
-                <td>
-                    <div>
-                        <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", new { id = item.Id }, Context.Request.Scheme)','Kategori Güncelleme')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Düzenle</a>
-                        <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return removeCategory(this)" class="d-inline">
-                            <input type="submit" value="Sil" class="btn btn-danger" />
-                        </form>
-                    </div>
-                </td>
-                @{counter++;}
-            </tr>
+        <tr>
+            <td>
+                @counter
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                <div>
+                    <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", new { id = item.Id }, Context.Request.Scheme)','Kategori Güncelleme')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Düzenle</a>
+                    <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return removeCategory(this)" class="d-inline">
+                        <input type="submit" value="Sil" class="btn btn-danger" />
+                    </form>
+                </div>
+            </td>
+            @{counter++;}
+        </tr>
         }
     </tbody>
 </table>

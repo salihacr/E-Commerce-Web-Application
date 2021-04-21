@@ -1,14 +1,17 @@
 ﻿using AutoMapper;
-using E_Commerce_App.Core.Common.DTOs;
 using E_Commerce_App.Core.Entities;
 using E_Commerce_App.Core.Services;
+using E_Commerce_App.Core.Shared.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using static E_Commerce_App.WebUI.Helpers.UIHelper;
 
 namespace E_Commerce_App.WebUI.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class AdminCategoryController : Controller
     {
         private readonly IMapper _mapper;
@@ -22,39 +25,48 @@ namespace E_Commerce_App.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var categories = await _categoryService.GetAllAsync();
-            return View(categories);
+            return View(_mapper.Map<IEnumerable<CategoryDto>>(categories));
         }
         [NoDirectAccess]
         public async Task<IActionResult> AddOrEdit(int id = 0)
         {
             var category = await _categoryService.GetByIdAsync(id);
             if (id == 0 && category == null)
-                return View(new Category());
+                return View(new CategoryDto());
             else
-                return View(category);
+                return View(_mapper.Map<CategoryDto>(category));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddOrEdit([FromForm] Category category)
+        public async Task<IActionResult> AddOrEdit([FromForm] CategoryDto categoryDto)
         {
             if (ModelState.IsValid)
             {
-                if (category.Id == 0)
-                    await _categoryService.AddAsync(category);
+                if (categoryDto.Id == 0)
+                {
+                    categoryDto.CreationDate = DateTime.Now;
+                    await _categoryService.AddAsync(_mapper.Map<Category>(categoryDto));
+                }
                 else
-                    _categoryService.Update(category);
-
-                return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await _categoryService.GetAllAsync()) });
+                {
+                    categoryDto.DateOfUpdate = DateTime.Now;
+                    _categoryService.Update(_mapper.Map<Category>(categoryDto));
+                }
+                var categories = _mapper.Map<IEnumerable<CategoryDto>>(await _categoryService.GetAllAsync());
+                return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", categories) });
             }
-            return Json(new { isValid = false, html = Helpers.UIHelper.RenderRazorViewToString(this, "AddOrEdit", category) });
+            return Json(new { isValid = false, html = Helpers.UIHelper.RenderRazorViewToString(this, "AddOrEdit", categoryDto) });
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
             var category = await _categoryService.GetByIdAsync(id);
-            _categoryService.Remove(category);
-            return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await _categoryService.GetAllAsync()) });
+            if (category != null)
+                _categoryService.Remove(category);
+
+            var categories = _mapper.Map<IEnumerable<CategoryDto>>(await _categoryService.GetAllAsync());
+            return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", categories) });
         }
     }
 }

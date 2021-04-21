@@ -1,6 +1,8 @@
+using AutoMapper;
 using E_Commerce_App.Business.Services;
 using E_Commerce_App.Core.Repositories;
 using E_Commerce_App.Core.Services;
+using E_Commerce_App.Core.Shared.Mapping;
 using E_Commerce_App.Core.UnitOfWorks;
 using E_Commerce_App.Data;
 using E_Commerce_App.Data.Repositories;
@@ -85,7 +87,12 @@ namespace E_Commerce_App.WebUI
             // API Services
 
             // Automapper
-            services.AddAutoMapper(typeof(Startup));
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<MapProfile>();
+            });
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
 
             // unitofwork
             services.AddScoped<IUnitOfWork, UnitOfWork>();
