@@ -11,6 +11,7 @@ using static E_Commerce_App.WebUI.Helpers.UIHelper;
 
 namespace E_Commerce_App.WebUI.Controllers
 {
+    // TODO kategori silerken ürün_kategoriden kategorinin oldugu tüm satırları silmeyi unutma
     [Authorize(Roles = "admin")]
     public class AdminCategoryController : Controller
     {
@@ -24,8 +25,7 @@ namespace E_Commerce_App.WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var categories = await _categoryService.GetAllAsync();
-            return View(_mapper.Map<IEnumerable<CategoryDto>>(categories));
+            return View(await GetCategories());
         }
         [NoDirectAccess]
         public async Task<IActionResult> AddOrEdit(int id = 0)
@@ -52,8 +52,7 @@ namespace E_Commerce_App.WebUI.Controllers
                     categoryDto.DateOfUpdate = DateTime.Now;
                     _categoryService.Update(_mapper.Map<Category>(categoryDto));
                 }
-                var categories = _mapper.Map<IEnumerable<CategoryDto>>(await _categoryService.GetAllAsync());
-                return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", categories) });
+                return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await GetCategories()) });
             }
             return Json(new { isValid = false, html = Helpers.UIHelper.RenderRazorViewToString(this, "AddOrEdit", categoryDto) });
         }
@@ -65,8 +64,10 @@ namespace E_Commerce_App.WebUI.Controllers
             if (category != null)
                 _categoryService.Remove(category);
 
-            var categories = _mapper.Map<IEnumerable<CategoryDto>>(await _categoryService.GetAllAsync());
-            return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", categories) });
+            return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await GetCategories()) });
         }
+        // Get All Categories
+        public async Task<IEnumerable<CategoryDto>> GetCategories()
+            => _mapper.Map<IEnumerable<CategoryDto>>(await _categoryService.GetAllAsync());
     }
 }

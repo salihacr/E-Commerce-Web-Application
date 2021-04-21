@@ -21,9 +21,7 @@
                 </div>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <label asp-for="Url" class="control-label"></label>
-            <input type="text" asp-for="Url" id="categoryUrl" />
-            <span asp-validation-for="Url" class="text-danger"></span>
+            <input type="hidden" asp-for="Url" id="categoryUrl" />
             <div class="form-group">
                 <div class="col-md-6 offset-md-3">
                     <input type="submit" value="Kaydet" class="btn btn-primary btn-block" />
