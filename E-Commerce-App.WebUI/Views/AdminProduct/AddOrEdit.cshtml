@@ -1,5 +1,5 @@
 ﻿@model E_Commerce_App.WebUI.ViewModels.ProductViewModel
-@if (ViewData["ProductId"].ToString() != "")
+@if (!string.IsNullOrEmpty(ViewData["ProductId"].ToString()))
 {
     ViewData["CurrentPage"] = "Ürünler / Düzenle / " + ViewData["ProductId"];
     ViewData["CurrentPageUrl"] = "Product/Edit/" + ViewData["ProductId"];
@@ -7,7 +7,7 @@
 else
 {
     ViewData["CurrentPage"] = "Ürünler / Ürün Ekle";
-    ViewData["CurrentPageUrl"] = "Product/Edit/" + ViewData["ProductId"];
+    ViewData["CurrentPageUrl"] = "Product/Add/";
 }
 
 @section Css{
@@ -20,42 +20,42 @@ else
 
 <form enctype="multipart/form-data" id="productForm" method="post">
 
-    <input type="hidden" asp-for="Product.Id" />
+    <input type="hidden" asp-for="ProductDto.Id" />
 
-    <input type="hidden" asp-for="Product.CreationDate" />
+    <input type="hidden" asp-for="ProductDto.CreationDate" />
 
-    <input type="hidden" asp-for="Product.MainImage" />
+    <input type="hidden" asp-for="ProductDto.MainImage" />
 
     <div class="row">
         <div class="col-md-8">
             <div class="card p-2">
                 <div class="form-row">
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" asp-for="Product.Name" placeholder="Ürün Adı" />
-                        <span class="text-danger" asp-validation-for="Product.Name"></span>
+                    <div class="col-md-6 form-group">
+                        <input type="text" class="form-control" id="productName" asp-for="ProductDto.Name" placeholder="Ürün Adı" />
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" asp-for="Product.Url" placeholder="Ürün URL" />
-                        <span class="text-danger" asp-validation-for="Product.Url"></span>
+                    <div class="col-md-6 form-group">
+                        <input type="text" asp-for="ProductDto.Url" id="productUrl" class="form-control" />
                     </div>
                 </div>
                 <br />
                 <div class="form-row">
-                    <div class="col-md-6">
-                        <input type="number" step="0.1" min="1" max="1000000" class="form-control" asp-for="Product.Price" placeholder="Ürün Fiyatı" />
-                        <span class="text-danger" asp-validation-for="Product.Price"></span>
+                    <div class="col-md-6 form-group">
+                        <input type="number" step="0.1" min="1" max="1000000" class="form-control" id="productPrice" asp-for="ProductDto.Price" placeholder="Ürün Fiyatı" />
                     </div>
-                    <div class="col-md-6">
-                        <input type="number" step="0.1" min="1" max="100" class="form-control" asp-for="Product.Discount" placeholder="İndirim %" />
+                    <div class="col-md-6 form-group">
+                        <input type="number" step="0.1" class="form-control" id="productDiscount" asp-for="ProductDto.Discount" placeholder="İndirim %" />
                     </div>
                 </div>
                 <br />
-                <textarea asp-for="Product.ShortDescription" maxlength="240" class="form-control" placeholder="Ön açıklama yazınızı buraya giriniz."></textarea>
+                <div class="form-group">
+                    <textarea asp-for="ProductDto.ShortDescription" id="productShortDescription" maxlength="240" class="form-control" placeholder="Ön açıklama yazınızı buraya giriniz."></textarea>
+                </div>
                 <br />
-                <textarea id="html-editor" asp-for="Product.Description">
+                <div class="form-group">
+                    <textarea id="html-editor" asp-for="ProductDto.Description">
                     Ürünün Detaylı Açıklamasını Burada Yapınız
                 </textarea>
-                <span class="text-danger" asp-validation-for="Product.ShortDescription"></span>
+                </div>
             </div>
         </div>
         <div class="col-md-4">
@@ -90,9 +90,8 @@ else
                 </div>
                 <hr />
                 <div class="form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" asp-for="Product.IsHome" />
-                    <label class="form-check-label" asp-for="Product.IsHome">Satışa Çıkarılsın mı ?</label>
-                    <span class="text-danger" asp-validation-for="Product.IsHome"></span>
+                    <input type="checkbox" class="form-check-input" asp-for="ProductDto.IsHome" />
+                    <label class="form-check-label" asp-for="ProductDto.IsHome">Satışa Çıkarılsın mı ?</label>
                 </div>
                 <br />
                 @*Submit Button*@
@@ -105,16 +104,15 @@ else
                 <div class="form-group">
                     <p>Ana Resim</p>
                     <input type="file" name="mainImage" onchange="showpreview(this);" />
-                    <input type="hidden" asp-for="Product.MainImage" />
-                    @if (Model.Product.MainImage == "")
+                    <input type="hidden" asp-for="ProductDto.MainImage" id="productMainImage" />
+                    @if (Model.ProductDto.MainImage == "")
                     {
                         <img id="imgpreview" height="200" width="200" style="border-width: 0px;display: none;" />
                     }
                     else
                     {
-                        <img src="~/img/@Model.Product.MainImage" id="imgpreview" height="200" width="200" style="border-width: 0px;" />
+                        <img src="~/img/@Model.ProductDto.MainImage" id="imgpreview" height="200" width="200" style="border-width: 0px;" />
                     }
-                    <span class="text-danger" asp-validation-for="Product.MainImage"></span>
                 </div>
                 <div class="form-group">
                     <p>Ürün Resimleri</p>
@@ -134,13 +132,101 @@ else
         </div>
     </div>
 </form>
-<button class="btn btn-danger" onclick="test();">test</button>
 @section Scripts{
     <script src="~/node_modules/trumbowyg/dist/trumbowyg.min.js"></script>
     <script src="~/node_modules/trumbowyg/dist/langs/tr.min.js"></script>
+
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/additional-methods.min.js"></script>
+
     @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
 
     <script>
+        $(document).ready(function () {
+            $('#productName').keyup(function () {
+
+                const trCharsMap = {
+                    Ç: 'C', Ö: 'O', Ş: 'S', İ: 'I', I: 'i', Ü: 'U', Ğ: 'G',
+                    ç: 'c', ö: 'o', ş: 's', ı: 'i', ü: 'u', ğ: 'g'
+                };
+
+                var text = $('#productName').val();
+
+                for (var char in trCharsMap) {
+                    text = text.replace(new RegExp('[' + char + ']', 'g'), trCharsMap[char]);
+                }
+                var url = text.replace(/[^-a-zA-Z0-9\s]+/ig, '')
+                    .replace(/\s/gi, "-")
+                    .replace(/[-]+/gi, "-")
+                    .toLowerCase();
+
+                console.log(url);
+
+                $('#productUrl').val(url);
+            });
+        });
+
+        const REQUIRED_INPUT_MESSAGE = "Bu alanın doldurulması zorunludur."
+
+        $('#productForm').validate({
+
+
+            rules: {
+                "ProductDto.Name": {
+                    required: true
+                },
+                "ProductDto.Price": {
+                    required: true,
+                    minlength: 1,
+                    maxlength: 100000,
+                },
+                "ProductDto.Url": {
+                    required: true,
+                },
+                "ProductDto.Discount": {
+                    minlength: 1,
+                    maxlength: 95,
+                },
+                "ProductDto.ShortDescription": {
+                    required: true,
+                },
+            },
+            messages: {
+                "ProductDto.Name": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                },
+                "ProductDto.Url": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                },
+                "ProductDto.Price": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                    minlength: "Ürün fiyatı en az 1₺ olabilir.",
+                    maxlength: "Ürün fiyatı en fazla 100000₺ olabilir.",
+                },
+                "ProductDto.Discount": {
+                    minlength: "İndirim bedeli en az % 1 olabilir.",
+                    maxlength: "Ürün fiyatı en fazla % 95 olabilir.",
+                },
+                "ProductDto.ShortDescription": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                },
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
+
+
+
+
         // \/Admin\/Product\/Add Regex for add url
         // \/Admin\/Product\/Edit\/\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b Regex for Edit Url
         // şuan guid kullanma
@@ -149,6 +235,10 @@ else
         });
 
         $('#productForm').on('submit', function (event) {
+
+
+
+
 
             const addUrlRegex = new RegExp('\/Admin\/Product\/Add');
             const editUrlRegex = new RegExp('\/Admin\/Product\/Edit\/');

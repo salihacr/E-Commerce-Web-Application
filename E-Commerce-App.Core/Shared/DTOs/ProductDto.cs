@@ -5,6 +5,28 @@ using System.ComponentModel.DataAnnotations;
 
 namespace E_Commerce_App.Core.Shared.DTOs
 {
+    public class ColorDto : BaseDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Code { get; set; }
+    }
+    public class ImageDto : BaseDto
+    {
+        public int Id { get; set; }
+        public string ImagePath { get; set; }
+        public string ProductId { get; set; }
+    }
+    public class ProductColorDto : BaseDto
+    {
+        public int ColorId { get; set; }
+        public string ProductId { get; set; }
+    }
+    public class ProductCategoryDto : BaseDto
+    {
+        public int CategoryId { get; set; }
+        public string ProductId { get; set; }
+    }
     public class ProductDto : BaseDto
     {
         public string Id { get; set; }
@@ -13,7 +35,6 @@ namespace E_Commerce_App.Core.Shared.DTOs
         public string Name { get; set; }
 
         [Display(Name = "Ürün Bağlantısı")]
-        [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         public string Url { get; set; }
 
         [Display(Name = "Ürün Fiyatı")]
@@ -22,7 +43,6 @@ namespace E_Commerce_App.Core.Shared.DTOs
         public double? Price { get; set; }
 
         [Display(Name = "Ürün İndirim Oranı")]
-        [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         [Range(1, 100, ErrorMessage = "1 ile 100 arasında değer girmelisiniz.")]
         public double? Discount { get; set; }
 
@@ -35,11 +55,14 @@ namespace E_Commerce_App.Core.Shared.DTOs
         public string Description { get; set; }
 
         [Display(Name = "Ürün Anasayfada Görünsün mü ?")]
-        [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         public bool IsHome { get; set; }
 
         [Display(Name = "Ürün Kapak Resmi")]
-        [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         public string MainImage { get; set; }
+
+
+        public ICollection<ImageDto> Images { get; set; }
+        public ICollection<ProductColorDto> ProductColors { get; set; }
+        public ICollection<ProductCategoryDto> ProductCategories { get; set; }
     }
 }

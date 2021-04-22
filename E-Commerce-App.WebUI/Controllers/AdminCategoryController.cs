@@ -17,9 +17,14 @@ namespace E_Commerce_App.WebUI.Controllers
     {
         private readonly IMapper _mapper;
         private readonly ICategoryService _categoryService;
-        public AdminCategoryController(ICategoryService categoryService, IMapper mapper)
+        private readonly IService<ProductCategory> _productCategoryService;
+        public AdminCategoryController(
+            ICategoryService categoryService,
+            IService<ProductCategory> productCategoryService,
+            IMapper mapper)
         {
             _categoryService = categoryService;
+            _productCategoryService = productCategoryService;
             _mapper = mapper;
         }
         [HttpGet]
@@ -60,11 +65,22 @@ namespace E_Commerce_App.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            var category = await _categoryService.GetByIdAsync(id);
-            if (category != null)
-                _categoryService.Remove(category);
 
-            return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await GetCategories()) });
+            try
+            {
+                var category = await _categoryService.GetByIdAsync(id);
+                if (category != null)
+                    _categoryService.Remove(category);
+
+                var productCategories = await _productCategoryService.Where(p => p.CategoryId == category.Id);
+                _productCategoryService.RemoveRange(productCategories);
+                return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await GetCategories()) });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
         }
         // Get All Categories
         public async Task<IEnumerable<CategoryDto>> GetCategories()

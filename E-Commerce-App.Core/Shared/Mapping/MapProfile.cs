@@ -13,6 +13,14 @@ namespace E_Commerce_App.Core.Shared.Mapping
             //CreateMap<CategoryDto, Category>();
             // Map Product 
             CreateMap<Product, ProductDto>().ReverseMap();
+
+            CreateMap<Color, ColorDto>().ReverseMap();
+
+            CreateMap<Image, ImageDto>().ReverseMap();
+
+            CreateMap<ProductColor, ProductColorDto>().ReverseMap();
+
+            CreateMap<ProductCategory, ProductCategoryDto>().ReverseMap();
         }
     }
 }

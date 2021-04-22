@@ -1,10 +1,10 @@
 ﻿@model E_Commerce_App.WebUI.ViewModels.ProductViewModel
 @{
     Layout = "_Layout";
-    var product = Model.Product;
-    var mainImage = Model.Product.MainImage;
+    var product = Model.ProductDto;
+    var mainImage = Model.ProductDto.MainImage;
     var imageList = Model.Images.ToList();
-    imageList.Insert(0, new E_Commerce_App.Core.Entities.Image { ImagePath = mainImage });
+    imageList.Insert(0, new E_Commerce_App.Core.Shared.DTOs.ImageDto { ImagePath = mainImage });
 }
 @section Css{
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
@@ -403,7 +403,7 @@
                 <div class="col-md-6">
                     <div class="product-dtl">
                         <div class="product-info">
-                            <div class="product-name">@Model.Product.Name</div>
+                            <div class="product-name">@Model.ProductDto.Name</div>
                             <div class="reviews-counter">
                                 <div class="rate">
                                     <input type="radio" id="star5" name="rate" value="5" checked />
@@ -429,16 +429,16 @@
                                         } ₺
                                     </span>
                                     <span class="line-through">
-                                        @Model.Product.Price ₺
+                                        @Model.ProductDto.Price ₺
                                     </span>
                                 }
                                 else
                                 {
-                                    <span>@Model.Product.Price ₺</span>
+                                    <span>@Model.ProductDto.Price ₺</span>
                                 }
                             </div>
                         </div>
-                        <p>@Model.Product.ShortDescription</p>
+                        <p>@Model.ProductDto.ShortDescription</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="size">Renk</label><br />
@@ -487,7 +487,7 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                        @Html.Raw(Model.Product.Description)
+                        @Html.Raw(Model.ProductDto.Description)
                     </div>
                     <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                         <div class="review-heading">REVIEWS</div>

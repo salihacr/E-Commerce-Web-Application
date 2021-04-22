@@ -2,6 +2,7 @@
 using E_Commerce_App.Core.Entities;
 using E_Commerce_App.Core.Services;
 using E_Commerce_App.Core.Shared.DTOs;
+using E_Commerce_App.WebUI.Helpers;
 using E_Commerce_App.WebUI.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -16,12 +17,13 @@ namespace E_Commerce_App.WebUI.Controllers
     public class AdminProductController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly IService<Color> _colorService;
         private readonly IService<ProductColor> _productColorService;
         private readonly IService<ProductCategory> _productCategoryService;
         private readonly IService<Image> _imageService;
+        private readonly IService<Color> _colorService;
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
+        private readonly ProductCRUDHelper _crudHelper;
         public AdminProductController(
             IService<Color> colorService,
             IService<ProductColor> productColorService,
@@ -38,6 +40,7 @@ namespace E_Commerce_App.WebUI.Controllers
             _productService = productService;
             _categoryService = categoryService;
             _mapper = mapper;
+            _crudHelper = new ProductCRUDHelper(productColorService, productCategoryService, imageService, mapper);
         }
         [HttpGet]
         public async Task<IActionResult> Index()
@@ -58,10 +61,10 @@ namespace E_Commerce_App.WebUI.Controllers
                 {
                     return View(new ProductViewModel()
                     {
-                        Product = new Product() { MainImage = "" },
-                        Categories = categories,
+                        ProductDto = new ProductDto() { MainImage = "" },
+                        Categories = _mapper.Map<IEnumerable<CategoryDto>>(categories),
                         Images = null,
-                        Colors = colors
+                        Colors = _mapper.Map<IEnumerable<ColorDto>>(colors)
                     });
                 }
                 else
@@ -72,12 +75,12 @@ namespace E_Commerce_App.WebUI.Controllers
                     var productImages = await _imageService.Where(i => i.ProductId == product.Id);
                     var productViewModel = new ProductViewModel()
                     {
-                        Product = product,
-                        Categories = categories,
-                        SelectedCategories = selectedCategories,
-                        Colors = colors,
-                        SelectedColors = selectedColors,
-                        Images = productImages
+                        ProductDto = _mapper.Map<ProductDto>(product),
+                        Categories = _mapper.Map<IEnumerable<CategoryDto>>(categories),
+                        SelectedCategories = _mapper.Map<IEnumerable<ProductCategoryDto>>(selectedCategories),
+                        Colors = _mapper.Map<IEnumerable<ColorDto>>(colors),
+                        SelectedColors = _mapper.Map<IEnumerable<ColorDto>>(selectedColors),
+                        Images = _mapper.Map<IEnumerable<ImageDto>>(productImages)
                     };
                     return View(productViewModel);
                 }
@@ -91,145 +94,34 @@ namespace E_Commerce_App.WebUI.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddOrEdit([FromForm] Product product, IFormFile mainImage, List<IFormFile> allImages, int[] categoryIds, int[] colorIds)
+        public async Task<IActionResult> AddOrEdit([FromForm] ProductDto productDto, IFormFile mainImage, List<IFormFile> allImages, int[] categoryIds, int[] colorIds)
         {
+
             // TODO url tekrarlama durumunu kontrol et ona göre hata gönder
-            if (ModelState.IsValid)
+            try
             {
-                if (string.IsNullOrEmpty(product.Id))
+                if (ModelState.IsValid)
                 {
-                    var newProduct = await ProductForAdd(product, mainImage, allImages, categoryIds, colorIds);
-                    await _productService.AddAsync(newProduct);
-                }
-                else
-                {
-                    var editedProduct = await ProductForEdit(product, mainImage, allImages, categoryIds, colorIds);
-                    _productService.Update(editedProduct);
-                }
-                return Json(new { isValid = true, message = "Ürün kaydı başarılı." });
-            }
-            return Json(new { isValid = false, message = "Ürün kayıt hatası." });
-        }
-        public async Task<Product> ProductForEdit(Product product, IFormFile mainImage, List<IFormFile> allImages, int[] categoryIds, int[] colorIds)
-        {
-            product.DateOfUpdate = DateTime.Now;
-
-            var beforeImages = await _imageService.Where(i => i.ProductId == product.Id);
-
-            if (mainImage != null)
-                product.MainImage = await Helpers.ImageHelper.SaveImage(mainImage);
-
-            if (allImages.Count > 0) // count 0 dan büyükse
-            {
-                var productImages = new List<Image>();
-                // remove before images
-                if (beforeImages != null)
-                {
-                    foreach (var image in beforeImages)
+                    if (string.IsNullOrEmpty(productDto.Id))
                     {
-                        var beforeImage = await _imageService.GetByIdAsync(image.Id);
-                        _imageService.Remove(beforeImage);
+                        var newProduct = await _crudHelper.ProductForAdd(productDto, mainImage, allImages, categoryIds, colorIds);
+                        await _productService.AddAsync(_mapper.Map<ProductDto, Product>(newProduct));
                     }
-                }
-                // add new images
-                foreach (var image in allImages)
-                {
-                    string path = await Helpers.ImageHelper.SaveImage(image);
-                    var productImage = new Image() { ImagePath = path, ProductId = product.Id };
-                    productImages.Add(productImage);
-                }
-                product.Images = productImages;
-                // save images to database
-                await _imageService.AddRangeAsync(productImages);
-            }
-            if (categoryIds.Length >= 0)
-            {
-                var beforeCategories = await _productCategoryService.Where(i => i.ProductId == product.Id);
-                if (beforeCategories != null)
-                {
-                    foreach (var pCategory in beforeCategories)
+                    else
                     {
-                        _productCategoryService.Remove(pCategory);
+                        var editedProduct = await _crudHelper.ProductForEdit(productDto, mainImage, allImages, categoryIds, colorIds);
+                        _productService.Update(_mapper.Map<ProductDto, Product>(editedProduct));
                     }
+                    return Json(new { isValid = true, message = "Ürün kaydı başarılı." });
                 }
-                var productCategories = new List<ProductCategory>();
-
-                for (int i = 0; i < categoryIds.Length; i++)
-                {
-                    var productCategory = new ProductCategory() { ProductId = product.Id, CategoryId = categoryIds[i] };
-                    productCategories.Add(productCategory);
-                }
-                product.ProductCategories = productCategories;
-                await _productCategoryService.AddRangeAsync(productCategories);
+                return Json(new { isValid = false, message = "Lütfen tüm alanları doldurunuz." });
             }
-            if (colorIds.Length >= 0)
+            catch (Exception)
             {
-                var beforeColors = await _productColorService.Where(i => i.ProductId == product.Id);
-                if (beforeColors != null)
-                {
-                    foreach (var pColor in beforeColors)
-                    {
-                        _productColorService.Remove(pColor);
-                    }
-                }
-                var productColors = new List<ProductColor>();
-
-                for (int i = 0; i < colorIds.Length; i++)
-                {
-                    var productColor = new ProductColor() { ProductId = product.Id, ColorId = colorIds[i] };
-                    productColors.Add(productColor);
-                }
-                product.ProductColors = productColors;
-                await _productColorService.AddRangeAsync(productColors);
+                return Json(new { isValid = false, message = "Ürün kayıt hatası." });
             }
-            return product;
         }
-        public async Task<Product> ProductForAdd(Product product, IFormFile mainImage, List<IFormFile> allImages, int[] categoryIds, int[] colorIds)
-        {
-            product.Id = Guid.NewGuid().ToString();
 
-            product.CreationDate = DateTime.Now;
-
-            // Url
-            product.Url += "-" + DateTime.Now.ToString("HHmmFFFFF");
-
-            if (mainImage != null)
-                product.MainImage = await Helpers.ImageHelper.SaveImage(mainImage);
-
-            if (allImages.Count > 0) // count 0 dan büyükse
-            {
-                var productImages = new List<Image>();
-                // add new images
-                foreach (var image in allImages)
-                {
-                    string path = await Helpers.ImageHelper.SaveImage(image);
-                    var productImage = new Image() { ImagePath = path, ProductId = product.Id };
-                    productImages.Add(productImage);
-                }
-                product.Images = productImages;
-            }
-            if (categoryIds.Length > 0)
-            {
-                var productCategories = new List<ProductCategory>();
-                for (int i = 0; i < categoryIds.Length; i++)
-                {
-                    var productCategory = new ProductCategory() { ProductId = product.Id, CategoryId = categoryIds[i] };
-                    productCategories.Add(productCategory);
-                }
-                product.ProductCategories = productCategories;
-            }
-            if (colorIds.Length > 0)
-            {
-                var productColors = new List<ProductColor>();
-                for (int i = 0; i < colorIds.Length; i++)
-                {
-                    var productColor = new ProductColor() { ProductId = product.Id, ColorId = colorIds[i] };
-                    productColors.Add(productColor);
-                }
-                product.ProductColors = productColors;
-            }
-            return product;
-        }
         [HttpPost]
         public async Task<IActionResult> DeleteProduct(string id)
         {
@@ -241,7 +133,7 @@ namespace E_Commerce_App.WebUI.Controllers
                 var productCategories = await _productCategoryService.Where(p => p.ProductId == product.Id);
                 _productColorService.RemoveRange(productColors);
                 _productCategoryService.RemoveRange(productCategories);
-                return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllProducts", await _productService.GetAllAsync()) });
+                return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllProducts", await GetProducts()) });
             }
             catch (Exception ex)
             {

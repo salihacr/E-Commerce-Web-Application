@@ -12,8 +12,9 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",
+    "jquery-validation": "^1.19.3",
     "jquery-validation-unobtrusive": "^3.2.12",
-    "sweetalert2": "^10.15.6",
+    "sweetalert2": "^10.15.5",
     "toastr": "^2.1.4",
     "trumbowyg": "^2.23.0",
     "twbs-pagination": "^1.4.2"
