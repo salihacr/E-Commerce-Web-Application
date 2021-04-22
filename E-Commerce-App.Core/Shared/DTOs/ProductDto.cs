@@ -5,29 +5,41 @@ using System.ComponentModel.DataAnnotations;
 
 namespace E_Commerce_App.Core.Shared.DTOs
 {
-    public class ProductDto
+    public class ProductDto : BaseDto
     {
-        [Required(ErrorMessage = "Bu alanın girilmesi zorunludur")]
+        public string Id { get; set; }
+        [Display(Name = "Ürün Adı")]
+        [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Bu alanın girilmesi zorunludur")]
+
+        [Display(Name = "Ürün Bağlantısı")]
+        [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         public string Url { get; set; }
-        [Required(ErrorMessage = "Bu alanın girilmesi zorunludur")]
-        [Range(1, 1000000, ErrorMessage = "1 ile 1000000 arasında değer girebilirsiniz")]
+
+        [Display(Name = "Ürün Fiyatı")]
+        [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
+        [Range(1, 1000000, ErrorMessage = "1 ile 1000000 arasında değer girmelisiniz.")]
         public double? Price { get; set; }
-        [Required(ErrorMessage = "Bu alanın girilmesi zorunludur")]
+
+        [Display(Name = "Ürün İndirim Oranı")]
+        [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
+        [Range(1, 100, ErrorMessage = "1 ile 100 arasında değer girmelisiniz.")]
+        public double? Discount { get; set; }
+
+        [Display(Name = "Ürün Açıklaması")]
+        [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
+        public string ShortDescription { get; set; }
+
+        [Display(Name = "Ürün Detaylı Açıklaması")]
+        [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         public string Description { get; set; }
-        [Required(ErrorMessage = "Bu alanın girilmesi zorunludur")]
+
+        [Display(Name = "Ürün Anasayfada Görünsün mü ?")]
+        [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         public bool IsHome { get; set; }
-        [Required(ErrorMessage = "Bu alanın girilmesi zorunludur")]
+
+        [Display(Name = "Ürün Kapak Resmi")]
+        [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         public string MainImage { get; set; }
-
-        // Product Category Relation
-        public IEnumerable<Category> Categories { get; set; }
-
-        // Product Image Relation
-        public IEnumerable<Image> Images { get; set; }
-
-        // Product Color Relation
-        public IEnumerable<Color> Colors { get; set; }
     }
 }

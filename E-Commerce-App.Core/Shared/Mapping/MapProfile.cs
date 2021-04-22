@@ -8,9 +8,11 @@ namespace E_Commerce_App.Core.Shared.Mapping
     {
         public MapProfile()
         {
-            // Map Category with DTOS
-            CreateMap<Category, CategoryDto>();
-            CreateMap<CategoryDto, Category>();
+            // Map Category
+            CreateMap<Category, CategoryDto>().ReverseMap();
+            //CreateMap<CategoryDto, Category>();
+            // Map Product 
+            CreateMap<Product, ProductDto>().ReverseMap();
         }
     }
 }

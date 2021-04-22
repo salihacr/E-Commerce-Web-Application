@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using E_Commerce_App.Core.Entities;
 using E_Commerce_App.Core.Services;
+using E_Commerce_App.Core.Shared.DTOs;
 using E_Commerce_App.WebUI.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -41,8 +42,7 @@ namespace E_Commerce_App.WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var products = await _productService.GetAllAsync();
-            return View(products);
+            return View(await GetProducts());
         }
         //[Route("Add")]
         //[Route("Edit/{id}")]
@@ -249,5 +249,11 @@ namespace E_Commerce_App.WebUI.Controllers
                 throw;
             }
         }
+
+        /*
+         Get All Products (but public columns :D)
+         */
+        public async Task<IEnumerable<ProductDto>> GetProducts()
+            => _mapper.Map<IEnumerable<ProductDto>>(await _productService.GetAllAsync());
     }
 }
