@@ -103,7 +103,7 @@ else
             <div class="card p-2">
                 <div class="form-group">
                     <p>Ana Resim</p>
-                    <input type="file" name="mainImage" onchange="showpreview(this);" />
+                    <input type="file" name="mainImage" onchange="showpreview(this);" id="mainImageId" />
                     <input type="hidden" asp-for="ProductDto.MainImage" id="productMainImage" />
                     @if (Model.ProductDto.MainImage == "")
                     {
@@ -143,6 +143,7 @@ else
 
     <script>
         $(document).ready(function () {
+
             $('#productName').keyup(function () {
 
                 const trCharsMap = {
@@ -190,6 +191,10 @@ else
                 "ProductDto.ShortDescription": {
                     required: true,
                 },
+                mainImage: {
+                    required: $("#mainImageId").val() === "" && $("#imgpreview").attr('src') === undefined,
+                    extension: "png|jpg|JPEG|svg|"
+                },
             },
             messages: {
                 "ProductDto.Name": {
@@ -210,6 +215,9 @@ else
                 "ProductDto.ShortDescription": {
                     required: REQUIRED_INPUT_MESSAGE,
                 },
+                mainImage: {
+                    required: REQUIRED_INPUT_MESSAGE,
+                }
             },
             errorElement: 'span',
             errorPlacement: function (error, element) {
@@ -237,7 +245,8 @@ else
         $('#productForm').on('submit', function (event) {
 
 
-
+            console.log("file : " + $("#mainImageId").val());
+            console.log("imge : " + $("#imgpreview").attr('src'));
 
 
             const addUrlRegex = new RegExp('\/Admin\/Product\/Add');

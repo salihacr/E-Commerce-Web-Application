@@ -10,8 +10,6 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Bootstrap Css -->
-    <link rel="stylesheet" href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" />
 
     <!-- Toastr Css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
@@ -253,18 +251,22 @@
             </div>
             <!-- /.content-header -->
             <!-- Main content -->
-            <div class="content">
+            <section class="content">
                 <div class="container-fluid">
                     @RenderBody()
                 </div>
                 <!-- /.container-fluid -->
-            </div>
+            </section>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
+            <div class="p-3">
+                <h5>Title</h5>
+                <p>Sidebar content</p>
+            </div>
         </aside>
         <!-- /.control-sidebar -->
         <!-- Main Footer -->
@@ -296,14 +298,14 @@
     <!-- End Of Modal -->
     <!-- Bootstrap & Jquery -->
     <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
-
-    <!-- Toastr JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
     <script src="~/js/adminlte.min.js"></script>
     <!-- Site JS-->
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js"></script>
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 
     @RenderSection("Scripts", required: false)

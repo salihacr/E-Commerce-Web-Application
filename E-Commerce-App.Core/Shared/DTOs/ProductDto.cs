@@ -30,34 +30,34 @@ namespace E_Commerce_App.Core.Shared.DTOs
     public class ProductDto : BaseDto
     {
         public string Id { get; set; }
-        [Display(Name = "Ürün Adı")]
+        [Display(Name = "Ad")]
         [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         public string Name { get; set; }
 
-        [Display(Name = "Ürün Bağlantısı")]
+        [Display(Name = "Bağlantı")]
         public string Url { get; set; }
 
-        [Display(Name = "Ürün Fiyatı")]
+        [Display(Name = "Fiyat")]
         [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         [Range(1, 1000000, ErrorMessage = "1 ile 1000000 arasında değer girmelisiniz.")]
         public double? Price { get; set; }
 
-        [Display(Name = "Ürün İndirim Oranı")]
+        [Display(Name = "İndirim Oranı")]
         [Range(1, 100, ErrorMessage = "1 ile 100 arasında değer girmelisiniz.")]
         public double? Discount { get; set; }
 
-        [Display(Name = "Ürün Açıklaması")]
+        [Display(Name = "Açıklama")]
         [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         public string ShortDescription { get; set; }
 
-        [Display(Name = "Ürün Detaylı Açıklaması")]
+        [Display(Name = "Detaylı Açıklama")]
         [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         public string Description { get; set; }
 
         [Display(Name = "Ürün Anasayfada Görünsün mü ?")]
         public bool IsHome { get; set; }
 
-        [Display(Name = "Ürün Kapak Resmi")]
+        [Display(Name = "Kapak Resmi")]
         public string MainImage { get; set; }
 
 
