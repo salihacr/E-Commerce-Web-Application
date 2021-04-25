@@ -37,7 +37,7 @@ namespace E_Commerce_App.WebUI.Controllers
                 ProductDto = _mapper.Map<ProductDto>(product),
                 SelectedCategories = _mapper.Map<IEnumerable<ProductCategoryDto>>(selectedCategories),
                 Images = _mapper.Map<IEnumerable<ImageDto>>(productImages),
-                Colors = _mapper.Map<IEnumerable<ColorDto>>(selectedColors)
+                SelectedColors = _mapper.Map<IEnumerable<ColorDto>>(selectedColors)
             };
             return View(productViewModel);
         }

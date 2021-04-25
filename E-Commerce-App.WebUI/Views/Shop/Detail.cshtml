@@ -5,11 +5,17 @@
     var mainImage = Model.ProductDto.MainImage;
     var productImages = Model.Images.ToList();
     productImages.Insert(0, new E_Commerce_App.Core.Shared.DTOs.ImageDto { ImagePath = mainImage });
+
+    double discountedPrice = 0;
+    var price = Convert.ToDouble(product.Price);
+    price = Math.Round(price, 0);
+    if (product.Discount != null && product.Discount > 0)
+    {
+        discountedPrice = Convert.ToDouble(product.Price - (product.Price / product.Discount));
+    }
 }
 @section Css{
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <style>
         .pd-wrap {
             padding: 40px 0;
@@ -369,74 +375,94 @@
             margin: 15px 15px 0px 15px;
         }
     </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.css" />
+    <style>
+        #imageGallery {
+            list-style: none outside none;
+            padding-left: 0;
+            margin-bottom: 0;
+            text-align: center;
+        }
+        /*
+        li {
+            display: block;
+            float: left;
+            margin-right: 6px;
+            cursor: pointer;
+            -moz-box-shadow: inset 0 0 10px #000000;
+            -webkit-box-shadow: inset 0 0 10px #000000;
+            box-shadow: inset 0 0 10px #000000;
+        }*/
+
+        #sliderImage {
+            display: block;
+            height: auto;
+            max-width: 100%;
+            height: 400px;
+            text-align: center;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            /*width: 50%;*/
+        }
+
+        .shadow {
+            position: relative;
+            -webkit-box-shadow: inset 0 0 10px 10px #000;
+            -moz-box-shadow: inset 0 0 10px 10px #000;
+            box-shadow: inset 0 0 10px 10px #000;
+        }
+
+        #detailSection {
+            background: #f5f5f5;
+        }
+    </style>
+
 }
 <br />
 <form>
-    <br/>
-    <br/>
+    <br />
+    <br />
     <div class="pd-wrap">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div id="slider" class="owl-carousel product-slider" style="border-color:black; border-style:solid;">
-                        @if (productImages != null)
-                        {
+                    @if (productImages != null)
+                    {
+                        <ul id="imageGallery">
                             @foreach (var image in productImages)
                             {
-                                <div class="item">
-                                    <img src="~/img/@image.ImagePath" style="max-height: 300px;" class="p-1" />
-                                </div>
+                                <li data-thumb="/img/@image.ImagePath" class="shadow">
+                                    <img src="~/img/@image.ImagePath" id="sliderImage" class="center" />
+                                </li>
+                                <li data-thumb="/img/@image.ImagePath" class="shadow">
+                                    <img src="~/img/@image.ImagePath" id="sliderImage" class="center" />
+                                </li>
                             }
-                        }
-                    </div>
-                    <hr />
-                    <div id="thumb" class="owl-carousel product-thumb">
-                        @if (productImages != null)
-                        {
-                            @foreach (var image in productImages)
-                            {
-                                <div class="item">
-                                    <img src="~/img/@image.ImagePath" />
-                                </div>
-                            }}
-
-                    </div>
+                        </ul>
+                    }
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 p-5 shadow" id="detailSection">
                     <div class="product-dtl">
                         <div class="product-info">
-                            <div class="product-name">@Model.ProductDto.Name</div>
-                            <div class="reviews-counter">
-                                <div class="rate">
-                                    <input type="radio" id="star5" name="rate" value="5" checked />
-                                    <label for="star5" title="text">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4" />
-                                    <label for="star4" title="text">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3" />
-                                    <label for="star3" title="text">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2" />
-                                    <label for="star2" title="text">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1" />
-                                    <label for="star1" title="text">1 star</label>
-                                </div>
-                                <span>3 Reviews</span>
-                            </div>
+                            <div class="product-name"><h4>@Model.ProductDto.Name</h4></div>
                             <div class="product-price-discount">
                                 @if (product.Discount != null && product.Discount > 0)
                                 {
                                     <span>
-                                        @if (product.Discount != null && product.Discount > 0)
-                                        {
-                                            @(product.Price - (product.Price / product.Discount))
-                                        } ₺
+                                        @Math.Round(discountedPrice, 2) ₺
                                     </span>
                                     <span class="line-through">
-                                        @Model.ProductDto.Price ₺
+                                        @price ₺
                                     </span>
                                 }
                                 else
                                 {
-                                    <span>@Model.ProductDto.Price ₺</span>
+                                    <span>@price ₺</span>
                                 }
                             </div>
                         </div>
@@ -460,10 +486,11 @@
                                 </div>
                             </div>
                         </div>
+                        <br />
                         <div class="product-count">
-                            <div class="row d-flex">
+                            <div class="row">
                                 <div class="col-md-6">
-                                    <label for="size">Quantity</label>
+                                    <small>Adet</small>
                                     <div class="display-flex">
                                         <div class="qtyminus">-</div>
                                         <input type="text" name="quantity" value="1" class="qty">
@@ -471,20 +498,21 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="#" class="float-right round-black-btn">Add to Cart</a>
+                                    <button class="float-right round-black-btn">Sepete Ekle</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <br />
             <div class="product-info-tabs">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+                        <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Ürün Açıklaması</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Reviews (0)</a>
+                        <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Yorumlar (0)</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -494,55 +522,15 @@
                     <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                         <div class="review-heading">REVIEWS</div>
                         <p class="mb-20">There are no reviews yet.</p>
-                        <form class="review-form">
-                            <div class="form-group">
-                                <label>Your rating</label>
-                                <div class="reviews-counter">
-                                    <div class="rate">
-                                        <input type="radio" id="star5" name="rate" value="5" />
-                                        <label for="star5" title="text">5 stars</label>
-                                        <input type="radio" id="star4" name="rate" value="4" />
-                                        <label for="star4" title="text">4 stars</label>
-                                        <input type="radio" id="star3" name="rate" value="3" />
-                                        <label for="star3" title="text">3 stars</label>
-                                        <input type="radio" id="star2" name="rate" value="2" />
-                                        <label for="star2" title="text">2 stars</label>
-                                        <input type="radio" id="star1" name="rate" value="1" />
-                                        <label for="star1" title="text">1 star</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Your message</label>
-                                <textarea class="form-control" rows="10"></textarea>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="" class="form-control" placeholder="Name*">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="" class="form-control" placeholder="Email Id*">
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="round-black-btn">Submit Review</button>
-                        </form>
                     </div>
                 </div>
             </div>
 
-            <div style="text-align:center;font-size:14px;padding-bottom:20px;">Get free icon packs for your next project at <a href="http://iiicons.in/" target="_blank" style="color:#ff5e63;font-weight:bold;">www.iiicons.in</a></div>
         </div>
     </div>
 </form>
 
 @section Scripts{
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="	sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
         function getChecked() {
             var colorList = document.getElementsByName('color')
@@ -557,72 +545,17 @@
         }
             , 1000);
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.js"></script>
     <script>
         $(document).ready(function () {
-            var slider = $("#slider");
-            var thumb = $("#thumb");
-            var slidesPerPage = 4; //globaly define number of elements per page
-            var syncedSecondary = true;
-            slider.owlCarousel({
-                items: 1,
-                slideSpeed: 2000,
-                nav: false,
-                autoplay: false,
-                dots: false,
-                loop: true,
-                responsiveRefreshRate: 200
-            }).on('changed.owl.carousel', syncPosition);
-            thumb
-                .on('initialized.owl.carousel', function () {
-                    thumb.find(".owl-item").eq(0).addClass("current");
-                })
-                .owlCarousel({
-                    items: slidesPerPage,
-                    dots: false,
-                    nav: true,
-                    item: 4,
-                    smartSpeed: 200,
-                    slideSpeed: 500,
-                    slideBy: slidesPerPage,
-                    navText: ['<svg width="18px" height="18px" viewBox="0 0 11 20"><path style="fill:none;stroke-width: 1px;stroke: #000;" d="M9.554,1.001l-8.607,8.607l8.607,8.606"/></svg>', '<svg width="25px" height="25px" viewBox="0 0 11 20" version="1.1"><path style="fill:none;stroke-width: 1px;stroke: #000;" d="M1.054,18.214l8.606,-8.606l-8.606,-8.607"/></svg>'],
-                    responsiveRefreshRate: 100
-                }).on('changed.owl.carousel', syncPosition2);
-            function syncPosition(el) {
-                var count = el.item.count - 1;
-                var current = Math.round(el.item.index - (el.item.count / 2) - .5);
-                if (current < 0) {
-                    current = count;
-                }
-                if (current > count) {
-                    current = 0;
-                }
-                thumb
-                    .find(".owl-item")
-                    .removeClass("current")
-                    .eq(current)
-                    .addClass("current");
-                var onscreen = thumb.find('.owl-item.active').length - 1;
-                var start = thumb.find('.owl-item.active').first().index();
-                var end = thumb.find('.owl-item.active').last().index();
-                if (current > end) {
-                    thumb.data('owl.carousel').to(current, 100, true);
-                }
-                if (current < start) {
-                    thumb.data('owl.carousel').to(current - onscreen, 100, true);
-                }
-            }
-            function syncPosition2(el) {
-                if (syncedSecondary) {
-                    var number = el.item.index;
-                    slider.data('owl.carousel').to(number, 100, true);
-                }
-            }
-            thumb.on("click", ".owl-item", function (e) {
-                e.preventDefault();
-                var number = $(this).index();
-                slider.data('owl.carousel').to(number, 300, true);
-            });
 
+            $('#imageGallery').lightSlider({
+                gallery: true,
+                item: 1,
+                loop: true,
+                slideMargin: 0,
+                thumbItem: 9
+            });
 
             $(".qtyminus").on("click", function () {
                 var now = $(".qty").val();

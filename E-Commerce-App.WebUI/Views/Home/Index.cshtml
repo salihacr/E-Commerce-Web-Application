@@ -5,6 +5,13 @@
 @section Css{
     <!-- Product Css -->
     <link rel="stylesheet" href="~/css/product.css" />
+
+    <style>
+        #productImage {
+            height:320px;
+        }
+        /* CSS KODLARI BURAYA */
+    </style>
 }
 <br />
 @await Component.InvokeAsync("Categories")
@@ -54,6 +61,8 @@
             visiblePages: 6,
             next: 'Sonraki',
             prev: 'Önceki',
+            last: 'Son',
+            first:'İlk',
             onPageClick: function (event, page) {
 
                 var url = "@Context.Request.Path@Context.Request.QueryString";
@@ -108,7 +117,7 @@
             if (data[index].discount != null && data[index].discount > 0) {
                 var discountedPrice = (data[index].price - (data[index].price / data[index].discount)).toFixed(2);
                 html = `<p class="dress-card-para"><span class="dress-card-price">${discountedPrice + "&nbsp;₺"}</span>
-                        <span class="dress-card-crossed">${normalPrice}&nbsp;₺</span><small class="dress-card-off float-right">&ensp; (% ${data[index].discount} İndirim)</small>
+                        <span class="dress-card-crossed">${normalPrice}&nbsp;₺</span><small class="dress-card-off float-right">&ensp; (% ${data[index].discount})</small>
                         </p>`
             }
             else {
@@ -129,7 +138,7 @@
                 <div class="col-md-3">
                     <div class="dress-card">
                         <div class="dress-card-head">
-                            <img class="dress-card-img-top" src="/img/${data[index].mainImage}" alt="" height="320"/>
+                            <img class="dress-card-img-top img-fluid" src="/img/${data[index].mainImage}" alt="" id="productImage"/>
                         </div>
                         <div class="dress-card-body">
                             <h6 class="dress-card-title">${productName}</h6>
