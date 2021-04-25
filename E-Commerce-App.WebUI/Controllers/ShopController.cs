@@ -21,6 +21,7 @@ namespace E_Commerce_App.WebUI.Controllers
             _productService = productService;
             _imageService = imageService;
         }
+        [Route("product/{url}")]
         public async Task<IActionResult> Detail(string url)
         {
             var product = await _productService.GetProductWithAllColumns(p => p.Url == url);
@@ -33,29 +34,12 @@ namespace E_Commerce_App.WebUI.Controllers
             var selectedColors = product.Colors;
             var productViewModel = new ProductViewModel()
             {
-                ProductDto = new ProductDto() { MainImage = "" },
-                Categories = _mapper.Map<IEnumerable<CategoryDto>>(selectedCategories),
+                ProductDto = _mapper.Map<ProductDto>(product),
+                SelectedCategories = _mapper.Map<IEnumerable<ProductCategoryDto>>(selectedCategories),
                 Images = _mapper.Map<IEnumerable<ImageDto>>(productImages),
                 Colors = _mapper.Map<IEnumerable<ColorDto>>(selectedColors)
             };
             return View(productViewModel);
-        }
-        public async Task<IActionResult> List(string category, int page = 1)
-        {
-            const int pageSize = 3;
-            var productListViewModel = new ProductListViewModel()
-            {
-                PageInfo = new PageInfo
-                {
-                    TotalItem = _productService.GetCountByCategory(category),
-                    CurrentPage = page,
-                    ItemsPerPage = pageSize,
-                    CurrentCategory = category
-                },
-                Products = await _productService.GetProductsByCategory(category, page, pageSize)
-            };
-            return View(productListViewModel);
-
         }
     }
 }

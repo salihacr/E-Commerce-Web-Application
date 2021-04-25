@@ -5,34 +5,6 @@
 @section Css{
     <!-- Product Css -->
     <link rel="stylesheet" href="~/css/product.css" />
-    <style>
-
-        .bag-button {
-            border: 1px solid #386ded;
-            background: #386ded;
-            color: #fff;
-        }
-
-        .bag-button:hover {
-            background-image: linear-gradient(to right, #386ded, #3b4dd4);
-            color: #fff;
-        }
-
-        .wish-button:hover {
-            background-image: linear-gradient(to right, #386ded, #3b4dd4);
-            color: #fff;
-        }
-
-        .wish-button {
-            border: 1px solid #386ded;
-            background: #386ded;
-            color: #fff;
-        }
-
-        .dress-card-off {
-            color: #e34b60 !important;
-        }
-    </style>
 }
 <br />
 @await Component.InvokeAsync("Categories")
@@ -132,36 +104,39 @@
         //}
         function getPrice(data, index) {
             let html = ``;
+            var normalPrice = (data[index].price).toFixed(0);
             if (data[index].discount != null && data[index].discount > 0) {
-                html = `<p class="dress-card-para"><span class="dress-card-price">${data[index].price - (data[index].price / data[index].discount) + "&nbsp;₺"}</span>
-                        <span class="dress-card-crossed">${data[index].price}&nbsp;₺</span><span class="dress-card-off float-right">&ensp; (% ${data[index].discount} İndirim)</span>
+                var discountedPrice = (data[index].price - (data[index].price / data[index].discount)).toFixed(2);
+                html = `<p class="dress-card-para"><span class="dress-card-price">${discountedPrice + "&nbsp;₺"}</span>
+                        <span class="dress-card-crossed">${normalPrice}&nbsp;₺</span><small class="dress-card-off float-right">&ensp; (% ${data[index].discount} İndirim)</small>
                         </p>`
             }
             else {
-                html = `<p class="dress-card-para"><span class="dress-card-price">${data[index].price} &nbsp;₺ &ensp;</span></p>`;
+                html = `<p class="dress-card-para"><span class="dress-card-price">${normalPrice} &nbsp;₺ &ensp;</span></p>`;
             }
             return html;
         }
-        function product(data, index){
+        string_chop = function (str, size) {
+            if (str == null) return [];
+            str = String(str);
+            size = ~~size;
+            return size > 0 ? str.match(new RegExp('.{1,' + size + '}', 'g')) : [str];
+        }
+        function product(data, index) {
+            var productName = string_chop(data[index].name, 15)[0];
             let html =
                 `
                 <div class="col-md-3">
                     <div class="dress-card">
                         <div class="dress-card-head">
                             <img class="dress-card-img-top" src="/img/${data[index].mainImage}" alt="" height="320"/>
-                            <div class="surprise-bubble">
-                                <span class="dress-card-heart">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </span><a href="#"><span>Ekle</span></a>
-                            </div>
                         </div>
                         <div class="dress-card-body">
-                            <h4 class="dress-card-title">${data[index].name}</h4>
-                            <p class="dress-card-para">
-                            ${ getPrice(data, index) }
+                            <h6 class="dress-card-title">${productName}</h6>
+                            <hr/>
+                            <p class="dress-card-para"> ${ getPrice(data, index) } </p>
                             <div class="row">
-                              <div class="col-md-6 card-button"><a href=""><div class="card-button-inner bag-button">Sepete Ekle</div></a></div>
-                              <div class="col-md-6 card-button"><a href="${data[index].url}"><div class="card-button-inner wish-button">İncele > </div></a></div>
+                              <div class="col-md-12 card-button"><a href="/product/${data[index].url}"><div class="card-button-inner wish-button">İncele </div></a></div>
                             </div>
                       </div>
                     </div>

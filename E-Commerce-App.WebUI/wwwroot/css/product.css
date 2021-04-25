@@ -127,22 +127,13 @@ body {
     background: #386ded !important;
     color: #fff !important;
 }
-
-.bag-button {
-    background: #386ded;
-    color: white;
-}
-
-.bag-button:hover {
-    background: #fff !important;
-    color: #386ded !important;
+.wish-button:hover {
+    background-image: linear-gradient(to right, #386ded, #3b4dd4);
+    color: #fff;
 }
 
 .wish-button {
     border: 1px solid #386ded;
-    color: #386ded;
+    background: #386ded;
+    color: #fff;
 }
-    .wish-button:hover {
-        background: #386ded;
-        color: #fff;
-    }

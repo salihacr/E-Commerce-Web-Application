@@ -170,11 +170,11 @@ namespace E_Commerce_App.WebUI
                     defaults: new { controller = "Shop", Action = "List" }
                     );
 
-                endpoints.MapControllerRoute(
-                    name: "productdetails",
-                    pattern: "{url}",
-                    defaults: new { controller = "Shop", Action = "Detail" }
-                    );
+                //endpoints.MapControllerRoute(
+                //    name: "productdetails",
+                //    pattern: "{url}",
+                //    defaults: new { controller = "Shop", Action = "Detail" }
+                //    );
 
                 endpoints.MapControllerRoute(
                     name: "default",
