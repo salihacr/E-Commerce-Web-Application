@@ -21,6 +21,9 @@ namespace E_Commerce_App.Core.Shared.Mapping
             CreateMap<ProductColor, ProductColorDto>().ReverseMap();
 
             CreateMap<ProductCategory, ProductCategoryDto>().ReverseMap();
+
+
+            CreateMap<Campaign, CampaignDto>().ReverseMap();
         }
     }
 }

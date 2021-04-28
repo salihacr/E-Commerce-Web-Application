@@ -11,7 +11,7 @@
     price = Math.Round(price, 0);
     if (product.Discount != null && product.Discount > 0)
     {
-        discountedPrice = Convert.ToDouble(product.Price - (product.Price / product.Discount));
+        discountedPrice = Convert.ToDouble(product.Price - ((product.Price * product.Discount) / 100));
     }
 }
 @section Css{
@@ -430,7 +430,7 @@
     <div class="pd-wrap">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 p-3 shadow">
                     @if (productImages != null)
                     {
                         <ul id="imageGallery">
@@ -446,7 +446,7 @@
                         </ul>
                     }
                 </div>
-                <div class="col-md-6 p-5 shadow" id="detailSection">
+                <div class="col-md-6 p-3 shadow" id="detailSection">
                     <div class="product-dtl">
                         <div class="product-info">
                             <div class="product-name"><h4>@Model.ProductDto.Name</h4></div>

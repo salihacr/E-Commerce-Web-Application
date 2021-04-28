@@ -4,14 +4,16 @@ using E_Commerce_App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace E_Commerce_App.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210428115544_editedCampaignTable")]
+    partial class editedCampaignTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,9 +48,6 @@ namespace E_Commerce_App.Data.Migrations
 
                     b.Property<bool>("IsHome")
                         .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -482,7 +481,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "1",
-                            CreationDate = new DateTime(2021, 4, 28, 17, 15, 49, 716, DateTimeKind.Local).AddTicks(3596),
+                            CreationDate = new DateTime(2021, 4, 28, 14, 55, 43, 965, DateTimeKind.Local).AddTicks(1977),
                             Description = "aciklama 1",
                             Discount = 5.0,
                             IsActive = false,
@@ -496,7 +495,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "2",
-                            CreationDate = new DateTime(2021, 4, 28, 17, 15, 49, 718, DateTimeKind.Local).AddTicks(1336),
+                            CreationDate = new DateTime(2021, 4, 28, 14, 55, 43, 966, DateTimeKind.Local).AddTicks(9955),
                             Description = "aciklama 2",
                             Discount = 5.0,
                             IsActive = false,
@@ -510,7 +509,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "3",
-                            CreationDate = new DateTime(2021, 4, 28, 17, 15, 49, 718, DateTimeKind.Local).AddTicks(1495),
+                            CreationDate = new DateTime(2021, 4, 28, 14, 55, 43, 967, DateTimeKind.Local).AddTicks(56),
                             Description = "aciklama 3",
                             Discount = 5.0,
                             IsActive = false,
@@ -524,7 +523,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "4",
-                            CreationDate = new DateTime(2021, 4, 28, 17, 15, 49, 718, DateTimeKind.Local).AddTicks(1500),
+                            CreationDate = new DateTime(2021, 4, 28, 14, 55, 43, 967, DateTimeKind.Local).AddTicks(61),
                             Description = "aciklama 4",
                             Discount = 5.0,
                             IsActive = false,
@@ -538,7 +537,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "5",
-                            CreationDate = new DateTime(2021, 4, 28, 17, 15, 49, 718, DateTimeKind.Local).AddTicks(1504),
+                            CreationDate = new DateTime(2021, 4, 28, 14, 55, 43, 967, DateTimeKind.Local).AddTicks(65),
                             Description = "aciklama 5",
                             Discount = 10.0,
                             IsActive = false,
@@ -552,7 +551,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "6",
-                            CreationDate = new DateTime(2021, 4, 28, 17, 15, 49, 718, DateTimeKind.Local).AddTicks(1513),
+                            CreationDate = new DateTime(2021, 4, 28, 14, 55, 43, 967, DateTimeKind.Local).AddTicks(73),
                             Description = "aciklama 6",
                             Discount = 20.0,
                             IsActive = false,

@@ -163,6 +163,12 @@ namespace E_Commerce_App.WebUI
                     defaults: new { controller = "AdminCategory", Action = "Index" }
                     );
 
+                endpoints.MapControllerRoute(
+                   name: "admincategory",
+                   pattern: "Admin/Campaign",
+                   defaults: new { controller = "AdminCampaign", Action = "Index" }
+                   );
+
                 // Home Pages
                 endpoints.MapControllerRoute(
                     name: "productdetails2",

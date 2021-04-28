@@ -1,0 +1,150 @@
+﻿@model E_Commerce_App.Core.Shared.DTOs.CampaignDto
+
+@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="AddOrEdit" asp-route-id="@Model.Id" onsubmit="addOrEdit(this);" id="campaignForm">
+
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CreationDate" />
+            <input type="hidden" asp-for="DateOfUpdate" />
+
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Kampanya Resmi</label><br />
+                <input type="file" name="campainImage" onchange="showpreview(this);" id="campainImageId" />
+                <hr />
+                <input type="hidden" asp-for="ImagePath" id="productMainImage" />
+                @if (Model.ImagePath == "")
+                {
+                    <img id="imgpreview" height="200" style="border-width: 0px;display: none; width:100%;" />
+                }
+                else
+                {
+                    <img src="~/img/@Model.ImagePath" id="imgpreview" height="200" style="border-width: 0px;width: 100%;" />
+                }
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ImageAltTag" class="control-label"></label>
+                <input asp-for="ImageAltTag" class="form-control" />
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="checkbox" class="form-check-input" asp-for="IsHome" />
+                <label class="form-check-label" asp-for="IsHome">Ana Sayfada Görünsün mü ?</label>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 offset-md-3">
+                    <input type="submit" value="Kaydet" class="btn btn-primary btn-block" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/node_modules/jquery-validation/dist/additional-methods.min.js"></script>
+<script>
+
+    function showpreview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#imgpreview').css('display', 'block');
+                $('#imgpreview').attr('src', e.target.result);
+                $('#imgpreview').fadeIn(650);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    addOrEdit = form => {
+        const REQUIRED_INPUT_MESSAGE = "Bu alanın doldurulması zorunludur."
+
+        $('#campaignForm').validate({
+
+
+            rules: {
+                "Name": {
+                    required: true
+                },
+                "ImageAltTag": {
+                    required: true
+                },
+                campainImage: {
+                    required: $("#campainImageId").val() === "" && $("#imgpreview").attr('src') === undefined,
+                    extension: "png|jpg|JPEG|svg|"
+                },
+            },
+            messages: {
+                "Name": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                },
+                "ImageAltTag": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                },
+                campainImage: {
+                    required: REQUIRED_INPUT_MESSAGE,
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
+
+
+        console.log($('#campaignForm').valid());
+
+
+        if ($('#campaignForm').valid() === true) {
+
+            try {
+                $.ajax({
+                    type: 'POST',
+                    url: form.action,
+                    data: new FormData(form),
+                    contentType: false,
+                    processData: false,
+                    success: function (res) {
+                        if (res.isValid) {
+                            $('#view-all').html(res.html)
+                            $('#form-modal .modal-body').html('');
+                            $('#form-modal .modal-title').html('');
+                            $('#form-modal').modal('hide');
+                        }
+                        else
+                            $('#form-modal .modal-body').html(res.html);
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                })
+                //to prevent default form submit event
+                return false;
+            } catch (ex) {
+                console.log(ex)
+            }
+        }
+        return false;
+    }
+</script>

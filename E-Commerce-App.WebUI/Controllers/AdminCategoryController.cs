@@ -35,11 +35,11 @@ namespace E_Commerce_App.WebUI.Controllers
         [NoDirectAccess]
         public async Task<IActionResult> AddOrEdit(int id = 0)
         {
-            var category = await _categoryService.GetByIdAsync(id);
-            if (id == 0 && category == null)
+            var campaign = await _categoryService.GetByIdAsync(id);
+            if (id == 0 && campaign == null)
                 return View(new CategoryDto());
             else
-                return View(_mapper.Map<CategoryDto>(category));
+                return View(_mapper.Map<CategoryDto>(campaign));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -68,11 +68,11 @@ namespace E_Commerce_App.WebUI.Controllers
 
             try
             {
-                var category = await _categoryService.GetByIdAsync(id);
-                if (category != null)
-                    _categoryService.Remove(category);
+                var campaign = await _categoryService.GetByIdAsync(id);
+                if (campaign != null)
+                    _categoryService.Remove(campaign);
 
-                var productCategories = await _productCategoryService.Where(p => p.CategoryId == category.Id);
+                var productCategories = await _productCategoryService.Where(p => p.CategoryId == campaign.Id);
                 _productCategoryService.RemoveRange(productCategories);
                 return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await GetCategories()) });
             }
