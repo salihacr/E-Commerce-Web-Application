@@ -22,6 +22,7 @@
     "pdfmake": "^0.1.71",
     "sweetalert2": "^10.15.5",
     "toastr": "^2.1.4",
-    "trumbowyg": "^2.23.0"
+    "trumbowyg": "^2.23.0",
+    "twbs-pagination": "^1.4.2"
   }
 }

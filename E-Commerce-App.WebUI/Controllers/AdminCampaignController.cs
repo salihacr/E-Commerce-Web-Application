@@ -43,7 +43,6 @@ namespace E_Commerce_App.WebUI.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [NoDirectAccess]
         public async Task<IActionResult> AddOrEdit([FromForm] CampaignDto campaignDto, IFormFile campainImage)
         {
             if (ModelState.IsValid)

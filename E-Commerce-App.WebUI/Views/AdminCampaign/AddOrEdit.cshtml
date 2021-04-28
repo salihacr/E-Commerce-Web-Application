@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <form asp-action="AddOrEdit" asp-route-id="@Model.Id" onsubmit="addOrEdit(this);" id="campaignForm">
+        <form asp-action="AddOrEdit" asp-route-id="@Model.Id" id="campaignForm">
 
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -27,7 +27,7 @@
                 <input type="file" name="campainImage" onchange="showpreview(this);" id="campainImageId" />
                 <hr />
                 <input type="hidden" asp-for="ImagePath" id="productMainImage" />
-                @if (Model.ImagePath == "")
+                @if (Model.ImagePath == "" || Model.ImagePath == null)
                 {
                     <img id="imgpreview" height="200" style="border-width: 0px;display: none; width:100%;" />
                 }
@@ -70,12 +70,14 @@
         }
     }
 
-    addOrEdit = form => {
+
+    $('#campaignForm').on('submit', function (event) {
+
         const REQUIRED_INPUT_MESSAGE = "Bu alanın doldurulması zorunludur."
+-
 
+        console.log("--------------------");
         $('#campaignForm').validate({
-
-
             rules: {
                 "Name": {
                     required: true
@@ -84,7 +86,7 @@
                     required: true
                 },
                 campainImage: {
-                    required: $("#campainImageId").val() === "" && $("#imgpreview").attr('src') === undefined,
+                    required: ($("#campainImageId").val() === "" && $("#imgpreview").attr('src') === undefined),
                     extension: "png|jpg|JPEG|svg|"
                 },
             },
@@ -115,14 +117,19 @@
 
         console.log($('#campaignForm').valid());
 
-
         if ($('#campaignForm').valid() === true) {
+
+            var form = document.getElementById('campaignForm');
+
+            var action = form.getAttribute("action");
+
+            var formdata = new FormData($("#campaignForm")[0]);
 
             try {
                 $.ajax({
                     type: 'POST',
-                    url: form.action,
-                    data: new FormData(form),
+                    url: action,
+                    data: formdata,
                     contentType: false,
                     processData: false,
                     success: function (res) {
@@ -145,6 +152,7 @@
                 console.log(ex)
             }
         }
+        event.preventDefault();
         return false;
-    }
+    });
 </script>
