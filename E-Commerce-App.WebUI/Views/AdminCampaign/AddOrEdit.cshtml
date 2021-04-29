@@ -74,9 +74,9 @@
     $('#campaignForm').on('submit', function (event) {
 
         const REQUIRED_INPUT_MESSAGE = "Bu alanın doldurulması zorunludur."
--
+            -
 
-        console.log("--------------------");
+            console.log("--------------------");
         $('#campaignForm').validate({
             rules: {
                 "Name": {
@@ -124,6 +124,7 @@
             var action = form.getAttribute("action");
 
             var formdata = new FormData($("#campaignForm")[0]);
+
 
             try {
                 $.ajax({

@@ -13,8 +13,10 @@
         /* CSS KODLARI BURAYA */
     </style>
 }
-@await Component.InvokeAsync("Campaigns")
 
+@section Campaigns{
+    @await Component.InvokeAsync("Campaigns")
+}
 <br />
 @await Component.InvokeAsync("Categories")
 <br />
