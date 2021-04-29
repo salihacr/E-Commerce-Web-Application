@@ -140,7 +140,7 @@
             let html =
                 `
                 <div class="col-md-3">
-                    <div class="dress-card">
+                    <div class="dress-card shadow p-1" id="card-bg">
                         <div class="dress-card-head">
                             <img class="dress-card-img-top img-fluid" src="/img/${data[index].mainImage}" alt="" id="productImage"/>
                         </div>
@@ -162,6 +162,18 @@
     </script>
 }
 <style>
+    #card-bg {
+        background: #f8f9fa;
+        transition: 1.0s;
+    }
+
+        #card-bg:hover {
+            -ms-transform: scale(1.1); /* IE 9 */
+            -webkit-transform: scale(1.1); /* Safari 3-8 */
+            transform: scale(1.1);
+
+        }
+
     .wrapper {
         margin: 60px auto;
         text-align: center;

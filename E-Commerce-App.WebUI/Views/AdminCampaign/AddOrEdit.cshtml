@@ -19,7 +19,7 @@
 
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input asp-for="Name" class="form-control" placeholder="Kampanya Adı" />
             </div>
 
             <div class="form-group">
@@ -39,7 +39,7 @@
 
             <div class="form-group">
                 <label asp-for="ImageAltTag" class="control-label"></label>
-                <input asp-for="ImageAltTag" class="form-control" />
+                <input asp-for="ImageAltTag" class="form-control" placeholder="Resim Etiketi" />
             </div>
             <div class="form-check form-check-inline">
                 <input type="checkbox" class="form-check-input" asp-for="IsHome" />
@@ -56,6 +56,8 @@
 </div>
 <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/node_modules/jquery-validation/dist/additional-methods.min.js"></script>
+<!-- Sweet Alert  -->
+<script src="~/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 <script>
 
     function showpreview(input) {
@@ -74,9 +76,8 @@
     $('#campaignForm').on('submit', function (event) {
 
         const REQUIRED_INPUT_MESSAGE = "Bu alanın doldurulması zorunludur."
-            -
 
-            console.log("--------------------");
+        console.log("--------------------");
         $('#campaignForm').validate({
             rules: {
                 "Name": {
@@ -87,7 +88,8 @@
                 },
                 campainImage: {
                     required: ($("#campainImageId").val() === "" && $("#imgpreview").attr('src') === undefined),
-                    extension: "png|jpg|JPEG|svg|"
+                    extension: "png|jpg|JPEG|svg|JFIF|GIF",
+                    maxsize: 200000,
                 },
             },
             messages: {
@@ -99,6 +101,8 @@
                 },
                 campainImage: {
                     required: REQUIRED_INPUT_MESSAGE,
+                    extension: "Bu alan yalnızca resim dosyalarını kabul etmektedir.",
+                    maxsize: "Resim boyutu en fazla 2 MB olabilir",
                 }
             },
             errorElement: 'span',
@@ -139,6 +143,11 @@
                             $('#form-modal .modal-body').html('');
                             $('#form-modal .modal-title').html('');
                             $('#form-modal').modal('hide');
+                            Swal.fire(
+                                'Kayıt Başarılı !',
+                                'Kampanya başarıyla kaydedildi !',
+                                'success'
+                            )
                         }
                         else
                             $('#form-modal .modal-body').html(res.html);

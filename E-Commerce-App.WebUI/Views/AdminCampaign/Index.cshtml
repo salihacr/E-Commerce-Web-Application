@@ -37,12 +37,16 @@
                             processData: false,
                             success: function (res) {
                                 $('#view-all').html(res.html);
+                                Swal.fire(
+                                    'Silme Başarılı !',
+                                    'Kampanya başarıyla silindi !',
+                                    'success'
+                                )
                             },
                             error: function (err) {
                                 console.log(err)
                             }
                         })
-                        toastr.success("Kategori başarıyla silindi.");
                     }
                 } catch (ex) {
                     console.log(ex)

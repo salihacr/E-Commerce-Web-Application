@@ -7,11 +7,11 @@
                 <a class="navbar-brand" href="/">
                     <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="30" class="d-inline-block align-top" alt="" href="/">
                 </a>
-                <a href="/Admin/Product"> Yönetim Paneli</a>
+                <a href="/Admin/Dashboard"> Yönetim Paneli</a>
             }
             else
             {
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="30" class="d-inline-block align-top" alt="">
                     Bootstrap
                 </a>
@@ -19,7 +19,7 @@
         }
         else
         {
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="30" class="d-inline-block align-top" alt="">
                 Bootstrap
             </a>
@@ -85,7 +85,9 @@
     nav {
         font-family: 'Poppins', sans-serif;
     }
-
+    a {
+        transition: 1.0s !important;
+    }
     a:hover {
         color: #3b4dd4 !important;
     }
@@ -94,6 +96,7 @@
         background-image: linear-gradient(to right, #386ded, #3b4dd4);
         border-radius: 0px 16px 16px 0px;
         outline: 0 !important;
+        transition: 1.0s !important;
     }
 
         #btn-search:hover {

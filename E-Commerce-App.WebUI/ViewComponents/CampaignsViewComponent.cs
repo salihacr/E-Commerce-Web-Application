@@ -18,7 +18,7 @@ namespace E_Commerce_App.WebUI.ViewComponents
         }
         public IViewComponentResult Invoke()
         {
-            var campaigns = _mapper.Map<IEnumerable<CampaignDto>>(_campaignService.GetAllAsync().Result);
+            var campaigns = _mapper.Map<IEnumerable<CampaignDto>>(_campaignService.Where(c => c.IsHome == true).Result);
             return View(campaigns);
         }
     }

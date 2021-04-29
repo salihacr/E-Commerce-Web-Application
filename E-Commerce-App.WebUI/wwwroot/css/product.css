@@ -69,43 +69,43 @@ body {
     transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.surprise-bubble a {
-    font-size: 0.65em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: white;
-    font-family: arial;
-    text-decoration: none;
-    position: absolute;
-    top: 9px;
-    left: 20px;
-    opacity: 0;
-    -webkit-transition-delay: 2s;
-    /* Safari */
-    transition-delay: 2s;
-    -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
+    .surprise-bubble a {
+        font-size: 0.65em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: white;
+        font-family: arial;
+        text-decoration: none;
+        position: absolute;
+        top: 9px;
+        left: 20px;
+        opacity: 0;
+        -webkit-transition-delay: 2s;
+        /* Safari */
+        transition-delay: 2s;
+        -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
 
-.surprise-bubble:hover {
-    border-radius: 999rem;
-    padding: 1rem;
-    width: 26%;
-    height: 30px;
-    background: #DB2763;
-    color: white;
-    -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
+    .surprise-bubble:hover {
+        border-radius: 999rem;
+        padding: 1rem;
+        width: 26%;
+        height: 30px;
+        background: #DB2763;
+        color: white;
+        -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
 
-.surprise-bubble:hover a {
-    opacity: 1;
-    -webkit-transition-delay: 2s;
-    /* Safari */
-    transition-delay: 2s;
-    -webkit-transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
+        .surprise-bubble:hover a {
+            opacity: 1;
+            -webkit-transition-delay: 2s;
+            /* Safari */
+            transition-delay: 2s;
+            -webkit-transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
 
 .card-button {
     text-align: center;
@@ -114,26 +114,34 @@ body {
     padding: 9px;
 }
 
-.card-button a {
-    text-decoration: none;
-}
+    .card-button a {
+        text-decoration: none;
+    }
 
 .card-button-inner {
     padding: 10px;
     border-radius: 3px;
 }
 
-.card-button-inner:hover {
-    background: #386ded !important;
-    color: #fff !important;
-}
+    .card-button-inner:hover {
+        background-image: linear-gradient(to right, #386ded, #3b4dd4) !important;
+        color: #fff !important;
+    }
+
 .wish-button:hover {
     background-image: linear-gradient(to right, #386ded, #3b4dd4);
-    color: #fff;
+    color: red;
 }
 
 .wish-button {
     border: 1px solid #386ded;
-    background: #386ded;
+    background-image: linear-gradient(to right, #386ded, #3b4dd4) !important;
     color: #fff;
+}
+
+.shadow {
+    position: relative;
+    -moz-box-shadow: 0 0 20px 20px #888;
+    -webkit-box-shadow: 0 0 20px 20px#888;
+    box-shadow: 0 0 20px 20px #888;
 }
