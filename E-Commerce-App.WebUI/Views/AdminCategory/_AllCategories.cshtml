@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<E_Commerce_App.Core.Shared.DTOs.CategoryDto>
-
-
+@using System.Globalization;
 <style>
     td {
         vertical-align: middle !important;
@@ -27,7 +26,7 @@
             </th>
             <th>
                 <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", null, Context.Request.Scheme)','Kategori Ekle')"
-                   class="btn btn-success btn-block text-white">Yeni Kategori</a>
+                   class="btn btn-success btn-block text-white"><i class="fas fa-plus-circle"></i> Yeni Kategori</a>
             </th>
         </tr>
     </thead>
@@ -35,6 +34,8 @@
         @{ var counter = 1;}
         @foreach (var item in Model)
         {
+            var date = (DateTime)item.CreationDate;
+
             <tr>
                 <td style="text-align:center;">
                     <b>@counter</b>
@@ -46,7 +47,7 @@
                     @Html.DisplayFor(modelItem => item.Url)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CreationDate)
+                    @date.ToString("dd MMMM yyyy | HH:mm", CultureInfo.CreateSpecificCulture("tr"))
                 </td>
                 <td>
                     <div>

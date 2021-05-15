@@ -1,6 +1,8 @@
 ﻿@{
     Layout = null;
 }
+
+@using System.Globalization;
 @model IEnumerable<E_Commerce_App.Core.Shared.DTOs.ProductDto>
 
 <style>
@@ -36,7 +38,7 @@
             </th>
             <th>
                 <a href="/Admin/Product/Add"
-                   class="btn btn-success btn-block text-white">Ürün Ekle</a>
+                   class="btn btn-success btn-block text-white"><i class="fas fa-plus-circle"></i> Yeni Ürün</a>
             </th>
         </tr>
     </thead>
@@ -44,6 +46,9 @@
         @{var counter = 1;}
         @foreach (var item in Model)
         {
+
+
+            var date = (DateTime)item.CreationDate;
 
             double discountedPrice = 0;
             var price = Convert.ToDouble(item.Price);
@@ -86,7 +91,7 @@
                     <a href="~/product/@item.Url" target="_blank">@productUrl</a>
                 </td>
                 <td>
-                    @item.CreationDate
+                    @date.ToString("dd MMMM yyyy | HH:mm", CultureInfo.CreateSpecificCulture("tr"))
                 </td>
                 <td>
                     <div>

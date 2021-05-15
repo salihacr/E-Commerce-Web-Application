@@ -11,7 +11,6 @@ using E_Commerce_App.WebUI.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -170,17 +169,6 @@ namespace E_Commerce_App.WebUI
                    );
 
                 // Home Pages
-                endpoints.MapControllerRoute(
-                    name: "productdetails2",
-                    pattern: "products/{category?}",
-                    defaults: new { controller = "Shop", Action = "List" }
-                    );
-
-                //endpoints.MapControllerRoute(
-                //    name: "productdetails",
-                //    pattern: "{url}",
-                //    defaults: new { controller = "Shop", Action = "Detail" }
-                //    );
 
                 endpoints.MapControllerRoute(
                     name: "default",

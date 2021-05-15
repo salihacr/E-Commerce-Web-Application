@@ -1,17 +1,26 @@
-﻿using E_Commerce_App.Core.Services;
+﻿using AutoMapper;
+using E_Commerce_App.Core.Entities;
+using E_Commerce_App.Core.Services;
+using E_Commerce_App.Core.Shared.DTOs;
 using E_Commerce_App.WebUI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace E_Commerce_App.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly IMapper _mapper;
         private readonly IProductService _productService;
-        public HomeController(IProductService productService)
+        private readonly IService<Image> _imageService;
+        public HomeController(IMapper mapper, IProductService productService, IService<Image> imageService)
         {
+            _mapper = mapper;
             _productService = productService;
+            _imageService = imageService;
         }
         public async Task<IActionResult> Index(string query)
         {
@@ -83,6 +92,26 @@ namespace E_Commerce_App.WebUI.Controllers
                 Products = await _productService.GetSearchResult(query, Convert.ToInt32(page), pageSize)
             };
             return Json(new { data = productListViewModel });
+        }
+        [Route("product/{url}")]
+        public async Task<IActionResult> Detail(string url)
+        {
+            var product = await _productService.GetProductWithAllColumns(p => p.Url == url);
+            var productImages = await _imageService.Where(i => i.ProductId == product.Id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            var selectedCategories = product.ProductCategories;
+            var selectedColors = product.Colors;
+            var productViewModel = new ProductViewModel()
+            {
+                ProductDto = _mapper.Map<ProductDto>(product),
+                SelectedCategories = _mapper.Map<IEnumerable<ProductCategoryDto>>(selectedCategories),
+                Images = _mapper.Map<IEnumerable<ImageDto>>(productImages),
+                SelectedColors = _mapper.Map<IEnumerable<ColorDto>>(selectedColors)
+            };
+            return View(productViewModel);
         }
     }
 }
