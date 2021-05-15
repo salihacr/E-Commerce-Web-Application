@@ -5,36 +5,18 @@ using System.ComponentModel.DataAnnotations;
 
 namespace E_Commerce_App.Core.Shared.DTOs
 {
-    public class ColorDto : BaseDto
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Code { get; set; }
-    }
-    public class ImageDto : BaseDto
-    {
-        public int Id { get; set; }
-        public string ImagePath { get; set; }
-        public string ProductId { get; set; }
-    }
-    public class ProductColorDto : BaseDto
-    {
-        public int ColorId { get; set; }
-        public string ProductId { get; set; }
-    }
-    public class ProductCategoryDto : BaseDto
-    {
-        public int CategoryId { get; set; }
-        public string ProductId { get; set; }
-    }
     public class ProductDto : BaseDto
     {
         public string Id { get; set; }
         [Display(Name = "Ad")]
         [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
+        [MinLength(2, ErrorMessage ="Ürün adı en az 2 harften oluşabilir.")]
+        [MaxLength(50, ErrorMessage = "Ürün adı en fazla 50 harften oluşabilir.")]
         public string Name { get; set; }
 
         [Display(Name = "Bağlantı")]
+        [MinLength(2, ErrorMessage = "Ürün bağlantısı en az 2 harften oluşabilir.")]
+        [MaxLength(80, ErrorMessage = "Ürün bağlantısı en fazla 80 harften oluşabilir.")]
         public string Url { get; set; }
 
         [Display(Name = "Fiyat")]

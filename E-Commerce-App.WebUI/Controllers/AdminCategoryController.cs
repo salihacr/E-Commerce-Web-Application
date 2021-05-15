@@ -68,11 +68,11 @@ namespace E_Commerce_App.WebUI.Controllers
 
             try
             {
-                var campaign = await _categoryService.GetByIdAsync(id);
-                if (campaign != null)
-                    _categoryService.Remove(campaign);
+                var category = await _categoryService.GetByIdAsync(id);
+                if (category != null)
+                    _categoryService.Remove(category);
 
-                var productCategories = await _productCategoryService.Where(p => p.CategoryId == campaign.Id);
+                var productCategories = await _productCategoryService.Where(p => p.CategoryId == category.Id);
                 _productCategoryService.RemoveRange(productCategories);
                 return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await GetCategories()) });
             }

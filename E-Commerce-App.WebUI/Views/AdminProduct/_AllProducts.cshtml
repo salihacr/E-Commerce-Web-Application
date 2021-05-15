@@ -2,9 +2,23 @@
     Layout = null;
 }
 @model IEnumerable<E_Commerce_App.Core.Shared.DTOs.ProductDto>
-<table id="example1" class="table table-hover table-bordered" style="width:100%">
+
+<style>
+    td {
+        vertical-align: middle !important;
+    }
+
+    th {
+        vertical-align: middle !important;
+    }
+</style>
+
+<table id="example1" class="table table-hover table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
+            <th>
+                #
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.MainImage)
             </th>
@@ -22,38 +36,68 @@
             </th>
             <th>
                 <a href="/Admin/Product/Add"
-                   class="btn btn-success text-white">Ürün Ekle</a>
+                   class="btn btn-success btn-block text-white">Ürün Ekle</a>
             </th>
         </tr>
     </thead>
     <tbody>
+        @{var counter = 1;}
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                <img src="~/img/@item.MainImage" width="50" height="50" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Url)
-            </td>
-            <td>
-                @item.CreationDate
-            </td>
-            <td>
-                <div>
-                    <a href="/Admin/Product/Edit/@item.Id" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i>&nbsp;Düzenle</a>
-                    <a class="btn btn-danger" onclick="removeProduct('@item.Id');">
-                        <i class="fa fa-trash">&nbsp; Sil</i>
-                    </a>
-                </div>
-            </td>
-        </tr>
+
+            double discountedPrice = 0;
+            var price = Convert.ToDouble(item.Price);
+            price = Math.Round(price, 0);
+            if (item.Discount != null && item.Discount > 0)
+            {
+                discountedPrice = Convert.ToDouble(item.Price - ((item.Price * item.Discount) / 100));
+            }
+
+            var absPrice = item.Discount != null && item.Discount > 0 ? discountedPrice : price;
+
+            <tr>
+                <td style="text-align:center;">
+                    <b>@counter</b>
+                </td>
+                <td style="text-align: center;">
+                    <img src="~/img/@item.MainImage" width="50" height="50" />
+                </td>
+                <td>
+                    @{
+                        var productName = "";
+                        if (item.Name.Length > 10)
+                            productName = item.Name.Substring(0, 9) + "...";
+                        else productName = item.Name;
+
+                    }
+                    @productName
+                </td>
+                <td>
+                    <b>@absPrice ₺</b>
+                </td>
+                <td>
+                    @{
+                        var productUrl = "";
+                        if (item.Url.Length > 10)
+                            productUrl = item.Url.Substring(0, 9) + "...";
+                        else productUrl = item.Url;
+
+                    }
+                    <a href="~/product/@item.Url" target="_blank">@productUrl</a>
+                </td>
+                <td>
+                    @item.CreationDate
+                </td>
+                <td>
+                    <div>
+                        <a href="/Admin/Product/Edit/@item.Id" class="btn btn-secondary text-white"><i class="fas fa-pencil-alt"></i>&nbsp;Düzenle</a>
+                        <a class="btn btn-danger" onclick="removeProduct('@item.Id');">
+                            <i class="fa fa-trash">&nbsp; Sil</i>
+                        </a>
+                    </div>
+                </td>
+                @{counter++;}
+            </tr>
         }
     </tbody>
 </table>

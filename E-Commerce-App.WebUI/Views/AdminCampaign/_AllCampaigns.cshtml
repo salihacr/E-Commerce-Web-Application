@@ -1,52 +1,62 @@
 ﻿@model IEnumerable<E_Commerce_App.Core.Shared.DTOs.CampaignDto>
-<table class="table table-striped table-bordered">
-    <thead class="thead-light">
-        <tr>
-            <th>
-                #
-            </th>
-            <th>
-                Resim
-            </th>
-            <th>
-                Kampanya
-            </th>
-            <th>
-                Oluşturma Tarihi
-            </th>
-            <th>
-                <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCampaign", null, Context.Request.Scheme)','Kampanya Oluştur')"
-                   class="btn btn-success text-white">Yeni Kampanya</a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @{ var counter = 1;}
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @counter
-                </td>
-                <td>
-                    <img src="~/img/@item.ImagePath" width="120" height="60" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreationDate)
-                </td>
-                <td>
-                    <div>
-                        <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCampaign", new { id = item.Id }, Context.Request.Scheme)','Kampanya Güncelleme')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Düzenle</a>
-                        <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return removeCampaign(this)" class="d-inline">
-                            <input type="submit" value="Sil" class="btn btn-danger" />
-                        </form>
-                    </div>
-                </td>
-                @{counter++;}
-            </tr>
+
+
+    <style>
+        td {
+            vertical-align: middle !important;
         }
-    </tbody>
-</table>
+        th {
+            vertical-align: middle !important;
+        }
+    </style>
+    <table id="categoriesTable" class="table table-hover table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Resim
+                </th>
+                <th>
+                    Kampanya
+                </th>
+                <th>
+                    Oluşturma Tarihi
+                </th>
+                <th>
+                    <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCampaign", null, Context.Request.Scheme)','Kampanya Oluştur')"
+                       class="btn btn-success btn-block text-white">Yeni Kampanya</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ var counter = 1;}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="text-align:center;">
+                        <b>@counter</b>
+                    </td>
+                    <td style="text-align: center;">
+                        <img src="~/img/@item.ImagePath" width="120" height="60" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreationDate)
+                    </td>
+                    <td>
+                        <div>
+                            <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCampaign", new { id = item.Id }, Context.Request.Scheme)','Kampanya Güncelleme')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Düzenle</a>
+                            <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return removeCampaign(this)" class="d-inline">
+                                <input type="submit" value="Sil" class="btn btn-danger" />
+                            </form>
+                        </div>
+                    </td>
+                    @{counter++;}
+                </tr>
+            }
+        </tbody>
+    </table>

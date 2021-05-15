@@ -1,12 +1,16 @@
 ﻿@model IEnumerable<E_Commerce_App.Core.Shared.DTOs.CampaignDto>
 
 @{
-    ViewData["CurrentPage"] = "Kampanyalar";
-    ViewData["CurrentPageUrl"] = "Campaign";
+    ViewData["SubPage"] = "Kampanyalar";
+    ViewData["SubPageUrl"] = "Campaign";
 }
 
 <div id="view-all">
-    @await Html.PartialAsync("_AllCampaigns", Model)
+    <div class="card">
+        <div class="card-body">
+            @await Html.PartialAsync("_AllCampaigns", Model)
+        </div>
+    </div>
 </div>
 
 @section Scripts{

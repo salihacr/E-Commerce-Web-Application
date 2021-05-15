@@ -16,6 +16,8 @@
 }
 @section Css{
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    @*Ürün Sitil*@
     <style>
         .pd-wrap {
             padding: 40px 0;
@@ -334,7 +336,7 @@
             cursor: pointer;
         }
     </style>
-
+    @*Renk Sitil*@
     <style>
 
         .toolbar {
@@ -375,8 +377,7 @@
             margin: 15px 15px 0px 15px;
         }
     </style>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.css" />
+    @*Galeri Sitil*@
     <style>
         #imageGallery {
             list-style: none outside none;
@@ -421,6 +422,10 @@
             background: #f5f5f5;
         }
     </style>
+
+    @*<link href="~/node_modules/lightslider/dist/css/lightslider.css" />*@
+    @*<link href="~/node_modules/lightslider/src/css/lightslider.css" />*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.css" />
 
 }
 <br />
@@ -545,7 +550,7 @@
         }
             , 1000);
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.js"></script>
+    <script src="~/node_modules/lightslider/dist/js/lightslider.min.js"></script>
     <script>
         $(document).ready(function () {
 
