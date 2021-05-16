@@ -429,7 +429,7 @@
 
 }
 <br />
-<form>
+<form asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.ProductDto.Id" id="productDetailForm">
     <br />
     <br />
     <div class="pd-wrap">
@@ -474,6 +474,7 @@
                         <p>@Model.ProductDto.ShortDescription</p>
                         <div class="row">
                             <div class="col-md-6">
+                                <input type="hidden" name="productId" value="@product.Id">
                                 <label for="size">Renk</label><br />
                                 <div class="toolbar">
                                     <div id="myColorSelector" class="colorSelector">
@@ -503,7 +504,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="float-right round-black-btn">Sepete Ekle</button>
+                                    <button type="submit" class="float-right round-black-btn">Sepete Ekle</button>
                                 </div>
                             </div>
                         </div>
@@ -576,5 +577,52 @@
                 }
             });
         });
+    </script>
+
+
+    <script>
+        $('#productDetailForm').on('submit', function (event) {
+
+
+            var form = document.getElementById('productDetailForm');
+            var action = form.getAttribute("action");
+            var formdata = new FormData($("#productDetailForm")[0]);
+
+            try {
+                $.ajax({
+                    type: 'POST',
+                    url: action,
+                    data: formdata,
+                    contentType: false,
+                    processData: false,
+                    success: function (res) {
+                        if (res.isValid) {
+                            Swal.fire(
+                                'Kayıt Başarılı !',
+                                `${res.message}`,
+                                'success'
+                            )
+                        }
+                        else
+                            Swal.fire(
+                                'Kayıt Hatası !',
+                                `${res.message}`,
+                                'error'
+                            )
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                });
+                //to prevent default form submit event
+                return false;
+            } catch (ex) {
+                Swal.fire('Kayıt Hatası !', 'error')
+            }
+
+            event.preventDefault();
+            return false;
+        });
+
     </script>
 }

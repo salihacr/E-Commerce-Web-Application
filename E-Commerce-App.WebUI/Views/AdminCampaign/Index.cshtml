@@ -40,12 +40,15 @@
                             contentType: false,
                             processData: false,
                             success: function (res) {
-                                $('#view-all').html(res.html);
+                                $("#example1").ajax.reload();
+                                console.log(res);
                                 Swal.fire(
                                     'Silme Başarılı !',
-                                    'Kampanya başarıyla silindi !',
+                                    `${res.message}`,
                                     'success'
                                 )
+                                $('#view-all').html(res.html);
+
                             },
                             error: function (err) {
                                 console.log(err)

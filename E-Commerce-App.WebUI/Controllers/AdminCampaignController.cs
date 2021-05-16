@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using E_Commerce_App.Core.Entities;
 using E_Commerce_App.Core.Services;
+using E_Commerce_App.Core.Shared;
 using E_Commerce_App.Core.Shared.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -59,9 +60,9 @@ namespace E_Commerce_App.WebUI.Controllers
                     campaignDto.DateOfUpdate = DateTime.Now;
                     _campaignService.Update(_mapper.Map<Campaign>(campaignDto));
                 }
-                return Json(new { isValid = true, message = "Kayıt Başarılı.", html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCampaigns", await GetCampaigns()) });
+                return Json(new { isValid = true, message = Messages.JSON_CREATE_MESSAGE("Kampanya"), html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCampaigns", await GetCampaigns()) });
             }
-            return Json(new { isValid = false, html = Helpers.UIHelper.RenderRazorViewToString(this, "AddOrEdit", campaignDto) });
+            return Json(new { isValid = false, message = Messages.JSON_CREATE_MESSAGE("Kampanya", false), html = Helpers.UIHelper.RenderRazorViewToString(this, "AddOrEdit", campaignDto) });
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -72,7 +73,7 @@ namespace E_Commerce_App.WebUI.Controllers
                 var campaign = await _campaignService.GetByIdAsync(id);
                 if (campaign != null)
                     _campaignService.Remove(campaign);
-                return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCampaigns", await GetCampaigns()) });
+                return Json(new { isValid = true, message = Messages.JSON_REMOVE_MESSAGE("Kampanya"), html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCampaigns", await GetCampaigns()) });
             }
             catch (Exception ex)
             {

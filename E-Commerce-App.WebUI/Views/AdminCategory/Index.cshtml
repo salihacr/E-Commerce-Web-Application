@@ -53,12 +53,18 @@
                             processData: false,
                             success: function (res) {
                                 $('#view-all').html(res.html);
+
+                                Swal.fire(
+                                    'Silme Başarılı !',
+                                    `${res.message}`,
+                                    'success'
+                                )
+
                             },
                             error: function (err) {
                                 console.log(err)
                             }
                         })
-                        toastr.success("Kategori başarıyla silindi.");
                     }
                 } catch (ex) {
                     console.log(ex)

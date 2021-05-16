@@ -75,11 +75,25 @@
                             data: "{id:'" + id + "'}",
                             contentType: false,
                             processData: false,
-                            success: function (res) {
-                                $('#view-all').html(res.html);
+                            success: async function (res) {
+                                console.log(res);
+                                await Swal.fire(
+                                    'Silme Başarılı !',
+                                    `${res.message}`,
+                                    'success'
+                                )
+                                await $('#view-all').html(res.html);
+                                await window.location.reload();
+
+
                             },
                             error: function (err) {
-                                console.log(err)
+                                console.log(err.responseText);
+                                Swal.fire(
+                                    'Silme Hatası !',
+                                    `${err}`,
+                                    'error'
+                                )
                             }
                         })
                     }
@@ -90,3 +104,29 @@
         }
     </script>
 }
+@*
+
+    en mantıklı çözüm bu silinen hücrenin üst tr objesini datatabledan kaldırmak
+
+    $(document).on('click', '[id^="delete-product-"]', function() {
+        var $button = $(this);
+        var id = this.id.split('-').pop();
+        var table = $('#table_id_selector').DataTable(); // replace with your table id
+        selector
+        $.ajax({
+            type: 'post',
+            url: 'my_controller/delete_product',
+            dataType: 'json',
+            data: {id: id},
+            success: function(callback)
+            {
+                table.row( $button.parents('tr') ).remove().draw();
+            },
+            error: function(status)
+            {
+                console.log(status);
+            }
+        });
+    });
+
+*@

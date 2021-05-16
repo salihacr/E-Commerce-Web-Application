@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using E_Commerce_App.Core.Entities;
 using E_Commerce_App.Core.Services;
+using E_Commerce_App.Core.Shared;
 using E_Commerce_App.Core.Shared.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -35,11 +36,11 @@ namespace E_Commerce_App.WebUI.Controllers
         [NoDirectAccess]
         public async Task<IActionResult> AddOrEdit(int id = 0)
         {
-            var campaign = await _categoryService.GetByIdAsync(id);
-            if (id == 0 && campaign == null)
+            var category = await _categoryService.GetByIdAsync(id);
+            if (id == 0 && category == null)
                 return View(new CategoryDto());
             else
-                return View(_mapper.Map<CategoryDto>(campaign));
+                return View(_mapper.Map<CategoryDto>(category));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -57,9 +58,9 @@ namespace E_Commerce_App.WebUI.Controllers
                     categoryDto.DateOfUpdate = DateTime.Now;
                     _categoryService.Update(_mapper.Map<Category>(categoryDto));
                 }
-                return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await GetCategories()) });
+                return Json(new { isValid = true, message = Messages.JSON_CREATE_MESSAGE("Kategori"), html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await GetCategories()) });
             }
-            return Json(new { isValid = false, html = Helpers.UIHelper.RenderRazorViewToString(this, "AddOrEdit", categoryDto) });
+            return Json(new { isValid = false, message = Messages.JSON_CREATE_MESSAGE("Kategori", false), html = Helpers.UIHelper.RenderRazorViewToString(this, "AddOrEdit", categoryDto) });
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -74,7 +75,7 @@ namespace E_Commerce_App.WebUI.Controllers
 
                 var productCategories = await _productCategoryService.Where(p => p.CategoryId == category.Id);
                 _productCategoryService.RemoveRange(productCategories);
-                return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await GetCategories()) });
+                return Json(new { isValid = true, message = Messages.JSON_REMOVE_MESSAGE("Kategori"), html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllCategories", await GetCategories()) });
             }
             catch (Exception ex)
             {

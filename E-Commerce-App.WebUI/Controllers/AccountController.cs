@@ -1,4 +1,7 @@
-﻿using E_Commerce_App.WebUI.Identity;
+﻿using E_Commerce_App.Core.Services;
+using E_Commerce_App.Core.Shared.Helper;
+using E_Commerce_App.WebUI.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,14 +12,22 @@ namespace E_Commerce_App.WebUI.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
-        public AccountController(UserManager<User> userManager,
-                                SignInManager<User> signInManager)
+        private ICartService _cartService;
+        private UserManager<User> _userManager;
+        private SignInManager<User> _signInManager;
+        private IEmailSender _emailSender;
+
+        public AccountController(ICartService cartService,
+            UserManager<User> userManager,
+            SignInManager<User> signInManager,
+            IEmailSender emailSender)
         {
+            _cartService = cartService;
             _userManager = userManager;
             _signInManager = signInManager;
+            _emailSender = emailSender;
         }
+
         // Pages
         //[Route("signin")]
         [HttpGet]
@@ -52,11 +63,25 @@ namespace E_Commerce_App.WebUI.Controllers
             return false;
         }
         // Helper
-        private async Task SendVerificationEmail(string email, string baseUrl)
+        private async Task SendVerificationEmail(User user, string email, string baseUrl)
         {
+            //var siteUrl = "https://localhost:5001";
+            //var html = $"lütfen email hesabınızı onaylamak için <a href='{siteUrl + baseUrl}'>linke</a> tıklayınız.";
+            ////await _emailSender.SendEmailAsync(model.Email, "hesabınızı onaylayınız.", html);
+
+            // generate token
+            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var url = Url.Action("ConfirmEmail", "Account", new
+            {
+                userId = user.Id,
+                token = code
+            });
+            Console.Write(url);
+            // email
             var siteUrl = "https://localhost:5001";
-            var html = $"lütfen email hesabınızı onaylamak için <a href='{siteUrl + baseUrl}'>linke</a> tıklayınız.";
-            //await _emailSender.SendEmailAsync(model.Email, "hesabınızı onaylayınız.", html);
+            var html = $"lütfen email hesabınızı onaylamak için <a href='{siteUrl + url}'>linke</a> tıklayınız.";
+            await _emailSender.SendEmailAsync(user.Email, "hesabınızı onaylayınız.", html);
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -83,6 +108,31 @@ namespace E_Commerce_App.WebUI.Controllers
             }
             return View(model);
         }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            if (userId == null || token == null)
+            {
+                //CreateMessage("geçersiz token", "geçersiz token", "danger");
+                return View();
+            }
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user != null)
+            {
+                var result = await _userManager.ConfirmEmailAsync(user, token);
+                if (result.Succeeded)
+                {
+                    // cart objesini oluşturalım
+                    await _cartService.InitializeCart(user.Id);
+                    //CreateMessage("hesabınız onaylandı", "hesabınız onaylandı.", "success");
+                    return View();
+                }
+            }
+            //CreateMessage("böyle biri yok", "böyle biri yok", "warning");
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
@@ -105,7 +155,7 @@ namespace E_Commerce_App.WebUI.Controllers
                     var baseUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, token = token });
 
                     // email operations
-                    await SendVerificationEmail(user.Email, baseUrl);
+                    await SendVerificationEmail(user, user.Email, baseUrl);
 
                     return RedirectToAction("Login", "Account");
                 }

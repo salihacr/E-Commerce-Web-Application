@@ -25,7 +25,7 @@
                 Oluşturma Tarihi
             </th>
             <th>
-                <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", null, Context.Request.Scheme)','Kategori Ekle')"
+                <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", null, Context.Request.Scheme)','Kategori Oluştur')"
                    class="btn btn-success btn-block text-white"><i class="fas fa-plus-circle"></i> Yeni Kategori</a>
             </th>
         </tr>
@@ -51,7 +51,7 @@
                 </td>
                 <td>
                     <div>
-                        <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", new { id = item.Id }, Context.Request.Scheme)','Kategori Güncelleme')" class="btn btn-secondary text-white"><i class="fas fa-pencil-alt"></i> Düzenle</a>
+                        <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", new { id = item.Id }, Context.Request.Scheme)','Kategori Güncelle')" class="btn btn-secondary text-white"><i class="fas fa-pencil-alt"></i> Düzenle</a>
                         <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return removeCategory(this)" class="d-inline">
                             <input type="submit" value="Sil" class="btn btn-danger" />
                         </form>

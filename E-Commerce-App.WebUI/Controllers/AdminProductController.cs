@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using E_Commerce_App.Core.Entities;
 using E_Commerce_App.Core.Services;
+using E_Commerce_App.Core.Shared;
 using E_Commerce_App.Core.Shared.DTOs;
 using E_Commerce_App.WebUI.Helpers;
 using E_Commerce_App.WebUI.ViewModels;
@@ -112,13 +113,13 @@ namespace E_Commerce_App.WebUI.Controllers
                         var editedProduct = await _crudHelper.ProductForEdit(productDto, mainImage, allImages, categoryIds, colorIds);
                         _productService.Update(_mapper.Map<ProductDto, Product>(editedProduct));
                     }
-                    return Json(new { isValid = true, message = "Ürün kaydı başarılı." });
+                    return Json(new { isValid = true, message = Messages.JSON_CREATE_MESSAGE("Ürün") });
                 }
                 return Json(new { isValid = false, message = "Lütfen tüm alanları doldurunuz." });
             }
             catch (Exception)
             {
-                return Json(new { isValid = false, message = "Ürün kayıt hatası." });
+                return Json(new { isValid = false, message = Messages.JSON_CREATE_MESSAGE("Ürün", false) });
             }
         }
 
@@ -133,7 +134,7 @@ namespace E_Commerce_App.WebUI.Controllers
                 var productCategories = await _productCategoryService.Where(p => p.ProductId == product.Id);
                 _productColorService.RemoveRange(productColors);
                 _productCategoryService.RemoveRange(productCategories);
-                return Json(new { isValid = true, html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllProducts", await GetProducts()) });
+                return Json(new { isValid = true, message = Messages.JSON_REMOVE_MESSAGE("Ürün"), html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllProducts", await GetProducts()) });
             }
             catch (Exception ex)
             {

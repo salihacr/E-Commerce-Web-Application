@@ -27,7 +27,7 @@ else
             border-radius: .2em;
             background-color: #007bff;
             transition: 1s;
-            color:white;
+            color: white;
         }
 
         input[type=file]::file-selector-button {
@@ -42,7 +42,7 @@ else
         input[type=file]::-webkit-file-upload-button:hover {
             background-color: #81ecec;
             border: 2px solid #00cec9;
-            color:black;
+            color: black;
         }
 
         input[type=file]::file-selector-button:hover {
@@ -335,10 +335,18 @@ else
                     processData: false,
                     success: function (res) {
                         if (res.isValid) {
-                            toastr.success(res.message)
+                            Swal.fire(
+                                'Kayıt Başarılı !',
+                                `${res.message}`,
+                                'success'
+                            )
                         }
                         else
-                            toastr.error(res.message);
+                            Swal.fire(
+                                'Kayıt Hatası !',
+                                `${res.message}`,
+                                'error'
+                            )
                     },
                     error: function (err) {
                         console.log(err)

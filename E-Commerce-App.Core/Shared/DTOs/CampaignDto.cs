@@ -16,7 +16,7 @@ namespace E_Commerce_App.Core.Shared.DTOs
         [Display(Name = "Kampanya Resim Etiket Adı")]
         [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
         public string ImageAltTag { get; set; }
-        
+
         [Display(Name = "Ana Sayfada Görünsün mü ?")]
         public bool IsHome { get; set; }
     }

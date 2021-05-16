@@ -53,7 +53,7 @@
                 </td>
                 <td>
                     <div>
-                        <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCampaign", new { id = item.Id }, Context.Request.Scheme)','Kampanya Güncelleme')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Düzenle</a>
+                        <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCampaign", new { id = item.Id }, Context.Request.Scheme)','Kampanya Güncelle')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Düzenle</a>
                         <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return removeCampaign(this)" class="d-inline">
                             <input type="submit" value="Sil" class="btn btn-danger" />
                         </form>

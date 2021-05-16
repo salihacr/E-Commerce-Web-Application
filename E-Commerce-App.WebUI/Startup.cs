@@ -2,6 +2,7 @@ using AutoMapper;
 using E_Commerce_App.Business.Services;
 using E_Commerce_App.Core.Repositories;
 using E_Commerce_App.Core.Services;
+using E_Commerce_App.Core.Shared.Helper;
 using E_Commerce_App.Core.Shared.Mapping;
 using E_Commerce_App.Core.UnitOfWorks;
 using E_Commerce_App.Data;
@@ -103,6 +104,20 @@ namespace E_Commerce_App.WebUI
 
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICartService, CartService>();
+
+
+            // email sender dependency injection
+            services.AddScoped<IEmailSender, SmtpEmailSender>(i =>
+            new SmtpEmailSender(
+                Configuration["EmailSender:Host"],
+                Configuration.GetValue<int>("EmailSender:Port"),
+                Configuration.GetValue<bool>("EmailSender:EnableSSL"),
+                Configuration["EmailSender:UserName"],
+                Configuration["EmailSender:Password"]
+                )
+            );
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

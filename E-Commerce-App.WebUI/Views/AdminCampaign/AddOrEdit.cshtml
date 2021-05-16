@@ -81,10 +81,14 @@
         $('#campaignForm').validate({
             rules: {
                 "Name": {
-                    required: true
+                    required: true,
+                    maxlength: 50,
+                    minlength: 2
                 },
                 "ImageAltTag": {
-                    required: true
+                    required: true,
+                    maxlength: 120,
+                    minlength: 2
                 },
                 campainImage: {
                     required: ($("#campainImageId").val() === "" && $("#imgpreview").attr('src') === undefined),
@@ -145,7 +149,7 @@
                             $('#form-modal').modal('hide');
                             Swal.fire(
                                 'Kayıt Başarılı !',
-                                'Kampanya başarıyla kaydedildi !',
+                                `${res.message}`,
                                 'success'
                             )
                         }
