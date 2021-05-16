@@ -25,12 +25,14 @@ namespace E_Commerce_App.Business.Services
                         Quantity = quantity,
                         CartId = cart.Id
                     });
+                    
                 }
                 // eklenmek isteyen ürün sepette var mı (güncelleme)
                 else
                     cart.CartItems[index].Quantity += quantity;
 
                 _unitOfWork.CartRepository.Update(cart);
+                await _unitOfWork.CommitAsync();
             }
         }
 
@@ -39,6 +41,7 @@ namespace E_Commerce_App.Business.Services
             var cart = await GetCartByUserId(userId);
             if (cart != null)
                 await _unitOfWork.CartRepository.DeleteProductFromCart(productId, cart.Id);
+                await _unitOfWork.CommitAsync();
 
         }
 
@@ -50,11 +53,13 @@ namespace E_Commerce_App.Business.Services
         public async Task InitializeCart(string userId)
         {
             await _unitOfWork.CartRepository.AddAsync(new Cart() { UserId = userId });
+            await _unitOfWork.CommitAsync();
         }
 
         public async Task ResetCart(int cartId)
         {
             await _unitOfWork.CartRepository.ResetCart(cartId);
+            await _unitOfWork.CommitAsync();
         }
     }
 }

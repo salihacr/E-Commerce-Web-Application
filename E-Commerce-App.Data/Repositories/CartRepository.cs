@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 namespace E_Commerce_App.Data.Repositories
 {
+
+
+    // TODO eğer bir ürün admin tarafından silinirse tüm sepetlerden silinsin.
+
     public class CartRepository : Repository<Cart>, ICartRepository
     {
         private AppDbContext _appDbContext { get => _context; }
