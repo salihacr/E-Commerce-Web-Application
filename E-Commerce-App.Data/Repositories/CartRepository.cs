@@ -17,7 +17,7 @@ namespace E_Commerce_App.Data.Repositories
 
         public async Task DeleteProductFromCart(string productId, int cartId)
         {
-            var command = @"Delete From CartItems Where ProductId=@productId and CartId=@cartId";
+            var command = @"Delete From CartItems Where ProductId=@p0 and CartId=@p1";
             await _appDbContext.Database.ExecuteSqlRawAsync(command, productId, cartId);
         }
 

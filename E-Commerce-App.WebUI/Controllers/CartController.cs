@@ -28,6 +28,12 @@ namespace E_Commerce_App.WebUI.Controllers
             var model = await GetProductsFromCart();
             return View(model);
         }
+        [Route("/GetCartItems")]
+        public async Task<IActionResult> GetCartItems()
+        {
+            var model = await GetProductsFromCart();
+            return Json(new { data = model });
+        }
 
         [HttpPost]
         public async Task<IActionResult> AddToCart(string productId, string color, int quantity)
@@ -39,6 +45,7 @@ namespace E_Commerce_App.WebUI.Controllers
         }
 
         [HttpPost]
+        [Route("/RemoveFromCart/{productId}")]
         public async Task<IActionResult> DeleteFromCart(string productId)
         {
             var userId = _userManager.GetUserId(User);
@@ -48,7 +55,7 @@ namespace E_Commerce_App.WebUI.Controllers
             {
                 isValid = true,
                 message = Messages.JSON_REMOVE_MESSAGE("Ürün"),
-                html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllProducts", await GetProductsFromCart())
+                data = await GetProductsFromCart()
             });
         }
 
@@ -71,7 +78,6 @@ namespace E_Commerce_App.WebUI.Controllers
             };
             return model;
         }
-
         private async Task ResetCart(int cartId)
         {
             await _cartService.ResetCart(cartId);

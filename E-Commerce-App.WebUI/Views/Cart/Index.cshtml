@@ -1,1 +1,132 @@
-﻿
+﻿@{Layout = "_Layout";}
+@model E_Commerce_App.WebUI.ViewModels.CartViewModel
+@* site.css de site-color1 diye özellik tanımla sitenin ana renginin oldugu,
+    baslik renkleri text renkleri vb.*@
+<br />
+<br />
+<br />
+<br />
+
+@if (Model.CartItems.Count > 0)
+{
+    <h4>Sepetim</h4>
+    <br />
+    <div class="row">
+
+        <div class="col-md-9 mb-2" id="cartItems">
+
+        </div>
+        <div class="col-md-3">
+            <div class="card p-3">
+                <h6 class="mb-3">Ödenecek Tutar</h6>
+                <h4 class="mb-5">@Model.GetTotalPrice() <small><b>TL</b></small></h4>
+                <button class="btn btn-outline-primary">Alışverişi tamamla</button>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div style="text-align:center;">
+        <i class="fas fa-shopping-cart icon"></i>
+        <h4>Sepetin şu an boş</h4>
+        <span>Sepetini {site} nin fırsatlarla dolu dünyasından doldurmak için aşağıdaki ürünleri incelemeye başlayabilirsin.</span>
+    </div>
+}
+
+
+@section Scripts{
+    @* sil metodunda dönen data olacagi icin html yeniden ekrana basilir. *@
+
+    <script>
+        function cartItemComponent(data, index) {
+            let html = ``;
+
+            html = `
+<div class="row">
+            <div class="col-md-2"><img src="/img/${data[index].imageUrl}" width="100" height="100" /></div>
+            <div class="col-md-8">
+                <h6>${data[index].name}</h6>
+                <br />
+                <h5> ${data[index].price * data[index].quantity} TL</h5>
+            </div>
+            <div class="col-md-1">
+                Adet
+                <p style="text-align:center">${data[index].quantity}</p>
+            </div>
+            <div class="col-md-1">
+                    <button class="btn btn-danger" onclick="removeCartItem('${data[index].productId}')"><i class="fas fa-trash"></i></button>
+            </div>
+</div><hr />`;
+            return html;
+        }
+
+        function getCartItems() {
+
+            $.ajax({
+                type: 'GET',
+                url: "/GetCartItems",
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    var data = response.data.cartItems;
+                    console.log(response);
+                    for (var i = 0; i < data.length; i++) {
+                        $("#cartItems").append(cartItemComponent(data, i));
+                    }
+                }
+            })
+        }
+
+        removeCartItem = productId => {
+
+            const state = {
+                productId: productId
+            };
+            console.log(state);
+            try {
+                $.ajax({
+                    type: 'POST',
+                    url: `/RemoveFromCart/${productId}`,
+                    data: state,
+                    contentType: false,
+                    processData: false,
+                    success: function (res) {
+                        $("#cartItems").html("");
+                        getCartItems();
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                })
+            }
+            catch (ex) {
+                console.log(ex)
+            }
+            return false;
+        }
+
+        getCartItems();
+
+    </script>
+}
+@section Css{
+    <style>
+
+        .icon {
+            animation: MoveUpDown 2s linear infinite;
+            position: relative;
+            color: dodgerblue;
+        }
+
+        @@keyframes MoveUpDown {
+            0%, 100% {
+                bottom: 0;
+            }
+
+            50% {
+                bottom: 20px;
+            }
+        }
+    </style>
+}
