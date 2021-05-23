@@ -28,7 +28,7 @@
 else
 {
     <div style="text-align:center;">
-        <i class="fas fa-shopping-cart icon"></i>
+        <i class="fas fa-shopping-cart icon" style="font-size:2em;"></i>
         <h4>Sepetin şu an boş</h4>
         <span>Sepetini {site} nin fırsatlarla dolu dünyasından doldurmak için aşağıdaki ürünleri incelemeye başlayabilirsin.</span>
     </div>
@@ -62,7 +62,7 @@ else
         }
 
         function getCartItems() {
-
+            var len = 0;
             $.ajax({
                 type: 'GET',
                 url: "/GetCartItems",
@@ -70,12 +70,14 @@ else
                 processData: false,
                 success: function (response) {
                     var data = response.data.cartItems;
+                    len = data.length;
                     console.log(response);
                     for (var i = 0; i < data.length; i++) {
                         $("#cartItems").append(cartItemComponent(data, i));
                     }
                 }
             })
+            return len;
         }
 
         removeCartItem = productId => {
@@ -93,7 +95,11 @@ else
                     processData: false,
                     success: function (res) {
                         $("#cartItems").html("");
-                        getCartItems();
+                        var len = getCartItems();
+
+                        if (len < 1) {
+                            location.reload();
+                        }
                     },
                     error: function (err) {
                         console.log(err)

@@ -1,4 +1,5 @@
-﻿@{ Layout = "_Layout";}
+﻿@model E_Commerce_App.WebUI.ViewModels.OrderViewModel
+@{ Layout = "_Layout";}
 
 <div><br /><br /><br /></div>
 
@@ -8,9 +9,15 @@
         <div class="col-md-12 mb-3">
             <div class="card p-5">
                 Teslimat bilgileri
-                <div class="form-group">
-                    <small>Ad Soyad</small>
-                    <input class="form-control" placeholder="Teslim alacak kişinin adı soyadı" />
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <small>Ad Soyad</small>
+                        <input class="form-control" asp-for="@Model.OrderDto.FirstName" placeholder="Teslim alacak kişinin adı soyadı" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <small>Telefon</small>
+                        <input type="number" asp-for="@Model.OrderDto.Phone" max="10" min="10" class="form-control" placeholder="Teslim alacak kişinin telefon numarası" />
+                    </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -28,6 +35,10 @@
                 </div>
                 <div class="form-group">
                     <label>Adres</label>
+                    <textarea class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Not</label>
                     <textarea class="form-control"></textarea>
                 </div>
             </div>

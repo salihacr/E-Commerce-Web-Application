@@ -3,24 +3,391 @@
     Layout = null;
 }
 
-<div class="container">
-    <form asp-controller="Account" asp-action="Login" method="post">
-        <br /><br /><br /><br />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <input type="text" class="form-control" asp-for="Email" />
-            <span asp-validation-for="Email"></span>
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" asp-for="Password" />
-        </div>
-        <input type="submit" class="btn btn-danger" value="Giriş Yap" />
-    </form>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            font-family: sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 1.2s;
+        }
+
+        .container {
+            width: 90%;
+            background: url("https://ihebxxxjaouadi.github.io/images-repo/images/responsive-login-html-CSS/images/background.svg") no-repeat;
+            background-size: 50%;
+            background-position: left;
+            padding: 180px 0;
+        }
+
+        .inner-container {
+            float: right;
+            background-color: rgba(255,255,255,0.7);
+            padding: 40px 100px 60px 90px;
+            position: relative;
+            right: 10%;
+            max-width: 200px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+            .inner-container .content-container {
+                max-width: 300px;
+                display: flex;
+                justify-content: center;
+                transition: 0.2s;
+            }
+
+                .inner-container .content-container #forget-password {
+                    margin-left: 10px;
+                }
+
+                    .inner-container .content-container #forget-password h3 {
+                        margin-top: 20px;
+                        margin-bottom: 40px;
+                    }
+
+                .inner-container .content-container #sign-in {
+                    text-align: center;
+                    margin-right: 100px;
+                    margin-left: 100px;
+                }
+
+            .inner-container nav input[type="button"] {
+                float: right;
+                border: none;
+                outline: none;
+                border: 2px solid #f39c12;
+                padding: 2px;
+                color: gray;
+                cursor: pointer;
+            }
+
+                .inner-container nav input[type="button"]:first-of-type {
+                    border-right: none;
+                    border-radius: 50px 0px 0px 50px;
+                    position: absolute;
+                    right: 80px;
+                }
+
+                .inner-container nav input[type="button"]:last-of-type {
+                    border-right: none;
+                    border-radius: 0px 50px 50px 0px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+
+            .inner-container img {
+                width: 100px;
+                transition: 0.2s;
+            }
+
+                .inner-container img:hover {
+                    transform: scale(1.05);
+                }
 
 
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="~/node_modules/@@fortawesome/fontawesome-free/css/all.min.css" />
+            .inner-container h1 {
+                margin-bottom: 30px;
+                font-size: 26px;
+                font-weight: 800;
+            }
 
-<!-- Bootstrap Css -->
-<link rel="stylesheet" href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+            .inner-container .forget-password {
+                font-size: 10px;
+            }
+
+
+                .inner-container .forget-password a {
+                    color: #f39c12;
+                }
+
+                    .inner-container .forget-password a:hover {
+                        font-weight: bold;
+                    }
+
+
+            .inner-container input[type="email"], .inner-container input[type="password"], .inner-container input[type="text"] {
+                display: block;
+                margin-bottom: 20px;
+                padding: 8px 56px 8px 4px;
+                background: none;
+                outline: none;
+                border: none;
+                border-bottom: 1px solid lightgrey;
+                transition: 0.2s;
+            }
+
+
+                .inner-container input[type="email"]:focus, .inner-container input[type="password"]:focus, .inner-container input[type="text"]:focus {
+                    padding: 8px 50px 8px 10px;
+                    border-bottom: 1px solid #f39c12;
+                    color: #f39c12;
+                }
+
+
+            .inner-container input:last-of-type {
+                margin-top: 20px;
+                padding: 10px 78px;
+                border-radius: 50px;
+                border: 1px solid #f39c12;
+                background: none;
+                color: gray;
+                cursor: pointer;
+                transition: 0.2s;
+            }
+
+
+
+            .inner-container input[type="submit"]:hover {
+                background-color: #f39c12;
+                color: black;
+            }
+
+
+            .inner-container input[type="submit"]:hover {
+                background-color: #f39c12;
+                color: black;
+            }
+
+
+        .background-color ul {
+            text-align: center;
+        }
+
+            .background-color ul li {
+                list-style-type: none;
+                display: inline-block;
+                border-radius: 50px;
+            }
+
+                .background-color ul li:focus {
+                    border: 1px solid gray;
+                }
+
+        .background-color #gray {
+            background-color: lightgray;
+            width: 10px;
+            height: 10px;
+            transition: 0.2s;
+        }
+
+        .background-color #orange {
+            background-color: orange;
+            width: 10px;
+            height: 10px;
+            transition: 0.2s;
+        }
+
+        .background-color #pink {
+            background-color: pink;
+            width: 10px;
+            height: 10px;
+            transition: 0.2s;
+        }
+
+
+
+
+        @@media screen and (max-width:1100px) {
+
+            .container {
+                width: 95%;
+            }
+
+            .inner-container {
+                right: 5%;
+            }
+        }
+
+
+        @@media screen and (max-width:1050px) {
+
+            .container {
+                width: 100%;
+                background-position: center;
+                background-size: 70%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .inner-container {
+                right: 0%;
+                background-color: white;
+            }
+        }
+
+        @@media screen and (max-width:850px) {
+
+            .container {
+                background: none;
+            }
+
+            .inner-container {
+                background-color: rgba(255,255,255,0.7);
+            }
+        }
+
+
+        @@media screen and (max-width:550px) {
+            .inner-container {
+                padding: 80px 60px;
+            }
+
+                .inner-container h1 {
+                    font-size: 22px;
+                }
+
+                .inner-container img {
+                    width: 40%;
+                }
+
+                .inner-container nav input[type="button"] {
+                    padding: 0.5px;
+                }
+
+                    .inner-container nav input[type="button"]:first-of-type {
+                        border-right: none;
+                        border-radius: 50px 0px 0px 50px;
+                        position: absolute;
+                        top: 40px;
+                        right: 74px;
+                    }
+        }
+
+        .special-div {
+            position: absolute;
+            bottom:;
+            width: 150px;
+            height: 150px;
+            right: 10px;
+            bottom: 10px;
+            background: url('https://ihebxxxjaouadi.github.io/images-repo/images/my-logo.png') no-repeat;
+            background-size: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <form class="inner-container" asp-controller="Account" asp-action="Login" method="post">
+            <nav>
+                <input type="button" id="btn-sign-in" value="Sign In">
+                <input type="button" id="btn-sign-up" value="Sign Up">
+            </nav>
+            <img src="https://ihebxxxjaouadi.github.io/images-repo/images/responsive-login-html-CSS/images/icon.svg">
+
+            <div class="content-container" id="container">
+
+                <div id="forget-password">
+                    <h3>Forget Password</h3>
+                    <input type="email" id="email-forget-password" placeholder="Mail">
+                    <input type="submit" value="Send">
+                </div>
+
+
+                <div id="sign-in">
+
+                    <h1>Merhaba !</h1>
+                    <input type="email" id="email-sign-in" placeholder="Email adres" asp-for="@Model.Email">
+                    <input type="text" id="password-sign-in" placeholder="Parola" asp-for="@Model.Password">
+                    <p class="forget-password"><a id="btn-forget-password" href="#">Şifremi Unuttum!</a></p>
+                    <input type="submit" value="Giriş Yap">
+
+                </div>
+
+                <div class="sign-up">
+                    <h1>Sign Up</h1>
+                    <input type="email" id="email-sign-up" placeholder="Mail">
+                    <input type="text" id="name-sign-up" placeholder="User name">
+                    <input type="password" id="password-sign-up" placeholder="Password">
+                    <input type="submit" value="Create User">
+                </div>
+
+            </div>
+            <div class="background-color">
+                <ul>
+                    <li id="gray"></li>
+                    <li id="orange"></li>
+                    <li id="pink"></li>
+                </ul>
+            </div>
+
+        </form>
+
+    </div>
+    <script>
+
+        var myBtnSignIn = document.getElementById("btn-sign-in"),
+            myBtnSignUp = document.getElementById("btn-sign-up"),
+            myContainer = document.getElementById("container"),
+            mybtnforgetpass = document.getElementById("btn-forget-password");
+
+        window.onload = function () {
+            this.myBtnSignIn.click();
+            this.myOrangeTheme.click();
+        }
+
+
+        myBtnSignIn.onclick = function () {
+            myBtnSignIn.style.backgroundColor = "orange";
+            myBtnSignUp.style.backgroundColor = "rgba(255,255,255,0.2)";
+            myContainer.style.transform = "translateX(0px)"
+        }
+
+
+        myBtnSignUp.onclick = function () {
+            myBtnSignUp.style.backgroundColor = "orange";
+            myBtnSignIn.style.backgroundColor = "rgba(255,255,255,0.2)";
+            myContainer.style.transform = "translateX(-320px)"
+        }
+
+        mybtnforgetpass.onclick = function () {
+            myBtnSignIn.style.backgroundColor = "rgba(255,255,255,0.2)";
+            myContainer.style.transform = "translateX(320px)"
+        }
+
+
+        var myGrayTheme = document.getElementById("gray"),
+            myOrangeTheme = document.getElementById("orange"),
+            myPinkTheme = document.getElementById("pink")
+
+        function resetColor() {
+            myGrayTheme.style.border = "none";
+            myOrangeTheme.style.border = "none";
+            myPinkTheme.style.border = "none";
+        }
+
+        myGrayTheme.onclick = function () {
+            resetColor();
+            this.style.border = "2px solid pink";
+            document.body.style.backgroundColor = "lightgray";
+
+        }
+
+        myOrangeTheme.onclick = function () {
+            resetColor();
+            this.style.border = "2px solid pink";
+            document.body.style.backgroundColor = "lightsalmon";
+
+        }
+
+        myPinkTheme.onclick = function () {
+            resetColor();
+            this.style.border = "2px solid pink";
+            document.body.style.backgroundColor = "lightpink";
+
+        }
+    </script>
+</body>
+</html>
