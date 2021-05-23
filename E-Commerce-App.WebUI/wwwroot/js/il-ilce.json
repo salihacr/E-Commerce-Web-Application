@@ -1,0 +1,6421 @@
+﻿[
+  {
+    "bolge": "akdeniz",
+    "id": 1,
+    "il": "adana",
+    "ilce": "aladağ",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 2,
+    "il": "adana",
+    "ilce": "ceyhan",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 3,
+    "il": "adana",
+    "ilce": "çukurova",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 4,
+    "il": "adana",
+    "ilce": "feke",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 5,
+    "il": "adana",
+    "ilce": "imamoğlu",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 6,
+    "il": "adana",
+    "ilce": "karaisali",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 7,
+    "il": "adana",
+    "ilce": "karataş",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 8,
+    "il": "adana",
+    "ilce": "kozan",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 9,
+    "il": "adana",
+    "ilce": "pozanti",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 10,
+    "il": "adana",
+    "ilce": "saimbeyli",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 11,
+    "il": "adana",
+    "ilce": "sariçam",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 12,
+    "il": "adana",
+    "ilce": "seyhan",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 13,
+    "il": "adana",
+    "ilce": "tufanbeyli",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 14,
+    "il": "adana",
+    "ilce": "yumurtalik",
+    "plaka": 1
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 15,
+    "il": "adana",
+    "ilce": "yüreğir",
+    "plaka": 1
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 16,
+    "il": "adiyaman",
+    "ilce": "besni",
+    "plaka": 2
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 17,
+    "il": "adiyaman",
+    "ilce": "çelikhan",
+    "plaka": 2
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 18,
+    "il": "adiyaman",
+    "ilce": "gerger",
+    "plaka": 2
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 19,
+    "il": "adiyaman",
+    "ilce": "gölbaşi",
+    "plaka": 2
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 20,
+    "il": "adiyaman",
+    "ilce": "kahta",
+    "plaka": 2
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 21,
+    "il": "adiyaman",
+    "ilce": "samsat",
+    "plaka": 2
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 22,
+    "il": "adiyaman",
+    "ilce": "sincik",
+    "plaka": 2
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 23,
+    "il": "adiyaman",
+    "ilce": "tut",
+    "plaka": 2
+  },
+  {
+    "bolge": "ege",
+    "id": 24,
+    "il": "afyonkarahisar",
+    "ilce": "başmakçi",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 25,
+    "il": "afyonkarahisar",
+    "ilce": "bayat",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 26,
+    "il": "afyonkarahisar",
+    "ilce": "bolvadin",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 27,
+    "il": "afyonkarahisar",
+    "ilce": "çay",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 28,
+    "il": "afyonkarahisar",
+    "ilce": "çobanlar",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 29,
+    "il": "afyonkarahisar",
+    "ilce": "dazkiri",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 30,
+    "il": "afyonkarahisar",
+    "ilce": "dinar",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 31,
+    "il": "afyonkarahisar",
+    "ilce": "emirdağ",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 32,
+    "il": "afyonkarahisar",
+    "ilce": "evciler",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 33,
+    "il": "afyonkarahisar",
+    "ilce": "hocalar",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 34,
+    "il": "afyonkarahisar",
+    "ilce": "ihsaniye",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 35,
+    "il": "afyonkarahisar",
+    "ilce": "iscehisar",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 36,
+    "il": "afyonkarahisar",
+    "ilce": "kizilören",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 37,
+    "il": "afyonkarahisar",
+    "ilce": "sandikli",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 38,
+    "il": "afyonkarahisar",
+    "ilce": "sinanpaşa",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 39,
+    "il": "afyonkarahisar",
+    "ilce": "sultandaği",
+    "plaka": 3
+  },
+  {
+    "bolge": "ege",
+    "id": 40,
+    "il": "afyonkarahisar",
+    "ilce": "şuhut",
+    "plaka": 3
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 41,
+    "il": "ağri",
+    "ilce": "diyadin",
+    "plaka": 4
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 42,
+    "il": "ağri",
+    "ilce": "doğubayazit",
+    "plaka": 4
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 43,
+    "il": "ağri",
+    "ilce": "eleşkirt",
+    "plaka": 4
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 44,
+    "il": "ağri",
+    "ilce": "hamur",
+    "plaka": 4
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 45,
+    "il": "ağri",
+    "ilce": "patnos",
+    "plaka": 4
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 46,
+    "il": "ağri",
+    "ilce": "taşliçay",
+    "plaka": 4
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 47,
+    "il": "ağri",
+    "ilce": "tuta",
+    "plaka": 4
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 48,
+    "il": "amasya",
+    "ilce": "göynücek",
+    "plaka": 5
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 49,
+    "il": "amasya",
+    "ilce": "gümüşhaciköy",
+    "plaka": 5
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 50,
+    "il": "amasya",
+    "ilce": "hamamözü",
+    "plaka": 5
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 51,
+    "il": "amasya",
+    "ilce": "merzifon",
+    "plaka": 5
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 52,
+    "il": "amasya",
+    "ilce": "suluova",
+    "plaka": 5
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 53,
+    "il": "amasya",
+    "ilce": "taşova",
+    "plaka": 5
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 54,
+    "il": "ankara",
+    "ilce": "akyurt",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 55,
+    "il": "ankara",
+    "ilce": "altindağ",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 56,
+    "il": "ankara",
+    "ilce": "ayaş",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 57,
+    "il": "ankara",
+    "ilce": "bala",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 58,
+    "il": "ankara",
+    "ilce": "beypazari",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 59,
+    "il": "ankara",
+    "ilce": "çamlidere",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 60,
+    "il": "ankara",
+    "ilce": "çankaya",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 61,
+    "il": "ankara",
+    "ilce": "çubuk",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 62,
+    "il": "ankara",
+    "ilce": "elmadağ",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 63,
+    "il": "ankara",
+    "ilce": "etimesgut",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 64,
+    "il": "ankara",
+    "ilce": "evren",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 65,
+    "il": "ankara",
+    "ilce": "gölbaşi",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 66,
+    "il": "ankara",
+    "ilce": "güdül",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 67,
+    "il": "ankara",
+    "ilce": "haymana",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 68,
+    "il": "ankara",
+    "ilce": "kalecik",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 69,
+    "il": "ankara",
+    "ilce": "kazan",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 70,
+    "il": "ankara",
+    "ilce": "keçiören",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 71,
+    "il": "ankara",
+    "ilce": "kizilcahamam",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 72,
+    "il": "ankara",
+    "ilce": "mamak",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 73,
+    "il": "ankara",
+    "ilce": "nallihan",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 74,
+    "il": "ankara",
+    "ilce": "polatli",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 75,
+    "il": "ankara",
+    "ilce": "pursaklar",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 76,
+    "il": "ankara",
+    "ilce": "sincan",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 77,
+    "il": "ankara",
+    "ilce": "şereflikoçhisar",
+    "plaka": 6
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 78,
+    "il": "ankara",
+    "ilce": "yenimahalle",
+    "plaka": 6
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 79,
+    "il": "antalya",
+    "ilce": "akseki",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 80,
+    "il": "antalya",
+    "ilce": "aksu",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 81,
+    "il": "antalya",
+    "ilce": "alanya",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 82,
+    "il": "antalya",
+    "ilce": "demre",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 83,
+    "il": "antalya",
+    "ilce": "döşemealti",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 84,
+    "il": "antalya",
+    "ilce": "elmali",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 85,
+    "il": "antalya",
+    "ilce": "finike",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 86,
+    "il": "antalya",
+    "ilce": "gazipaşa",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 87,
+    "il": "antalya",
+    "ilce": "gündoğmuş",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 88,
+    "il": "antalya",
+    "ilce": "ibradi",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 89,
+    "il": "antalya",
+    "ilce": "kaş",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 90,
+    "il": "antalya",
+    "ilce": "kemer",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 91,
+    "il": "antalya",
+    "ilce": "kepez",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 92,
+    "il": "antalya",
+    "ilce": "konyaalti",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 93,
+    "il": "antalya",
+    "ilce": "korkuteli",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 94,
+    "il": "antalya",
+    "ilce": "kumluca",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 95,
+    "il": "antalya",
+    "ilce": "manavgat",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 96,
+    "il": "antalya",
+    "ilce": "muratpaşa",
+    "plaka": 7
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 97,
+    "il": "antalya",
+    "ilce": "serik",
+    "plaka": 7
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 98,
+    "il": "artvin",
+    "ilce": "ardanuç",
+    "plaka": 8
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 99,
+    "il": "artvin",
+    "ilce": "arhavi",
+    "plaka": 8
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 100,
+    "il": "artvin",
+    "ilce": "borçka",
+    "plaka": 8
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 101,
+    "il": "artvin",
+    "ilce": "hopa",
+    "plaka": 8
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 102,
+    "il": "artvin",
+    "ilce": "murgul",
+    "plaka": 8
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 103,
+    "il": "artvin",
+    "ilce": "şavşat",
+    "plaka": 8
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 104,
+    "il": "artvin",
+    "ilce": "yusufeli",
+    "plaka": 8
+  },
+  {
+    "bolge": "ege",
+    "id": 105,
+    "il": "aydin",
+    "ilce": "bozdoğan",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 106,
+    "il": "aydin",
+    "ilce": "buharkent",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 107,
+    "il": "aydin",
+    "ilce": "çine",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 108,
+    "il": "aydin",
+    "ilce": "didim",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 109,
+    "il": "aydin",
+    "ilce": "germencik",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 110,
+    "il": "aydin",
+    "ilce": "incirliova",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 111,
+    "il": "aydin",
+    "ilce": "karacasu",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 112,
+    "il": "aydin",
+    "ilce": "karpuzlu",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 113,
+    "il": "aydin",
+    "ilce": "koçarli",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 114,
+    "il": "aydin",
+    "ilce": "köşk",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 115,
+    "il": "aydin",
+    "ilce": "kuşadasi",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 116,
+    "il": "aydin",
+    "ilce": "kuyucak",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 117,
+    "il": "aydin",
+    "ilce": "nazilli",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 118,
+    "il": "aydin",
+    "ilce": "söke",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 119,
+    "il": "aydin",
+    "ilce": "sultanhisar",
+    "plaka": 9
+  },
+  {
+    "bolge": "ege",
+    "id": 120,
+    "il": "aydin",
+    "ilce": "yenipazar",
+    "plaka": 9
+  },
+  {
+    "bolge": "marmara",
+    "id": 121,
+    "il": "balikesir",
+    "ilce": "ayvalik",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 122,
+    "il": "balikesir",
+    "ilce": "balya",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 123,
+    "il": "balikesir",
+    "ilce": "bandirma",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 124,
+    "il": "balikesir",
+    "ilce": "bigadiç",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 125,
+    "il": "balikesir",
+    "ilce": "burhaniye",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 126,
+    "il": "balikesir",
+    "ilce": "dursunbey",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 127,
+    "il": "balikesir",
+    "ilce": "edremit",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 128,
+    "il": "balikesir",
+    "ilce": "erdek",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 129,
+    "il": "balikesir",
+    "ilce": "gömeç",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 130,
+    "il": "balikesir",
+    "ilce": "gönen",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 131,
+    "il": "balikesir",
+    "ilce": "havran",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 132,
+    "il": "balikesir",
+    "ilce": "ivrindi",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 133,
+    "il": "balikesir",
+    "ilce": "kepsut",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 134,
+    "il": "balikesir",
+    "ilce": "manyas",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 135,
+    "il": "balikesir",
+    "ilce": "marmara",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 136,
+    "il": "balikesir",
+    "ilce": "savaştepe",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 137,
+    "il": "balikesir",
+    "ilce": "sindirgi",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 138,
+    "il": "balikesir",
+    "ilce": "susurluk",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 139,
+    "il": "bilecik",
+    "ilce": "bozüyük",
+    "plaka": 11
+  },
+  {
+    "bolge": "marmara",
+    "id": 140,
+    "il": "bilecik",
+    "ilce": "gölpazari",
+    "plaka": 11
+  },
+  {
+    "bolge": "marmara",
+    "id": 141,
+    "il": "bilecik",
+    "ilce": "inhisar",
+    "plaka": 11
+  },
+  {
+    "bolge": "marmara",
+    "id": 142,
+    "il": "bilecik",
+    "ilce": "osmaneli",
+    "plaka": 11
+  },
+  {
+    "bolge": "marmara",
+    "id": 143,
+    "il": "bilecik",
+    "ilce": "pazaryeri",
+    "plaka": 11
+  },
+  {
+    "bolge": "marmara",
+    "id": 144,
+    "il": "bilecik",
+    "ilce": "söğüt",
+    "plaka": 11
+  },
+  {
+    "bolge": "marmara",
+    "id": 145,
+    "il": "bilecik",
+    "ilce": "yenipazar",
+    "plaka": 11
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 146,
+    "il": "bingöl",
+    "ilce": "adakli",
+    "plaka": 12
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 147,
+    "il": "bingöl",
+    "ilce": "genç",
+    "plaka": 12
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 148,
+    "il": "bingöl",
+    "ilce": "karliova",
+    "plaka": 12
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 149,
+    "il": "bingöl",
+    "ilce": "kiği",
+    "plaka": 12
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 150,
+    "il": "bingöl",
+    "ilce": "solhan",
+    "plaka": 12
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 151,
+    "il": "bingöl",
+    "ilce": "yayladere",
+    "plaka": 12
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 152,
+    "il": "bingöl",
+    "ilce": "yedisu",
+    "plaka": 12
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 153,
+    "il": "bitlis",
+    "ilce": "adilcevaz",
+    "plaka": 13
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 154,
+    "il": "bitlis",
+    "ilce": "ahlat",
+    "plaka": 13
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 155,
+    "il": "bitlis",
+    "ilce": "güroymak",
+    "plaka": 13
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 156,
+    "il": "bitlis",
+    "ilce": "hizan",
+    "plaka": 13
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 157,
+    "il": "bitlis",
+    "ilce": "mutki",
+    "plaka": 13
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 158,
+    "il": "bitlis",
+    "ilce": "tatvan",
+    "plaka": 13
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 159,
+    "il": "bolu",
+    "ilce": "dörtdivan",
+    "plaka": 14
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 160,
+    "il": "bolu",
+    "ilce": "gerede",
+    "plaka": 14
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 161,
+    "il": "bolu",
+    "ilce": "göynük",
+    "plaka": 14
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 162,
+    "il": "bolu",
+    "ilce": "kibriscik",
+    "plaka": 14
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 163,
+    "il": "bolu",
+    "ilce": "mengen",
+    "plaka": 14
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 164,
+    "il": "bolu",
+    "ilce": "mudurnu",
+    "plaka": 14
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 165,
+    "il": "bolu",
+    "ilce": "seben",
+    "plaka": 14
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 166,
+    "il": "bolu",
+    "ilce": "yeniçağa",
+    "plaka": 14
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 167,
+    "il": "burdur",
+    "ilce": "ağlasun",
+    "plaka": 15
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 168,
+    "il": "burdur",
+    "ilce": "altinyayla",
+    "plaka": 15
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 169,
+    "il": "burdur",
+    "ilce": "bucak",
+    "plaka": 15
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 170,
+    "il": "burdur",
+    "ilce": "çavdir",
+    "plaka": 15
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 171,
+    "il": "burdur",
+    "ilce": "çeltikçi",
+    "plaka": 15
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 172,
+    "il": "burdur",
+    "ilce": "gölhisar",
+    "plaka": 15
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 173,
+    "il": "burdur",
+    "ilce": "karamanli",
+    "plaka": 15
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 174,
+    "il": "burdur",
+    "ilce": "kemer",
+    "plaka": 15
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 175,
+    "il": "burdur",
+    "ilce": "tefenni",
+    "plaka": 15
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 176,
+    "il": "burdur",
+    "ilce": "yeşilova",
+    "plaka": 15
+  },
+  {
+    "bolge": "marmara",
+    "id": 177,
+    "il": "bursa",
+    "ilce": "büyükorhan",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 178,
+    "il": "bursa",
+    "ilce": "gemlik",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 179,
+    "il": "bursa",
+    "ilce": "gürsu",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 180,
+    "il": "bursa",
+    "ilce": "harmancik",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 181,
+    "il": "bursa",
+    "ilce": "inegöl",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 182,
+    "il": "bursa",
+    "ilce": "iznik",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 183,
+    "il": "bursa",
+    "ilce": "karacabey",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 184,
+    "il": "bursa",
+    "ilce": "keles",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 185,
+    "il": "bursa",
+    "ilce": "kestel",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 186,
+    "il": "bursa",
+    "ilce": "mudanya",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 187,
+    "il": "bursa",
+    "ilce": "mustafakemalpaşa",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 188,
+    "il": "bursa",
+    "ilce": "nilüfer",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 189,
+    "il": "bursa",
+    "ilce": "orhaneli",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 190,
+    "il": "bursa",
+    "ilce": "orhangazi",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 191,
+    "il": "bursa",
+    "ilce": "osmangazi",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 192,
+    "il": "bursa",
+    "ilce": "yenişehir",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 193,
+    "il": "bursa",
+    "ilce": "yildirim",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "id": 194,
+    "il": "çanakkale",
+    "ilce": "ayvacik",
+    "plaka": 17
+  },
+  {
+    "bolge": "marmara",
+    "id": 195,
+    "il": "çanakkale",
+    "ilce": "bayramiç",
+    "plaka": 17
+  },
+  {
+    "bolge": "marmara",
+    "id": 196,
+    "il": "çanakkale",
+    "ilce": "biga",
+    "plaka": 17
+  },
+  {
+    "bolge": "marmara",
+    "id": 197,
+    "il": "çanakkale",
+    "ilce": "bozcaada",
+    "plaka": 17
+  },
+  {
+    "bolge": "marmara",
+    "id": 198,
+    "il": "çanakkale",
+    "ilce": "çan",
+    "plaka": 17
+  },
+  {
+    "bolge": "marmara",
+    "id": 199,
+    "il": "çanakkale",
+    "ilce": "eceabat",
+    "plaka": 17
+  },
+  {
+    "bolge": "marmara",
+    "id": 200,
+    "il": "çanakkale",
+    "ilce": "ezine",
+    "plaka": 17
+  },
+  {
+    "bolge": "marmara",
+    "id": 201,
+    "il": "çanakkale",
+    "ilce": "gelibolu",
+    "plaka": 17
+  },
+  {
+    "bolge": "marmara",
+    "id": 202,
+    "il": "çanakkale",
+    "ilce": "imroz",
+    "plaka": 17
+  },
+  {
+    "bolge": "marmara",
+    "id": 203,
+    "il": "çanakkale",
+    "ilce": "lapseki",
+    "plaka": 17
+  },
+  {
+    "bolge": "marmara",
+    "id": 204,
+    "il": "çanakkale",
+    "ilce": "yenice",
+    "plaka": 17
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 205,
+    "il": "çankiri",
+    "ilce": "atkaracalar",
+    "plaka": 18
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 206,
+    "il": "çankiri",
+    "ilce": "bayramören",
+    "plaka": 18
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 207,
+    "il": "çankiri",
+    "ilce": "çerkeş",
+    "plaka": 18
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 208,
+    "il": "çankiri",
+    "ilce": "eldivan",
+    "plaka": 18
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 209,
+    "il": "çankiri",
+    "ilce": "ilgaz",
+    "plaka": 18
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 210,
+    "il": "çankiri",
+    "ilce": "kizilirmak",
+    "plaka": 18
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 211,
+    "il": "çankiri",
+    "ilce": "korgun",
+    "plaka": 18
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 212,
+    "il": "çankiri",
+    "ilce": "kurşunlu",
+    "plaka": 18
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 213,
+    "il": "çankiri",
+    "ilce": "orta",
+    "plaka": 18
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 214,
+    "il": "çankiri",
+    "ilce": "şabanözü",
+    "plaka": 18
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 215,
+    "il": "çankiri",
+    "ilce": "yaprakli",
+    "plaka": 18
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 216,
+    "il": "çorum",
+    "ilce": "alaca",
+    "plaka": 19
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 217,
+    "il": "çorum",
+    "ilce": "bayat",
+    "plaka": 19
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 218,
+    "il": "çorum",
+    "ilce": "boğazkale",
+    "plaka": 19
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 219,
+    "il": "çorum",
+    "ilce": "dodurga",
+    "plaka": 19
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 220,
+    "il": "çorum",
+    "ilce": "iskilip",
+    "plaka": 19
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 221,
+    "il": "çorum",
+    "ilce": "kargi",
+    "plaka": 19
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 222,
+    "il": "çorum",
+    "ilce": "laçin",
+    "plaka": 19
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 223,
+    "il": "çorum",
+    "ilce": "mecitözü",
+    "plaka": 19
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 224,
+    "il": "çorum",
+    "ilce": "oğuzlar",
+    "plaka": 19
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 225,
+    "il": "çorum",
+    "ilce": "ortaköy",
+    "plaka": 19
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 226,
+    "il": "çorum",
+    "ilce": "osmancik",
+    "plaka": 19
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 227,
+    "il": "çorum",
+    "ilce": "sungurlu",
+    "plaka": 19
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 228,
+    "il": "çorum",
+    "ilce": "uğurludağ",
+    "plaka": 19
+  },
+  {
+    "bolge": "ege",
+    "id": 229,
+    "il": "denizli",
+    "ilce": "acipayam",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 230,
+    "il": "denizli",
+    "ilce": "pamukkale",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 231,
+    "il": "denizli",
+    "ilce": "babadağ",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 232,
+    "il": "denizli",
+    "ilce": "baklan",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 233,
+    "il": "denizli",
+    "ilce": "bekilli",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 234,
+    "il": "denizli",
+    "ilce": "beyağaç",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 235,
+    "il": "denizli",
+    "ilce": "bozkurt",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 236,
+    "il": "denizli",
+    "ilce": "buldan",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 237,
+    "il": "denizli",
+    "ilce": "çal",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 238,
+    "il": "denizli",
+    "ilce": "çameli",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 239,
+    "il": "denizli",
+    "ilce": "çardak",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 240,
+    "il": "denizli",
+    "ilce": "çivril",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 241,
+    "il": "denizli",
+    "ilce": "güney",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 242,
+    "il": "denizli",
+    "ilce": "honaz",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 243,
+    "il": "denizli",
+    "ilce": "kale",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 244,
+    "il": "denizli",
+    "ilce": "sarayköy",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 245,
+    "il": "denizli",
+    "ilce": "serinhisar",
+    "plaka": 20
+  },
+  {
+    "bolge": "ege",
+    "id": 246,
+    "il": "denizli",
+    "ilce": "tavas",
+    "plaka": 20
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 247,
+    "il": "diyarbakir",
+    "ilce": "bağlar",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 248,
+    "il": "diyarbakir",
+    "ilce": "bismil",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 249,
+    "il": "diyarbakir",
+    "ilce": "çermik",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 250,
+    "il": "diyarbakir",
+    "ilce": "çinar",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 251,
+    "il": "diyarbakir",
+    "ilce": "çüngüş",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 252,
+    "il": "diyarbakir",
+    "ilce": "dicle",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 253,
+    "il": "diyarbakir",
+    "ilce": "eğil",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 254,
+    "il": "diyarbakir",
+    "ilce": "ergani",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 255,
+    "il": "diyarbakir",
+    "ilce": "hani",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 256,
+    "il": "diyarbakir",
+    "ilce": "hazro",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 257,
+    "il": "diyarbakir",
+    "ilce": "kayapinar",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 258,
+    "il": "diyarbakir",
+    "ilce": "kocaköy",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 259,
+    "il": "diyarbakir",
+    "ilce": "kulp",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 260,
+    "il": "diyarbakir",
+    "ilce": "lice",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 261,
+    "il": "diyarbakir",
+    "ilce": "silvan",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 262,
+    "il": "diyarbakir",
+    "ilce": "sur",
+    "plaka": 21
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 263,
+    "il": "diyarbakir",
+    "ilce": "yenişehir",
+    "plaka": 21
+  },
+  {
+    "bolge": "marmara",
+    "id": 264,
+    "il": "edirne",
+    "ilce": "enez",
+    "plaka": 22
+  },
+  {
+    "bolge": "marmara",
+    "id": 265,
+    "il": "edirne",
+    "ilce": "havsa",
+    "plaka": 22
+  },
+  {
+    "bolge": "marmara",
+    "id": 266,
+    "il": "edirne",
+    "ilce": "ipsala",
+    "plaka": 22
+  },
+  {
+    "bolge": "marmara",
+    "id": 267,
+    "il": "edirne",
+    "ilce": "keşan",
+    "plaka": 22
+  },
+  {
+    "bolge": "marmara",
+    "id": 268,
+    "il": "edirne",
+    "ilce": "lalapaşa",
+    "plaka": 22
+  },
+  {
+    "bolge": "marmara",
+    "id": 269,
+    "il": "edirne",
+    "ilce": "meriç",
+    "plaka": 22
+  },
+  {
+    "bolge": "marmara",
+    "id": 270,
+    "il": "edirne",
+    "ilce": "süloğlu",
+    "plaka": 22
+  },
+  {
+    "bolge": "marmara",
+    "id": 271,
+    "il": "edirne",
+    "ilce": "uzunköprü",
+    "plaka": 22
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 272,
+    "il": "elaziğ",
+    "ilce": "ağin",
+    "plaka": 23
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 273,
+    "il": "elaziğ",
+    "ilce": "alacakaya",
+    "plaka": 23
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 274,
+    "il": "elaziğ",
+    "ilce": "aricak",
+    "plaka": 23
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 275,
+    "il": "elaziğ",
+    "ilce": "baskil",
+    "plaka": 23
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 276,
+    "il": "elaziğ",
+    "ilce": "karakoçan",
+    "plaka": 23
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 277,
+    "il": "elaziğ",
+    "ilce": "keban",
+    "plaka": 23
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 278,
+    "il": "elaziğ",
+    "ilce": "kovancilar",
+    "plaka": 23
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 279,
+    "il": "elaziğ",
+    "ilce": "maden",
+    "plaka": 23
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 280,
+    "il": "elaziğ",
+    "ilce": "palu",
+    "plaka": 23
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 281,
+    "il": "elaziğ",
+    "ilce": "sivrice",
+    "plaka": 23
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 282,
+    "il": "erzincan",
+    "ilce": "çayirli",
+    "plaka": 24
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 283,
+    "il": "erzincan",
+    "ilce": "iliç",
+    "plaka": 24
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 284,
+    "il": "erzincan",
+    "ilce": "kemah",
+    "plaka": 24
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 285,
+    "il": "erzincan",
+    "ilce": "kemaliye",
+    "plaka": 24
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 286,
+    "il": "erzincan",
+    "ilce": "otlukbeli",
+    "plaka": 24
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 287,
+    "il": "erzincan",
+    "ilce": "refahiye",
+    "plaka": 24
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 288,
+    "il": "erzincan",
+    "ilce": "tercan",
+    "plaka": 24
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 289,
+    "il": "erzincan",
+    "ilce": "üzümlü",
+    "plaka": 24
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 290,
+    "il": "erzurum",
+    "ilce": "aşkale",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 291,
+    "il": "erzurum",
+    "ilce": "aziziye",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 292,
+    "il": "erzurum",
+    "ilce": "çat",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 293,
+    "il": "erzurum",
+    "ilce": "hinis",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 294,
+    "il": "erzurum",
+    "ilce": "horasan",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 295,
+    "il": "erzurum",
+    "ilce": "ispir",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 296,
+    "il": "erzurum",
+    "ilce": "karaçoban",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 297,
+    "il": "erzurum",
+    "ilce": "karayazi",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 298,
+    "il": "erzurum",
+    "ilce": "köprüköy",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 299,
+    "il": "erzurum",
+    "ilce": "narman",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 300,
+    "il": "erzurum",
+    "ilce": "oltu",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 301,
+    "il": "erzurum",
+    "ilce": "olur",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 302,
+    "il": "erzurum",
+    "ilce": "palandöken",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 303,
+    "il": "erzurum",
+    "ilce": "pasinler",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 304,
+    "il": "erzurum",
+    "ilce": "pazaryolu",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 305,
+    "il": "erzurum",
+    "ilce": "şenkaya",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 306,
+    "il": "erzurum",
+    "ilce": "tekman",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 307,
+    "il": "erzurum",
+    "ilce": "tortum",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 308,
+    "il": "erzurum",
+    "ilce": "uzundere",
+    "plaka": 25
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 309,
+    "il": "erzurum",
+    "ilce": "yakutiye",
+    "plaka": 25
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 310,
+    "il": "eskişehir",
+    "ilce": "alpu",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 311,
+    "il": "eskişehir",
+    "ilce": "beylikova",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 312,
+    "il": "eskişehir",
+    "ilce": "çifteler",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 313,
+    "il": "eskişehir",
+    "ilce": "günyüzü",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 314,
+    "il": "eskişehir",
+    "ilce": "han",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 315,
+    "il": "eskişehir",
+    "ilce": "inönü",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 316,
+    "il": "eskişehir",
+    "ilce": "mahmudiye",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 317,
+    "il": "eskişehir",
+    "ilce": "mihalgazi",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 318,
+    "il": "eskişehir",
+    "ilce": "mihaliççik",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 319,
+    "il": "eskişehir",
+    "ilce": "odunpazari",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 320,
+    "il": "eskişehir",
+    "ilce": "saricakaya",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 321,
+    "il": "eskişehir",
+    "ilce": "seyitgazi",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 322,
+    "il": "eskişehir",
+    "ilce": "sivrihisar",
+    "plaka": 26
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 323,
+    "il": "eskişehir",
+    "ilce": "tepebaşi",
+    "plaka": 26
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 324,
+    "il": "gaziantep",
+    "ilce": "araban",
+    "plaka": 27
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 325,
+    "il": "gaziantep",
+    "ilce": "islahiye",
+    "plaka": 27
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 326,
+    "il": "gaziantep",
+    "ilce": "karkamiş",
+    "plaka": 27
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 327,
+    "il": "gaziantep",
+    "ilce": "nizip",
+    "plaka": 27
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 328,
+    "il": "gaziantep",
+    "ilce": "nurdaği",
+    "plaka": 27
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 329,
+    "il": "gaziantep",
+    "ilce": "oğuzeli",
+    "plaka": 27
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 330,
+    "il": "gaziantep",
+    "ilce": "şahinbey",
+    "plaka": 27
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 331,
+    "il": "gaziantep",
+    "ilce": "şehitkamil",
+    "plaka": 27
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 332,
+    "il": "gaziantep",
+    "ilce": "yavuzeli",
+    "plaka": 27
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 333,
+    "il": "giresun",
+    "ilce": "alucra",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 334,
+    "il": "giresun",
+    "ilce": "bulancak",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 335,
+    "il": "giresun",
+    "ilce": "çamoluk",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 336,
+    "il": "giresun",
+    "ilce": "çanakçi",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 337,
+    "il": "giresun",
+    "ilce": "dereli",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 338,
+    "il": "giresun",
+    "ilce": "doğankent",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 339,
+    "il": "giresun",
+    "ilce": "espiye",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 340,
+    "il": "giresun",
+    "ilce": "eynesil",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 341,
+    "il": "giresun",
+    "ilce": "görele",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 342,
+    "il": "giresun",
+    "ilce": "güce",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 343,
+    "il": "giresun",
+    "ilce": "keşap",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 344,
+    "il": "giresun",
+    "ilce": "piraziz",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 345,
+    "il": "giresun",
+    "ilce": "şebinkarahisar",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 346,
+    "il": "giresun",
+    "ilce": "tirebolu",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 347,
+    "il": "giresun",
+    "ilce": "yağlidere",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 348,
+    "il": "gümüşhane",
+    "ilce": "kelkit",
+    "plaka": 29
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 349,
+    "il": "gümüşhane",
+    "ilce": "köse",
+    "plaka": 29
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 350,
+    "il": "gümüşhane",
+    "ilce": "kürtün",
+    "plaka": 29
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 351,
+    "il": "gümüşhane",
+    "ilce": "şiran",
+    "plaka": 29
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 352,
+    "il": "gümüşhane",
+    "ilce": "torul",
+    "plaka": 29
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 353,
+    "il": "hakkari",
+    "ilce": "çukurca",
+    "plaka": 30
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 354,
+    "il": "hakkari",
+    "ilce": "şemdinli",
+    "plaka": 30
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 355,
+    "il": "hakkari",
+    "ilce": "yüksekova",
+    "plaka": 30
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 356,
+    "il": "hatay",
+    "ilce": "altinözü",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 357,
+    "il": "hatay",
+    "ilce": "belen",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 358,
+    "il": "hatay",
+    "ilce": "dörtyol",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 359,
+    "il": "hatay",
+    "ilce": "erzin",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 360,
+    "il": "hatay",
+    "ilce": "hassa",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 361,
+    "il": "hatay",
+    "ilce": "iskenderun",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 362,
+    "il": "hatay",
+    "ilce": "kirikhan",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 363,
+    "il": "hatay",
+    "ilce": "kumlu",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 364,
+    "il": "hatay",
+    "ilce": "reyhanli",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 365,
+    "il": "hatay",
+    "ilce": "samandağ",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 366,
+    "il": "hatay",
+    "ilce": "yayladaği",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 367,
+    "il": "isparta",
+    "ilce": "aksu",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 368,
+    "il": "isparta",
+    "ilce": "atabey",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 369,
+    "il": "isparta",
+    "ilce": "eğirdir",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 370,
+    "il": "isparta",
+    "ilce": "gelendost",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 371,
+    "il": "isparta",
+    "ilce": "gönen",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 372,
+    "il": "isparta",
+    "ilce": "keçiborlu",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 373,
+    "il": "isparta",
+    "ilce": "senirkent",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 374,
+    "il": "isparta",
+    "ilce": "sütçüler",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 375,
+    "il": "isparta",
+    "ilce": "şarkikaraağaç",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 376,
+    "il": "isparta",
+    "ilce": "uluborlu",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 377,
+    "il": "isparta",
+    "ilce": "yalvaç",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 378,
+    "il": "isparta",
+    "ilce": "yenişarbademli",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 379,
+    "il": "mersin",
+    "ilce": "akdeniz",
+    "plaka": 33
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 380,
+    "il": "mersin",
+    "ilce": "anamur",
+    "plaka": 33
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 381,
+    "il": "mersin",
+    "ilce": "aydincik",
+    "plaka": 33
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 382,
+    "il": "mersin",
+    "ilce": "bozyazi",
+    "plaka": 33
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 383,
+    "il": "mersin",
+    "ilce": "çamliyayla",
+    "plaka": 33
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 384,
+    "il": "mersin",
+    "ilce": "erdemli",
+    "plaka": 33
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 385,
+    "il": "mersin",
+    "ilce": "gülnar",
+    "plaka": 33
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 386,
+    "il": "mersin",
+    "ilce": "mezitli",
+    "plaka": 33
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 387,
+    "il": "mersin",
+    "ilce": "mut",
+    "plaka": 33
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 388,
+    "il": "mersin",
+    "ilce": "silifke",
+    "plaka": 33
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 389,
+    "il": "mersin",
+    "ilce": "tarsus",
+    "plaka": 33
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 390,
+    "il": "mersin",
+    "ilce": "toroslar",
+    "plaka": 33
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 391,
+    "il": "mersin",
+    "ilce": "yenişehir",
+    "plaka": 33
+  },
+  {
+    "bolge": "marmara",
+    "id": 392,
+    "il": "istanbul",
+    "ilce": "adalar",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 393,
+    "il": "istanbul",
+    "ilce": "arnavutköy",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 394,
+    "il": "istanbul",
+    "ilce": "ataşehir",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 395,
+    "il": "istanbul",
+    "ilce": "avcilar",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 396,
+    "il": "istanbul",
+    "ilce": "bağcilar",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 397,
+    "il": "istanbul",
+    "ilce": "bahçelievler",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 398,
+    "il": "istanbul",
+    "ilce": "bakirköy",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 399,
+    "il": "istanbul",
+    "ilce": "başakşehir",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 400,
+    "il": "istanbul",
+    "ilce": "bayrampaşa",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 401,
+    "il": "istanbul",
+    "ilce": "beşiktaş",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 402,
+    "il": "istanbul",
+    "ilce": "beykoz",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 403,
+    "il": "istanbul",
+    "ilce": "beylikdüzü",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 404,
+    "il": "istanbul",
+    "ilce": "beyoğlu",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 405,
+    "il": "istanbul",
+    "ilce": "büyükçekmece",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 406,
+    "il": "istanbul",
+    "ilce": "çatalca",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 407,
+    "il": "istanbul",
+    "ilce": "çekmeköy",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 408,
+    "il": "istanbul",
+    "ilce": "esenler",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 409,
+    "il": "istanbul",
+    "ilce": "esenyurt",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 410,
+    "il": "istanbul",
+    "ilce": "eyüp",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 411,
+    "il": "istanbul",
+    "ilce": "fatih",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 412,
+    "il": "istanbul",
+    "ilce": "gaziosmanpaşa",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 413,
+    "il": "istanbul",
+    "ilce": "güngören",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 414,
+    "il": "istanbul",
+    "ilce": "kadiköy",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 415,
+    "il": "istanbul",
+    "ilce": "kağithane",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 416,
+    "il": "istanbul",
+    "ilce": "kartal",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 417,
+    "il": "istanbul",
+    "ilce": "küçükçekmece",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 418,
+    "il": "istanbul",
+    "ilce": "maltepe",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 419,
+    "il": "istanbul",
+    "ilce": "pendik",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 420,
+    "il": "istanbul",
+    "ilce": "sancaktepe",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 421,
+    "il": "istanbul",
+    "ilce": "sariyer",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 422,
+    "il": "istanbul",
+    "ilce": "silivri",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 423,
+    "il": "istanbul",
+    "ilce": "sultanbeyli",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 424,
+    "il": "istanbul",
+    "ilce": "sultangazi",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 425,
+    "il": "istanbul",
+    "ilce": "şile",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 426,
+    "il": "istanbul",
+    "ilce": "şişli",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 427,
+    "il": "istanbul",
+    "ilce": "tuzla",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 428,
+    "il": "istanbul",
+    "ilce": "ümraniye",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 429,
+    "il": "istanbul",
+    "ilce": "üsküdar",
+    "plaka": 34
+  },
+  {
+    "bolge": "marmara",
+    "id": 430,
+    "il": "istanbul",
+    "ilce": "zeytinburnu",
+    "plaka": 34
+  },
+  {
+    "bolge": "ege",
+    "id": 431,
+    "il": "izmir",
+    "ilce": "aliağa",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 432,
+    "il": "izmir",
+    "ilce": "balçova",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 433,
+    "il": "izmir",
+    "ilce": "bayindir",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 434,
+    "il": "izmir",
+    "ilce": "bayrakli",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 435,
+    "il": "izmir",
+    "ilce": "bergama",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 436,
+    "il": "izmir",
+    "ilce": "beydağ",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 437,
+    "il": "izmir",
+    "ilce": "bornova",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 438,
+    "il": "izmir",
+    "ilce": "buca",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 439,
+    "il": "izmir",
+    "ilce": "çeşme",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 440,
+    "il": "izmir",
+    "ilce": "çiğli",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 441,
+    "il": "izmir",
+    "ilce": "dikili",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 442,
+    "il": "izmir",
+    "ilce": "foça",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 443,
+    "il": "izmir",
+    "ilce": "gaziemir",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 444,
+    "il": "izmir",
+    "ilce": "güzelbahçe",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 445,
+    "il": "izmir",
+    "ilce": "karabağlar",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 446,
+    "il": "izmir",
+    "ilce": "karaburun",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 447,
+    "il": "izmir",
+    "ilce": "karşiyaka",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 448,
+    "il": "izmir",
+    "ilce": "kemalpaşa",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 449,
+    "il": "izmir",
+    "ilce": "kinik",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 450,
+    "il": "izmir",
+    "ilce": "kiraz",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 451,
+    "il": "izmir",
+    "ilce": "konak",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 452,
+    "il": "izmir",
+    "ilce": "menderes",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 453,
+    "il": "izmir",
+    "ilce": "menemen",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 454,
+    "il": "izmir",
+    "ilce": "narlidere",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 455,
+    "il": "izmir",
+    "ilce": "ödemiş",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 456,
+    "il": "izmir",
+    "ilce": "seferihisar",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 457,
+    "il": "izmir",
+    "ilce": "selçuk",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 458,
+    "il": "izmir",
+    "ilce": "tire",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 459,
+    "il": "izmir",
+    "ilce": "torbali",
+    "plaka": 35
+  },
+  {
+    "bolge": "ege",
+    "id": 460,
+    "il": "izmir",
+    "ilce": "urla",
+    "plaka": 35
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 461,
+    "il": "kars",
+    "ilce": "akyaka",
+    "plaka": 36
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 462,
+    "il": "kars",
+    "ilce": "arpaçay",
+    "plaka": 36
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 463,
+    "il": "kars",
+    "ilce": "digor",
+    "plaka": 36
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 464,
+    "il": "kars",
+    "ilce": "kağizman",
+    "plaka": 36
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 465,
+    "il": "kars",
+    "ilce": "sarikamiş",
+    "plaka": 36
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 466,
+    "il": "kars",
+    "ilce": "selim",
+    "plaka": 36
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 467,
+    "il": "kars",
+    "ilce": "susuz",
+    "plaka": 36
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 468,
+    "il": "kastamonu",
+    "ilce": "abana",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 469,
+    "il": "kastamonu",
+    "ilce": "ağli",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 470,
+    "il": "kastamonu",
+    "ilce": "araç",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 471,
+    "il": "kastamonu",
+    "ilce": "azdavay",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 472,
+    "il": "kastamonu",
+    "ilce": "bozkurt",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 473,
+    "il": "kastamonu",
+    "ilce": "cide",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 474,
+    "il": "kastamonu",
+    "ilce": "çatalzeytin",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 475,
+    "il": "kastamonu",
+    "ilce": "daday",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 476,
+    "il": "kastamonu",
+    "ilce": "devrekani",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 477,
+    "il": "kastamonu",
+    "ilce": "doğanyurt",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 478,
+    "il": "kastamonu",
+    "ilce": "hanönü",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 479,
+    "il": "kastamonu",
+    "ilce": "ihsangazi",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 480,
+    "il": "kastamonu",
+    "ilce": "inebolu",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 481,
+    "il": "kastamonu",
+    "ilce": "küre",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 482,
+    "il": "kastamonu",
+    "ilce": "pinarbaşi",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 483,
+    "il": "kastamonu",
+    "ilce": "seydiler",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 484,
+    "il": "kastamonu",
+    "ilce": "şenpazar",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 485,
+    "il": "kastamonu",
+    "ilce": "taşköprü",
+    "plaka": 37
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 486,
+    "il": "kastamonu",
+    "ilce": "tosya",
+    "plaka": 37
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 487,
+    "il": "kayseri",
+    "ilce": "akkişla",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 488,
+    "il": "kayseri",
+    "ilce": "bünyan",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 489,
+    "il": "kayseri",
+    "ilce": "develi",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 490,
+    "il": "kayseri",
+    "ilce": "felahiye",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 491,
+    "il": "kayseri",
+    "ilce": "hacilar",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 492,
+    "il": "kayseri",
+    "ilce": "incesu",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 493,
+    "il": "kayseri",
+    "ilce": "kocasinan",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 494,
+    "il": "kayseri",
+    "ilce": "melikgazi",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 495,
+    "il": "kayseri",
+    "ilce": "özvatan",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 496,
+    "il": "kayseri",
+    "ilce": "pinarbaşi",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 497,
+    "il": "kayseri",
+    "ilce": "sarioğlan",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 498,
+    "il": "kayseri",
+    "ilce": "sariz",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 499,
+    "il": "kayseri",
+    "ilce": "talas",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 500,
+    "il": "kayseri",
+    "ilce": "tomarza",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 501,
+    "il": "kayseri",
+    "ilce": "yahyali",
+    "plaka": 38
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 502,
+    "il": "kayseri",
+    "ilce": "yeşilhisar",
+    "plaka": 38
+  },
+  {
+    "bolge": "marmara",
+    "id": 503,
+    "il": "kirklareli",
+    "ilce": "babaeski",
+    "plaka": 39
+  },
+  {
+    "bolge": "marmara",
+    "id": 504,
+    "il": "kirklareli",
+    "ilce": "demirköy",
+    "plaka": 39
+  },
+  {
+    "bolge": "marmara",
+    "id": 505,
+    "il": "kirklareli",
+    "ilce": "kofçaz",
+    "plaka": 39
+  },
+  {
+    "bolge": "marmara",
+    "id": 506,
+    "il": "kirklareli",
+    "ilce": "lüleburgaz",
+    "plaka": 39
+  },
+  {
+    "bolge": "marmara",
+    "id": 507,
+    "il": "kirklareli",
+    "ilce": "pehlivanköy",
+    "plaka": 39
+  },
+  {
+    "bolge": "marmara",
+    "id": 508,
+    "il": "kirklareli",
+    "ilce": "pinarhisar",
+    "plaka": 39
+  },
+  {
+    "bolge": "marmara",
+    "id": 509,
+    "il": "kirklareli",
+    "ilce": "vize",
+    "plaka": 39
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 510,
+    "il": "kirşehir",
+    "ilce": "akçakent",
+    "plaka": 40
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 511,
+    "il": "kirşehir",
+    "ilce": "akpinar",
+    "plaka": 40
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 512,
+    "il": "kirşehir",
+    "ilce": "boztepe",
+    "plaka": 40
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 513,
+    "il": "kirşehir",
+    "ilce": "çiçekdaği",
+    "plaka": 40
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 514,
+    "il": "kirşehir",
+    "ilce": "kaman",
+    "plaka": 40
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 515,
+    "il": "kirşehir",
+    "ilce": "mucur",
+    "plaka": 40
+  },
+  {
+    "bolge": "marmara",
+    "id": 516,
+    "il": "kocaeli",
+    "ilce": "başiskele",
+    "plaka": 41
+  },
+  {
+    "bolge": "marmara",
+    "id": 517,
+    "il": "kocaeli",
+    "ilce": "çayirova",
+    "plaka": 41
+  },
+  {
+    "bolge": "marmara",
+    "id": 518,
+    "il": "kocaeli",
+    "ilce": "darica",
+    "plaka": 41
+  },
+  {
+    "bolge": "marmara",
+    "id": 519,
+    "il": "kocaeli",
+    "ilce": "derince",
+    "plaka": 41
+  },
+  {
+    "bolge": "marmara",
+    "id": 520,
+    "il": "kocaeli",
+    "ilce": "dilovasi",
+    "plaka": 41
+  },
+  {
+    "bolge": "marmara",
+    "id": 521,
+    "il": "kocaeli",
+    "ilce": "gebze",
+    "plaka": 41
+  },
+  {
+    "bolge": "marmara",
+    "id": 522,
+    "il": "kocaeli",
+    "ilce": "gölcük",
+    "plaka": 41
+  },
+  {
+    "bolge": "marmara",
+    "id": 523,
+    "il": "kocaeli",
+    "ilce": "izmit",
+    "plaka": 41
+  },
+  {
+    "bolge": "marmara",
+    "id": 524,
+    "il": "kocaeli",
+    "ilce": "kandira",
+    "plaka": 41
+  },
+  {
+    "bolge": "marmara",
+    "id": 525,
+    "il": "kocaeli",
+    "ilce": "karamürsel",
+    "plaka": 41
+  },
+  {
+    "bolge": "marmara",
+    "id": 526,
+    "il": "kocaeli",
+    "ilce": "kartepe",
+    "plaka": 41
+  },
+  {
+    "bolge": "marmara",
+    "id": 527,
+    "il": "kocaeli",
+    "ilce": "körfez",
+    "plaka": 41
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 528,
+    "il": "konya",
+    "ilce": "ahirli",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 529,
+    "il": "konya",
+    "ilce": "akören",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 530,
+    "il": "konya",
+    "ilce": "akşehir",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 531,
+    "il": "konya",
+    "ilce": "altinekin",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 532,
+    "il": "konya",
+    "ilce": "beyşehir",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 533,
+    "il": "konya",
+    "ilce": "bozkir",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 534,
+    "il": "konya",
+    "ilce": "cihanbeyli",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 535,
+    "il": "konya",
+    "ilce": "çeltik",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 536,
+    "il": "konya",
+    "ilce": "çumra",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 537,
+    "il": "konya",
+    "ilce": "derbent",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 538,
+    "il": "konya",
+    "ilce": "derebucak",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 539,
+    "il": "konya",
+    "ilce": "doğanhisar",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 540,
+    "il": "konya",
+    "ilce": "emirgazi",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 541,
+    "il": "konya",
+    "ilce": "ereğli",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 542,
+    "il": "konya",
+    "ilce": "güneysinir",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 543,
+    "il": "konya",
+    "ilce": "hadim",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 544,
+    "il": "konya",
+    "ilce": "halkapinar",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 545,
+    "il": "konya",
+    "ilce": "hüyük",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 546,
+    "il": "konya",
+    "ilce": "ilgin",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 547,
+    "il": "konya",
+    "ilce": "kadinhani",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 548,
+    "il": "konya",
+    "ilce": "karapinar",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 549,
+    "il": "konya",
+    "ilce": "karatay",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 550,
+    "il": "konya",
+    "ilce": "kulu",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 551,
+    "il": "konya",
+    "ilce": "meram",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 552,
+    "il": "konya",
+    "ilce": "sarayönü",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 553,
+    "il": "konya",
+    "ilce": "selçuklu",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 554,
+    "il": "konya",
+    "ilce": "seydişehir",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 555,
+    "il": "konya",
+    "ilce": "taşkent",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 556,
+    "il": "konya",
+    "ilce": "tuzlukçu",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 557,
+    "il": "konya",
+    "ilce": "yalihüyük",
+    "plaka": 42
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 558,
+    "il": "konya",
+    "ilce": "yunak",
+    "plaka": 42
+  },
+  {
+    "bolge": "ege",
+    "id": 559,
+    "il": "kütahya",
+    "ilce": "altintaş",
+    "plaka": 43
+  },
+  {
+    "bolge": "ege",
+    "id": 560,
+    "il": "kütahya",
+    "ilce": "aslanapa",
+    "plaka": 43
+  },
+  {
+    "bolge": "ege",
+    "id": 561,
+    "il": "kütahya",
+    "ilce": "çavdarhisar",
+    "plaka": 43
+  },
+  {
+    "bolge": "ege",
+    "id": 562,
+    "il": "kütahya",
+    "ilce": "domaniç",
+    "plaka": 43
+  },
+  {
+    "bolge": "ege",
+    "id": 563,
+    "il": "kütahya",
+    "ilce": "dumlupinar",
+    "plaka": 43
+  },
+  {
+    "bolge": "ege",
+    "id": 564,
+    "il": "kütahya",
+    "ilce": "emet",
+    "plaka": 43
+  },
+  {
+    "bolge": "ege",
+    "id": 565,
+    "il": "kütahya",
+    "ilce": "gediz",
+    "plaka": 43
+  },
+  {
+    "bolge": "ege",
+    "id": 566,
+    "il": "kütahya",
+    "ilce": "hisarcik",
+    "plaka": 43
+  },
+  {
+    "bolge": "ege",
+    "id": 567,
+    "il": "kütahya",
+    "ilce": "pazarlar",
+    "plaka": 43
+  },
+  {
+    "bolge": "ege",
+    "id": 568,
+    "il": "kütahya",
+    "ilce": "simav",
+    "plaka": 43
+  },
+  {
+    "bolge": "ege",
+    "id": 569,
+    "il": "kütahya",
+    "ilce": "şaphane",
+    "plaka": 43
+  },
+  {
+    "bolge": "ege",
+    "id": 570,
+    "il": "kütahya",
+    "ilce": "tavşanli",
+    "plaka": 43
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 571,
+    "il": "malatya",
+    "ilce": "akçadağ",
+    "plaka": 44
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 572,
+    "il": "malatya",
+    "ilce": "arapgir",
+    "plaka": 44
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 573,
+    "il": "malatya",
+    "ilce": "arguvan",
+    "plaka": 44
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 574,
+    "il": "malatya",
+    "ilce": "battalgazi",
+    "plaka": 44
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 575,
+    "il": "malatya",
+    "ilce": "darende",
+    "plaka": 44
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 576,
+    "il": "malatya",
+    "ilce": "doğanşehir",
+    "plaka": 44
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 577,
+    "il": "malatya",
+    "ilce": "doğanyol",
+    "plaka": 44
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 578,
+    "il": "malatya",
+    "ilce": "hekimhan",
+    "plaka": 44
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 579,
+    "il": "malatya",
+    "ilce": "kale",
+    "plaka": 44
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 580,
+    "il": "malatya",
+    "ilce": "kuluncak",
+    "plaka": 44
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 581,
+    "il": "malatya",
+    "ilce": "pütürge",
+    "plaka": 44
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 582,
+    "il": "malatya",
+    "ilce": "yazihan",
+    "plaka": 44
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 583,
+    "il": "malatya",
+    "ilce": "yeşilyurt",
+    "plaka": 44
+  },
+  {
+    "bolge": "ege",
+    "id": 584,
+    "il": "manisa",
+    "ilce": "ahmetli",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 585,
+    "il": "manisa",
+    "ilce": "akhisar",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 586,
+    "il": "manisa",
+    "ilce": "alaşehir",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 587,
+    "il": "manisa",
+    "ilce": "demirci",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 588,
+    "il": "manisa",
+    "ilce": "gölmarmara",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 589,
+    "il": "manisa",
+    "ilce": "gördes",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 590,
+    "il": "manisa",
+    "ilce": "kirkağaç",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 591,
+    "il": "manisa",
+    "ilce": "köprübaşi",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 592,
+    "il": "manisa",
+    "ilce": "kula",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 593,
+    "il": "manisa",
+    "ilce": "salihli",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 594,
+    "il": "manisa",
+    "ilce": "sarigöl",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 595,
+    "il": "manisa",
+    "ilce": "saruhanli",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 596,
+    "il": "manisa",
+    "ilce": "selendi",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 597,
+    "il": "manisa",
+    "ilce": "soma",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 598,
+    "il": "manisa",
+    "ilce": "turgutlu",
+    "plaka": 45
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 599,
+    "il": "kahramanmaraş",
+    "ilce": "afşin",
+    "plaka": 46
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 600,
+    "il": "kahramanmaraş",
+    "ilce": "andirin",
+    "plaka": 46
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 601,
+    "il": "kahramanmaraş",
+    "ilce": "çağlayancerit",
+    "plaka": 46
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 602,
+    "il": "kahramanmaraş",
+    "ilce": "ekinözü",
+    "plaka": 46
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 603,
+    "il": "kahramanmaraş",
+    "ilce": "elbistan",
+    "plaka": 46
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 604,
+    "il": "kahramanmaraş",
+    "ilce": "göksun",
+    "plaka": 46
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 605,
+    "il": "kahramanmaraş",
+    "ilce": "nurhak",
+    "plaka": 46
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 606,
+    "il": "kahramanmaraş",
+    "ilce": "pazarcik",
+    "plaka": 46
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 607,
+    "il": "kahramanmaraş",
+    "ilce": "türkoğlu",
+    "plaka": 46
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 608,
+    "il": "mardin",
+    "ilce": "dargeçit",
+    "plaka": 47
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 609,
+    "il": "mardin",
+    "ilce": "derik",
+    "plaka": 47
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 610,
+    "il": "mardin",
+    "ilce": "kiziltepe",
+    "plaka": 47
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 611,
+    "il": "mardin",
+    "ilce": "mazidaği",
+    "plaka": 47
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 612,
+    "il": "mardin",
+    "ilce": "midyat",
+    "plaka": 47
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 613,
+    "il": "mardin",
+    "ilce": "nusaybin",
+    "plaka": 47
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 614,
+    "il": "mardin",
+    "ilce": "ömerli",
+    "plaka": 47
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 615,
+    "il": "mardin",
+    "ilce": "savur",
+    "plaka": 47
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 616,
+    "il": "mardin",
+    "ilce": "yeşilli",
+    "plaka": 47
+  },
+  {
+    "bolge": "ege",
+    "id": 617,
+    "il": "muğla",
+    "ilce": "bodrum",
+    "plaka": 48
+  },
+  {
+    "bolge": "ege",
+    "id": 618,
+    "il": "muğla",
+    "ilce": "dalaman",
+    "plaka": 48
+  },
+  {
+    "bolge": "ege",
+    "id": 619,
+    "il": "muğla",
+    "ilce": "datça",
+    "plaka": 48
+  },
+  {
+    "bolge": "ege",
+    "id": 620,
+    "il": "muğla",
+    "ilce": "fethiye",
+    "plaka": 48
+  },
+  {
+    "bolge": "ege",
+    "id": 621,
+    "il": "muğla",
+    "ilce": "kavaklidere",
+    "plaka": 48
+  },
+  {
+    "bolge": "ege",
+    "id": 622,
+    "il": "muğla",
+    "ilce": "köyceğiz",
+    "plaka": 48
+  },
+  {
+    "bolge": "ege",
+    "id": 623,
+    "il": "muğla",
+    "ilce": "marmaris",
+    "plaka": 48
+  },
+  {
+    "bolge": "ege",
+    "id": 624,
+    "il": "muğla",
+    "ilce": "milas",
+    "plaka": 48
+  },
+  {
+    "bolge": "ege",
+    "id": 625,
+    "il": "muğla",
+    "ilce": "ortaca",
+    "plaka": 48
+  },
+  {
+    "bolge": "ege",
+    "id": 626,
+    "il": "muğla",
+    "ilce": "ula",
+    "plaka": 48
+  },
+  {
+    "bolge": "ege",
+    "id": 627,
+    "il": "muğla",
+    "ilce": "yatağan",
+    "plaka": 48
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 628,
+    "il": "muş",
+    "ilce": "bulanik",
+    "plaka": 49
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 629,
+    "il": "muş",
+    "ilce": "hasköy",
+    "plaka": 49
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 630,
+    "il": "muş",
+    "ilce": "korkut",
+    "plaka": 49
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 631,
+    "il": "muş",
+    "ilce": "malazgirt",
+    "plaka": 49
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 632,
+    "il": "muş",
+    "ilce": "varto",
+    "plaka": 49
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 633,
+    "il": "nevşehir",
+    "ilce": "acigöl",
+    "plaka": 50
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 634,
+    "il": "nevşehir",
+    "ilce": "avanos",
+    "plaka": 50
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 635,
+    "il": "nevşehir",
+    "ilce": "derinkuyu",
+    "plaka": 50
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 636,
+    "il": "nevşehir",
+    "ilce": "gülşehir",
+    "plaka": 50
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 637,
+    "il": "nevşehir",
+    "ilce": "hacibektaş",
+    "plaka": 50
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 638,
+    "il": "nevşehir",
+    "ilce": "kozakli",
+    "plaka": 50
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 639,
+    "il": "nevşehir",
+    "ilce": "ürgüp",
+    "plaka": 50
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 640,
+    "il": "niğde",
+    "ilce": "altunhisar",
+    "plaka": 51
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 641,
+    "il": "niğde",
+    "ilce": "bor",
+    "plaka": 51
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 642,
+    "il": "niğde",
+    "ilce": "çamardi",
+    "plaka": 51
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 643,
+    "il": "niğde",
+    "ilce": "çiftlik",
+    "plaka": 51
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 644,
+    "il": "niğde",
+    "ilce": "ulukişla",
+    "plaka": 51
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 645,
+    "il": "ordu",
+    "ilce": "akkuş",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 646,
+    "il": "ordu",
+    "ilce": "aybasti",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 647,
+    "il": "ordu",
+    "ilce": "çamaş",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 648,
+    "il": "ordu",
+    "ilce": "çatalpinar",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 649,
+    "il": "ordu",
+    "ilce": "çaybaşi",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 650,
+    "il": "ordu",
+    "ilce": "fatsa",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 651,
+    "il": "ordu",
+    "ilce": "gölköy",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 652,
+    "il": "ordu",
+    "ilce": "gülyali",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 653,
+    "il": "ordu",
+    "ilce": "gürgentepe",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 654,
+    "il": "ordu",
+    "ilce": "ikizce",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 655,
+    "il": "ordu",
+    "ilce": "kabadüz",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 656,
+    "il": "ordu",
+    "ilce": "kabataş",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 657,
+    "il": "ordu",
+    "ilce": "korgan",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 658,
+    "il": "ordu",
+    "ilce": "kumru",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 659,
+    "il": "ordu",
+    "ilce": "mesudiye",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 660,
+    "il": "ordu",
+    "ilce": "perşembe",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 661,
+    "il": "ordu",
+    "ilce": "ulubey",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 662,
+    "il": "ordu",
+    "ilce": "ünye",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 663,
+    "il": "rize",
+    "ilce": "ardeşen",
+    "plaka": 53
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 664,
+    "il": "rize",
+    "ilce": "çamlihemşin",
+    "plaka": 53
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 665,
+    "il": "rize",
+    "ilce": "çayeli",
+    "plaka": 53
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 666,
+    "il": "rize",
+    "ilce": "derepazari",
+    "plaka": 53
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 667,
+    "il": "rize",
+    "ilce": "findikli",
+    "plaka": 53
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 668,
+    "il": "rize",
+    "ilce": "güneysu",
+    "plaka": 53
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 669,
+    "il": "rize",
+    "ilce": "hemşin",
+    "plaka": 53
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 670,
+    "il": "rize",
+    "ilce": "ikizdere",
+    "plaka": 53
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 671,
+    "il": "rize",
+    "ilce": "iyidere",
+    "plaka": 53
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 672,
+    "il": "rize",
+    "ilce": "kalkandere",
+    "plaka": 53
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 673,
+    "il": "rize",
+    "ilce": "pazar",
+    "plaka": 53
+  },
+  {
+    "bolge": "marmara",
+    "id": 674,
+    "il": "sakarya",
+    "ilce": "adapazari",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 675,
+    "il": "sakarya",
+    "ilce": "akyazi",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 676,
+    "il": "sakarya",
+    "ilce": "arifiye",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 677,
+    "il": "sakarya",
+    "ilce": "erenler",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 678,
+    "il": "sakarya",
+    "ilce": "ferizli",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 679,
+    "il": "sakarya",
+    "ilce": "geyve",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 680,
+    "il": "sakarya",
+    "ilce": "hendek",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 681,
+    "il": "sakarya",
+    "ilce": "karapürçek",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 682,
+    "il": "sakarya",
+    "ilce": "karasu",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 683,
+    "il": "sakarya",
+    "ilce": "kaynarca",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 684,
+    "il": "sakarya",
+    "ilce": "kocaali",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 685,
+    "il": "sakarya",
+    "ilce": "pamukova",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 686,
+    "il": "sakarya",
+    "ilce": "sapanca",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 687,
+    "il": "sakarya",
+    "ilce": "serdivan",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 688,
+    "il": "sakarya",
+    "ilce": "söğütlü",
+    "plaka": 54
+  },
+  {
+    "bolge": "marmara",
+    "id": 689,
+    "il": "sakarya",
+    "ilce": "tarakli",
+    "plaka": 54
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 690,
+    "il": "samsun",
+    "ilce": "ondokuzmayis",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 691,
+    "il": "samsun",
+    "ilce": "alaçam",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 692,
+    "il": "samsun",
+    "ilce": "asarcik",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 693,
+    "il": "samsun",
+    "ilce": "atakum",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 694,
+    "il": "samsun",
+    "ilce": "ayvacik",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 695,
+    "il": "samsun",
+    "ilce": "bafra",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 696,
+    "il": "samsun",
+    "ilce": "canik",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 697,
+    "il": "samsun",
+    "ilce": "çarşamba",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 698,
+    "il": "samsun",
+    "ilce": "havza",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 699,
+    "il": "samsun",
+    "ilce": "ilkadim",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 700,
+    "il": "samsun",
+    "ilce": "kavak",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 701,
+    "il": "samsun",
+    "ilce": "ladik",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 702,
+    "il": "samsun",
+    "ilce": "salipazari",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 703,
+    "il": "samsun",
+    "ilce": "tekkeköy",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 704,
+    "il": "samsun",
+    "ilce": "terme",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 705,
+    "il": "samsun",
+    "ilce": "vezirköprü",
+    "plaka": 55
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 706,
+    "il": "samsun",
+    "ilce": "yakakent",
+    "plaka": 55
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 707,
+    "il": "siirt",
+    "ilce": "aydinlar",
+    "plaka": 56
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 708,
+    "il": "siirt",
+    "ilce": "baykan",
+    "plaka": 56
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 709,
+    "il": "siirt",
+    "ilce": "eruh",
+    "plaka": 56
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 710,
+    "il": "siirt",
+    "ilce": "kurtalan",
+    "plaka": 56
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 711,
+    "il": "siirt",
+    "ilce": "pervari",
+    "plaka": 56
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 712,
+    "il": "siirt",
+    "ilce": "şirvan",
+    "plaka": 56
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 713,
+    "il": "sinop",
+    "ilce": "ayancik",
+    "plaka": 57
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 714,
+    "il": "sinop",
+    "ilce": "boyabat",
+    "plaka": 57
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 715,
+    "il": "sinop",
+    "ilce": "dikmen",
+    "plaka": 57
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 716,
+    "il": "sinop",
+    "ilce": "durağan",
+    "plaka": 57
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 717,
+    "il": "sinop",
+    "ilce": "erfelek",
+    "plaka": 57
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 718,
+    "il": "sinop",
+    "ilce": "gerze",
+    "plaka": 57
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 719,
+    "il": "sinop",
+    "ilce": "saraydüzü",
+    "plaka": 57
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 720,
+    "il": "sinop",
+    "ilce": "türkeli",
+    "plaka": 57
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 721,
+    "il": "sivas",
+    "ilce": "akincilar",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 722,
+    "il": "sivas",
+    "ilce": "altinyayla",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 723,
+    "il": "sivas",
+    "ilce": "divriği",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 724,
+    "il": "sivas",
+    "ilce": "doğanşar",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 725,
+    "il": "sivas",
+    "ilce": "gemerek",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 726,
+    "il": "sivas",
+    "ilce": "gölova",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 727,
+    "il": "sivas",
+    "ilce": "gürün",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 728,
+    "il": "sivas",
+    "ilce": "hafik",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 729,
+    "il": "sivas",
+    "ilce": "imranli",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 730,
+    "il": "sivas",
+    "ilce": "kangal",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 731,
+    "il": "sivas",
+    "ilce": "koyulhisar",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 732,
+    "il": "sivas",
+    "ilce": "suşehri",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 733,
+    "il": "sivas",
+    "ilce": "şarkişla",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 734,
+    "il": "sivas",
+    "ilce": "ulaş",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 735,
+    "il": "sivas",
+    "ilce": "yildizeli",
+    "plaka": 58
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 736,
+    "il": "sivas",
+    "ilce": "zara",
+    "plaka": 58
+  },
+  {
+    "bolge": "marmara",
+    "id": 737,
+    "il": "tekirdağ",
+    "ilce": "çerkezköy",
+    "plaka": 59
+  },
+  {
+    "bolge": "marmara",
+    "id": 738,
+    "il": "tekirdağ",
+    "ilce": "çorlu",
+    "plaka": 59
+  },
+  {
+    "bolge": "marmara",
+    "id": 739,
+    "il": "tekirdağ",
+    "ilce": "hayrabolu",
+    "plaka": 59
+  },
+  {
+    "bolge": "marmara",
+    "id": 740,
+    "il": "tekirdağ",
+    "ilce": "malkara",
+    "plaka": 59
+  },
+  {
+    "bolge": "marmara",
+    "id": 741,
+    "il": "tekirdağ",
+    "ilce": "marmaraereğlisi",
+    "plaka": 59
+  },
+  {
+    "bolge": "marmara",
+    "id": 742,
+    "il": "tekirdağ",
+    "ilce": "muratli",
+    "plaka": 59
+  },
+  {
+    "bolge": "marmara",
+    "id": 743,
+    "il": "tekirdağ",
+    "ilce": "saray",
+    "plaka": 59
+  },
+  {
+    "bolge": "marmara",
+    "id": 744,
+    "il": "tekirdağ",
+    "ilce": "şarköy",
+    "plaka": 59
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 745,
+    "il": "tokat",
+    "ilce": "almus",
+    "plaka": 60
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 746,
+    "il": "tokat",
+    "ilce": "artova",
+    "plaka": 60
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 747,
+    "il": "tokat",
+    "ilce": "başçiftlik",
+    "plaka": 60
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 748,
+    "il": "tokat",
+    "ilce": "erbaa",
+    "plaka": 60
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 749,
+    "il": "tokat",
+    "ilce": "niksar",
+    "plaka": 60
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 750,
+    "il": "tokat",
+    "ilce": "pazar",
+    "plaka": 60
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 751,
+    "il": "tokat",
+    "ilce": "reşadiye",
+    "plaka": 60
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 752,
+    "il": "tokat",
+    "ilce": "sulusaray",
+    "plaka": 60
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 753,
+    "il": "tokat",
+    "ilce": "turhal",
+    "plaka": 60
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 754,
+    "il": "tokat",
+    "ilce": "yeşilyurt",
+    "plaka": 60
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 755,
+    "il": "tokat",
+    "ilce": "zile",
+    "plaka": 60
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 756,
+    "il": "trabzon",
+    "ilce": "akçaabat",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 757,
+    "il": "trabzon",
+    "ilce": "arakli",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 758,
+    "il": "trabzon",
+    "ilce": "arsin",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 759,
+    "il": "trabzon",
+    "ilce": "beşikdüzü",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 760,
+    "il": "trabzon",
+    "ilce": "çarşibaşi",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 761,
+    "il": "trabzon",
+    "ilce": "çaykara",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 762,
+    "il": "trabzon",
+    "ilce": "dernekpazari",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 763,
+    "il": "trabzon",
+    "ilce": "düzköy",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 764,
+    "il": "trabzon",
+    "ilce": "hayrat",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 765,
+    "il": "trabzon",
+    "ilce": "köprübaşi",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 766,
+    "il": "trabzon",
+    "ilce": "maçka",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 767,
+    "il": "trabzon",
+    "ilce": "of",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 768,
+    "il": "trabzon",
+    "ilce": "sürmene",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 769,
+    "il": "trabzon",
+    "ilce": "şalpazari",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 770,
+    "il": "trabzon",
+    "ilce": "tonya",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 771,
+    "il": "trabzon",
+    "ilce": "vakfikebir",
+    "plaka": 61
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 772,
+    "il": "trabzon",
+    "ilce": "yomra",
+    "plaka": 61
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 773,
+    "il": "tunceli",
+    "ilce": "çemişgezek",
+    "plaka": 62
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 774,
+    "il": "tunceli",
+    "ilce": "hozat",
+    "plaka": 62
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 775,
+    "il": "tunceli",
+    "ilce": "mazgirt",
+    "plaka": 62
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 776,
+    "il": "tunceli",
+    "ilce": "nazimiye",
+    "plaka": 62
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 777,
+    "il": "tunceli",
+    "ilce": "ovacik",
+    "plaka": 62
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 778,
+    "il": "tunceli",
+    "ilce": "pertek",
+    "plaka": 62
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 779,
+    "il": "tunceli",
+    "ilce": "pülümür",
+    "plaka": 62
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 780,
+    "il": "şanliurfa",
+    "ilce": "akçakale",
+    "plaka": 63
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 781,
+    "il": "şanliurfa",
+    "ilce": "birecik",
+    "plaka": 63
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 782,
+    "il": "şanliurfa",
+    "ilce": "bozova",
+    "plaka": 63
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 783,
+    "il": "şanliurfa",
+    "ilce": "ceylanpinar",
+    "plaka": 63
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 784,
+    "il": "şanliurfa",
+    "ilce": "halfeti",
+    "plaka": 63
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 785,
+    "il": "şanliurfa",
+    "ilce": "harran",
+    "plaka": 63
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 786,
+    "il": "şanliurfa",
+    "ilce": "hilvan",
+    "plaka": 63
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 787,
+    "il": "şanliurfa",
+    "ilce": "siverek",
+    "plaka": 63
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 788,
+    "il": "şanliurfa",
+    "ilce": "suruç",
+    "plaka": 63
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 789,
+    "il": "şanliurfa",
+    "ilce": "viranşehir",
+    "plaka": 63
+  },
+  {
+    "bolge": "ege",
+    "id": 790,
+    "il": "uşak",
+    "ilce": "banaz",
+    "plaka": 64
+  },
+  {
+    "bolge": "ege",
+    "id": 791,
+    "il": "uşak",
+    "ilce": "eşme",
+    "plaka": 64
+  },
+  {
+    "bolge": "ege",
+    "id": 792,
+    "il": "uşak",
+    "ilce": "karahalli",
+    "plaka": 64
+  },
+  {
+    "bolge": "ege",
+    "id": 793,
+    "il": "uşak",
+    "ilce": "sivasli",
+    "plaka": 64
+  },
+  {
+    "bolge": "ege",
+    "id": 794,
+    "il": "uşak",
+    "ilce": "ulubey",
+    "plaka": 64
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 795,
+    "il": "van",
+    "ilce": "bahçesaray",
+    "plaka": 65
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 796,
+    "il": "van",
+    "ilce": "başkale",
+    "plaka": 65
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 797,
+    "il": "van",
+    "ilce": "çaldiran",
+    "plaka": 65
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 798,
+    "il": "van",
+    "ilce": "çatak",
+    "plaka": 65
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 799,
+    "il": "van",
+    "ilce": "edremit",
+    "plaka": 65
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 800,
+    "il": "van",
+    "ilce": "erciş",
+    "plaka": 65
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 801,
+    "il": "van",
+    "ilce": "gevaş",
+    "plaka": 65
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 802,
+    "il": "van",
+    "ilce": "gürpinar",
+    "plaka": 65
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 803,
+    "il": "van",
+    "ilce": "muradiye",
+    "plaka": 65
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 804,
+    "il": "van",
+    "ilce": "özalp",
+    "plaka": 65
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 805,
+    "il": "van",
+    "ilce": "saray",
+    "plaka": 65
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 806,
+    "il": "yozgat",
+    "ilce": "akdağmadeni",
+    "plaka": 66
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 807,
+    "il": "yozgat",
+    "ilce": "aydincik",
+    "plaka": 66
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 808,
+    "il": "yozgat",
+    "ilce": "boğazliyan",
+    "plaka": 66
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 809,
+    "il": "yozgat",
+    "ilce": "çandir",
+    "plaka": 66
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 810,
+    "il": "yozgat",
+    "ilce": "çayiralan",
+    "plaka": 66
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 811,
+    "il": "yozgat",
+    "ilce": "çekerek",
+    "plaka": 66
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 812,
+    "il": "yozgat",
+    "ilce": "kadişehri",
+    "plaka": 66
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 813,
+    "il": "yozgat",
+    "ilce": "saraykent",
+    "plaka": 66
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 814,
+    "il": "yozgat",
+    "ilce": "sarikaya",
+    "plaka": 66
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 815,
+    "il": "yozgat",
+    "ilce": "sorgun",
+    "plaka": 66
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 816,
+    "il": "yozgat",
+    "ilce": "şefaatli",
+    "plaka": 66
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 817,
+    "il": "yozgat",
+    "ilce": "yenifakili",
+    "plaka": 66
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 818,
+    "il": "yozgat",
+    "ilce": "yerköy",
+    "plaka": 66
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 819,
+    "il": "zonguldak",
+    "ilce": "alapli",
+    "plaka": 67
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 820,
+    "il": "zonguldak",
+    "ilce": "çaycuma",
+    "plaka": 67
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 821,
+    "il": "zonguldak",
+    "ilce": "devrek",
+    "plaka": 67
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 822,
+    "il": "zonguldak",
+    "ilce": "ereğli",
+    "plaka": 67
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 823,
+    "il": "zonguldak",
+    "ilce": "gökçebey",
+    "plaka": 67
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 824,
+    "il": "aksaray",
+    "ilce": "ağaçören",
+    "plaka": 68
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 825,
+    "il": "aksaray",
+    "ilce": "eskil",
+    "plaka": 68
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 826,
+    "il": "aksaray",
+    "ilce": "gülağaç",
+    "plaka": 68
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 827,
+    "il": "aksaray",
+    "ilce": "güzelyurt",
+    "plaka": 68
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 828,
+    "il": "aksaray",
+    "ilce": "ortaköy",
+    "plaka": 68
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 829,
+    "il": "aksaray",
+    "ilce": "sariyahşi",
+    "plaka": 68
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 830,
+    "il": "bayburt",
+    "ilce": "aydintepe",
+    "plaka": 69
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 831,
+    "il": "bayburt",
+    "ilce": "demirözü",
+    "plaka": 69
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 832,
+    "il": "karaman",
+    "ilce": "ayranci",
+    "plaka": 70
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 833,
+    "il": "karaman",
+    "ilce": "başyayla",
+    "plaka": 70
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 834,
+    "il": "karaman",
+    "ilce": "ermenek",
+    "plaka": 70
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 835,
+    "il": "karaman",
+    "ilce": "kazimkarabekir",
+    "plaka": 70
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 836,
+    "il": "karaman",
+    "ilce": "sariveliler",
+    "plaka": 70
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 837,
+    "il": "kirikkale",
+    "ilce": "bahşili",
+    "plaka": 71
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 838,
+    "il": "kirikkale",
+    "ilce": "balişeyh",
+    "plaka": 71
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 839,
+    "il": "kirikkale",
+    "ilce": "çelebi",
+    "plaka": 71
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 840,
+    "il": "kirikkale",
+    "ilce": "delice",
+    "plaka": 71
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 841,
+    "il": "kirikkale",
+    "ilce": "karakeçili",
+    "plaka": 71
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 842,
+    "il": "kirikkale",
+    "ilce": "keskin",
+    "plaka": 71
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 843,
+    "il": "kirikkale",
+    "ilce": "sulakyurt",
+    "plaka": 71
+  },
+  {
+    "bolge": "iç anadolu",
+    "id": 844,
+    "il": "kirikkale",
+    "ilce": "yahşihan",
+    "plaka": 71
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 845,
+    "il": "batman",
+    "ilce": "beşiri",
+    "plaka": 72
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 846,
+    "il": "batman",
+    "ilce": "gercüş",
+    "plaka": 72
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 847,
+    "il": "batman",
+    "ilce": "hasankeyf",
+    "plaka": 72
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 848,
+    "il": "batman",
+    "ilce": "kozluk",
+    "plaka": 72
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 849,
+    "il": "batman",
+    "ilce": "sason",
+    "plaka": 72
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 850,
+    "il": "şırnak",
+    "ilce": "beytüşşebap",
+    "plaka": 73
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 851,
+    "il": "şırnak",
+    "ilce": "cizre",
+    "plaka": 73
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 852,
+    "il": "şırnak",
+    "ilce": "güçlükonak",
+    "plaka": 73
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 853,
+    "il": "şırnak",
+    "ilce": "idil",
+    "plaka": 73
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 854,
+    "il": "şırnak",
+    "ilce": "silopi",
+    "plaka": 73
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 855,
+    "il": "şırnak",
+    "ilce": "uludere",
+    "plaka": 73
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 856,
+    "il": "bartin",
+    "ilce": "amasra",
+    "plaka": 74
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 857,
+    "il": "bartin",
+    "ilce": "kurucaşile",
+    "plaka": 74
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 858,
+    "il": "bartin",
+    "ilce": "ulus",
+    "plaka": 74
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 859,
+    "il": "ardahan",
+    "ilce": "çildir",
+    "plaka": 75
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 860,
+    "il": "ardahan",
+    "ilce": "damal",
+    "plaka": 75
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 861,
+    "il": "ardahan",
+    "ilce": "göle",
+    "plaka": 75
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 862,
+    "il": "ardahan",
+    "ilce": "hanak",
+    "plaka": 75
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 863,
+    "il": "ardahan",
+    "ilce": "posof",
+    "plaka": 75
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 864,
+    "il": "ığdır",
+    "ilce": "aralik",
+    "plaka": 76
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 865,
+    "il": "ığdır",
+    "ilce": "karakoyunlu",
+    "plaka": 76
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 866,
+    "il": "ığdır",
+    "ilce": "tuzluca",
+    "plaka": 76
+  },
+  {
+    "bolge": "marmara",
+    "id": 867,
+    "il": "yalova",
+    "ilce": "altinova",
+    "plaka": 77
+  },
+  {
+    "bolge": "marmara",
+    "id": 868,
+    "il": "yalova",
+    "ilce": "armutlu",
+    "plaka": 77
+  },
+  {
+    "bolge": "marmara",
+    "id": 869,
+    "il": "yalova",
+    "ilce": "çinarcik",
+    "plaka": 77
+  },
+  {
+    "bolge": "marmara",
+    "id": 870,
+    "il": "yalova",
+    "ilce": "çiftlikköy",
+    "plaka": 77
+  },
+  {
+    "bolge": "marmara",
+    "id": 871,
+    "il": "yalova",
+    "ilce": "termal",
+    "plaka": 77
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 872,
+    "il": "karabük",
+    "ilce": "eflani",
+    "plaka": 78
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 873,
+    "il": "karabük",
+    "ilce": "eskipazar",
+    "plaka": 78
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 874,
+    "il": "karabük",
+    "ilce": "ovacik",
+    "plaka": 78
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 875,
+    "il": "karabük",
+    "ilce": "safranbolu",
+    "plaka": 78
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 876,
+    "il": "karabük",
+    "ilce": "yenice",
+    "plaka": 78
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 877,
+    "il": "kilis",
+    "ilce": "elbeyli",
+    "plaka": 79
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 878,
+    "il": "kilis",
+    "ilce": "musabeyli",
+    "plaka": 79
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 879,
+    "il": "kilis",
+    "ilce": "polateli",
+    "plaka": 79
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 880,
+    "il": "osmaniye",
+    "ilce": "bahçe",
+    "plaka": 80
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 881,
+    "il": "osmaniye",
+    "ilce": "düziçi",
+    "plaka": 80
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 882,
+    "il": "osmaniye",
+    "ilce": "hasanbeyli",
+    "plaka": 80
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 883,
+    "il": "osmaniye",
+    "ilce": "kadirli",
+    "plaka": 80
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 884,
+    "il": "osmaniye",
+    "ilce": "sumbas",
+    "plaka": 80
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 885,
+    "il": "osmaniye",
+    "ilce": "toprakkale",
+    "plaka": 80
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 886,
+    "il": "düzce",
+    "ilce": "akçakoca",
+    "plaka": 81
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 887,
+    "il": "düzce",
+    "ilce": "cumayeri",
+    "plaka": 81
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 888,
+    "il": "düzce",
+    "ilce": "çilimli",
+    "plaka": 81
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 889,
+    "il": "düzce",
+    "ilce": "gölyaka",
+    "plaka": 81
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 890,
+    "il": "düzce",
+    "ilce": "gümüşova",
+    "plaka": 81
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 891,
+    "il": "düzce",
+    "ilce": "kaynaşli",
+    "plaka": 81
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 892,
+    "il": "düzce",
+    "ilce": "yiğilca",
+    "plaka": 81
+  },
+  {
+    "bolge": "ege",
+    "id": 893,
+    "il": "aydin",
+    "ilce": "efeler",
+    "plaka": 9
+  },
+  {
+    "bolge": "marmara",
+    "id": 894,
+    "il": "balikesir",
+    "ilce": "karesi",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "id": 895,
+    "il": "balikesir",
+    "ilce": "altieylül",
+    "plaka": 10
+  },
+  {
+    "bolge": "ege",
+    "id": 896,
+    "il": "denizli",
+    "ilce": "merkezefendi",
+    "plaka": 20
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 897,
+    "il": "hatay",
+    "ilce": "antakya",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 898,
+    "il": "hatay",
+    "ilce": "defne",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 899,
+    "il": "hatay",
+    "ilce": "arsuz",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 900,
+    "il": "hatay",
+    "ilce": "payas",
+    "plaka": 31
+  },
+  {
+    "bolge": "ege",
+    "id": 901,
+    "il": "manisa",
+    "ilce": "şehzadeler",
+    "plaka": 45
+  },
+  {
+    "bolge": "ege",
+    "id": 902,
+    "il": "manisa",
+    "ilce": "yunusemre",
+    "plaka": 45
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 903,
+    "il": "kahramanmaraş",
+    "ilce": "dulkadiroğlu",
+    "plaka": 46
+  },
+  {
+    "bolge": "akdeniz",
+    "id": 904,
+    "il": "kahramanmaraş",
+    "ilce": "onikişubat",
+    "plaka": 46
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 905,
+    "il": "mardin",
+    "ilce": "artuklu",
+    "plaka": 47
+  },
+  {
+    "bolge": "ege",
+    "id": 906,
+    "il": "muğla",
+    "ilce": "menteşe",
+    "plaka": 48
+  },
+  {
+    "bolge": "ege",
+    "id": 907,
+    "il": "muğla",
+    "ilce": "seydikemer",
+    "plaka": 48
+  },
+  {
+    "bolge": "marmara",
+    "id": 908,
+    "il": "tekirdağ",
+    "ilce": "süleymanpaşa",
+    "plaka": 59
+  },
+  {
+    "bolge": "marmara",
+    "id": 909,
+    "il": "tekirdağ",
+    "ilce": "kapakli",
+    "plaka": 59
+  },
+  {
+    "bolge": "marmara",
+    "id": 910,
+    "il": "tekirdağ",
+    "ilce": "ergene",
+    "plaka": 59
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 911,
+    "il": "trabzon",
+    "ilce": "ortahisar",
+    "plaka": 61
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 912,
+    "il": "şanliurfa",
+    "ilce": "eyyübiye",
+    "plaka": 63
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 913,
+    "il": "şanliurfa",
+    "ilce": "haliliye",
+    "plaka": 63
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "id": 914,
+    "il": "şanliurfa",
+    "ilce": "karaköprü",
+    "plaka": 63
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 915,
+    "il": "van",
+    "ilce": "tuşba",
+    "plaka": 65
+  },
+  {
+    "bolge": "doğu anadolu",
+    "id": 916,
+    "il": "van",
+    "ilce": "ipekyolu",
+    "plaka": 65
+  },
+  {
+    "bolge": "karadeniz",
+    "id": 917,
+    "il": "zonguldak",
+    "ilce": "kilimli",
+    "plaka": 67
+  }
+]

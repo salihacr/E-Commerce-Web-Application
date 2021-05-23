@@ -1,0 +1,407 @@
+﻿[
+  {
+    "bolge": "akdeni̇z",
+    "il": "adana",
+    "plaka": 1
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "il": "adiyaman",
+    "plaka": 2
+  },
+  {
+    "bolge": "ege",
+    "il": "afyonkarahisar",
+    "plaka": 3
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "ağri",
+    "plaka": 4
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "amasya",
+    "plaka": 5
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "ankara",
+    "plaka": 6
+  },
+  {
+    "bolge": "akdeni̇z",
+    "il": "antalya",
+    "plaka": 7
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "artvi̇n",
+    "plaka": 8
+  },
+  {
+    "bolge": "ege",
+    "il": "aydin",
+    "plaka": 9
+  },
+  {
+    "bolge": "marmara",
+    "il": "balikesi̇r",
+    "plaka": 10
+  },
+  {
+    "bolge": "marmara",
+    "il": "bi̇leci̇k",
+    "plaka": 11
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "bi̇ngöl",
+    "plaka": 12
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "bi̇tli̇s",
+    "plaka": 13
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "bolu",
+    "plaka": 14
+  },
+  {
+    "bolge": "akdeni̇z",
+    "il": "burdur",
+    "plaka": 15
+  },
+  {
+    "bolge": "marmara",
+    "il": "bursa",
+    "plaka": 16
+  },
+  {
+    "bolge": "marmara",
+    "il": "çanakkale",
+    "plaka": 17
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "çankiri",
+    "plaka": 18
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "çorum",
+    "plaka": 19
+  },
+  {
+    "bolge": "ege",
+    "il": "deni̇zli̇",
+    "plaka": 20
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "il": "di̇yarbakir",
+    "plaka": 21
+  },
+  {
+    "bolge": "marmara",
+    "il": "edi̇rne",
+    "plaka": 22
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "elaziğ",
+    "plaka": 23
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "erzi̇ncan",
+    "plaka": 24
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "erzurum",
+    "plaka": 25
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "eski̇şehi̇r",
+    "plaka": 26
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "il": "gazi̇antep",
+    "plaka": 27
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "gi̇resun",
+    "plaka": 28
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "gümüşhane",
+    "plaka": 29
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "hakkari̇",
+    "plaka": 30
+  },
+  {
+    "bolge": "akdeni̇z",
+    "il": "hatay",
+    "plaka": 31
+  },
+  {
+    "bolge": "akdeni̇z",
+    "il": "isparta",
+    "plaka": 32
+  },
+  {
+    "bolge": "akdeni̇z",
+    "il": "mersi̇n",
+    "plaka": 33
+  },
+  {
+    "bolge": "marmara",
+    "il": "i̇stanbul",
+    "plaka": 34
+  },
+  {
+    "bolge": "ege",
+    "il": "i̇zmi̇r",
+    "plaka": 35
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "kars",
+    "plaka": 36
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "kastamonu",
+    "plaka": 37
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "kayseri̇",
+    "plaka": 38
+  },
+  {
+    "bolge": "marmara",
+    "il": "kirklareli̇",
+    "plaka": 39
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "kirşehi̇r",
+    "plaka": 40
+  },
+  {
+    "bolge": "marmara",
+    "il": "kocaeli̇",
+    "plaka": 41
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "konya",
+    "plaka": 42
+  },
+  {
+    "bolge": "ege",
+    "il": "kütahya",
+    "plaka": 43
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "malatya",
+    "plaka": 44
+  },
+  {
+    "bolge": "ege",
+    "il": "mani̇sa",
+    "plaka": 45
+  },
+  {
+    "bolge": "akdeni̇z",
+    "il": "kahramanmaraş",
+    "plaka": 46
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "il": "mardi̇n",
+    "plaka": 47
+  },
+  {
+    "bolge": "ege",
+    "il": "muğla",
+    "plaka": 48
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "muş",
+    "plaka": 49
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "nevşehi̇r",
+    "plaka": 50
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "ni̇ğde",
+    "plaka": 51
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "ordu",
+    "plaka": 52
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "ri̇ze",
+    "plaka": 53
+  },
+  {
+    "bolge": "marmara",
+    "il": "sakarya",
+    "plaka": 54
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "samsun",
+    "plaka": 55
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "il": "si̇i̇rt",
+    "plaka": 56
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "si̇nop",
+    "plaka": 57
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "si̇vas",
+    "plaka": 58
+  },
+  {
+    "bolge": "marmara",
+    "il": "teki̇rdağ",
+    "plaka": 59
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "tokat",
+    "plaka": 60
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "trabzon",
+    "plaka": 61
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "tunceli̇",
+    "plaka": 62
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "il": "şanliurfa",
+    "plaka": 63
+  },
+  {
+    "bolge": "ege",
+    "il": "uşak",
+    "plaka": 64
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "van",
+    "plaka": 65
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "yozgat",
+    "plaka": 66
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "zonguldak",
+    "plaka": 67
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "aksaray",
+    "plaka": 68
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "bayburt",
+    "plaka": 69
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "karaman",
+    "plaka": 70
+  },
+  {
+    "bolge": "i̇ç anadolu",
+    "il": "kirikkale",
+    "plaka": 71
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "il": "batman",
+    "plaka": 72
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "il": "şirnak",
+    "plaka": 73
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "bartin",
+    "plaka": 74
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "ardahan",
+    "plaka": 75
+  },
+  {
+    "bolge": "doğu anadolu",
+    "il": "ığdır",
+    "plaka": 76
+  },
+  {
+    "bolge": "marmara",
+    "il": "yalova",
+    "plaka": 77
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "karabük",
+    "plaka": 78
+  },
+  {
+    "bolge": "güneydoğu anadolu",
+    "il": "ki̇li̇s",
+    "plaka": 79
+  },
+  {
+    "bolge": "akdeni̇z",
+    "il": "osmani̇ye",
+    "plaka": 80
+  },
+  {
+    "bolge": "karadeni̇z",
+    "il": "düzce",
+    "plaka": 81
+  }
+]

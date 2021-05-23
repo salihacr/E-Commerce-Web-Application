@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@sweetalert2/theme-bootstrap-4": "^4.0.3",
     "bootstrap": "^4.5.2",
+    "card": "^2.5.3",
     "chart.js": "^2.9.4",
     "datatables.net-bs4": "^1.10.23",
     "datatables.net-buttons-bs4": "^1.6.5",
