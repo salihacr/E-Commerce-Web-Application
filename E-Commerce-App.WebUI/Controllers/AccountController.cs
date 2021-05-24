@@ -78,7 +78,7 @@ namespace E_Commerce_App.WebUI.Controllers
             });
             Console.Write(url);
             // email
-            var siteUrl = "https://localhost:5001";
+            var siteUrl = "https://localhost:44373";
             var html = $"lütfen email hesabınızı onaylamak için <a href='{siteUrl + url}'>linke</a> tıklayınız.";
             await _emailSender.SendEmailAsync(user.Email, "hesabınızı onaylayınız.", html);
 

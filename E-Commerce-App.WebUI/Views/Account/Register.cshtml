@@ -1,26 +1,107 @@
 ﻿@model E_Commerce_App.WebUI.ViewModels.UserViewModel.RegisterViewModel
-@{
-    Layout = null;
-}
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="~/node_modules/@@fortawesome/fontawesome-free/css/all.min.css" />
+@{Layout = null;}
 
-<!-- Bootstrap Css -->
-<link rel="stylesheet" href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/node_modules/@@fortawesome/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/signin-up.css" />
+</head>
+<body>
+    <div class="overlay">
+        <!-- LOGN IN FORM by Omar Dsoky -->
+        <form asp-controller="Account" asp-action="Register">
+            <!--   con = Container  for items in the form-->
+            <div class="con">
+                <!--     Start  header Content  -->
+                <header class="head-form">
+                    <h2>Kayıt Ol</h2>
+                    <!--     A welcome message or an explanation of the login form -->
+                    <p>
+                        login here using your username and password
+                    </p>
+                </header>
+                <!--     End  header Content  -->
+                <br>
+                <div class="field-set">
 
-<div class="container">
-    <form asp-controller="Account" asp-action="Register" method="post">
-        <br /><br /><br /><br />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <input type="text" class="form-control" asp-for="Email" />
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" asp-for="FullName" />
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" asp-for="Password" />
-        </div>
-        <input type="submit" class="btn btn-danger" value="Kayıt Ol" />
-    </form>
-</div>
+                    <!--   user name -->
+                    <span class="input-item">
+                        <i class="fa fa-user-circle"></i>
+                    </span>
+                    <!--   user name Input-->
+                    <input type="text" class="form-input" asp-for="@Model.FullName" id="txt-input" placeholder="Ad soyad" required>
+
+                    <br />
+
+                    <!--   user name -->
+                    <span class="input-item">
+                        <i class="fa fa-envelope"></i>
+                    </span>
+                    <!--   user name Input-->
+                    <input type="text" class="form-input" asp-for="@Model.Email" id="txt-input" placeholder="Email adres" required>
+
+                    <br>
+
+                    <!--   Password -->
+
+                    <span class="input-item">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <!--   Password Input-->
+                    <input type="password" class="form-input" asp-for="@Model.Password" placeholder="Parola" id="pwd" required>
+
+                    <!--      Show/hide password  -->
+                    <span>
+                        <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
+                    </span>
+                    <br>
+                    <!--        buttons -->
+                    <!--      button LogIn -->
+                    <button class="log-in"> Kayıt Ol </button>
+                </div>
+
+                <header class="head-form">
+                    <!--     A welcome message or an explanation of the login form -->
+                    <p>Zaten üye misiniz ? <a href="/Account/Login">Giris yap</a></p>
+                </header>
+
+                <!--   End Conrainer  -->
+            </div>
+
+            <!-- End Form -->
+        </form>
+    </div>
+
+    <script>
+        // Show/hide password onClick of button using Javascript only
+
+        // https://stackoverflow.com/questions/31224651/show-hide-password-onclick-of-button-using-javascript-only
+
+        function show() {
+            var p = document.getElementById('pwd');
+            p.setAttribute('type', 'text');
+        }
+
+        function hide() {
+            var p = document.getElementById('pwd');
+            p.setAttribute('type', 'password');
+        }
+
+        var pwShown = 0;
+
+        document.getElementById("eye").addEventListener("click", function () {
+            if (pwShown == 0) {
+                pwShown = 1;
+                show();
+            } else {
+                pwShown = 0;
+                hide();
+            }
+        }, false);
+
+
+    </script>
+</body>
+</html>

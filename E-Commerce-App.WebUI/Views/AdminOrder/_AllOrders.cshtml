@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+
+@using System.Globalization;
+@model IEnumerable<E_Commerce_App.Core.Shared.DTOs.OrderDto>
+
+<style>
+    td {
+        vertical-align: middle !important;
+    }
+
+    th {
+        vertical-align: middle !important;
+    }
+</style>
+
+<table id="example1" class="table table-hover table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                Alışveriş Tutarı
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderState)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{var counter = 1;}
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            @{counter++;}
+        </tr>
+        }
+    </tbody>
+</table>
+

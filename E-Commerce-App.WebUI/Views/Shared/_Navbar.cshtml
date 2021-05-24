@@ -62,7 +62,7 @@
                     const usernameEl = document.querySelector("#usernameArea");
 
                     var username = "@User.Identity.Name";
-                    var arr = username.split(" ");
+                    var arr = username.split("__",);
                     usernameEl.innerHTML += arr[0];
                 </script>
             }
