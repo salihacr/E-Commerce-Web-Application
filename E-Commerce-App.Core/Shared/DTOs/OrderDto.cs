@@ -1,9 +1,10 @@
-﻿using System;
+﻿using E_Commerce_App.Core.Entities;
+using System;
 using System.Collections.Generic;
 
-namespace E_Commerce_App.Core.Entities
+namespace E_Commerce_App.Core.Shared.DTOs
 {
-    public class Order : BaseEntity
+    public class OrderDto : BaseDto
     {
         public int Id { get; set; }
 
@@ -24,17 +25,5 @@ namespace E_Commerce_App.Core.Entities
         public EnumPaymentType PaymentType { get; set; }
         public EnumOrderState OrderState { get; set; }
         public List<OrderItem> OrderItems { get; set; }
-    }
-    public enum EnumPaymentType
-    {
-        CreditCard,
-        Eft
-    }
-    public enum EnumOrderState
-    {
-        Waiting,
-        Unpaid,
-        Paid,
-        Completed
     }
 }

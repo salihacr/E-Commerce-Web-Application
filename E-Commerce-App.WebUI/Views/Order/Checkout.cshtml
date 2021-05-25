@@ -3,16 +3,20 @@
 
 <div><br /><br /><br /></div>
 
-
-<form id="odeme-form">
+@* sipariş başarılı sayfasına yönlendirme olsun. window.location.href *@
+<form id="odeme-form" asp-controller="Order" asp-action="Checkout">
     <div class="row">
         <div class="col-md-12 mb-3">
             <div class="card p-5">
                 Teslimat bilgileri
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <small>Ad Soyad</small>
-                        <input class="form-control" asp-for="@Model.OrderDto.FirstName" placeholder="Teslim alacak kişinin adı soyadı" />
+                    <div class="form-group col-md-3">
+                        <small>Ad</small>
+                        <input class="form-control" asp-for="@Model.OrderDto.FirstName" placeholder="Teslim alacak kişinin adı" />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <small>Soyad</small>
+                        <input class="form-control" asp-for="@Model.OrderDto.LastName" placeholder="Teslim alacak kişinin soyadı" />
                     </div>
                     <div class="form-group col-md-6">
                         <small>Telefon</small>
@@ -22,24 +26,24 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <small>Şehir</small>
-                        <select name="il" id="il" class="form-control">
+                        <select asp-for="@Model.OrderDto.City" id="il" class="form-control">
                             <option value="">Seçiniz...</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">
                         <small>İlçe</small>
-                        <select name="ilce" id="ilce" class="form-control">
+                        <select asp-for="@Model.OrderDto.District" id="ilce" class="form-control">
                             <option value="">Seçiniz...</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Adres</label>
-                    <textarea class="form-control"></textarea>
+                    <small>Adres</small>
+                    <textarea asp-for="@Model.OrderDto.Address" class="form-control" placeholder="Tam adres"></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Not</label>
-                    <textarea class="form-control"></textarea>
+                    <small>Not</small>
+                    <textarea asp-for="@Model.OrderDto.Note" class="form-control" placeholder="Not"></textarea>
                 </div>
             </div>
         </div>
@@ -50,20 +54,22 @@
                     <div class="col-md-6 mt-1">
                         <div class="form-group">
                             <small>Kart numarası</small>
-                            <input class="form-control" placeholder="•••• •••• •••• ••••" id="number" name="deneme" />
+                            <input asp-for="@Model.CardNumber" class="form-control" placeholder="•••• •••• •••• ••••" id="number" />
                         </div>
                         <div class="form-group">
                             <small>Kart üzerindeki isim</small>
-                            <input class="form-control" id="name" placeholder="Kart sahibinin adı ve soyadı" />
+                            <input asp-for="@Model.CardName" class="form-control" id="name" placeholder="Kart sahibinin adı ve soyadı" />
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <small>Son kullanma tarihi</small>
+                                <input type="hidden" asp-for="@Model.ExpirationYear" id="expiry-year" />
+                                <input type="hidden" asp-for="@Model.ExpirationMonth" id="expiry-month" />
                                 <input class="form-control" id="expiry" placeholder="Ay/Yıl" />
                             </div>
                             <div class="form-group col-md-6">
                                 <small>Güvenlik kodu</small>
-                                <input class="form-control" id="cvc" placeholder="CVC/CVV" />
+                                <input asp-for="@Model.Cvc" class="form-control" id="cvc" placeholder="CVC/CVV" />
                             </div>
                         </div>
                     </div>
@@ -77,9 +83,8 @@
         <div class="col-md-12"><button class="btn btn-outline-dark btn-block">Ödemeyi Tamamla</button></div>
     </div>
 </form>
-
+@* dto yu required olarak etiketle *@
 @section Css{
-
     <link href="~/node_modules/card/dist/jquery.card.css" />
 }
 
@@ -87,6 +92,19 @@
 
 @section Scripts{
 
+    <script>
+        $('#expiry').keyup(function () {
+            var expiry = $("#expiry").val();
+
+            var arr = expiry.split("/");
+
+
+            $("#expiry-month").val(arr[0].trim());
+            $("#expiry-year").val(arr[1].trim());
+
+        });
+
+    </script>
     @*<script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
         <script src="~/node_modules/jquery-validation/dist/additional-methods.min.js"></script>*@
 
@@ -94,6 +112,12 @@
     <script src="~/node_modules/card/dist/card.js"></script>
 
     <script>
+
+
+
+        function myfunction() {
+
+        }
 
 
         String.prototype.turkishToUpper = function () {
@@ -110,7 +134,7 @@
             return string.toLowerCase();
         }
 
-        $.getJSON("/js/il-bolge.json", function (sonuc) {
+        $.getJSON("/json/tr-iller-bolgeler.json", function (sonuc) {
             $.each(sonuc, function (index, value) {
                 var row = "";
                 var il = value.il.toUpperCase();
@@ -123,7 +147,7 @@
             var il = $(this).val();
             console.log(il);
             $("#ilce").attr("disabled", false).html("<option value=''>Seçin..</option>");
-            $.getJSON("/js/il-ilce.json", function (sonuc) {
+            $.getJSON("/json/tr-iller-ilceler.json", function (sonuc) {
                 $.each(sonuc, function (index, value) {
                     var row = "";
                     if (value.il == il) {

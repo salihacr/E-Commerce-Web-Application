@@ -597,18 +597,8 @@
                     processData: false,
                     success: function (res) {
                         if (res.isValid) {
-                            Swal.fire(
-                                'Kayıt Başarılı !',
-                                `${res.message}`,
-                                'success'
-                            )
+                            toastr.success("Ürün sepete eklendi.")
                         }
-                        else
-                            Swal.fire(
-                                'Kayıt Hatası !',
-                                `${res.message}`,
-                                'error'
-                            )
                     },
                     error: function (err) {
                         console.log(err)
@@ -617,7 +607,7 @@
                 //to prevent default form submit event
                 return false;
             } catch (ex) {
-                Swal.fire('Kayıt Hatası !', 'error')
+                toastr.success("Ürün sepete eklenemedi.")
             }
 
             event.preventDefault();

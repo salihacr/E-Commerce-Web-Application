@@ -20,7 +20,7 @@
             <div class="card p-3">
                 <h6 class="mb-3">Ödenecek Tutar</h6>
                 <h4 class="mb-5">@Model.GetTotalPrice() <small><b>TL</b></small></h4>
-                <button class="btn btn-outline-primary">Alışverişi tamamla</button>
+                <a class="btn btn-outline-primary" href="/order/checkout">Alışverişi tamamla</a>
             </div>
         </div>
     </div>
@@ -44,19 +44,19 @@ else
 
             html = `
 <div class="row">
-            <div class="col-md-2"><img src="/img/${data[index].imageUrl}" width="100" height="100" /></div>
-            <div class="col-md-8">
-                <h6>${data[index].name}</h6>
-                <br />
-                <h5> ${data[index].price * data[index].quantity} TL</h5>
-            </div>
-            <div class="col-md-1">
-                Adet
-                <p style="text-align:center">${data[index].quantity}</p>
-            </div>
-            <div class="col-md-1">
-                    <button class="btn btn-danger" onclick="removeCartItem('${data[index].productId}')"><i class="fas fa-trash"></i></button>
-            </div>
+                    <div class="col-md-2"><img src="/img/${data[index].imageUrl}" width="100" height="100" /></div>
+                    <div class="col-md-8">
+                        <h6>${data[index].name}</h6>
+                        <br />
+                        <h5> ${data[index].price * data[index].quantity} TL</h5>
+                    </div>
+                    <div class="col-md-1">
+                        Adet
+                        <p style="text-align:center">${data[index].quantity}</p>
+                    </div>
+                    <div class="col-md-1">
+                            <button class="btn btn-danger" onclick="removeCartItem('${data[index].productId}')"><i class="fas fa-trash"></i></button>
+                    </div>
 </div><hr />`;
             return html;
         }

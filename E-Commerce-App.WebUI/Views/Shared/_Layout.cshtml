@@ -10,7 +10,12 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="~/node_modules/@@fortawesome/fontawesome-free/css/all.min.css" />
     <link href="~/css/site.css" rel="stylesheet" />
+
+    <!-- Toastr Css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
         body {
@@ -21,7 +26,7 @@
 </head>
 <body>
     @await Html.PartialAsync("_Navbar")
-    @RenderSection("Campaigns", required:false)
+    @RenderSection("Campaigns", required: false)
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -33,6 +38,10 @@
     <script src="~/js/adminlte.js"></script>
     <!-- Site JS-->
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

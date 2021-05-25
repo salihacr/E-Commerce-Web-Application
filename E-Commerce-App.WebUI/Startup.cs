@@ -47,13 +47,6 @@ namespace E_Commerce_App.WebUI
                 .AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options =>
             {
-                // password
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequireUppercase = true;
-                options.Password.RequiredLength = 6;
-                options.Password.RequireNonAlphanumeric = true;
-
                 // lockout
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
@@ -61,7 +54,6 @@ namespace E_Commerce_App.WebUI
 
                 options.User.RequireUniqueEmail = true;
                 options.SignIn.RequireConfirmedEmail = true;
-                options.SignIn.RequireConfirmedPhoneNumber = false;
             });
 
             services.ConfigureApplicationCookie(options =>
@@ -182,8 +174,6 @@ namespace E_Commerce_App.WebUI
                    pattern: "Admin/Campaign",
                    defaults: new { controller = "AdminCampaign", Action = "Index" }
                    );
-
-                // Home Pages
 
                 endpoints.MapControllerRoute(
                     name: "default",

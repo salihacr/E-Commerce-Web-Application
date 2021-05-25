@@ -91,10 +91,10 @@ namespace E_Commerce_App.WebUI.Controllers
             {
                 var user = await _userManager.FindByEmailAsync(model.Email);
 
-                if (user == null) return Json(new { message = "Email adı veya parola hatalı." });
+                if (user == null) return Json(new { message = "Email adresi veya parola hatalı." });
 
                 if (!await _userManager.IsEmailConfirmedAsync(user))
-                    return Json(new { message = "E-mail adresinizi onaylamak için lütfen maillerinizi kontrol ediniz." });
+                    return Json(new { message = "Email adresinizi onaylamak için lütfen maillerinizi kontrol ediniz." });
 
                 var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
 
@@ -104,7 +104,7 @@ namespace E_Commerce_App.WebUI.Controllers
                     return Redirect(model.ReturnUrl ?? "~/");
                 }
 
-                else return Json(new { message = "Email adı veya parola hatalı." });
+                else return Json(new { message = "Email adresi veya parola hatalı." });
             }
             return View(model);
         }
@@ -157,7 +157,7 @@ namespace E_Commerce_App.WebUI.Controllers
                     // email operations
                     await SendVerificationEmail(user, user.Email, baseUrl);
 
-                    return RedirectToAction("Login", "Account");
+                    return Json(new { message="Kullanıcı kaydı başarılı. Lütfen mail adresinizi doğrulayın."});
                 }
             }
             return View(model);
