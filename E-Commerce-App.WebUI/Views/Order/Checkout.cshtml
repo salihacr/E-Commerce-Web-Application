@@ -4,9 +4,9 @@
 <div><br /><br /><br /></div>
 
 @* sipariş başarılı sayfasına yönlendirme olsun. window.location.href *@
-<form id="odeme-form" asp-controller="Order" asp-action="Checkout">
+<form id="payment-form" asp-controller="Order" asp-action="Checkout">
     <div class="row">
-        <div class="col-md-12 mb-3">
+        <div class="col-md-9 mb-3">
             <div class="card p-5">
                 Teslimat bilgileri
                 <div class="form-row">
@@ -47,7 +47,24 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-12 mb-3">
+        <div class="col-md-3" style="position: -webkit-sticky; position: sticky; top: 7em;">
+            <div class="card p-3">
+                <h6 class="mb-3">Ödenecek Tutar</h6>
+                <h4 class="mb-5">@Model.CartViewModel.GetTotalPrice() <small><b>TL</b></small></h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        <a data-toggle="modal" data-target="#exampleModalCenter">
+                            <small>
+                                Ön bilgilendirme formunu ve Mesafeli satış sözleşmesini onaylıyorum.
+                            </small>
+                        </a>
+                    </label>
+                </div>
+                <button class="btn btn-outline-primary btn-block mt-2" href="/order/checkout">Alışverişi tamamla</button>
+            </div>
+        </div>
+        <div class="col-md-9 mb-3">
             <div class="card p-5">
                 Ödeme bilgileri
                 <div class="row">
@@ -58,14 +75,14 @@
                         </div>
                         <div class="form-group">
                             <small>Kart üzerindeki isim</small>
-                            <input asp-for="@Model.CardName" class="form-control" id="name" placeholder="Kart sahibinin adı ve soyadı" />
+                            <input asp-for="@Model.CardHolderName" class="form-control" id="name" placeholder="Kart sahibinin adı ve soyadı" />
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <small>Son kullanma tarihi</small>
                                 <input type="hidden" asp-for="@Model.ExpirationYear" id="expiry-year" />
                                 <input type="hidden" asp-for="@Model.ExpirationMonth" id="expiry-month" />
-                                <input class="form-control" id="expiry" placeholder="Ay/Yıl" />
+                                <input class="form-control" id="expiry" placeholder="Ay/Yıl" name="expiry" />
                             </div>
                             <div class="form-group col-md-6">
                                 <small>Güvenlik kodu</small>
@@ -80,9 +97,28 @@
 
             </div>
         </div>
-        <div class="col-md-12"><button class="btn btn-outline-dark btn-block">Ödemeyi Tamamla</button></div>
     </div>
 </form>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+
 @* dto yu required olarak etiketle *@
 @section Css{
     <link href="~/node_modules/card/dist/jquery.card.css" />
@@ -91,13 +127,14 @@
 @* Shadow card diye css stili olsun kesin. *@
 
 @section Scripts{
-
     <script>
+
+        //$(".navbar").removeClass("fixed-top");
+
         $('#expiry').keyup(function () {
             var expiry = $("#expiry").val();
 
             var arr = expiry.split("/");
-
 
             $("#expiry-month").val(arr[0].trim());
             $("#expiry-year").val(arr[1].trim());
@@ -105,35 +142,119 @@
         });
 
     </script>
-    @*<script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
-        <script src="~/node_modules/jquery-validation/dist/additional-methods.min.js"></script>*@
-
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script src="~/node_modules/card/dist/card.js"></script>
-
     <script>
 
+        const REQUIRED_INPUT_MESSAGE = "Bu alanın doldurulması zorunludur."
+        $('#payment-form').validate({
+            rules: {
+                "OrderDto.FirstName": {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 50
+                },
+                "OrderDto.LastName": {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 50
+                },
+                "OrderDto.Phone": {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 10
+                },
+                "OrderDto.City": {
+                    required: true,
+                },
+                "OrderDto.Address": {
+                    required: true,
+                    minlength: 10,
+                    maxlength: 120
+                },
+                "CardNumber": {
+                    required: true,
+                    minlength: 16,
+                    maxlength: 19
+                },
+                "CardHolderName": {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 20
+                },
+                "expiry": {
+                    required: true,
+                },
+                "Cvc": {
+                    required: true,
+                },
+            },
+            messages: {
+                "OrderDto.FirstName": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                    minlength: "2",
+                    maxlength: "50"
+                },
+                "OrderDto.LastName": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                    minlength: "2",
+                    maxlength: "50"
+                },
+                "OrderDto.Phone": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                    minlength: "10",
+                    maxlength: "10"
+                },
+                "OrderDto.City": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                },
+                "OrderDto.Address": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                    minlength: "10",
+                    maxlength: "120"
+                },
+                "CardNumber": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                    minlength: "16",
+                    maxlength: "19"
+                },
+                "CardHolderName": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                    minlength: "3",
+                    maxlength: "20"
+                },
+                "expiry": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                },
+                "Cvc": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                },
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
 
 
-        function myfunction() {
+        $('#payment-form').on('submit', function (event) {
 
-        }
+            if ($('#productForm').valid() === true) { }
+            else {
+                toastr.warning("Lütfen gerekli alanları doldurun.")
+            }
+        });
 
 
-        String.prototype.turkishToUpper = function () {
-            var string = this;
-            var letters = { "i": "İ", "ş": "Ş", "ğ": "Ğ", "ü": "Ü", "ö": "Ö", "ç": "Ç", "ı": "I" };
-            string = string.replace(/(([iışğüçö]))+/g, function (letter) { return letters[letter]; })
-            return string.toUpperCase();
-        }
-
-        String.prototype.turkishToLower = function () {
-            var string = this;
-            var letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
-            string = string.replace(/(([İIŞĞÜÇÖ]))+/g, function (letter) { return letters[letter]; })
-            return string.toLowerCase();
-        }
-
+    </script>
+    <script>
         $.getJSON("/json/tr-iller-bolgeler.json", function (sonuc) {
             $.each(sonuc, function (index, value) {
                 var row = "";
@@ -159,42 +280,10 @@
         });
     </script>
 
-    <script>
-
-
-        $('#odeme-form').validate({
-            rules: {
-                "deneme": {
-                    required: true,
-                    minlength: 2,
-                    maxlength: 50
-                },
-                "ProductDto.Price": {
-                    required: true,
-                },
-            },
-            messages: {
-                "ProductDto.Name": {
-                    required: "deneme",
-                },
-            },
-            errorElement: 'span',
-            errorPlacement: function (error, element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass('is-invalid');
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass('is-invalid');
-            }
-        });
-    </script>
 
     <script>
         var card = new Card({
-            form: '#odeme-form',
+            form: '#payment-form',
             container: '.credit-card',
             formSelectors: {
                 numberInput: 'input#number',

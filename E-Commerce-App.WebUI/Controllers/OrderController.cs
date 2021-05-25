@@ -45,9 +45,29 @@ namespace E_Commerce_App.WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> Checkout()
         {
-            return View();
+            var cart = await GetProductsFromCart();
+            var model = new OrderViewModel() { CartViewModel = cart };
+            return View(model);
         }
+        private async Task<CartViewModel> GetProductsFromCart()
+        {
+            var cart = await _cartService.GetCartByUserId(_userManager.GetUserId(User));
+            var model = new CartViewModel()
+            {
+                CartId = cart.Id,
+                CartItems = cart.CartItems.Select(i => new CartItemViewModel()
+                {
+                    CartItemId = i.Id,
+                    ProductId = i.ProductId,
+                    Name = i.Product.Name,
+                    Price = (double)i.Product.Price,
+                    ImageUrl = i.Product.MainImage,
+                    Quantity = i.Quantity
 
+                }).ToList()
+            };
+            return model;
+        }
         [HttpPost]
         public async Task<IActionResult> Checkout(OrderViewModel orderModel)
         {
@@ -133,8 +153,8 @@ namespace E_Commerce_App.WebUI.Controllers
         private Payment PaymentProcess(OrderViewModel orderModel)
         {
             Options options = new Options();
-            options.ApiKey = "sandbox-8D9whfnmFquQoGkeKnFcpxi3j193JNIk";
-            options.SecretKey = "sandbox-kiykvNKVqWRw4tzwvD1z8m4QkjbfoTyX";
+            options.ApiKey = "sandbox-iY9pIGOmuPmlY7t0VuNqrQYo7qq81L21";
+            options.SecretKey = "sandbox-kTp0CmWJZpsKnZiTIEYx3yR3lPj7L3dH";
             options.BaseUrl = "https://sandbox-api.iyzipay.com";
 
 
@@ -152,7 +172,7 @@ namespace E_Commerce_App.WebUI.Controllers
 
             PaymentCard paymentCard = new PaymentCard
             {
-                CardHolderName = orderModel.CardName,
+                CardHolderName = orderModel.CardHolderName,
                 CardNumber = orderModel.CardNumber,
                 ExpireMonth = orderModel.ExpirationMonth,
                 ExpireYear = orderModel.ExpirationYear,

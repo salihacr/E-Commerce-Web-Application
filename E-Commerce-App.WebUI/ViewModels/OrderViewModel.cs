@@ -12,7 +12,7 @@ namespace E_Commerce_App.WebUI.ViewModels
         public string Phone { get; set; }
         public string Note { get; set; }
         public string Email { get; set; }
-        public string CardName { get; set; }
+        public string CardHolderName { get; set; }
         public string CardNumber { get; set; }
         public string ExpirationMonth { get; set; }
         public string ExpirationYear { get; set; }
