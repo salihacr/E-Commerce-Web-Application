@@ -1,104 +1,112 @@
 ﻿@model E_Commerce_App.WebUI.ViewModels.OrderViewModel
-@{ Layout = "_Layout";}
+@{ Layout = "_Layout";
+    int cartItemLen = Convert.ToInt32(ViewData["CartItemsLength"]);
+}
 
 <div><br /><br /><br /></div>
 
 @* sipariş başarılı sayfasına yönlendirme olsun. window.location.href *@
-<form id="payment-form" asp-controller="Order" asp-action="Checkout">
-    <div class="row">
-        <div class="col-md-9 mb-3">
-            <div class="card p-5">
-                Teslimat bilgileri
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <small>Ad</small>
-                        <input class="form-control" asp-for="@Model.OrderDto.FirstName" placeholder="Teslim alacak kişinin adı" value="Test" />
+@if (cartItemLen >= 0)
+{
+    <form id="payment-form" asp-controller="Order" asp-action="Checkout">
+        <div class="row">
+            <div class="col-md-9 mb-3">
+                <div class="card p-5">
+                    Teslimat bilgileri
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <small>Ad</small>
+                            <input class="form-control" asp-for="@Model.OrderDto.FirstName" placeholder="Teslim alacak kişinin adı" value="Test" />
+                        </div>
+                        <div class="form-group col-md-3">
+                            <small>Soyad</small>
+                            <input class="form-control" asp-for="@Model.OrderDto.LastName" placeholder="Teslim alacak kişinin soyadı" value="User" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <small>Telefon</small>
+                            <input type="number" asp-for="@Model.OrderDto.Phone" class="form-control" placeholder="Teslim alacak kişinin telefon numarası" value="5556664433" />
+                        </div>
                     </div>
-                    <div class="form-group col-md-3">
-                        <small>Soyad</small>
-                        <input class="form-control" asp-for="@Model.OrderDto.LastName" placeholder="Teslim alacak kişinin soyadı" value="User" />
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <small>Şehir</small>
+                            <select asp-for="@Model.OrderDto.City" id="il" class="form-control">
+                                <option value="">Seçiniz...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <small>İlçe</small>
+                            <select asp-for="@Model.OrderDto.District" id="ilce" class="form-control">
+                                <option value="">Seçiniz...</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <small>Telefon</small>
-                        <input type="number" asp-for="@Model.OrderDto.Phone" class="form-control" placeholder="Teslim alacak kişinin telefon numarası" value="5556664433" />
+                    <div class="form-group">
+                        <small>Adres</small>
+                        <textarea asp-for="@Model.OrderDto.Address" class="form-control" placeholder="Tam adres"></textarea>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <small>Şehir</small>
-                        <select asp-for="@Model.OrderDto.City" id="il" class="form-control">
-                            <option value="">Seçiniz...</option>
-                        </select>
+                    <div class="form-group">
+                        <small>Not</small>
+                        <textarea asp-for="@Model.OrderDto.Note" class="form-control" placeholder="Not"></textarea>
                     </div>
-                    <div class="form-group col-md-6">
-                        <small>İlçe</small>
-                        <select asp-for="@Model.OrderDto.District" id="ilce" class="form-control">
-                            <option value="">Seçiniz...</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <small>Adres</small>
-                    <textarea asp-for="@Model.OrderDto.Address" class="form-control" placeholder="Tam adres"></textarea>
-                </div>
-                <div class="form-group">
-                    <small>Not</small>
-                    <textarea asp-for="@Model.OrderDto.Note" class="form-control" placeholder="Not"></textarea>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3" style="position: -webkit-sticky; position: sticky; top: 7em;">
-            <div class="card p-3">
-                <h6 class="mb-3">Ödenecek Tutar</h6>
-                <h4 class="mb-5">@Model.CartViewModel.GetTotalPrice() <small><b>TL</b></small></h4>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="contract">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        <a data-toggle="modal" data-target="#exampleModalCenter">
-                            <small>Ön bilgilendirme formunu ve Mesafeli satış sözleşmesini onaylıyorum.</small>
-                        </a>
-                    </label>
+            <div class="col-md-3" style="position: -webkit-sticky; position: sticky; top: 7em;">
+                <div class="card p-3">
+                    <h6 class="mb-3">Ödenecek Tutar</h6>
+                    <h4 class="mb-5">@Model.CartViewModel.GetTotalPrice() <small><b>TL</b></small></h4>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="contract">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            <a data-toggle="modal" data-target="#exampleModalCenter">
+                                <small>Ön bilgilendirme formunu ve Mesafeli satış sözleşmesini onaylıyorum.</small>
+                            </a>
+                        </label>
+                    </div>
+                    <button class="btn btn-outline-primary btn-block mt-2" href="/order/checkout">Alışverişi tamamla</button>
                 </div>
-                <button class="btn btn-outline-primary btn-block mt-2" href="/order/checkout">Alışverişi tamamla</button>
             </div>
-        </div>
-        <div class="col-md-9 mb-3">
-            <div class="card p-5">
-                Ödeme bilgileri
-                <div class="row">
-                    <div class="col-md-6 mt-1">
-                        <div class="form-group">
-                            <small>Kart numarası</small>
-                            <input asp-for="@Model.CardNumber" class="form-control" placeholder="•••• •••• •••• ••••" id="number" value="5528790000000008"/>
-                        </div>
-                        <div class="form-group">
-                            <small>Kart üzerindeki isim</small>
-                            <input asp-for="@Model.CardHolderName" class="form-control" id="name" placeholder="Kart sahibinin adı ve soyadı" value="Test User"/>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <small>Son kullanma tarihi</small>
-                                <input type="hidden" asp-for="@Model.ExpirationYear" id="expiry-year" value="2030"/>
-                                <input type="hidden" asp-for="@Model.ExpirationMonth" id="expiry-month" value="12"/>
-                                <input class="form-control" id="expiry" placeholder="Ay/Yıl" name="expiry" value="12/2030"/>
+            <div class="col-md-9 mb-3">
+                <div class="card p-5">
+                    Ödeme bilgileri
+                    <div class="row">
+                        <div class="col-md-6 mt-1">
+                            <div class="form-group">
+                                <small>Kart numarası</small>
+                                <input asp-for="@Model.CardNumber" class="form-control" placeholder="•••• •••• •••• ••••" id="number" value="5528790000000008" />
                             </div>
-                            <div class="form-group col-md-6">
-                                <small>Güvenlik kodu</small>
-                                <input asp-for="@Model.Cvc" class="form-control" id="cvc" placeholder="CVC/CVV" value="123"/>
+                            <div class="form-group">
+                                <small>Kart üzerindeki isim</small>
+                                <input asp-for="@Model.CardHolderName" class="form-control" id="name" placeholder="Kart sahibinin adı ve soyadı" value="Test User" />
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <small>Son kullanma tarihi</small>
+                                    <input type="hidden" asp-for="@Model.ExpirationYear" id="expiry-year" value="2030" />
+                                    <input type="hidden" asp-for="@Model.ExpirationMonth" id="expiry-month" value="12" />
+                                    <input class="form-control" id="expiry" placeholder="Ay/Yıl" name="expiry" value="12/2030" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <small>Güvenlik kodu</small>
+                                    <input asp-for="@Model.Cvc" class="form-control" id="cvc" placeholder="CVC/CVV" value="123" />
+                                </div>
                             </div>
                         </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="credit-card"></div>
+                        </div>
                     </div>
-                    <div class="col-md-6 mt-4">
-                        <div class="credit-card"></div>
-                    </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
 
-
+}
+else
+{
+    Context.Response.Redirect("/");
+}
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

@@ -17,13 +17,15 @@ namespace E_Commerce_App.WebUI.Helpers
                 CartId = cart.Id,
                 CartItems = cart.CartItems.Select(i => new CartItemViewModel()
                 {
-                    CartItemId = i.Id,
-                    ProductId = i.ProductId,
+                    CartItemDto = new Core.Shared.DTOs.CartItemDto
+                    {
+                        Id = i.Id,
+                        ProductId = i.ProductId,
+                        Price = (double)i.Price,
+                        Quantity = i.Quantity
+                    },
                     Name = i.Product.Name,
-                    Price = (double)i.Price,
                     ImageUrl = i.Product.MainImage,
-                    Quantity = i.Quantity
-
                 }).ToList()
             };
             return model;

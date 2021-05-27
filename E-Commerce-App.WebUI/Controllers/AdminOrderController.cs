@@ -30,14 +30,15 @@ namespace E_Commerce_App.WebUI.Controllers
         {
             return View(await GetOrders());
         }
-        [Route("/edit/{orderId}")]
+        [Route("{orderId}")]
         [HttpGet]
-        public async Task<IActionResult> EditOrderState(int orderId)
+        public async Task<IActionResult> Detail(int orderId)
         {
-            return View();
+            var model = await _orderService.GetByIdAsync(orderId);
+            return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> EditOrderState(OrderViewModel orderModel)
+        public async Task<IActionResult> Detail(OrderViewModel orderModel)
         {
             return View();
         }

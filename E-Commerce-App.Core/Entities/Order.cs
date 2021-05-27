@@ -37,6 +37,7 @@ namespace E_Commerce_App.Core.Entities
         Preparing,
         Approved,
         InShipping,
-        Completed
+        Completed,
+        Cancelled
     }
 }

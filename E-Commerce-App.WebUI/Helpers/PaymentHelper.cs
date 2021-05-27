@@ -9,6 +9,7 @@ using Iyzipay.Request;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Address = Iyzipay.Model.Address;
 
 namespace E_Commerce_App.WebUI.Helpers
 {
@@ -37,7 +38,7 @@ namespace E_Commerce_App.WebUI.Helpers
             PaymentCard paymentCard = new PaymentCard
             {
                 CardHolderName = orderModel.CardHolderName,
-                CardNumber = "5528790000000008",//orderModel.CardNumber,
+                CardNumber = orderModel.CardNumber.Replace(" ", ""),
                 ExpireMonth = orderModel.ExpirationMonth,
                 ExpireYear = orderModel.ExpirationYear,
                 Cvc = orderModel.Cvc,
@@ -91,10 +92,10 @@ namespace E_Commerce_App.WebUI.Helpers
             foreach (var item in orderModel.CartViewModel.CartItems)
             {
                 basketItem = new BasketItem();
-                basketItem.Id = item.ProductId.ToString();
+                basketItem.Id = item.CartItemDto.ProductId.ToString();
                 basketItem.Name = item.Name;
                 basketItem.Category1 = "Telefon";
-                basketItem.Price = (item.Price * item.Quantity).ToString();
+                basketItem.Price = (item.CartItemDto.Price * item.CartItemDto.Quantity).ToString();
                 basketItem.ItemType = BasketItemType.PHYSICAL.ToString();
                 basketItems.Add(basketItem);
             }
@@ -130,12 +131,14 @@ namespace E_Commerce_App.WebUI.Helpers
             {
                 var orderItem = new OrderItemDto()
                 {
-                    Price = item.Price,
-                    Quantity = item.Quantity,
-                    ProductId = item.ProductId
+
+                    Price = item.CartItemDto.Price,
+                    Quantity = item.CartItemDto.Quantity,
+                    ProductId = item.CartItemDto.ProductId,
+                    SelectedColor = item.CartItemDto.Color
                 };
                 order.OrderItems.Add(orderItem);
-                orderTotalPrice += item.Price;
+                orderTotalPrice += item.CartItemDto.Price * item.CartItemDto.Quantity;
             }
             order.TotalPrice = orderTotalPrice;
 

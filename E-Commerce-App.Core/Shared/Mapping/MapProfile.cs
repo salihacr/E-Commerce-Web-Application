@@ -27,6 +27,9 @@ namespace E_Commerce_App.Core.Shared.Mapping
 
             CreateMap<Order, OrderDto>().ReverseMap();
             CreateMap<OrderItem, OrderItemDto>().ReverseMap();
+
+            CreateMap<Cart, CartDto>().ReverseMap();
+            CreateMap<CartItem, CartItemDto>().ReverseMap();
         }
     }
 }

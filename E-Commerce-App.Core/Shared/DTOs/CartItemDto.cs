@@ -1,6 +1,6 @@
-﻿namespace E_Commerce_App.Core.Entities
+﻿namespace E_Commerce_App.Core.Shared.DTOs
 {
-    public class CartItem : BaseEntity
+    public class CartItemDto : BaseDto
     {
         public int Id { get; set; }
         public double Price { get; set; }
@@ -8,9 +8,9 @@
         public string Color { get; set; }
 
         public string ProductId { get; set; }
-        public Product Product { get; set; }
+        public ProductDto Product { get; set; }
 
         public int CartId { get; set; }
-        public Cart Cart { get; set; }
+        public CartDto Cart { get; set; }
     }
 }

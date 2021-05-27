@@ -1,5 +1,6 @@
 ﻿using E_Commerce_App.Core.Services;
 using E_Commerce_App.Core.Shared;
+using E_Commerce_App.WebUI.Helpers;
 using E_Commerce_App.WebUI.Identity;
 using E_Commerce_App.WebUI.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -25,13 +26,13 @@ namespace E_Commerce_App.WebUI.Controllers
         [Route("/cart")]
         public async Task<IActionResult> Index()
         {
-            var model = await GetProductsFromCart();
+            var model = await CartHelper.GetProductsFromCart(_cartService, _userManager, User);
             return View(model);
         }
         [Route("/GetCartItems")]
         public async Task<IActionResult> GetCartItems()
         {
-            var model = await GetProductsFromCart();
+            var model = await CartHelper.GetProductsFromCart(_cartService, _userManager, User);
             return Json(new { data = model });
         }
 
@@ -55,28 +56,8 @@ namespace E_Commerce_App.WebUI.Controllers
             {
                 isValid = true,
                 message = Messages.JSON_REMOVE_MESSAGE("Ürün"),
-                data = await GetProductsFromCart()
+                data = await CartHelper.GetProductsFromCart(_cartService, _userManager, User)
             });
-        }
-
-        private async Task<CartViewModel> GetProductsFromCart()
-        {
-            var cart = await _cartService.GetCartByUserId(_userManager.GetUserId(User));
-            var model = new CartViewModel()
-            {
-                CartId = cart.Id,
-                CartItems = cart.CartItems.Select(i => new CartItemViewModel()
-                {
-                    CartItemId = i.Id,
-                    ProductId = i.ProductId,
-                    Name = i.Product.Name,
-                    Price = (double)i.Price,
-                    ImageUrl = i.Product.MainImage,
-                    Quantity = i.Quantity
-
-                }).ToList()
-            };
-            return model;
         }
         private async Task ResetCart(int cartId)
         {

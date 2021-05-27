@@ -41,6 +41,7 @@ namespace E_Commerce_App.WebUI.Controllers
         public async Task<IActionResult> Checkout()
         {
             var cart = await CartHelper.GetProductsFromCart(_cartService, _userManager, User);
+            ViewData["CartItemLength"] = cart.CartItems.Count;
             var model = new OrderViewModel() { CartViewModel = cart };
             return View(model);
         }
@@ -59,12 +60,15 @@ namespace E_Commerce_App.WebUI.Controllers
                     CartId = cart.Id,
                     CartItems = cart.CartItems.Select(i => new CartItemViewModel()
                     {
-                        CartItemId = i.Id,
-                        ProductId = i.ProductId,
+                        CartItemDto = new Core.Shared.DTOs.CartItemDto
+                        {
+                            Id = i.Id,
+                            ProductId = i.ProductId,
+                            Price = (double)i.Price,
+                            Quantity = i.Quantity
+                        },
                         Name = i.Product.Name,
-                        Price = (double)i.Price,
                         ImageUrl = i.Product.MainImage,
-                        Quantity = i.Quantity
                     }).ToList()
                 };
 

@@ -33,7 +33,7 @@ else
         <span>Sepetini {site} nin fırsatlarla dolu dünyasından doldurmak için aşağıdaki ürünleri incelemeye başlayabilirsin.</span>
     </div>
 }
-
+@* kampanyaları ekle *@
 
 @section Scripts{
     @* sil metodunda dönen data olacagi icin html yeniden ekrana basilir. *@
@@ -48,14 +48,14 @@ else
                     <div class="col-md-8">
                         <h6>${data[index].name}</h6>
                         <br />
-                        <h5> ${data[index].price * data[index].quantity} TL</h5>
+                        <h5> ${data[index].cartItemDto.price * data[index].cartItemDto.quantity} TL</h5>
                     </div>
                     <div class="col-md-1">
                         Adet
-                        <p style="text-align:center">${data[index].quantity}</p>
+                        <p style="text-align:center">${data[index].cartItemDto.quantity}</p>
                     </div>
                     <div class="col-md-1">
-                            <button class="btn btn-danger" onclick="removeCartItem('${data[index].productId}')"><i class="fas fa-trash"></i></button>
+                            <button class="btn btn-danger" onclick="removeCartItem('${data[index].cartItemDto.productId}')"><i class="fas fa-trash"></i></button>
                     </div>
 </div><hr />`;
             return html;

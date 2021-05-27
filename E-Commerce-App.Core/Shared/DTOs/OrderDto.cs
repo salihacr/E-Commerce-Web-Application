@@ -10,8 +10,10 @@ namespace E_Commerce_App.Core.Shared.DTOs
         public int Id { get; set; }
 
         public string OrderNumber { get; set; }
+        [Display(Name = "Sipariş Tarihi")]
         public DateTime OrderDate { get; set; }
         public string UserId { get; set; }
+        [Display(Name = "Alışveriş Tutarı")]
         public double TotalPrice { get; set; }
         [Display(Name = "Ad")]
         [Required(ErrorMessage = Messages.REQUIRED_INPUT)]
@@ -40,16 +42,8 @@ namespace E_Commerce_App.Core.Shared.DTOs
         public string PaymentId { get; set; }
         public string ConversationId { get; set; }
         public EnumPaymentType PaymentType { get; set; }
+        [Display(Name = "Sipariş Durumu")]
         public EnumOrderState OrderState { get; set; }
         public List<OrderItemDto> OrderItems { get; set; }
-    }
-    public class OrderItemDto
-    {
-        public int Id { get; set; }
-        public string SelectedColor { get; set; }
-        public int Quantity { get; set; }
-        public double Price { get; set; }
-        public int OrderId { get; set; }
-        public string ProductId { get; set; }
     }
 }

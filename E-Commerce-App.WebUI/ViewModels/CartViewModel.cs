@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using E_Commerce_App.Core.Shared.DTOs;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace E_Commerce_App.WebUI.ViewModels
@@ -7,16 +8,12 @@ namespace E_Commerce_App.WebUI.ViewModels
     {
         public int CartId { get; set; }
         public List<CartItemViewModel> CartItems { get; set; }
-
-        public double GetTotalPrice() => CartItems.Sum(i => i.Price * i.Quantity);
+        public double GetTotalPrice() => CartItems.Sum(i => i.CartItemDto.Price * i.CartItemDto.Quantity);
     }
     public class CartItemViewModel
     {
-        public int CartItemId { get; set; }
-        public string ProductId { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
         public string ImageUrl { get; set; }
-        public int Quantity { get; set; }
+        public CartItemDto CartItemDto { get; set; }
     }
 }
