@@ -12,15 +12,15 @@
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <small>Ad</small>
-                        <input class="form-control" asp-for="@Model.OrderDto.FirstName" placeholder="Teslim alacak kişinin adı" />
+                        <input class="form-control" asp-for="@Model.OrderDto.FirstName" placeholder="Teslim alacak kişinin adı" value="Test" />
                     </div>
                     <div class="form-group col-md-3">
                         <small>Soyad</small>
-                        <input class="form-control" asp-for="@Model.OrderDto.LastName" placeholder="Teslim alacak kişinin soyadı" />
+                        <input class="form-control" asp-for="@Model.OrderDto.LastName" placeholder="Teslim alacak kişinin soyadı" value="User" />
                     </div>
                     <div class="form-group col-md-6">
                         <small>Telefon</small>
-                        <input type="number" asp-for="@Model.OrderDto.Phone" max="10" min="10" class="form-control" placeholder="Teslim alacak kişinin telefon numarası" />
+                        <input type="number" asp-for="@Model.OrderDto.Phone" class="form-control" placeholder="Teslim alacak kişinin telefon numarası" value="5556664433" />
                     </div>
                 </div>
                 <div class="form-row">
@@ -52,12 +52,10 @@
                 <h6 class="mb-3">Ödenecek Tutar</h6>
                 <h4 class="mb-5">@Model.CartViewModel.GetTotalPrice() <small><b>TL</b></small></h4>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="contract">
                     <label class="form-check-label" for="flexCheckChecked">
                         <a data-toggle="modal" data-target="#exampleModalCenter">
-                            <small>
-                                Ön bilgilendirme formunu ve Mesafeli satış sözleşmesini onaylıyorum.
-                            </small>
+                            <small>Ön bilgilendirme formunu ve Mesafeli satış sözleşmesini onaylıyorum.</small>
                         </a>
                     </label>
                 </div>
@@ -71,22 +69,22 @@
                     <div class="col-md-6 mt-1">
                         <div class="form-group">
                             <small>Kart numarası</small>
-                            <input asp-for="@Model.CardNumber" class="form-control" placeholder="•••• •••• •••• ••••" id="number" />
+                            <input asp-for="@Model.CardNumber" class="form-control" placeholder="•••• •••• •••• ••••" id="number" value="5528790000000008"/>
                         </div>
                         <div class="form-group">
                             <small>Kart üzerindeki isim</small>
-                            <input asp-for="@Model.CardHolderName" class="form-control" id="name" placeholder="Kart sahibinin adı ve soyadı" />
+                            <input asp-for="@Model.CardHolderName" class="form-control" id="name" placeholder="Kart sahibinin adı ve soyadı" value="Test User"/>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <small>Son kullanma tarihi</small>
-                                <input type="hidden" asp-for="@Model.ExpirationYear" id="expiry-year" />
-                                <input type="hidden" asp-for="@Model.ExpirationMonth" id="expiry-month" />
-                                <input class="form-control" id="expiry" placeholder="Ay/Yıl" name="expiry" />
+                                <input type="hidden" asp-for="@Model.ExpirationYear" id="expiry-year" value="2030"/>
+                                <input type="hidden" asp-for="@Model.ExpirationMonth" id="expiry-month" value="12"/>
+                                <input class="form-control" id="expiry" placeholder="Ay/Yıl" name="expiry" value="12/2030"/>
                             </div>
                             <div class="form-group col-md-6">
                                 <small>Güvenlik kodu</small>
-                                <input asp-for="@Model.Cvc" class="form-control" id="cvc" placeholder="CVC/CVV" />
+                                <input asp-for="@Model.Cvc" class="form-control" id="cvc" placeholder="CVC/CVV" value="123"/>
                             </div>
                         </div>
                     </div>
@@ -188,6 +186,9 @@
                 "Cvc": {
                     required: true,
                 },
+                "contract": {
+                    required: true,
+                },
             },
             messages: {
                 "OrderDto.FirstName": {
@@ -229,6 +230,9 @@
                 "Cvc": {
                     required: REQUIRED_INPUT_MESSAGE,
                 },
+                "contract": {
+                    required: REQUIRED_INPUT_MESSAGE,
+                }
             },
             errorElement: 'span',
             errorPlacement: function (error, element) {
@@ -246,8 +250,9 @@
 
         $('#payment-form').on('submit', function (event) {
 
-            if ($('#productForm').valid() === true) { }
+            if ($('#payment-form').valid() === true) { }
             else {
+                event.preventDefault();
                 toastr.warning("Lütfen gerekli alanları doldurun.")
             }
         });
@@ -259,7 +264,6 @@
             $.each(sonuc, function (index, value) {
                 var row = "";
                 var il = value.il.toUpperCase();
-                console.log(value.il);
                 row += '<option value="' + value.il + '">' + il + '</option>';
                 $("#il").append(row);
             })
@@ -272,7 +276,8 @@
                 $.each(sonuc, function (index, value) {
                     var row = "";
                     if (value.il == il) {
-                        row += '<option value="' + value.ilce + '">' + value.ilce + '</option>';
+                        var ilce = value.ilce.toUpperCase();
+                        row += '<option value="' + value.ilce + '">' + ilce + '</option>';
                         $("#ilce").append(row);
                     }
                 });

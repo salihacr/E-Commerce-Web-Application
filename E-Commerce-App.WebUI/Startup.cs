@@ -38,6 +38,9 @@ namespace E_Commerce_App.WebUI
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 
+            // DbContext
+            services.AddDbContext<AppDbContext>();
+
             // identity
             services.AddDbContext<UserContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
@@ -71,10 +74,6 @@ namespace E_Commerce_App.WebUI
                 };
 
             });
-
-
-            // DbContext
-            services.AddDbContext<AppDbContext>();
 
             // API Services
 
@@ -114,7 +113,8 @@ namespace E_Commerce_App.WebUI
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
-            RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
+            RoleManager<IdentityRole> roleManager, UserManager<User> userManager
+            ,ICartService cartService)
         {
             if (env.IsDevelopment())
             {
@@ -179,7 +179,7 @@ namespace E_Commerce_App.WebUI
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            IdentitySeed.Seed(Configuration, userManager, roleManager).Wait();
+            IdentitySeed.Seed(Configuration, userManager, roleManager, cartService).Wait();
         }
     }
 }

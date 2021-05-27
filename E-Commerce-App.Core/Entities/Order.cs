@@ -33,8 +33,10 @@ namespace E_Commerce_App.Core.Entities
     public enum EnumOrderState
     {
         Waiting,
-        Unpaid,
         Paid,
+        Preparing,
+        Approved,
+        InShipping,
         Completed
     }
 }

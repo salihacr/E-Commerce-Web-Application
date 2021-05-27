@@ -8,7 +8,7 @@ namespace E_Commerce_App.Core.Services
 
         Task InitializeCart(string userId);
 
-        Task AddToCart(string userId, string productId, int quantity);
+        Task AddToCart(string userId, string productId, int quantity, double price, string color);
 
 
 

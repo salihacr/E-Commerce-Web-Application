@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using E_Commerce_App.Core.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 
@@ -9,7 +10,7 @@ namespace E_Commerce_App.WebUI.Identity
         const string ROLE_ADMIN = "admin";
         const string ROLE_CUSTOMER = "customer";
 
-        public static async Task Seed(IConfiguration configuration, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        public static async Task Seed(IConfiguration configuration, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, ICartService cartService)
         {
             /* Roles */
             if (await roleManager.FindByNameAsync(ROLE_ADMIN) == null)
@@ -24,7 +25,7 @@ namespace E_Commerce_App.WebUI.Identity
             var a_password = configuration["Data:Admin:password"];
             var a_role = configuration["Data:Admin:role"];
 
-            await CreateUser(new UserStruct(a_username, a_fullname, a_email, a_password, a_role), userManager, roleManager);
+            await CreateUser(new UserStruct(a_username, a_fullname, a_email, a_password, a_role), userManager, roleManager, cartService);
 
             // user
             var u_username = configuration["Data:User:username"];
@@ -33,9 +34,9 @@ namespace E_Commerce_App.WebUI.Identity
             var u_password = configuration["Data:User:password"];
             var u_role = configuration["Data:User:role"];
 
-            await CreateUser(new UserStruct(u_username, u_fullname, u_email, u_password, u_role), userManager, roleManager);
+            await CreateUser(new UserStruct(u_username, u_fullname, u_email, u_password, u_role), userManager, roleManager, cartService);
         }
-        public static async Task CreateUser(UserStruct userStruct, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        public static async Task CreateUser(UserStruct userStruct, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, ICartService cartService)
         {
             if (await userManager.FindByEmailAsync(userStruct.email) == null)
             {
@@ -43,7 +44,10 @@ namespace E_Commerce_App.WebUI.Identity
 
                 var result = await userManager.CreateAsync(user, userStruct.password);
                 if (result.Succeeded)
+                {
                     await userManager.AddToRoleAsync(user, userStruct.role);
+                    await cartService.InitializeCart(user.Id);
+                }
             }
         }
     }

@@ -41,6 +41,15 @@ namespace E_Commerce_App.Core.Shared.DTOs
         public string ConversationId { get; set; }
         public EnumPaymentType PaymentType { get; set; }
         public EnumOrderState OrderState { get; set; }
-        public List<OrderItem> OrderItems { get; set; }
+        public List<OrderItemDto> OrderItems { get; set; }
+    }
+    public class OrderItemDto
+    {
+        public int Id { get; set; }
+        public string SelectedColor { get; set; }
+        public int Quantity { get; set; }
+        public double Price { get; set; }
+        public int OrderId { get; set; }
+        public string ProductId { get; set; }
     }
 }

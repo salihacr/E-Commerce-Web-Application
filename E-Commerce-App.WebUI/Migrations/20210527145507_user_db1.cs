@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace E_Commerce_App.WebUI.Migrations
 {
-    public partial class identity : Migration
+    public partial class user_db1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -36,10 +36,10 @@ namespace E_Commerce_App.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddToCart(string productId, string color, int quantity)
+        public async Task<IActionResult> AddToCart(string productId, string color, int quantity, double price)
         {
             var userId = _userManager.GetUserId(User);
-            await _cartService.AddToCart(userId, productId, quantity);
+            await _cartService.AddToCart(userId, productId, quantity, price, color);
 
             return Json(new { isValid = true, message = "Ürün sepete eklendi." });
         }
@@ -70,7 +70,7 @@ namespace E_Commerce_App.WebUI.Controllers
                     CartItemId = i.Id,
                     ProductId = i.ProductId,
                     Name = i.Product.Name,
-                    Price = (double)i.Product.Price,
+                    Price = (double)i.Price,
                     ImageUrl = i.Product.MainImage,
                     Quantity = i.Quantity
 

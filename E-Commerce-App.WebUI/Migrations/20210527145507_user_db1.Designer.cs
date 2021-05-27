@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce_App.WebUI.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20210418162251_identity")]
-    partial class identity
+    [Migration("20210527145507_user_db1")]
+    partial class user_db1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

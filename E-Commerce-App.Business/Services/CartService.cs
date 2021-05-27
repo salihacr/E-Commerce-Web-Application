@@ -10,7 +10,7 @@ namespace E_Commerce_App.Business.Services
     {
         public CartService(IUnitOfWork unitOfWork, IRepository<Cart> repository) : base(unitOfWork, repository) { }
 
-        public async Task AddToCart(string userId, string productId, int quantity)
+        public async Task AddToCart(string userId, string productId, int quantity, double price, string color)
         {
             var cart = await GetCartByUserId(userId);
             if (cart != null)
@@ -23,9 +23,11 @@ namespace E_Commerce_App.Business.Services
                     {
                         ProductId = productId,
                         Quantity = quantity,
-                        CartId = cart.Id
+                        CartId = cart.Id,
+                        Price = price,
+                        Color = color
                     });
-                    
+
                 }
                 // eklenmek isteyen ürün sepette var mı (güncelleme)
                 else
@@ -41,7 +43,7 @@ namespace E_Commerce_App.Business.Services
             var cart = await GetCartByUserId(userId);
             if (cart != null)
                 await _unitOfWork.CartRepository.DeleteProductFromCart(productId, cart.Id);
-                await _unitOfWork.CommitAsync();
+            await _unitOfWork.CommitAsync();
 
         }
 

@@ -31,7 +31,7 @@ namespace E_Commerce_App.Data.Repositories
 
         public async Task ResetCart(int cartId)
         {
-            var command = @"Delete From CartItems Where CartId=@cartId";
+            var command = @"Delete From CartItems Where CartId=@p0";
             await _appDbContext.Database.ExecuteSqlRawAsync(command, cartId);
         }
     }

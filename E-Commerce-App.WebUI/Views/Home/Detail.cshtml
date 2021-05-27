@@ -464,10 +464,12 @@
                                     <span class="line-through">
                                         @price ₺
                                     </span>
+                                    <input type="hidden" name="price" value="@discountedPrice" />
                                 }
                                 else
                                 {
                                     <span>@price ₺</span>
+                                    <input type="hidden" name="price" value="@price" />
                                 }
                             </div>
                         </div>

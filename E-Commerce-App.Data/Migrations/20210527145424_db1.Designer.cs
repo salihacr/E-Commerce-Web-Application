@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce_App.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210428141550_editedCampaignTable2")]
-    partial class editedCampaignTable2
+    [Migration("20210527145424_db1")]
+    partial class db1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,45 @@ namespace E_Commerce_App.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("E_Commerce_App.Core.Entities.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateOfDelete")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateOfUpdate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("District")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Addresses");
+                });
 
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Campaign", b =>
                 {
@@ -91,11 +130,11 @@ namespace E_Commerce_App.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CardId")
+                    b.Property<int>("CartId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CartId")
-                        .HasColumnType("int");
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreationDate")
                         .HasColumnType("datetime2");
@@ -109,10 +148,10 @@ namespace E_Commerce_App.Data.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
-                    b.Property<string>("ProductId1")
+                    b.Property<string>("ProductId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Quantity")
@@ -122,7 +161,7 @@ namespace E_Commerce_App.Data.Migrations
 
                     b.HasIndex("CartId");
 
-                    b.HasIndex("ProductId1");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("CartItems");
                 });
@@ -163,6 +202,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 1,
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 204, DateTimeKind.Local).AddTicks(7731),
                             IsActive = false,
                             IsMainCategory = false,
                             Name = "Telefon",
@@ -171,6 +211,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 2,
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 204, DateTimeKind.Local).AddTicks(7818),
                             IsActive = false,
                             IsMainCategory = false,
                             Name = "Bilgisayar",
@@ -179,6 +220,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 3,
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 204, DateTimeKind.Local).AddTicks(7822),
                             IsActive = false,
                             IsMainCategory = false,
                             Name = "Tv, Ev Elektroniği",
@@ -187,6 +229,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 4,
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 204, DateTimeKind.Local).AddTicks(7824),
                             IsActive = false,
                             IsMainCategory = false,
                             Name = "Bilgisayar Parçaları",
@@ -195,6 +238,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 5,
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 204, DateTimeKind.Local).AddTicks(7826),
                             IsActive = false,
                             IsMainCategory = false,
                             Name = "Foto, Kamera",
@@ -203,6 +247,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 6,
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 204, DateTimeKind.Local).AddTicks(7832),
                             IsActive = false,
                             IsMainCategory = false,
                             Name = "Aksesuar",
@@ -211,6 +256,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 7,
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 204, DateTimeKind.Local).AddTicks(7834),
                             IsActive = false,
                             IsMainCategory = false,
                             Name = "Oyun, Hobi",
@@ -219,6 +265,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 8,
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 204, DateTimeKind.Local).AddTicks(7836),
                             IsActive = false,
                             IsMainCategory = false,
                             Name = "Ev, Mutfak",
@@ -300,6 +347,42 @@ namespace E_Commerce_App.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("E_Commerce_App.Core.Entities.CreditCard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("CardNumber")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateOfDelete")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateOfUpdate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExpirationDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CreditCards");
+                });
+
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Image", b =>
                 {
                     b.Property<int>("Id")
@@ -345,6 +428,9 @@ namespace E_Commerce_App.Data.Migrations
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConversationId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("CreationDate")
                         .HasColumnType("datetime2");
 
@@ -353,6 +439,9 @@ namespace E_Commerce_App.Data.Migrations
 
                     b.Property<DateTime?>("DateOfUpdate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("District")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -378,11 +467,17 @@ namespace E_Commerce_App.Data.Migrations
                     b.Property<int>("OrderState")
                         .HasColumnType("int");
 
+                    b.Property<string>("PaymentId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("PaymentType")
                         .HasColumnType("int");
 
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
@@ -414,6 +509,9 @@ namespace E_Commerce_App.Data.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
                     b.Property<string>("ProductId")
                         .HasColumnType("nvarchar(450)");
 
@@ -422,9 +520,6 @@ namespace E_Commerce_App.Data.Migrations
 
                     b.Property<string>("SelectedColor")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("TotalPrice")
-                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -484,7 +579,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "1",
-                            CreationDate = new DateTime(2021, 4, 28, 17, 15, 49, 716, DateTimeKind.Local).AddTicks(3596),
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 201, DateTimeKind.Local).AddTicks(9147),
                             Description = "aciklama 1",
                             Discount = 5.0,
                             IsActive = false,
@@ -498,7 +593,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "2",
-                            CreationDate = new DateTime(2021, 4, 28, 17, 15, 49, 718, DateTimeKind.Local).AddTicks(1336),
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 203, DateTimeKind.Local).AddTicks(7324),
                             Description = "aciklama 2",
                             Discount = 5.0,
                             IsActive = false,
@@ -512,7 +607,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "3",
-                            CreationDate = new DateTime(2021, 4, 28, 17, 15, 49, 718, DateTimeKind.Local).AddTicks(1495),
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 203, DateTimeKind.Local).AddTicks(7439),
                             Description = "aciklama 3",
                             Discount = 5.0,
                             IsActive = false,
@@ -526,7 +621,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "4",
-                            CreationDate = new DateTime(2021, 4, 28, 17, 15, 49, 718, DateTimeKind.Local).AddTicks(1500),
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 203, DateTimeKind.Local).AddTicks(7444),
                             Description = "aciklama 4",
                             Discount = 5.0,
                             IsActive = false,
@@ -540,7 +635,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "5",
-                            CreationDate = new DateTime(2021, 4, 28, 17, 15, 49, 718, DateTimeKind.Local).AddTicks(1504),
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 203, DateTimeKind.Local).AddTicks(7446),
                             Description = "aciklama 5",
                             Discount = 10.0,
                             IsActive = false,
@@ -554,7 +649,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "6",
-                            CreationDate = new DateTime(2021, 4, 28, 17, 15, 49, 718, DateTimeKind.Local).AddTicks(1513),
+                            CreationDate = new DateTime(2021, 5, 27, 17, 54, 23, 203, DateTimeKind.Local).AddTicks(7455),
                             Description = "aciklama 6",
                             Discount = 20.0,
                             IsActive = false,
@@ -695,11 +790,13 @@ namespace E_Commerce_App.Data.Migrations
                 {
                     b.HasOne("E_Commerce_App.Core.Entities.Cart", "Cart")
                         .WithMany("CartItems")
-                        .HasForeignKey("CartId");
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("E_Commerce_App.Core.Entities.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId1");
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Cart");
 
@@ -718,7 +815,7 @@ namespace E_Commerce_App.Data.Migrations
             modelBuilder.Entity("E_Commerce_App.Core.Entities.OrderItem", b =>
                 {
                     b.HasOne("E_Commerce_App.Core.Entities.Order", "Order")
-                        .WithMany()
+                        .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -783,6 +880,11 @@ namespace E_Commerce_App.Data.Migrations
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Color", b =>
                 {
                     b.Navigation("ProductColors");
+                });
+
+            modelBuilder.Entity("E_Commerce_App.Core.Entities.Order", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("E_Commerce_App.Core.Entities.Product", b =>
