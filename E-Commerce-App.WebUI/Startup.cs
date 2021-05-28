@@ -96,6 +96,7 @@ namespace E_Commerce_App.WebUI
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICartService, CartService>();
+            services.AddScoped<IOrderService, OrderService>();
 
 
             // email sender dependency injection
@@ -114,7 +115,7 @@ namespace E_Commerce_App.WebUI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
             RoleManager<IdentityRole> roleManager, UserManager<User> userManager
-            ,ICartService cartService)
+            , ICartService cartService)
         {
             if (env.IsDevelopment())
             {

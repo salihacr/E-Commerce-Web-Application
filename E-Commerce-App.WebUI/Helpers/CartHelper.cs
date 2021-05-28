@@ -22,7 +22,8 @@ namespace E_Commerce_App.WebUI.Helpers
                         Id = i.Id,
                         ProductId = i.ProductId,
                         Price = (double)i.Price,
-                        Quantity = i.Quantity
+                        Quantity = i.Quantity,
+                        Color = i.Color
                     },
                     Name = i.Product.Name,
                     ImageUrl = i.Product.MainImage,

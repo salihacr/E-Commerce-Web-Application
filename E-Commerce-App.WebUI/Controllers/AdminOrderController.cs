@@ -16,9 +16,9 @@ namespace E_Commerce_App.WebUI.Controllers
     {
         private readonly IMapper _mapper;
         private readonly ICartService _cartService;
-        private readonly IService<Order> _orderService;
+        private readonly IOrderService _orderService;
 
-        public AdminOrderController(IMapper mapper, ICartService cartService, IService<Order> orderService)
+        public AdminOrderController(IMapper mapper, ICartService cartService, IOrderService orderService)
         {
             _mapper = mapper;
             _cartService = cartService;
@@ -34,7 +34,7 @@ namespace E_Commerce_App.WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> Detail(int orderId)
         {
-            var model = await _orderService.GetByIdAsync(orderId);
+            var model = await _orderService.GetOrdersWithItems(orderId);
             return View(model);
         }
         [HttpPost]

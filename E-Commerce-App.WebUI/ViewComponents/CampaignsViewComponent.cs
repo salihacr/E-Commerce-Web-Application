@@ -7,6 +7,15 @@ using System.Collections.Generic;
 
 namespace E_Commerce_App.WebUI.ViewComponents
 {
+    //public class BestSellingProducts : ViewComponent
+    //{
+    //    // take falan filan yap 10 tane gelsin
+    //    // resim pixellerini falan em yapmayi unutma
+    //}
+    //public class RecomemendedProducts : ViewComponent
+    //{
+
+    //}
     public class CampaignsViewComponent : ViewComponent
     {
         private readonly IMapper _mapper;

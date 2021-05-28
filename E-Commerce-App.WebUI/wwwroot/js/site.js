@@ -89,3 +89,6 @@ String.prototype.turkishToLower = function () {
     string = string.replace(/(([İIŞĞÜÇÖ]))+/g, function (letter) { return letters[letter]; })
     return string.toLowerCase();
 }
+
+var searchLbl = $(".dataTables_filter > label").text();
+console.log(searchLbl);
