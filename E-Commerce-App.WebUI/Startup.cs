@@ -53,7 +53,7 @@ namespace E_Commerce_App.WebUI
                 // lockout
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-                options.Lockout.AllowedForNewUsers = true;
+                //options.Lockout.AllowedForNewUsers = true;
 
                 options.User.RequireUniqueEmail = true;
                 options.SignIn.RequireConfirmedEmail = true;

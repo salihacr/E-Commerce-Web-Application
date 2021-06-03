@@ -1,4 +1,8 @@
-﻿namespace E_Commerce_App.Core.Shared
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
+
+namespace E_Commerce_App.Core.Shared
 {
     public static class Messages
     {
@@ -22,6 +26,21 @@
         {
             return "";
         }
+
+
+        public static string EMAIL_CONFIRM_HTML(string user, string url)
+        {
+            string file = System.IO.Path.GetDirectoryName(Directory.GetCurrentDirectory()) + "\\E-Commerce-App.Core\\Shared\\email-template.html";
+
+
+            string emailHtml = System.IO.File.ReadAllText(file);
+
+            emailHtml = emailHtml.Replace("#Kullanıcı#", user);
+            emailHtml = emailHtml.Replace("#Baglanti#", url);
+
+            return emailHtml;
+        }
+
 
 
     }

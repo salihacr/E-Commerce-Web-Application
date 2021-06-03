@@ -1,4 +1,5 @@
 ﻿using E_Commerce_App.Core.Shared.DTOs;
+using System.Collections.Generic;
 
 namespace E_Commerce_App.WebUI.ViewModels
 {
@@ -12,5 +13,10 @@ namespace E_Commerce_App.WebUI.ViewModels
 
         public OrderDto OrderDto { get; set; }
         public CartViewModel CartViewModel { get; set; }
+    }
+    public class UserOrderViewModel
+    {
+        public List<OrderItemDto> OrderItems { get; set; }
+        public List<string> OrderDates { get; set; }
     }
 }

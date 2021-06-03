@@ -34,7 +34,10 @@ namespace E_Commerce_App.WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> Detail(int orderId)
         {
-            var model = await _orderService.GetOrdersWithItems(orderId);
+            ViewData["OrderId"] = orderId;
+            var order = await _orderService.GetOrderWithItems(orderId);
+            var model = new OrderViewModel() { OrderDto = _mapper.Map<OrderDto>(order) };
+
             return View(model);
         }
         [HttpPost]

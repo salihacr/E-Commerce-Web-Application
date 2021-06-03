@@ -1,11 +1,14 @@
 ﻿using AutoMapper;
 using E_Commerce_App.Core.Services;
+using E_Commerce_App.Core.Shared.DTOs;
 using E_Commerce_App.WebUI.Helpers;
 using E_Commerce_App.WebUI.Identity;
 using E_Commerce_App.WebUI.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,13 +19,13 @@ namespace E_Commerce_App.WebUI.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
-        private readonly IService<Core.Entities.Order> _orderService;
+        private readonly IOrderService _orderService;
         private readonly ICartService _cartService;
 
         public OrderController(
             IMapper mapper,
             UserManager<User> userManager,
-            IService<Core.Entities.Order> orderService,
+            IOrderService orderService,
             ICartService cartService)
         {
             _orderService = orderService;
@@ -32,9 +35,19 @@ namespace E_Commerce_App.WebUI.Controllers
         }
 
         [Route("/my-orders")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            string userId = _userManager.GetUserId(User);
+            var orderItems = await _orderService.GetByUserIdAsync(userId);
+            var orderDates = new List<string>();
+            foreach (var item in orderItems)
+            {
+                var date = item.Order.OrderDate.ToString("dd MMMM yyyy | HH:mm", CultureInfo.CreateSpecificCulture("tr"));
+                orderDates.Add(date);
+            }
+            var model = new UserOrderViewModel() { OrderItems = _mapper.Map<List<OrderItemDto>>(orderItems), OrderDates = orderDates };
+
+            return View(model);
         }
 
         [HttpGet]

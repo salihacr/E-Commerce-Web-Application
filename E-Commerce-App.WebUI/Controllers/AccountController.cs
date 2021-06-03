@@ -1,4 +1,5 @@
 ﻿using E_Commerce_App.Core.Services;
+using E_Commerce_App.Core.Shared;
 using E_Commerce_App.Core.Shared.Helper;
 using E_Commerce_App.WebUI.Identity;
 using Microsoft.AspNetCore.Authorization;
@@ -79,8 +80,10 @@ namespace E_Commerce_App.WebUI.Controllers
             Console.Write(url);
             // email
             var siteUrl = "https://localhost:44373";
-            var html = $"lütfen email hesabınızı onaylamak için <a href='{siteUrl + url}'>linke</a> tıklayınız.";
-            await _emailSender.SendEmailAsync(user.Email, "hesabınızı onaylayınız.", html);
+            var html2 = $"lütfen email hesabınızı onaylamak için <a href='{siteUrl + url}'>linke</a> tıklayınız.";
+            var emailUrl = siteUrl + url;
+            var html = Messages.EMAIL_CONFIRM_HTML(user.FullName, emailUrl);
+            await _emailSender.SendEmailAsync(user.Email, "Kullanıcı Hesap Doğrulama", html);
 
         }
         [HttpPost]
@@ -142,7 +145,7 @@ namespace E_Commerce_App.WebUI.Controllers
                 // email exist control
                 if (await EmailExist(model.Email)) return Json(new { message = "E-mail adresi ile zaten kayıt yapılmış." });
 
-                var user = new User { FullName = model.FullName, Email = model.Email, UserName = model.FullName + "__" + DateTime.Now.ToString("dd-mm-HH-mm-ss-f") };
+                var user = new User { FullName = model.FullName, Email = model.Email, UserName=model.FullName.Replace(" ","") };
                 var resultUser = await _userManager.CreateAsync(user, model.Password);
 
 
@@ -157,7 +160,7 @@ namespace E_Commerce_App.WebUI.Controllers
                     // email operations
                     await SendVerificationEmail(user, user.Email, baseUrl);
 
-                    return Json(new { message="Kullanıcı kaydı başarılı. Lütfen mail adresinizi doğrulayın."});
+                    return Json(new { message = "Kullanıcı kaydı başarılı. Lütfen mail adresinizi doğrulayın." });
                 }
             }
             return View(model);
