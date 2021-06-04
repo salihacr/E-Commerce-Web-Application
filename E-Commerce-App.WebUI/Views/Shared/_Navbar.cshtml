@@ -5,23 +5,23 @@
             if (User.IsInRole("admin"))
             {
                 <a class="navbar-brand" href="/">
-                    <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="30" class="d-inline-block align-top" alt="" href="/">
+                    <img src="/images/docker.svg" height="30" class="d-inline-block align-top" alt="" href="/">
                 </a>
                 <a href="/Admin/Dashboard"> Yönetim Paneli</a>
             }
             else
             {
                 <a class="navbar-brand" href="/">
-                    <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="30" class="d-inline-block align-top" alt="">
-                    Bootstrap
+                    <img src="/images/docker.svg" height="30" class="d-inline-block align-top" alt="">
+                    E-Pazar
                 </a>
             }
         }
         else
         {
             <a class="navbar-brand" href="/">
-                <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="30" class="d-inline-block align-top" alt="">
-                Bootstrap
+                <img src="/images/docker.svg" height="30" class="d-inline-block align-top" alt="">
+                E-Pazar
             </a>
         }
     </div>
@@ -46,9 +46,10 @@
         <div class="col-md-5">
             @if (User.Identity.IsAuthenticated)
             {
+
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/Account/Profile" id="usernameArea"><i class="fa fa-user"></i>&nbsp;</a>
+                        <a class="nav-link" href="/my-orders" id="usernameArea"><i class="fa fa-user"></i>&nbsp; Hesabım</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="/cart"><i class="fa fa-shopping-cart"></i>&nbsp;Sepetim</a>
@@ -57,14 +58,6 @@
                         <a class="nav-link" href="/Account/Logout"><i class="fa fa-sign-out-alt"></i>&nbsp;Çıkış Yap</a>
                     </li>
                 </ul>
-
-                <script>
-                    const usernameEl = document.querySelector("#usernameArea");
-
-                    var username = "@User.Identity.Name";
-                    var arr = username.split("__",);
-                    usernameEl.innerHTML += arr[0];
-                </script>
             }
             else
             {
@@ -85,12 +78,14 @@
     nav {
         font-family: 'Poppins', sans-serif;
     }
+
     a {
         transition: 1.0s !important;
     }
-    a:hover {
-        color: #3b4dd4 !important;
-    }
+
+        a:hover {
+            color: #3b4dd4 !important;
+        }
 
     #btn-search {
         background-image: linear-gradient(to right, #386ded, #3b4dd4);

@@ -19,6 +19,7 @@
     "datatables.net-responsive-bs4": "^2.2.7",
     "jquery": "^3.5.1",
     "jquery-validation": "^1.19.3",
+    "jquery-validation-unobtrusive": "^3.2.12",
     "jszip": "^3.6.0",
     "lightslider": "^1.1.6",
     "pdfmake": "^0.1.71",

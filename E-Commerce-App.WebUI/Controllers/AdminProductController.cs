@@ -129,11 +129,13 @@ namespace E_Commerce_App.WebUI.Controllers
             try
             {
                 var product = await _productService.SingleOrDefaultAsync(p => p.Id == id);
+
+                _productService.RemoveProduct(product);
                 _productService.Remove(product);
-                var productColors = await _productColorService.Where(p => p.ProductId == product.Id);
-                var productCategories = await _productCategoryService.Where(p => p.ProductId == product.Id);
-                _productColorService.RemoveRange(productColors);
-                _productCategoryService.RemoveRange(productCategories);
+                //var productColors = await _productColorService.Where(p => p.ProductId == product.Id);
+                //var productCategories = await _productCategoryService.Where(p => p.ProductId == product.Id);
+                //_productColorService.RemoveRange(productColors);
+                //_productCategoryService.RemoveRange(productCategories);
                 return Json(new { isValid = true, message = Messages.JSON_REMOVE_MESSAGE("Ürün"), html = Helpers.UIHelper.RenderRazorViewToString(this, "_AllProducts", await GetProducts()) });
             }
             catch (Exception ex)
@@ -147,6 +149,6 @@ namespace E_Commerce_App.WebUI.Controllers
          Get All Products (but public columns :D)
          */
         public async Task<IEnumerable<ProductDto>> GetProducts()
-            => _mapper.Map<IEnumerable<ProductDto>>(await _productService.GetAllAsync());
+            => _mapper.Map<IEnumerable<ProductDto>>(await _productService.Where(p=>p.IsActive));
     }
 }

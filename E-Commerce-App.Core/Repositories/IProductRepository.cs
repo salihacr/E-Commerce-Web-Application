@@ -42,5 +42,7 @@ namespace E_Commerce_App.Core.Repositories
         /// <param name="category"></param>
         /// <returns></returns>
         int GetCountByCategory(string category);
+
+        public void RemoveProduct(Product product);
     }
 }

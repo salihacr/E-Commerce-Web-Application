@@ -16,7 +16,7 @@ namespace E_Commerce_App.Data.Repositories
 
         public async Task<List<Product>> GetProductsByCategory(string name, int page, int pageSize)
         {
-            var products = _context.Products.Where(p => p.IsHome).AsQueryable();
+            var products = _context.Products.Where(p => p.IsHome && p.IsActive).AsQueryable();
             if (string.IsNullOrEmpty(name))
             {
                 products = products.Include(p => p.ProductCategories).ThenInclude(i => i.Category).Where(i => i.ProductCategories.Any(p => p.Category.Url.ToLower() == name.ToLower()));
@@ -38,16 +38,16 @@ namespace E_Commerce_App.Data.Repositories
 
         public async Task<List<Product>> GetHomePageProducts(int page, int pageSize)
         {
-            var products = _context.Products.Where(p => p.IsHome == true).AsQueryable();
+            var products = _context.Products.Where(p => p.IsHome == true && p.IsActive).AsQueryable();
             return await products.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
         }
 
-        public int GetProductCount() => _context.Products.Where(p => p.IsHome == true).Count();
+        public int GetProductCount() => _context.Products.Where(p => p.IsHome == true && p.IsActive).Count();
 
         public int GetProductCountBySearch(string query)
         {
             var products = _appDbContext.Products
-                            .Where(p => p.IsHome &&
+                            .Where(p => p.IsHome && p.IsActive &&
                             (p.Name.ToLower().Contains(query)
                             || p.ShortDescription.ToLower().Contains(query)
                             || p.Description.ToLower().Contains(query))).AsQueryable();
@@ -61,7 +61,7 @@ namespace E_Commerce_App.Data.Repositories
                 var products = _context.Products
                 .Include(product => product.ProductCategories)
                 .ThenInclude(productCategory => productCategory.Category)
-                .Where(i => i.ProductCategories.Any(a => a.Category.Name.ToLower() == category.ToLower()));
+                .Where(i => i.ProductCategories.Any(a => a.Category.Name.ToLower() == category.ToLower()) && (i.IsActive && i.IsHome) );
                 return products.Count();
             }
             return -1;
@@ -81,12 +81,16 @@ namespace E_Commerce_App.Data.Repositories
         {
             query = query.ToLower();
             var products = _appDbContext.Products
-                .Where(p => p.IsHome &&
+                .Where(p => p.IsHome && p.IsActive &&
                 (p.Name.ToLower().Contains(query)
                 || p.ShortDescription.ToLower().Contains(query)
                 || p.Description.ToLower().Contains(query))).AsQueryable();
 
             return await products.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+        }
+        public void RemoveProduct(Product product)
+        {
+          product.IsActive = false;
         }
     }
 }

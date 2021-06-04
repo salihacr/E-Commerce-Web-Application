@@ -18,6 +18,7 @@ namespace E_Commerce_App.Data
             modelBuilder.ApplyConfiguration(new ColorSeed());
             modelBuilder.ApplyConfiguration(new ProductSeed());
             modelBuilder.ApplyConfiguration(new CategorySeed());
+            modelBuilder.ApplyConfiguration(new CampaignSeed());
             modelBuilder.ApplyConfiguration(new ProductCategorySeed());
             modelBuilder.ApplyConfiguration(new ProductColorSeed());
             /* Configurations */
@@ -33,5 +34,6 @@ namespace E_Commerce_App.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<CreditCard> CreditCards { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
     }
 }

@@ -45,6 +45,11 @@ namespace E_Commerce_App.WebUI.Controllers
         {
             return View();
         }
+        [Route("my-profile")]
+        public IActionResult Profile()
+        {
+            return View();
+        }
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
@@ -129,11 +134,11 @@ namespace E_Commerce_App.WebUI.Controllers
                     // cart objesini oluşturalım
                     await _cartService.InitializeCart(user.Id);
                     //CreateMessage("hesabınız onaylandı", "hesabınız onaylandı.", "success");
-                    return View();
+                    return RedirectToAction(nameof(Login));
                 }
             }
             //CreateMessage("böyle biri yok", "böyle biri yok", "warning");
-            return View();
+            return Json(new { message="Böyle bir kullanıcı bulunamadı."});
         }
 
         [HttpPost]
