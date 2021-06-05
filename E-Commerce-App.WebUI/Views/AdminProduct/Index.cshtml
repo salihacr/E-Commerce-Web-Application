@@ -55,7 +55,6 @@
         });
 
         function removeProduct(id) {
-            toastr.success("test");
             Swal.fire({
                 title: "Silmek istediğinizden emin misiniz ?",
                 text: 'Silinen veri geri kullanılamaz!',
@@ -82,10 +81,7 @@
                                     `${res.message}`,
                                     'success'
                                 )
-                                await $('#view-all').html(res.html);
-                                await window.location.reload();
-
-
+                                window.location.reload();
                             },
                             error: function (err) {
                                 console.log(err.responseText);

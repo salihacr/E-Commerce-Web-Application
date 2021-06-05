@@ -129,9 +129,9 @@ namespace E_Commerce_App.WebUI.Controllers
             try
             {
                 var product = await _productService.SingleOrDefaultAsync(p => p.Id == id);
-
+                product.IsActive = false;
                 _productService.RemoveProduct(product);
-                _productService.Remove(product);
+                //_productService.Remove(product);
                 //var productColors = await _productColorService.Where(p => p.ProductId == product.Id);
                 //var productCategories = await _productCategoryService.Where(p => p.ProductId == product.Id);
                 //_productColorService.RemoveRange(productColors);

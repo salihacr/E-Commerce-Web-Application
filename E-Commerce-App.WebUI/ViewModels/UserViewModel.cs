@@ -16,9 +16,9 @@ namespace E_Commerce_App.WebUI.ViewModels
 
             [DataType(DataType.Password)]
             [StringLength(maximumLength:30,MinimumLength =8, ErrorMessage ="Parola 8 ile 30 karakter arasında olmalıdır.")]
-            public string Password { get; set; }
+            public string NewPassword { get; set; }
             [DataType(DataType.Password)]
-            [Compare("Password", ErrorMessage ="Şifreler aynı değil.")]
+            [Compare("NewPassword", ErrorMessage ="Şifreler aynı değil.")]
             public string RePassword { get; set; }
         }
         public class RegisterViewModel

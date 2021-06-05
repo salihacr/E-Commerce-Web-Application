@@ -10,87 +10,78 @@
 </head>
 <body>
     <div class="overlay">
-        <!-- LOGN IN FORM by Omar Dsoky -->
-        <form asp-controller="Account" asp-action="Register">
-            <!--   con = Container  for items in the form-->
+        <form asp-controller="Account" asp-action="Register" id="register-form">
             <div class="con">
-                <!--     Start  header Content  -->
                 <header class="head-form">
-                    <h2>Kayıt Ol</h2>
-                    <!--     A welcome message or an explanation of the login form -->
+                    <h2>E-Pazar</h2>
                     <p>
-                        login here using your username and password
+                        Kayıt olmak için formu doldurun.
                     </p>
                 </header>
-                <!--     End  header Content  -->
                 <br>
                 <div class="field-set">
-
-                    <!--   user name -->
                     <span class="input-item">
                         <i class="fa fa-user-circle"></i>
                     </span>
-                    <!--   user name Input-->
                     <input type="text" class="form-input" asp-for="@Model.FullName" id="txt-input" placeholder="Ad soyad" required>
-
                     <br />
-
-                    <!--   user name -->
                     <span class="input-item">
                         <i class="fa fa-envelope"></i>
                     </span>
-                    <!--   user name Input-->
                     <input type="text" class="form-input" asp-for="@Model.Email" id="txt-input" placeholder="Email adres" required>
-
                     <br>
-
-                    <!--   Password -->
-
                     <span class="input-item">
                         <i class="fa fa-key"></i>
                     </span>
-                    <!--   Password Input-->
                     <input type="password" class="form-input" asp-for="@Model.Password" placeholder="Parola" id="pwd" required>
-
-                    <!--      Show/hide password  -->
                     <span>
                         <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
                     </span>
                     <br>
-                    <!--        buttons -->
-                    <!--      button LogIn -->
                     <button class="log-in"> Kayıt Ol </button>
                 </div>
-
                 <header class="head-form">
-                    <!--     A welcome message or an explanation of the login form -->
                     <p>Zaten üye misiniz ? <a href="/Account/Login">Giris yap</a></p>
                 </header>
-
-                <!--   End Conrainer  -->
             </div>
-
-            <!-- End Form -->
         </form>
     </div>
 
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
-        // Show/hide password onClick of button using Javascript only
-
-        // https://stackoverflow.com/questions/31224651/show-hide-password-onclick-of-button-using-javascript-only
-
+        $('#register-form').on('submit', function (event) {
+            var formData = new FormData($('#register-form')[0]);
+            $.ajax({
+                type: 'POST',
+                url: "/Account/Register",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (res) {
+                    if (res.success) {
+                        window.location.href = res.redirectUrl;
+                    } else {
+                        toastr.warning(res.message);
+                    }
+                },
+                error: function (err) {
+                    toastr.error("Beklenmedik bir hata meydana geldi");
+                }
+            });
+            return false;
+        });
         function show() {
             var p = document.getElementById('pwd');
             p.setAttribute('type', 'text');
         }
-
         function hide() {
             var p = document.getElementById('pwd');
             p.setAttribute('type', 'password');
         }
-
         var pwShown = 0;
-
         document.getElementById("eye").addEventListener("click", function () {
             if (pwShown == 0) {
                 pwShown = 1;
@@ -100,8 +91,6 @@
                 hide();
             }
         }, false);
-
-
     </script>
 </body>
 </html>

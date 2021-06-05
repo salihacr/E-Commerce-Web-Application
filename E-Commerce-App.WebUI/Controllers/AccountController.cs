@@ -46,9 +46,35 @@ namespace E_Commerce_App.WebUI.Controllers
             return View();
         }
         [Route("my-profile")]
-        public IActionResult Profile()
+        public async Task<IActionResult> Profile()
         {
-            return View();
+            var user = await _userManager.GetUserAsync(User);
+            var model = new UserAccountViewModel() { FullName = user.FullName, Email = user.Email, NewPassword="", RePassword="" };
+            return View(model);
+        }
+        public async Task<IActionResult> ProfileEdit(UserAccountViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.GetUserAsync(User);
+
+                if ((model.Email.Equals(user.Email) && model.FullName.Equals(user.FullName)) 
+                    && string.IsNullOrEmpty(model.NewPassword))
+                {
+                    return Redirect("/my-profile");
+                }
+
+                user.Email = model.Email;
+                user.FullName = model.FullName;
+                if (!string.IsNullOrEmpty(model.NewPassword))
+                {
+                    await _userManager.RemovePasswordAsync(user);
+                    await _userManager.AddPasswordAsync(user, model.NewPassword);
+                }
+                await _userManager.UpdateAsync(user);
+                return Json(new {success=true, message = "Profil bilgileri başarıyla güncellendi." });
+            }
+            return Redirect(nameof(Profile));
         }
         public async Task<IActionResult> Logout()
         {
@@ -95,24 +121,24 @@ namespace E_Commerce_App.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) // ürün düzenlede ürünün aktifliği değişiyor onu hidden olarak ekle
             {
                 var user = await _userManager.FindByEmailAsync(model.Email);
 
-                if (user == null) return Json(new { message = "Email adresi veya parola hatalı." });
+                if (user == null) return Json(new { message = "Email adresi veya parola hatalı.", errorType=1 });
 
                 if (!await _userManager.IsEmailConfirmedAsync(user))
-                    return Json(new { message = "Email adresinizi onaylamak için lütfen maillerinizi kontrol ediniz." });
+                    return Json(new { message = "Email adresinizi onaylamak için lütfen maillerinizi kontrol ediniz.", errorType = 2 });
 
                 var result = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
 
                 if (result.Succeeded)
                 {
                     ViewData["user"] = user.Id;
-                    return Redirect(model.ReturnUrl ?? "~/");
+                    return Json(new { success = true, redirectUrl = "/" });// Redirect(model.ReturnUrl ?? "~/");
                 }
 
-                else return Json(new { message = "Email adresi veya parola hatalı." });
+                else return Json(new { message = "Email adresi veya parola hatalı.", errorType=1 });
             }
             return View(model);
         }
@@ -138,7 +164,7 @@ namespace E_Commerce_App.WebUI.Controllers
                 }
             }
             //CreateMessage("böyle biri yok", "böyle biri yok", "warning");
-            return Json(new { message="Böyle bir kullanıcı bulunamadı."});
+            return Json(new { message = "Böyle bir kullanıcı bulunamadı." });
         }
 
         [HttpPost]
@@ -148,9 +174,9 @@ namespace E_Commerce_App.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 // email exist control
-                if (await EmailExist(model.Email)) return Json(new { message = "E-mail adresi ile zaten kayıt yapılmış." });
+                if (await EmailExist(model.Email)) return Json(new { message = "E-mail adresi ile zaten kayıt yapılmış.", errorType = 3 });
 
-                var user = new User { FullName = model.FullName, Email = model.Email, UserName=model.FullName.Replace(" ","") };
+                var user = new User { FullName = model.FullName, Email = model.Email, UserName = model.FullName.Replace(" ", "") };
                 var resultUser = await _userManager.CreateAsync(user, model.Password);
 
 
@@ -165,7 +191,7 @@ namespace E_Commerce_App.WebUI.Controllers
                     // email operations
                     await SendVerificationEmail(user, user.Email, baseUrl);
 
-                    return Json(new { message = "Kullanıcı kaydı başarılı. Lütfen mail adresinizi doğrulayın." });
+                    return Json(new { message = "Kullanıcı kaydı başarılı. Lütfen mail adresinizi doğrulayın.", success=true });
                 }
             }
             return View(model);

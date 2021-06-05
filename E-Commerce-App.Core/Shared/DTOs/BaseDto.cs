@@ -9,5 +9,6 @@ namespace E_Commerce_App.Core.Shared.DTOs
         public DateTime? CreationDate { get; set; }
         [Display(Name = "Güncelleme Tarihi")]
         public DateTime? DateOfUpdate { get; set; }
+        public bool IsActive { get; set; }
     }
 }

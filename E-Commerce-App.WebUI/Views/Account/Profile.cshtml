@@ -13,27 +13,27 @@
     </div>
     <div class="col-md-9">
         <div class="col-md-12 mb-3">
-            <form user-account-form method="post" asp-controller="AdminDashboard" asp-action="ProfileEdit" id="user-account-form">
+            <form user-account-form method="post" asp-controller="Account" asp-action="ProfileEdit" id="user-account-form">
                 <div class="card p-5">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <small>Ad Soyad</small>
+                            <label>Ad Soyad</label>
                             <input class="form-control" placeholder="Teslim alacak kişinin adı" asp-for="@Model.FullName" />
                             <span class="text-danger" asp-validation-for="@Model.FullName"></span>
                         </div>
                         <div class="form-group col-md-6">
-                            <small>E-Mail</small>
+                            <label>E-Mail</label>
                             <input class="form-control" placeholder="Sistemdeki email adresiniz" asp-for="@Model.Email" readonly />
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <small>Yeni Şifre</small>
-                            <input type="password" class="form-control" name="Password" id="password" autocomplete="off" />
-                            <span class="text-danger" asp-validation-for="@Model.Password"></span>
+                            <label>Yeni Şifre</label>
+                            <input type="password" class="form-control" asp-for="@Model.NewPassword" autocomplete="new-password" />
+                            <span class="text-danger" asp-validation-for="@Model.NewPassword"></span>
                         </div>
                         <div class="form-group col-md-6">
-                            <small>Yeni Şifre Tekrar</small>
+                            <label>Yeni Şifre Tekrar</label>
                             <input type="password" class="form-control" asp-for="@Model.RePassword" />
                             <span class="text-danger" asp-validation-for="@Model.RePassword"></span>
                         </div>
@@ -46,3 +46,31 @@
         </div>
     </div>
 </div>
+@section Scripts{
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+
+    <script>
+        $('#user-account-form').on('submit', function (event) {
+            var formData = new FormData($('#user-account-form')[0]);
+            $.ajax({
+                type: 'POST',
+                url: "/Account/ProfileEdit",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (res) {
+                    if (res.success) {
+                        toastr.success(res.message);
+                    }
+                },
+                error: function (err) {
+                    toastr.error("Beklenmedik bir hata meydana geldi");
+                }
+            });
+            return false;
+        });
+    </script>
+    
+}

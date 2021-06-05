@@ -56,6 +56,7 @@ namespace E_Commerce_App.Business.Services
         public void RemoveProduct(Product product)
         {
             _unitOfWork.ProductRepository.RemoveProduct(product);
+            _unitOfWork.Commit();
         }
     }
 }

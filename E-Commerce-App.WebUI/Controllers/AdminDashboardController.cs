@@ -38,12 +38,19 @@ namespace E_Commerce_App.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 var user = await _userManager.GetUserAsync(User);
+
+                if ((model.Email.Equals(user.Email) && model.FullName.Equals(user.FullName))
+                    && string.IsNullOrEmpty(model.NewPassword))
+                {
+                    return Redirect(nameof(Profile));
+                }
+
                 user.Email = model.Email;
                 user.FullName = model.FullName;
-                if (!string.IsNullOrEmpty(model.Password))
+                if (!string.IsNullOrEmpty(model.NewPassword))
                 {
                     await _userManager.RemovePasswordAsync(user);
-                    await _userManager.AddPasswordAsync(user, model.Password);
+                    await _userManager.AddPasswordAsync(user, model.NewPassword);
                 }
                 await _userManager.UpdateAsync(user);
                 return Json(new { message = "Profil başarıyla güncellendi." });
