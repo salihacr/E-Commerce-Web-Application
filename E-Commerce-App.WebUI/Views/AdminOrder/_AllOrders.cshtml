@@ -42,13 +42,19 @@
         @{var counter = 1; }
         @foreach (var item in Model)
         {
+
+            var orderState = item.OrderState == EnumOrderState.Paid ? "Ödendi, kargoyu bekliyor."
+                : item.OrderState == EnumOrderState.InShipping ? "Kargoya verildi."
+                : item.OrderState == EnumOrderState.Cancelled ? "İptal edildi."
+                : item.OrderState == EnumOrderState.Completed ? "Tamamlandı."
+                : "Sipariş Hatası";
             var date = (DateTime)item.CreationDate;
             <tr>
-                <td>@counter</td>
+                <td style="text-align:center;"><b>@counter</b></td>
                 <td>@item.FirstName @item.LastName</td>
                 <td>@date.ToString("dd MMMM yyyy | HH:mm", CultureInfo.CreateSpecificCulture("tr"))</td>
                 <td>@item.TotalPrice ₺</td>
-                <td>@item.OrderState</td>
+                <td>@orderState</td>
                 <td><a href="/Admin/Order/@item.Id" class="btn btn-primary btn-block">İncele</a></td>
                 @{counter++;}
             </tr>

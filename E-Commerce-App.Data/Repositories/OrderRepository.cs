@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace E_Commerce_App.Data.Repositories
 {
-    // TODO eğer bir ürün admin tarafından silinirse tüm sepetlerden silinsin.
     public class OrderRepository : Repository<Order>, IOrderRepository
     {
         private AppDbContext _appDbContext { get => _context; }
@@ -30,10 +30,16 @@ namespace E_Commerce_App.Data.Repositories
         //}
         public async Task<List<OrderItem>> GetByUserIdAsync(string userId)
         {
-            var orderItems =  await _appDbContext.OrderItems
-                .Include(i=>i.Product).Where(x=>x.Order.UserId == userId).Include(i => i.Order)
+            var orderItems = await _appDbContext.OrderItems
+                .Include(i => i.Product).Where(x => x.Order.UserId == userId).Include(i => i.Order)
                 .ToListAsync();
             return orderItems;
+        }
+
+        public async Task EditOrderState(int orderId, EnumOrderState orderState)
+        {
+            var order = await _appDbContext.Orders.SingleOrDefaultAsync(p => p.Id == orderId);
+            order.OrderState = orderState;
         }
     }
 }

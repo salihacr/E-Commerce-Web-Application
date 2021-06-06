@@ -130,7 +130,7 @@ namespace E_Commerce_App.WebUI.Controllers
             {
                 var product = await _productService.SingleOrDefaultAsync(p => p.Id == id);
                 product.IsActive = false;
-                _productService.RemoveProduct(product);
+                _productService.RemoveProduct(product); // carttan sil ürünleri bu islemden sonra
                 //_productService.Remove(product);
                 //var productColors = await _productColorService.Where(p => p.ProductId == product.Id);
                 //var productCategories = await _productCategoryService.Where(p => p.ProductId == product.Id);

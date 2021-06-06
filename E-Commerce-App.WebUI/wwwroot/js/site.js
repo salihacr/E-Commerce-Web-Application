@@ -21,6 +21,22 @@ showInPopup = (url, title) => {
     })
 }
 
+showInPopupWithId = (orderItemId, url, title) => {
+    var data = { orderItemId: orderItemId };
+    console.log(orderItemId, url, title);
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data:data,
+        success: function (res) {
+            $('#form-modal .modal-body').html(res);
+            $('#form-modal .modal-title').html(title);
+            $('#form-modal').modal('show');
+        }
+    })
+}
+
+
 jQueryAjaxPost = form => {
     try {
         $.ajax({
@@ -89,6 +105,3 @@ String.prototype.turkishToLower = function () {
     string = string.replace(/(([İIŞĞÜÇÖ]))+/g, function (letter) { return letters[letter]; })
     return string.toLowerCase();
 }
-
-var searchLbl = $(".dataTables_filter > label").text();
-console.log(searchLbl);

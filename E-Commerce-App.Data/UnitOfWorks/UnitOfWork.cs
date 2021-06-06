@@ -17,6 +17,7 @@ namespace E_Commerce_App.Data.UnitOfWorks
         private ProductRepository _productRepository;
         private CartRepository _cartRepository;
         private OrderRepository _orderRepository;
+        private OrderItemRepository _orderItemRepository;
 
         public ICategoryRepository CategoryRepository => _categoryRepository = _categoryRepository ?? new CategoryRepository(_context);
 
@@ -25,6 +26,7 @@ namespace E_Commerce_App.Data.UnitOfWorks
         public ICartRepository CartRepository => _cartRepository = _cartRepository ?? new CartRepository(_context);
 
         public IOrderRepository OrderRepository => _orderRepository = _orderRepository ?? new OrderRepository(_context);
+        public IOrderItemRepository OrderItemRepository => _orderItemRepository = _orderItemRepository ?? new OrderItemRepository(_context);
 
         public void Commit()
         {

@@ -11,6 +11,7 @@ namespace E_Commerce_App.Core.UnitOfWorks
         IProductRepository ProductRepository { get; }
         ICartRepository CartRepository { get; }
         IOrderRepository OrderRepository { get; }
+        IOrderItemRepository OrderItemRepository { get; }
 
         Task CommitAsync();
         void Commit();

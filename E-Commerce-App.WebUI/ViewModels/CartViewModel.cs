@@ -4,6 +4,14 @@ using System.Linq;
 
 namespace E_Commerce_App.WebUI.ViewModels
 {
+    public class CommentViewModel
+    {
+        // orderın yorumunu güncelle
+        // 
+        public int OrderItemId { get; set; }
+        public bool HasComment { get; set; }
+        public RatingDto Rating { get; set; }
+    }
     public class CartViewModel
     {
         public int CartId { get; set; }

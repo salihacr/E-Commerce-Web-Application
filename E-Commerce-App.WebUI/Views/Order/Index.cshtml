@@ -25,20 +25,46 @@
                 }
                 else
                 {
-                    @foreach (var item in Model.OrderItems.Zip(Model.OrderDates, Tuple.Create))
+                    (List<OrderItemDto>, List<string>, List<RatingDto>) list = (Model.OrderItems, Model.OrderDates, Model.Ratings);
+
+                    @foreach (var item in Model.OrderItems.Zip(Model.OrderDates, Tuple.Create).Zip(Model.Ratings, Tuple.Create))
                     {
-                        var price = item.Item1.Product.Discount > 0 ? item.Item1.Product.Price - ((item.Item1.Product.Price * item.Item1.Product.Discount) / 100) : item.Item1.Product.Price;
+                        var counter = 0;
+                        var price = item.Item1.Item1.Price;
+                        var orderState = item.Item1.Item1.Order.OrderState == EnumOrderState.Paid ? "Ödendi, kargoyu bekliyor."
+                            : item.Item1.Item1.Order.OrderState == EnumOrderState.InShipping ? "Kargoya verildi."
+                            : item.Item1.Item1.Order.OrderState == EnumOrderState.Cancelled ? "İptal edildi."
+                            : item.Item1.Item1.Order.OrderState == EnumOrderState.Completed ? "Teslim edildi."
+                            : "Sipariş Hatası";
+
                         <div class="p-2">
                             <div class="row">
-                                <div class="col-md-3"><img src="/img/@item.Item1.Product.MainImage" width="100" height="100" /></div>
+                                <div class="col-md-3"><img src="/img/@item.Item1.Item1.Product.MainImage" width="100" height="100" /></div>
                                 <div class="col-md-6">
-                                    <h6>@item.Item1.Product.Name</h6>
-                                    <h6><b>@(item.Item1.Quantity) Adet</b></h6>
-                                    <h6><b>@(price * item.Item1.Quantity) TL</b></h6>
+                                    <h6>@item.Item1.Item1.Product.Name</h6>
+                                    <h6><b>@(item.Item1.Item1.Quantity) Adet</b></h6>
+                                    <h6><b>@(price * item.Item1.Item1.Quantity) TL</b></h6>
                                 </div>
                                 <div class="col-md-3">
-                                    <p>@item.Item2</p>
-                                    <button class="btn btn-success">Değerlendir</button>
+                                    @* rating id yi buradaki modele ekle user order view modele yani gerci ordan ulasılabilir *@
+                                    <p>@item.Item1.Item2</p>
+
+                                    @{ var action = item.Item1.Item1.HasComment
+                                                     ? Url.Action("CommentAddOrEdit", "Order", new { id = item.Item2.Id }, Context.Request.Scheme)
+                                                     : Url.Action("CommentAddOrEdit", "Order", null, Context.Request.Scheme);}
+
+                                    @if (item.Item1.Item1.HasComment)
+                                    {
+                                        <a onclick="showInPopupWithId(@item.Item1.Item1.Id, '@Url.Action("CommentAddOrEdit", "Order", new { id = item.Item2.Id }, Context.Request.Scheme)', 'Değerlendir')"
+                                           class="btn btn-secondary text-white"><i class="fas fa-pencil-alt"></i> Değerlendir</a>
+                                    }
+                                    else
+                                    {
+                                        <a onclick="showInPopupWithId(@item.Item1.Item1.Id, '@Url.Action("CommentAddOrEdit", "Order", null, Context.Request.Scheme)','Değerlendir')"
+                                           class="btn btn-success btn-block text-white"><i class="fas fa-plus-circle"></i> Değerlendir</a>
+                                    }
+                                    <hr />
+                                    <p>@orderState</p>
                                 </div>
                             </div>
                         </div>

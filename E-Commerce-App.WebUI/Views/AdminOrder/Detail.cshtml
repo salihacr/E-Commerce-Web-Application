@@ -34,6 +34,7 @@
                                 <h6>@item.Product.Name</h6>
                                 <h6><b>@(item.Quantity) Adet</b></h6>
                                 <h6><b>@(price * item.Quantity) TL</b></h6>
+                                <h6><b>@item.SelectedColor</b></h6>
                             </div>
                         </div>
                     </div>
@@ -43,7 +44,6 @@
         </div>
     </div>
     <div class="col-md-6">
-        <!-- AREA CHART -->
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Sipariş Durumu</h3>
@@ -57,13 +57,78 @@
                 </div>
             </div>
             <div class="card-body">
+                @{
+                    var orderState = Model.OrderDto.OrderState == EnumOrderState.Paid ? "Ödendi, kargoyu bekliyor."
+                        : Model.OrderDto.OrderState == EnumOrderState.InShipping ? "Kargoya verildi."
+                        : Model.OrderDto.OrderState == EnumOrderState.Cancelled ? "İptal edildi."
+                        : Model.OrderDto.OrderState == EnumOrderState.Completed ? "Tamamlandı."
+                        : "Sipariş Hatası";
 
+                    var date = Model.OrderDto.OrderDate;
+                    string orderDate = date.ToString("dd MMMM yyyy HH:mm", CultureInfo.CreateSpecificCulture("tr"));
+                }
+                <h3 class="mt-2"><b>@orderDate</b> | Sipariş No : <b>@Model.OrderDto.ConversationId.Split("_")[0]</b></h3>
+                <hr />
+                <h4 class="mt-2 text-center">Sipariş Durumu : <b class="text-danger">@orderState</b></h4>
+                <hr />
+                <h6>
+                    Adres : <b>@Model.OrderDto.Address | @Model.OrderDto.City | @Model.OrderDto.District</b>
+                </h6>
+                <hr />
+                <h6>
+                    Alıcı : <b>@Model.OrderDto.FirstName @Model.OrderDto.LastName</b>
+                </h6>
+                <hr />
+                @if (Model.OrderDto.OrderState != EnumOrderState.Cancelled)
+                {
+                    <h6>Sipariş Durumunu Güncelle</h6>
+                    <form asp-controller="AdminOrder" asp-action="EditOrderState" id="form-order-state">
+                        @* kişiyi eklerken id vermeyi dene *@
+                        <input type="hidden" asp-for="@Model.OrderDto.Id" id="order-no" />
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <select asp-for="OrderDto.OrderState" class="form-control">
+                                    <option value="">Seçiniz...</option>
+                                    <option value="@EnumOrderState.InShipping">Kargoya verildi.</option>
+                                    <option value="@EnumOrderState.Completed">Tamamlandı.</option>
+                                    <option value="@EnumOrderState.Cancelled">İptal edildi.</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="submit" class="btn btn-outline-primary btn-block" value="Kaydet" />
+                            </div>
+                        </div>
+                    </form>
+                }
             </div>
         </div>
     </div>
 </div>
 @section Scripts{
     <script>
-
+        $('#form-order-state').on('submit', function (event) {
+            var formData = new FormData($('#form-order-state')[0]);
+            var id = $('#order-no').val();
+            console.log(id);
+            $.ajax({
+                type: 'POST',
+                url: "/Admin/Order/EditOrderState",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: async function (res) {
+                    if (res.success) {
+                        await toastr.success(res.message);
+                        window.location.href = res.redirectUrl;
+                    } else {
+                        toastr.warning(res.message);
+                    }
+                },
+                error: function (err) {
+                    toastr.error("Beklenmedik bir hata meydana geldi");
+                }
+            });
+            return false;
+        });                                            // formu gönder sonra sayfayı yenile
     </script>
 }

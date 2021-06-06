@@ -9,5 +9,6 @@ namespace E_Commerce_App.Core.Repositories
         Task<Order> GetOrderWithItems(object orderId);
 
         Task<List<OrderItem>> GetByUserIdAsync(string userId);
+        Task EditOrderState(int orderId, EnumOrderState orderState);
     }
 }

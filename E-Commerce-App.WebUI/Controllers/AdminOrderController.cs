@@ -40,10 +40,20 @@ namespace E_Commerce_App.WebUI.Controllers
 
             return View(model);
         }
+        [Route("EditOrderState")]
         [HttpPost]
-        public async Task<IActionResult> Detail(OrderViewModel orderModel)
+        public async Task<IActionResult> EditOrderState(OrderViewModel model)
         {
-            return View();
+            try
+            {
+                if(model.OrderDto.OrderState<0) return Json(new { success = false, message = "Lütfen bir sipariş durumu seçiniz." });
+                await _orderService.EditOrderState(model.OrderDto.Id, model.OrderDto.OrderState);
+                return Json(new { success = true, message = "Sipariş durumu güncellendi.", redirectUrl = "/Admin/Order/"+model.OrderDto.Id});
+            }
+            catch (System.Exception)
+            {
+                return Json(new { success = false, message = "Sipariş durumu güncellenirken hata meydana geldi." });
+            }
         }
 
 

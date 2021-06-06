@@ -6,6 +6,7 @@
         public double Price { get; set; }
         public int Quantity { get; set; }
         public string SelectedColor { get; set; }
+        public bool HasComment { get; set; }
         public int OrderId { get; set; }
         public Order Order { get; set; }
 

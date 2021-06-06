@@ -97,6 +97,7 @@ namespace E_Commerce_App.WebUI
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICartService, CartService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IOrderItemService, OrderItemService>();
 
 
             // email sender dependency injection
