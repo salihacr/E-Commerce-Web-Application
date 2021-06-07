@@ -4,14 +4,16 @@ using E_Commerce_App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace E_Commerce_App.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210607181947_db5")]
+    partial class db5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,7 +99,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 727, DateTimeKind.Local).AddTicks(4018),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 529, DateTimeKind.Local).AddTicks(1008),
                             ImageAltTag = "iphone kampanya",
                             ImagePath = "/images/iphone-kampanya.png",
                             IsActive = false,
@@ -106,7 +108,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 727, DateTimeKind.Local).AddTicks(4115),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 529, DateTimeKind.Local).AddTicks(1128),
                             ImageAltTag = "samsung tv kampanya",
                             ImagePath = "/images/samsung-tv-kampanya.png",
                             IsActive = false,
@@ -115,7 +117,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 727, DateTimeKind.Local).AddTicks(4119),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 529, DateTimeKind.Local).AddTicks(1134),
                             ImageAltTag = "pc kampanya",
                             ImagePath = "/images/pc-kampanya.png",
                             IsActive = false,
@@ -229,7 +231,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5811),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 528, DateTimeKind.Local).AddTicks(2269),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Telefon",
@@ -238,7 +240,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5896),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 528, DateTimeKind.Local).AddTicks(2367),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Bilgisayar",
@@ -247,7 +249,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5900),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 528, DateTimeKind.Local).AddTicks(2372),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Tv, Ev Elektroniği",
@@ -256,7 +258,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5902),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 528, DateTimeKind.Local).AddTicks(2374),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Bilgisayar Parçaları",
@@ -265,7 +267,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5904),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 528, DateTimeKind.Local).AddTicks(2376),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Foto, Kamera",
@@ -274,7 +276,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5910),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 528, DateTimeKind.Local).AddTicks(2383),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Aksesuar",
@@ -283,7 +285,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5912),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 528, DateTimeKind.Local).AddTicks(2385),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Oyun, Hobi",
@@ -292,7 +294,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5914),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 528, DateTimeKind.Local).AddTicks(2387),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Ev, Mutfak",
@@ -609,7 +611,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "1",
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 723, DateTimeKind.Local).AddTicks(7232),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 524, DateTimeKind.Local).AddTicks(8451),
                             Description = "aciklama 1",
                             Discount = 5.0,
                             IsActive = true,
@@ -623,7 +625,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "2",
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 725, DateTimeKind.Local).AddTicks(5177),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 527, DateTimeKind.Local).AddTicks(443),
                             Description = "aciklama 2",
                             Discount = 5.0,
                             IsActive = true,
@@ -637,7 +639,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "3",
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 725, DateTimeKind.Local).AddTicks(5288),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 527, DateTimeKind.Local).AddTicks(571),
                             Description = "aciklama 3",
                             Discount = 5.0,
                             IsActive = true,
@@ -651,7 +653,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "4",
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 725, DateTimeKind.Local).AddTicks(5293),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 527, DateTimeKind.Local).AddTicks(577),
                             Description = "aciklama 4",
                             Discount = 5.0,
                             IsActive = true,
@@ -665,7 +667,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "5",
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 725, DateTimeKind.Local).AddTicks(5296),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 527, DateTimeKind.Local).AddTicks(580),
                             Description = "aciklama 5",
                             Discount = 10.0,
                             IsActive = true,
@@ -679,7 +681,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "6",
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 725, DateTimeKind.Local).AddTicks(5305),
+                            CreationDate = new DateTime(2021, 6, 7, 21, 19, 46, 527, DateTimeKind.Local).AddTicks(600),
                             Description = "aciklama 6",
                             Discount = 20.0,
                             IsActive = true,
@@ -846,6 +848,9 @@ namespace E_Commerce_App.Data.Migrations
 
                     b.Property<string>("ProductId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

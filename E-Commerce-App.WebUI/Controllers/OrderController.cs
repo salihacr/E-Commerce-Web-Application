@@ -50,9 +50,19 @@ namespace E_Commerce_App.WebUI.Controllers
             string userId = _userManager.GetUserId(User);
             var orderItems = await _orderService.GetByUserIdAsync(userId);
             var orderDates = new List<string>();
-            var ratings = new List<RatingDto>();
-            var commented = new List<string>();
-            var i = 0;
+            var ratings = new List<RatingDto>(); //
+            var toComment = new List<string>();// yes, no olsun
+
+            // orderitemları sırala bir önceki ile aynı ise ekleme değilse ekle
+            orderItems = orderItems.OrderBy(p => p.ProductId).ToList();
+
+            for (int i = 0; i < orderItems.Count; i++)
+            {
+                if (i == 0) { toComment.Add("yes"); }
+                else if (!orderItems[i].ProductId.Equals(orderItems[i - 1].ProductId))
+                    toComment.Add("yes");
+                else toComment.Add("no");
+            }
             foreach (var item in orderItems)
             {
                 var date = item.Order.OrderDate.ToString("dd MMMM yyyy | HH:mm", CultureInfo.CreateSpecificCulture("tr"));
@@ -60,17 +70,13 @@ namespace E_Commerce_App.WebUI.Controllers
                 var rating = await _ratingService.SingleOrDefaultAsync(p => p.OrderItemId == item.Id);
                 if (rating == null) ratings.Add(new RatingDto());
                 else ratings.Add(_mapper.Map<RatingDto>(rating));
-
-                if (ratings.ElementAt(i).ProductId == item.ProductId) commented.Add("commented");
-                else commented.Add("not-commented");
-                i++;
             }
             var model = new UserOrderViewModel()
             {
-                OrderItems = _mapper.Map<List<OrderItemDto>>(orderItems),
+                OrderItems = _mapper.Map<List<OrderItemDto>>(orderItems).OrderBy(p => p.OrderId).ToList(),
                 OrderDates = orderDates,
                 Ratings = ratings,
-                AlreadyCommented = commented
+                ToComment = toComment
             };
 
             return View(model);
@@ -87,11 +93,8 @@ namespace E_Commerce_App.WebUI.Controllers
             {
                 var orderItem = await _orderItemService.GetByIdAsync(orderItemId);
                 var model = new CommentViewModel() { Rating = _mapper.Map<RatingDto>(rating), HasComment = orderItem.HasComment, OrderItemId = orderItem.Id };
-
                 return View(model);
-
             }
-
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

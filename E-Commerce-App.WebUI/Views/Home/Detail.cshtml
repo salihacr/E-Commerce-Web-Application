@@ -520,7 +520,7 @@
                         <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Ürün Açıklaması</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Yorumlar (0)</a>
+                        <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Değerlendirmeler (@Model.Ratings.Count)</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -528,8 +528,21 @@
                         @Html.Raw(Model.ProductDto.Description)
                     </div>
                     <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-                        <div class="review-heading">REVIEWS</div>
-                        <p class="mb-20">There are no reviews yet.</p>
+                        @if (Model.Ratings.Count < 1)
+                        {
+
+
+                            <p class="mb-20">Bu ürün için henüz bir değerlendirme yapılmadı.</p>
+                        }
+                        @* https://codepen.io/jamesbarnett/pen/vlpkh yıldız falan filan *@
+                        else
+                        {
+                            foreach (var item in Model.Ratings)
+                            {
+                                <p>@item.Comment    |   @item.Point</p>
+                                <hr />
+                            }
+                        }
                     </div>
                 </div>
             </div>

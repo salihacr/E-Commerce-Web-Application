@@ -19,6 +19,6 @@ namespace E_Commerce_App.WebUI.ViewModels
         public List<OrderItemDto> OrderItems { get; set; }
         public List<string> OrderDates { get; set; }
         public List<RatingDto> Ratings { get; set; }
-        public List<string> AlreadyCommented { get; set; }
+        public List<string> ToComment { get; set; }
     }
 }

@@ -14,5 +14,6 @@ namespace E_Commerce_App.WebUI.ViewModels
         // TODO comments tablosu eklenecek
         public IEnumerable<ColorDto> Colors { get; set; }
         public IEnumerable<ColorDto> SelectedColors { get; set; }
+        public List<RatingDto> Ratings { get; set; }
     }
 }

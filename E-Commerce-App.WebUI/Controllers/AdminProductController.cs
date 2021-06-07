@@ -22,6 +22,7 @@ namespace E_Commerce_App.WebUI.Controllers
         private readonly IService<ProductCategory> _productCategoryService;
         private readonly IService<Image> _imageService;
         private readonly IService<Color> _colorService;
+        private readonly IService<CartItem> _cartItemService;
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
         private readonly ProductCRUDHelper _crudHelper;
@@ -32,7 +33,7 @@ namespace E_Commerce_App.WebUI.Controllers
             IService<Image> imageService,
             IProductService productService,
             ICategoryService categoryService,
-            IMapper mapper)
+            IMapper mapper, IService<CartItem> cartItemService)
         {
             _colorService = colorService;
             _productColorService = productColorService;
@@ -42,6 +43,7 @@ namespace E_Commerce_App.WebUI.Controllers
             _categoryService = categoryService;
             _mapper = mapper;
             _crudHelper = new ProductCRUDHelper(productColorService, productCategoryService, imageService, mapper);
+            _cartItemService = cartItemService;
         }
         [HttpGet]
         public async Task<IActionResult> Index()
@@ -129,8 +131,15 @@ namespace E_Commerce_App.WebUI.Controllers
             try
             {
                 var product = await _productService.SingleOrDefaultAsync(p => p.Id == id);
+
+                // ürün silineceği için sepetlerde bulunan bu ürünü kaldırıyoruz.
+                var cartItems = await _cartItemService.Where(p => p.ProductId == product.Id);
+                _cartItemService.RemoveRange(cartItems);
+
                 product.IsActive = false;
                 _productService.RemoveProduct(product); // carttan sil ürünleri bu islemden sonra
+                
+
                 //_productService.Remove(product);
                 //var productColors = await _productColorService.Where(p => p.ProductId == product.Id);
                 //var productCategories = await _productCategoryService.Where(p => p.ProductId == product.Id);
