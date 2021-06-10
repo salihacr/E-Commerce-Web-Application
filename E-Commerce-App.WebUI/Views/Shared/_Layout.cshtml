@@ -1,30 +1,21 @@
 ﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - E_Commerce_App.WebUI</title>
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Bootstrap Css -->
-    <link rel="stylesheet" href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="~/node_modules/@@fortawesome/fontawesome-free/css/all.min.css" />
+    <title>E-Pazar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Site Css -->
     <link rel="stylesheet" href="~/css/site.css" />
-
     <!-- Sweet Alert2 Css -->
     <link href="~/node_modules/sweetalert2/dist/sweetalert2.all.min.css" />
     <!-- Toastr Css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="~/css/toastr.min.css" />
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/node_modules/@@fortawesome/fontawesome-free/css/all.min.css" />
 
+    <!-- Page Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
     @RenderSection("Css", false)
 </head>
 <body>
@@ -38,17 +29,6 @@
 
     @await Html.PartialAsync("_Footer")
 
-    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE -->
-    <script src="~/js/adminlte.js"></script>
-    <!-- Site JS-->
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <!-- Toastr JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <!-- Sweet Alert2 JS  -->
-    <script src="~/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-
     <!-- AddOrEdit Modal -->
     <div class="modal fade" tabindex="-1" role="dialog" id="form-modal">
         <div class="modal-dialog" role="document">
@@ -60,12 +40,23 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
                 </div>
             </div>
         </div>
     </div>
     <!-- End Of Modal -->
+    <!-- Bootstrap & Jquery -->
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Site JS-->
+    <script src="~/js/site.js"></script>
+    <!-- Toastr JS -->
+    <script src="~/js/toastr.min.js"></script>
+    <!-- Sweet Alert2 JS  -->
+    <script src="~/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- jQuery Validation JS -->
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/additional-methods.min.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

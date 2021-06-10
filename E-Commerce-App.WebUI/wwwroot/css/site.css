@@ -1,4 +1,7 @@
-﻿#toast-container > .toast-success {
+﻿body {
+    font-family: 'Poppins', sans-serif !important;
+}
+#toast-container > .toast-success {
     background-color: #28a745 !important;
 }
 
