@@ -107,7 +107,6 @@ namespace E_Commerce_App.WebUI.Controllers
                     var orderItem = await _orderItemService.SingleOrDefaultAsync(p => p.Id == model.OrderItemId);
                     model.Rating.ProductId = orderItem.ProductId;
                     model.Rating.OrderItemId = orderItem.Id;
-                    // orderitem ın yorum yapıldı durumunu güncelle  => entitystate
                     await _orderItemService.AddComment(model.OrderItemId);
                     if (model.Rating.Id == 0)
                     {
@@ -164,7 +163,6 @@ namespace E_Commerce_App.WebUI.Controllers
                         ImageUrl = i.Product.MainImage,
                     }).ToList()
                 };
-
 
                 var payment = PaymentHelper.PaymentProcess(orderModel);
 

@@ -58,6 +58,11 @@
     <!-- Toastr JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
+
+        toastr.options = {
+            "positionClass": "toast-bottom-right",
+        }
+
         $('#login-form').on('submit', function (event) {
             var formData = new FormData($('#login-form')[0]);
             $.ajax({
@@ -68,7 +73,8 @@
                 processData: false,
                 success: function (res) {
                     if (res.success) {
-                        window.location.href = res.redirectUrl;
+                        toastr.success("Giriş başarılı.");
+                        setTimeout(() => { window.location.href = res.redirectUrl; }, 2000);
                     } else {
                         toastr.warning(res.message);
                     }

@@ -4,28 +4,7 @@
     ViewData["SubPageUrl"] = "Product";
 }
 @section Css{
-    @*
-
-        TODO  Resim ekleme yerlerine validasyon yap accept de ekle aynı zamanda ^_-
-        TODO  ALERTLERİN HEPSİ SWEETALERT2 OLSUN.                               ^_-
-        TODO EKLENMEMİŞ KÜTÜPHANELERİ EKLE                                      ^_-
-        TODO ÜRÜN DEĞİŞİMLERİ ANINDA YANSISIN SİGNALR ile olabilir              ^_-
-        TODO ALERT METODU SABİT BİR YERDE OLSUN PARAMETRE İLE ÇALIŞSIN site.js) ^_-
-        TODO JSON RETURNLER KESİNLİKLE MESAJ DÖNSÜN                             ^_-
-
-    *@
-    <style>
-        .margin-10 {
-            margin-top: -10px;
-        }
-    </style>
-
     @{await Html.RenderPartialAsync("_DataTableStylesPartial");}
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    <link href="~/node_modules/toastr/build/toastr.min.css" />
-    <link href="~/node_modules/sweetalert2/dist/sweetalert2.all.min.css" />
 }
 <div class="row">
     <div class="col-12">
@@ -36,93 +15,9 @@
         </div>
     </div>
 </div>
-
-
 @section Scripts{
+    <!-- Admin Product List Custom JS -->
+    <script src="~/customPagesJs/adminProductList.js"></script>
+    <!-- Datatables JS -->
     @{await Html.RenderPartialAsync("_DataTableScriptsPartial");}
-
-    <script src="~/js/demo.js"></script>
-
-    <!-- Sweet Alert  -->
-    <script src="~/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $("#example1").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["excel", "csv"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        });
-
-        function removeProduct(id) {
-            Swal.fire({
-                title: "Silmek istediğinizden emin misiniz ?",
-                text: 'Silinen veri geri kullanılamaz!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sil !',
-                cancelButtonText: 'İptal !'
-            }).then((data) => {
-                console.log(data);
-                try {
-                    if (data.isConfirmed) {
-                        $.ajax({
-                            type: 'POST',
-                            url: "/Admin/Product/DeleteProduct/" + id,
-                            data: "{id:'" + id + "'}",
-                            contentType: false,
-                            processData: false,
-                            success: async function (res) {
-                                console.log(res);
-                                await Swal.fire(
-                                    'Silme Başarılı !',
-                                    `${res.message}`,
-                                    'success'
-                                )
-                                window.location.reload();
-                            },
-                            error: function (err) {
-                                console.log(err.responseText);
-                                Swal.fire(
-                                    'Silme Hatası !',
-                                    `${err}`,
-                                    'error'
-                                )
-                            }
-                        })
-                    }
-                } catch (ex) {
-                    console.log(ex)
-                }
-            });
-        }
-    </script>
 }
-@*
-
-    en mantıklı çözüm bu silinen hücrenin üst tr objesini datatabledan kaldırmak
-
-    $(document).on('click', '[id^="delete-product-"]', function() {
-        var $button = $(this);
-        var id = this.id.split('-').pop();
-        var table = $('#table_id_selector').DataTable(); // replace with your table id
-        selector
-        $.ajax({
-            type: 'post',
-            url: 'my_controller/delete_product',
-            dataType: 'json',
-            data: {id: id},
-            success: function(callback)
-            {
-                table.row( $button.parents('tr') ).remove().draw();
-            },
-            error: function(status)
-            {
-                console.log(status);
-            }
-        });
-    });
-
-*@

@@ -1,44 +1,17 @@
-﻿@{
-    Layout = null;
-}
-
-@using System.Globalization;
+﻿@{Layout = null;}
 @model IEnumerable<E_Commerce_App.Core.Shared.DTOs.ProductDto>
 
-<style>
-    td {
-        vertical-align: middle !important;
-    }
-
-    th {
-        vertical-align: middle !important;
-    }
-</style>
-
-<table id="example1" class="table table-hover table-striped table-bordered" style="width:100%">
+<table id="products-table" class="table table-hover table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
+            <th>#</th>
+            <th>@Html.DisplayNameFor(model => model.MainImage)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Price)</th>
+            <th>@Html.DisplayNameFor(model => model.Url)</th>
+            <th> @Html.DisplayNameFor(model => model.CreationDate)</th>
             <th>
-                #
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MainImage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Url)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreationDate)
-            </th>
-            <th>
-                <a href="/Admin/Product/Add"
-                   class="btn btn-success btn-block text-white"><i class="fas fa-plus-circle"></i> Yeni Ürün</a>
+                <a href="/Admin/Product/Add" class="btn btn-success btn-block text-white"><i class="fas fa-plus-circle"></i> Yeni Ürün</a>
             </th>
         </tr>
     </thead>
@@ -46,8 +19,6 @@
         @{var counter = 1;}
         @foreach (var item in Model)
         {
-
-
             var date = (DateTime)item.CreationDate;
 
             double discountedPrice = 0;
@@ -57,13 +28,10 @@
             {
                 discountedPrice = Convert.ToDouble(item.Price - ((item.Price * item.Discount) / 100));
             }
-
             var absPrice = item.Discount != null && item.Discount > 0 ? discountedPrice : price;
-
             <tr>
-                <td style="text-align:center;">
-                    <b>@counter</b>
-                </td>
+                <td style="text-align:center;"><b>@counter</b></td>
+
                 <td style="text-align: center;">
                     <img src="~/img/@item.MainImage" width="50" height="50" />
                 </td>
@@ -73,26 +41,20 @@
                         if (item.Name.Length > 10)
                             productName = item.Name.Substring(0, 9) + "...";
                         else productName = item.Name;
-
                     }
                     @productName
                 </td>
-                <td>
-                    <b>@absPrice ₺</b>
-                </td>
+                <td><b>@absPrice ₺</b></td>
                 <td>
                     @{
                         var productUrl = "";
                         if (item.Url.Length > 10)
                             productUrl = item.Url.Substring(0, 9) + "...";
                         else productUrl = item.Url;
-
                     }
                     <a href="~/product/@item.Url" target="_blank">@productUrl</a>
                 </td>
-                <td>
-                    @date.ToString("dd MMMM yyyy | HH:mm", CultureInfo.CreateSpecificCulture("tr"))
-                </td>
+                <td>@date.ToString("dd MMMM yyyy | HH:mm", CultureInfo.CreateSpecificCulture("tr"))</td>
                 <td>
                     <div>
                         <a href="/Admin/Product/Edit/@item.Id" class="btn btn-secondary text-white"><i class="fas fa-pencil-alt"></i>&nbsp;Düzenle</a>
@@ -106,4 +68,3 @@
         }
     </tbody>
 </table>
-

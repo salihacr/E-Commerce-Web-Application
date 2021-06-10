@@ -1,31 +1,13 @@
 ﻿@model IEnumerable<E_Commerce_App.Core.Shared.DTOs.CategoryDto>
-@using System.Globalization;
-<style>
-    td {
-        vertical-align: middle !important;
-    }
-
-    th {
-        vertical-align: middle !important;
-    }
-</style>
 <table id="categoriesTable" class="table table-hover table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
+            <th>#</th>
+            <th>Kategori</th>
+            <th>Bağlantı</th>
+            <th>Oluşturma Tarihi</th>
             <th>
-                #
-            </th>
-            <th>
-                Kategori
-            </th>
-            <th>
-                Bağlantı
-            </th>
-            <th>
-                Oluşturma Tarihi
-            </th>
-            <th>
-                <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", null, Context.Request.Scheme)','Kategori Oluştur')"
+                <a onclick="showInPopup('@Url.Action("AddOrEdit", "AdminCategory", null, Context.Request.Scheme)','Yeni Kategori')"
                    class="btn btn-success btn-block text-white"><i class="fas fa-plus-circle"></i> Yeni Kategori</a>
             </th>
         </tr>
@@ -35,7 +17,6 @@
         @foreach (var item in Model)
         {
             var date = (DateTime)item.CreationDate;
-
             <tr>
                 <td style="text-align:center;">
                     <b>@counter</b>

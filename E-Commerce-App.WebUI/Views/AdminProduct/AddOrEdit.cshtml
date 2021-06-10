@@ -15,54 +15,16 @@ else
 }
 
 @section Css{
+    <!-- Trumbowyg Html Editor Css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/ui/trumbowyg.min.css" integrity="sha512-iw/TO6rC/bRmSOiXlanoUCVdNrnJBCOufp2s3vhTPyP1Z0CtTSBNbEd5wIo8VJanpONGJSyPOZ5ZRjZ/ojmc7g==" crossorigin="anonymous" />
-
     <link href="~/node_modules/trumbowyg/dist/ui/trumbowyg.css" />
     <link href="~/node_modules/trumbowyg/dist/ui/trumbowyg.min.css" />
-
-    <style>
-        input[type=file]::-webkit-file-upload-button {
-            border: 2px solid #007bff;
-            padding: .2em .4em;
-            border-radius: .2em;
-            background-color: #007bff;
-            transition: 1s;
-            color: white;
-        }
-
-        input[type=file]::file-selector-button {
-            border: 2px solid #007bff;
-            padding: .2em .4em;
-            border-radius: .2em;
-            background-color: #007bff;
-            transition: 1s;
-            color: white;
-        }
-
-        input[type=file]::-webkit-file-upload-button:hover {
-            background-color: #81ecec;
-            border: 2px solid #00cec9;
-            color: black;
-        }
-
-        input[type=file]::file-selector-button:hover {
-            background-color: #81ecec;
-            border: 2px solid #00cec9;
-            color: black;
-        }
-    </style>
-
 }
-
-
-<form enctype="multipart/form-data" id="productForm" method="post">
+<form enctype="multipart/form-data" id="product-form" method="post">
 
     <input type="hidden" asp-for="ProductDto.Id" />
-
     <input type="hidden" asp-for="ProductDto.CreationDate" />
-
     <input type="hidden" asp-for="ProductDto.MainImage" />
-
     <input type="hidden" asp-for="ProductDto.IsActive" />
 
     <div class="row">
@@ -74,7 +36,7 @@ else
                         <input type="text" class="form-control" id="productName" asp-for="ProductDto.Name" placeholder="Ürün Adı" />
                     </div>
                     <div class="col-md-6 form-group">
-                        <input type="text" asp-for="ProductDto.Url" id="productUrl" class="form-control" />
+                        <input type="text" asp-for="ProductDto.Url" id="productUrl" class="form-control" readonly />
                     </div>
                 </div>
                 <br />
@@ -134,9 +96,7 @@ else
                     <label class="form-check-label" asp-for="ProductDto.IsHome">Satışa Çıkarılsın mı ?</label>
                 </div>
                 <br />
-                @*Submit Button*@
                 <button type="submit" id="btnSubmit" class="btn btn-primary btn-block">Kaydet</button>
-
             </div>
         </div>
         <div class="col-md-4">
@@ -159,10 +119,8 @@ else
         </div>
         <div class="col-md-8">
             <div class="card p-2">
-
                 <div class="form-group">
                     <label>Ürün Resimleri</label>
-
                     <input type="file" name="allImages[]" multiple onchange="previewFiles();" id="browse" class="input-btn" />
                     <hr />
                     <div id="preview">
@@ -173,7 +131,6 @@ else
                                 <img src="~/img/@image.ImagePath" id="img" class="product-images" height="200" width="200" style="border-width: 0px;" />
                             }
                         }
-
                     </div>
                 </div>
             </div>
@@ -181,222 +138,9 @@ else
     </div>
 </form>
 @section Scripts{
+    <!-- Trumbowyg Html Editor JS -->
     <script src="~/node_modules/trumbowyg/dist/trumbowyg.min.js"></script>
     <script src="~/node_modules/trumbowyg/dist/langs/tr.min.js"></script>
-
-    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/node_modules/jquery-validation/dist/additional-methods.min.js"></script>
-
-    @*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
-
-    <script>
-        $(document).ready(function () {
-
-            $('#productName').keyup(function () {
-
-                const trCharsMap = {
-                    Ç: 'C', Ö: 'O', Ş: 'S', İ: 'I', I: 'i', Ü: 'U', Ğ: 'G',
-                    ç: 'c', ö: 'o', ş: 's', ı: 'i', ü: 'u', ğ: 'g'
-                };
-
-                var text = $('#productName').val();
-
-                for (var char in trCharsMap) {
-                    text = text.replace(new RegExp('[' + char + ']', 'g'), trCharsMap[char]);
-                }
-                var url = text.replace(/[^-a-zA-Z0-9\s]+/ig, '')
-                    .replace(/\s/gi, "-")
-                    .replace(/[-]+/gi, "-")
-                    .toLowerCase();
-
-                console.log(url);
-
-                $('#productUrl').val(url);
-            });
-        });
-
-        const REQUIRED_INPUT_MESSAGE = "Bu alanın doldurulması zorunludur."
-
-        $('#productForm').validate({
-            rules: {
-                "ProductDto.Name": {
-                    required: true,
-                    minlength:2,
-                    maxlength: 50
-                },
-                "ProductDto.Price": {
-                    required: true,
-                    minlength: 1,
-                    maxlength: 100000,
-                },
-                "ProductDto.Url": {
-                    required: true,
-                    minlength: 2,
-                    maxlength: 80
-                },
-                "ProductDto.Discount": {
-                    minlength: 1,
-                    maxlength: 95,
-                },
-                "ProductDto.ShortDescription": {
-                    required: true,
-                },
-                mainImage: {
-                    required: $("#mainImageId").val() === "" && $("#imgpreview").attr('src') === undefined,
-                    extension: "png|jpg|JPEG|svg|"
-                },
-                "allImages[]":{
-                    extension: "png|jpg|JPEG|svg|JFIF|GIF",
-                    maxsize: 20971520,
-                },
-            },
-            messages: {
-                "ProductDto.Name": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                },
-                "ProductDto.Url": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                },
-                "ProductDto.Price": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                    minlength: "Ürün fiyatı en az 1₺ olabilir.",
-                    maxlength: "Ürün fiyatı en fazla 100000₺ olabilir.",
-                },
-                "ProductDto.Discount": {
-                    minlength: "İndirim bedeli en az % 1 olabilir.",
-                    maxlength: "Ürün fiyatı en fazla % 95 olabilir.",
-                },
-                "ProductDto.ShortDescription": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                },
-                mainImage: {
-                    required: REQUIRED_INPUT_MESSAGE,
-                    extension:"Yalnızca resim formatında ekleme yapabilirsiniz."
-                },
-                "allImages[]": {
-                    extension: "Yalnızca resim formatında ekleme yapabilirsiniz.",
-                    maxsize:"Tüm resimler en fazla 20 MB boyutunda olabilir."
-                }
-            },
-            errorElement: 'span',
-            errorPlacement: function (error, element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass('is-invalid');
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass('is-invalid');
-            }
-        });
-
-
-
-
-
-        $('#html-editor').trumbowyg({
-            lang: 'tr'
-        });
-
-
-        $('#productForm').on('submit', function (event) {
-
-
-            if ($('#productForm').valid() === true) {
-
-                console.log("file : " + $("#mainImageId").val());
-                console.log("imge : " + $("#imgpreview").attr('src'));
-
-                        // \/Admin\/Product\/Add Regex for add url
-                    // \/Admin\/Product\/Edit\/\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b Regex for Edit Url
-                    // şuan guid kullanma
-
-                const addUrlRegex = new RegExp('\/Admin\/Product\/Add');
-                const editUrlRegex = new RegExp('\/Admin\/Product\/Edit\/');
-                const editUrlRegex2 = new RegExp('\/Admin\/Product\/Edit\/[a-z]*|[0-9]*');
-                var url = "@Context.Request.Path";
-
-                console.log(addUrlRegex.test(url));
-                console.log(editUrlRegex.test(url));
-                console.log(editUrlRegex2.test(url));
-
-                var actionUrl = "";
-                if (addUrlRegex.test(url)) {
-                    actionUrl = url;
-                } else if (editUrlRegex.test(url) || editUrlRegex2(url)) {
-                    actionUrl = url;
-                }
-                var form_data = new FormData($('#productForm')[0]);
-                console.log(actionUrl);
-                $.ajax({
-                    type: 'POST',
-                    url: actionUrl,
-                    data: form_data,
-                    contentType: false,
-                    processData: false,
-                    success: function (res) {
-                        if (res.isValid) {
-                            Swal.fire(
-                                'Kayıt Başarılı !',
-                                `${res.message}`,
-                                'success'
-                            )
-                        }
-                        else
-                            Swal.fire(
-                                'Kayıt Hatası !',
-                                `${res.message}`,
-                                'error'
-                            )
-                    },
-                    error: function (err) {
-                        console.log(err)
-                    }
-                });
-                //to prevent default form submit event
-                //event.preventDefault();
-                return false;
-            }
-
-            });
-
-
-
-
-        // TODO kategori silerken kategoriürün tablosundaki o kategorinin bulunduğu tüm verileri sil
-        function showpreview(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#imgpreview').css('display', 'block');
-                    $('#imgpreview').attr('src', e.target.result);
-                    $('#imgpreview').fadeIn(650);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        function previewFiles() {
-            var preview = document.querySelector('#preview');
-            var files = document.querySelector('#browse').files;
-            preview.innerHTML = "";
-            function readAndPreview(file) {
-                // Make sure `file.name` matches our extensions criteria
-                if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
-                    var reader = new FileReader();
-                    reader.addEventListener("load", function () {
-                        var image = new Image();
-                        image.height = 100;
-                        image.title = file.name;
-                        image.src = this.result;
-                        preview.appendChild(image);
-                    }, false);
-                    reader.readAsDataURL(file);
-                }
-            }
-            if (files) {
-                [].forEach.call(files, readAndPreview);
-            }
-        }
-    </script>
+    <!-- AddOrEdit Custom JS File -->
+    <script src="~/customPagesJs/adminProduct.js"></script>
 }

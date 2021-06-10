@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<E_Commerce_App.Core.Shared.DTOs.CategoryDto>
-
 @{
     ViewData["SubPage"] = "Kategoriler";
     ViewData["SubPageUrl"] = "Category";
@@ -14,65 +13,9 @@
         </div>
     </div>
 </div>
-
-
 @section Scripts{
+    <!-- Admin Category List Custom JS -->
+    <script src="~/customPagesJs/adminCategoryList.js"></script>
+    <!-- Datatables JS -->
     @{await Html.RenderPartialAsync("_DataTableScriptsPartial");}
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
-
-
-    <!-- Sweet Alert  -->
-    <script src="~/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-
-    <script>
-
-        $(document).ready(function () {
-            $("#categoriesTable").DataTable();
-        });
-
-        removeCategory = form => {
-            Swal.fire({
-                title: "Silmek istediğinizden emin misiniz ?",
-                text: 'Silinen veri geri kullanılamaz!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sil !',
-                cancelButtonText: 'İptal !'
-            }).then((data) => {
-                console.log(data);
-                try {
-                    if (data.isConfirmed) {
-                        $.ajax({
-                            type: 'POST',
-                            url: form.action,
-                            data: new FormData(form),
-                            contentType: false,
-                            processData: false,
-                            success: function (res) {
-                                $('#view-all').html(res.html);
-
-                                Swal.fire(
-                                    'Silme Başarılı !',
-                                    `${res.message}`,
-                                    'success'
-                                )
-
-                            },
-                            error: function (err) {
-                                console.log(err)
-                            }
-                        })
-                    }
-                } catch (ex) {
-                    console.log(ex)
-                }
-            });
-            //prevent default form submit event
-            return false;
-        }
-    </script>
-
 }

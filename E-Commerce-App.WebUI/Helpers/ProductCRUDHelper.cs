@@ -33,6 +33,7 @@ namespace E_Commerce_App.WebUI.Helpers
             productDto.Id = Guid.NewGuid().ToString();
             productDto.CreationDate = DateTime.Now;
             productDto.Url += "-" + DateTime.Now.ToString("HHmmFFFFF");
+            productDto.IsActive = true;
 
             if (mainImage != null)
                 await CreateMainImage(productDto, mainImage);
