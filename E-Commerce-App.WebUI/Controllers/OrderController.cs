@@ -172,11 +172,11 @@ namespace E_Commerce_App.WebUI.Controllers
                 {
                     await PaymentHelper.SaveOrder(_mapper, _orderService, orderModel, payment, userId);
                     await _cartService.ResetCart(cart.Id);
-                    return Json(new { message = "Sipariş başarılı." });
+                    return Json(new { success=true, message = "Sipariş başarılı." });
                 }
                 else
                 {
-                    return Json(new { message = "Sipariş hatası." });
+                    return Json(new { success=false, message = payment.ErrorMessage });
                 }
             }
             return View(orderModel);

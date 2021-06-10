@@ -257,8 +257,49 @@ else
 
 
         $('#payment-form').on('submit', function (event) {
-
-            if ($('#payment-form').valid() === true) { }
+            var formData = new FormData();
+            var serializedArr = $("#payment-form").serializeArray();
+            serializedArr.forEach((d) => {
+                formData.append(d.name, d.value);
+                console.log(d.name + " " + d.value);
+            });
+            if ($('#payment-form').valid() === true) {
+                var formData = new FormData();
+                var serializedArr = $("#payment-form").serializeArray();
+                serializedArr.forEach((d) => {
+                    formData.append(d.name, d.value);
+                    console.log(d.name + " " + d.value);
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: "/Order/Checkout",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: async function (res) {
+                        if (res.success) {
+                            await Swal.fire(
+                                'Sipariş Başarılı !',
+                                `${res.message}`,
+                                'success'
+                            )
+                            window.location.href = "/";
+                        }
+                        else
+                            Swal.fire(
+                                'Kayıt Hatası !',
+                                `${res.message}`,
+                                'error'
+                            )
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                });
+                //to prevent default form submit event
+                //event.preventDefault();
+                return false;
+            }
             else {
                 event.preventDefault();
                 toastr.warning("Lütfen gerekli alanları doldurun.")

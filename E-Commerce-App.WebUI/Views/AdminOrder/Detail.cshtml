@@ -118,10 +118,18 @@
                 processData: false,
                 success: async function (res) {
                     if (res.success) {
-                        await toastr.success(res.message);
+                        await Swal.fire(
+                            'Kayıt Başarılı !',
+                            `${res.message}`,
+                            'success'
+                        )
                         window.location.href = res.redirectUrl;
                     } else {
-                        toastr.warning(res.message);
+                        Swal.fire(
+                            'Kayıt Hatası !',
+                            `${res.message}`,
+                            'error'
+                        )
                     }
                 },
                 error: function (err) {
@@ -129,6 +137,6 @@
                 }
             });
             return false;
-        });                                            // formu gönder sonra sayfayı yenile
+        });
     </script>
 }

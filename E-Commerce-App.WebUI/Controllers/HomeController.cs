@@ -64,6 +64,7 @@ namespace E_Commerce_App.WebUI.Controllers
             var product = await _productService.GetProductWithAllColumns(p => p.Url == url);
             var productImages = await _imageService.Where(i => i.ProductId == product.Id);
             var productRatings = await _ratingService.Where(i => i.ProductId == product.Id);
+
             if (product == null)
             {
                 return NotFound();
@@ -76,7 +77,7 @@ namespace E_Commerce_App.WebUI.Controllers
                 SelectedCategories = _mapper.Map<IEnumerable<ProductCategoryDto>>(selectedCategories),
                 Images = _mapper.Map<IEnumerable<ImageDto>>(productImages),
                 SelectedColors = _mapper.Map<IEnumerable<ColorDto>>(selectedColors),
-                Ratings=_mapper.Map<List<RatingDto>>(productRatings)
+                Ratings = _mapper.Map<List<RatingDto>>(productRatings),
             };
             return View(productViewModel);
         }

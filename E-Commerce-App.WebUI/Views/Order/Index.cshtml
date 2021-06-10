@@ -54,18 +54,15 @@
                                     ? Url.Action("CommentAddOrEdit", "Order", new { id = list.ratings[i].Id }, Context.Request.Scheme)
                                     : Url.Action("CommentAddOrEdit", "Order", null, Context.Request.Scheme);
                                     }
-                                    @if (list.toComment[i].Equals("yes"))
+                                    @if (list.orderItems[i].HasComment)
                                     {
-                                        @if (list.orderItems[i].HasComment)
-                                        {
-                                            <a onclick="showInPopupWithId(@list.orderItems[i].Id, '@Url.Action("CommentAddOrEdit", "Order", new { id = list.ratings[i].Id }, Context.Request.Scheme)', 'Değerlendir')"
-                                               class="btn btn-secondary text-white"><i class="fas fa-pencil-alt"></i> Değerlendir</a>
-                                        }
-                                        else
-                                        {
-                                            <a onclick="showInPopupWithId(@list.orderItems[i].Id, '@Url.Action("CommentAddOrEdit", "Order", null, Context.Request.Scheme)','Değerlendir')"
-                                               class="btn btn-success btn-block text-white"><i class="fas fa-plus-circle"></i> Değerlendir</a>
-                                        }
+                                        <a onclick="showInPopupWithId(@list.orderItems[i].Id, @action, 'Değerlendir')"
+                                           class="btn btn-secondary text-white"><i class="fas fa-pencil-alt"></i> Değerlendir</a>
+                                    }
+                                    else
+                                    {
+                                        <a onclick="showInPopupWithId(@list.orderItems[i].Id, @action,'Değerlendir')"
+                                           class="btn btn-success btn-block text-white"><i class="fas fa-plus-circle"></i> Değerlendir</a>
                                     }
                                     <hr />
                                     <p>@orderState</p>

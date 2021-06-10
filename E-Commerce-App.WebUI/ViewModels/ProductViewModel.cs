@@ -15,5 +15,6 @@ namespace E_Commerce_App.WebUI.ViewModels
         public IEnumerable<ColorDto> Colors { get; set; }
         public IEnumerable<ColorDto> SelectedColors { get; set; }
         public List<RatingDto> Ratings { get; set; }
+        public List<string> Commenters { get; set; }
     }
 }

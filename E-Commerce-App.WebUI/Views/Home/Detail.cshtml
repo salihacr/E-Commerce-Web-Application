@@ -427,6 +427,12 @@
     @*<link href="~/node_modules/lightslider/src/css/lightslider.css" />*@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.css" />
 
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+
 }
 <br />
 <form asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.ProductDto.Id" id="productDetailForm">
@@ -528,21 +534,30 @@
                         @Html.Raw(Model.ProductDto.Description)
                     </div>
                     <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-                        @if (Model.Ratings.Count < 1)
-                        {
-
-
-                            <p class="mb-20">Bu ürün için henüz bir değerlendirme yapılmadı.</p>
-                        }
-                        @* https://codepen.io/jamesbarnett/pen/vlpkh yıldız falan filan *@
-                        else
-                        {
-                            foreach (var item in Model.Ratings)
-                            {
-                                <p>@item.Comment    |   @item.Point</p>
-                                <hr />
-                            }
-                        }
+                        <div class="card">
+                            <div class="card-body">
+                                @if (Model.Ratings.Count < 1)
+                                {
+                                    <p class="mb-20">Bu ürün için henüz bir değerlendirme yapılmadı.</p>
+                                }
+                                else
+                                {
+                                    foreach (var item in Model.Ratings)
+                                    {
+                                        <div class="star-area" data-point="@item.Point">
+                                            <span class="fa fa-star @(item.Point>0 ?"checked":"")"></span>
+                                            <span class="fa fa-star @(item.Point>1 ?"checked":"")"></span>
+                                            <span class="fa fa-star @(item.Point>2 ?"checked":"")"></span>
+                                            <span class="fa fa-star @(item.Point>3 ?"checked":"")"></span>
+                                            <span class="fa fa-star @(item.Point>4 ?"checked":"")"></span>
+                                            <span class="ml-3">@item.Comment</span>
+                                            <div class="mb-2"></div>
+                                            <hr />
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

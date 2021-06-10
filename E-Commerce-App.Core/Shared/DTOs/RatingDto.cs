@@ -6,6 +6,8 @@
         public string Comment { get; set; }
         public int Point { get; set; }
         public string ProductId { get; set; }
+        public ProductDto Product { get; set; }
         public int OrderItemId { get; set; }
+        public OrderItemDto OrderItem { get; set; }
     }
 }
