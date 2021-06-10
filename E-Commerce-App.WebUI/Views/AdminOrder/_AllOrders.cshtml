@@ -1,48 +1,22 @@
-﻿@{
-    Layout = null;
-}
-
-@using System.Globalization;
+﻿@{ Layout = null;}
 @model IEnumerable<E_Commerce_App.Core.Shared.DTOs.OrderDto>
 
-<style>
-    td {
-        vertical-align: middle !important;
-    }
-
-    th {
-        vertical-align: middle !important;
-    }
-</style>
 
 <table id="orders-table" class="table table-hover table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
-            <th>
-                #
-            </th>
-            <th>
-                Müşteri
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderState)
-            </th>
-            <th>
-                Detaylar
-            </th>
+            <th>#</th>
+            <th>Müşteri</th>
+            <th>@Html.DisplayNameFor(model => model.OrderDate)</th>
+            <th>@Html.DisplayNameFor(model => model.TotalPrice)</th>
+            <th>@Html.DisplayNameFor(model => model.OrderState)</th>
+            <th>Detaylar</th>
         </tr>
     </thead>
     <tbody>
         @{var counter = 1; }
         @foreach (var item in Model)
         {
-
             var orderState = item.OrderState == EnumOrderState.Paid ? "Ödendi, kargoyu bekliyor."
                 : item.OrderState == EnumOrderState.InShipping ? "Kargoya verildi."
                 : item.OrderState == EnumOrderState.Cancelled ? "İptal edildi."
@@ -61,4 +35,3 @@
         }
     </tbody>
 </table>
-

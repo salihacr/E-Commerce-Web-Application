@@ -9,7 +9,6 @@
 }
 <div class="row">
     <div class="col-md-6">
-        <!-- AREA CHART -->
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Siparişler</h3>
@@ -83,7 +82,6 @@
                 {
                     <h6>Sipariş Durumunu Güncelle</h6>
                     <form asp-controller="AdminOrder" asp-action="EditOrderState" id="form-order-state">
-                        @* kişiyi eklerken id vermeyi dene *@
                         <input type="hidden" asp-for="@Model.OrderDto.Id" id="order-no" />
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -105,38 +103,6 @@
     </div>
 </div>
 @section Scripts{
-    <script>
-        $('#form-order-state').on('submit', function (event) {
-            var formData = new FormData($('#form-order-state')[0]);
-            var id = $('#order-no').val();
-            console.log(id);
-            $.ajax({
-                type: 'POST',
-                url: "/Admin/Order/EditOrderState",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: async function (res) {
-                    if (res.success) {
-                        await Swal.fire(
-                            'Kayıt Başarılı !',
-                            `${res.message}`,
-                            'success'
-                        )
-                        window.location.href = res.redirectUrl;
-                    } else {
-                        Swal.fire(
-                            'Kayıt Hatası !',
-                            `${res.message}`,
-                            'error'
-                        )
-                    }
-                },
-                error: function (err) {
-                    toastr.error("Beklenmedik bir hata meydana geldi");
-                }
-            });
-            return false;
-        });
-    </script>
+    <!-- Admin Order Custom JS -->
+    <script src="~/customPagesJs/adminOrder.js"></script>
 }

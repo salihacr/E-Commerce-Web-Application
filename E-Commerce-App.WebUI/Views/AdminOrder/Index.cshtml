@@ -4,9 +4,6 @@
     ViewData["SubPageUrl"] = "Order";
 }
 @section Css{
-    <style>
-        .margin-10 { margin-top: -10px;}
-    </style>
     @{await Html.RenderPartialAsync("_DataTableStylesPartial");}
 }
 <div class="row">
@@ -20,24 +17,8 @@
 </div>
 
 @section Scripts{
+    <!-- Admin Order List Custom JS -->
+    <script src="~/customPagesJs/adminOrderList.js"></script>
+    <!-- Datatables JS -->
     @{await Html.RenderPartialAsync("_DataTableScriptsPartial");}
-
-    <!-- Sweet Alert  -->
-    <script src="~/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $("#orders-table").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["excel", "csv"]
-            }).buttons().container().appendTo('#orders-table_wrapper .col-md-6:eq(0)');
-
-
-
-
-            var searchLbl = $(".dataTables_filter > label");
-            console.log(searchLbl);
-
-        });
-    </script>
 }
