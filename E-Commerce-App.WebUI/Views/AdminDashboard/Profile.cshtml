@@ -4,7 +4,6 @@
     ViewData["SubPageUrl"] = "Profile";
 }
 <div class="col-md-12">
-    <!-- AREA CHART -->
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Kullanıcı Bilgileri</h3>
@@ -19,7 +18,7 @@
         </div>
         <div class="card-body">
             <div class="col-md-12 mb-3">
-                <form user-account-form method="post" asp-controller="AdminDashboard" asp-action="ProfileEdit" id="user-account-form">
+                <form method="post" asp-controller="AdminDashboard" asp-action="Profile" id="user-account-form">
                     <div class="card p-5">
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -35,7 +34,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <small>Yeni Şifre</small>
-                                <input type="password" class="form-control" name="Password"  id="password" autocomplete="new-password"/>
+                                <input type="password" class="form-control" name="NewPassword"  id="password" autocomplete="new-password"/>
                                 <span class="text-danger" asp-validation-for="@Model.NewPassword"></span>
                             </div>
                             <div class="form-group col-md-6">
@@ -54,9 +53,6 @@
     </div>
 </div>
 @section Scripts{
-    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
-    <script>
-
-    </script>
+    <!-- Admin Profile Custom JS -->
+    <script src="~/customPagesJs/adminProfile.js"></script>
 }

@@ -4,14 +4,14 @@
         {
             if (User.IsInRole("admin"))
             {
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand a-hover" href="/">
                     <img src="/images/docker.svg" height="30" class="d-inline-block align-top" alt="" href="/">
                 </a>
-                <a href="/Admin/Dashboard"> Yönetim Paneli</a>
+                <a href="/Admin/Dashboard"> E-Pazar Yönetim Paneli</a>
             }
             else
             {
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand a-hover" href="/">
                     <img src="/images/docker.svg" height="30" class="d-inline-block align-top" alt="">
                     E-Pazar
                 </a>
@@ -19,7 +19,7 @@
         }
         else
         {
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand a-hover" href="/">
                 <img src="/images/docker.svg" height="30" class="d-inline-block align-top" alt="">
                 E-Pazar
             </a>
@@ -46,16 +46,15 @@
         <div class="col-md-5">
             @if (User.Identity.IsAuthenticated)
             {
-
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/my-orders" id="usernameArea"><i class="fa fa-user"></i>&nbsp; Hesabım</a>
+                        <a class="nav-link a-hover" href="/my-orders" id="usernameArea"><i class="fa fa-user"></i>&nbsp; Hesabım</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/cart"><i class="fa fa-shopping-cart"></i>&nbsp;Sepetim</a>
+                        <a class="nav-link a-hover" href="/cart"><i class="fa fa-shopping-cart"></i>&nbsp;Sepetim</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/Account/Logout"><i class="fa fa-sign-out-alt"></i>&nbsp;Çıkış Yap</a>
+                        <a class="nav-link a-hover" href="/Account/Logout"><i class="fa fa-sign-out-alt"></i>&nbsp;Çıkış Yap</a>
                     </li>
                 </ul>
             }
@@ -63,10 +62,10 @@
             {
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/Account/Login"><i class="fa fa-user"></i> Giriş Yap</a>
+                        <a class="nav-link a-hover" href="/Account/Login"><i class="fa fa-user"></i> Giriş Yap</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/Account/Register"><i class="fa fa-user"></i> Kayıt Ol</a>
+                        <a class="nav-link a-hover" href="/Account/Register"><i class="fa fa-user"></i> Kayıt Ol</a>
                     </li>
                 </ul>
             }
@@ -78,23 +77,19 @@
     nav {
         font-family: 'Poppins', sans-serif;
     }
-
-    a {
-        transition: 1.0s !important;
+    .a-hover {
+        transition: 0.4s !important;
     }
-
-        a:hover {
-            color: #3b4dd4 !important;
-        }
-
+    .a-hover:hover {
+        color: #3b4dd4 !important;
+    }
     #btn-search {
         background-image: linear-gradient(to right, #386ded, #3b4dd4);
         border-radius: 0px 16px 16px 0px;
         outline: 0 !important;
         transition: 1.0s !important;
     }
-
-        #btn-search:hover {
-            background-image: linear-gradient(to right, #3b4dd4, #386ded);
-        }
+    #btn-search:hover {
+        background-image: linear-gradient(to right, #3b4dd4, #386ded);
+    }
 </style>

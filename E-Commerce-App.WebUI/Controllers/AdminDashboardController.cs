@@ -31,9 +31,9 @@ namespace E_Commerce_App.WebUI.Controllers
             return View(model);
         }
 
-        [Route("Admin/ProfileEdit")]
+        [Route("Admin/Profile")]
         [HttpPost]
-        public async Task<IActionResult> ProfileEdit(UserAccountViewModel model)
+        public async Task<IActionResult> Profile(UserAccountViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -42,7 +42,7 @@ namespace E_Commerce_App.WebUI.Controllers
                 if ((model.Email.Equals(user.Email) && model.FullName.Equals(user.FullName))
                     && string.IsNullOrEmpty(model.NewPassword))
                 {
-                    return Redirect(nameof(Profile));
+                    return Json(new { success = true, message = "Değişiklik yapmadınız.", redirectUrl = "/Admin/Profile" });
                 }
 
                 user.Email = model.Email;
@@ -53,9 +53,9 @@ namespace E_Commerce_App.WebUI.Controllers
                     await _userManager.AddPasswordAsync(user, model.NewPassword);
                 }
                 await _userManager.UpdateAsync(user);
-                return Json(new { message = "Profil başarıyla güncellendi." });
+                return Json(new { success = true, message = "Profil başarıyla güncellendi.", redirectUrl="/Admin/Profile" });
             }
-            return Redirect(nameof(Profile));
+            return Json(new { success=false, message="Profil güncellemesinde hata yaşandı, tekrar deneyiniz.", redirectUrl = "/Admin/Profile" });
         }
 
     }
