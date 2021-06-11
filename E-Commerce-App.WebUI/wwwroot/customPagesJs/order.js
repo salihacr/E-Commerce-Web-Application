@@ -37,7 +37,6 @@
     // get districts from json file after city changed
     $("#il").on("change", function () {
         var il = $(this).val();
-        console.log(il);
         $("#ilce").attr("disabled", false).html("<option value=''>Seçin..</option>");
         $.getJSON("/json/tr-iller-ilceler.json", function (sonuc) {
             $.each(sonuc, function (index, value) {

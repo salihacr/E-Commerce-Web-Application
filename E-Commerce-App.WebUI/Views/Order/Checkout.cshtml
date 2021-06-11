@@ -3,9 +3,11 @@
     Layout = "_Layout";
     int cartItemLen = Convert.ToInt32(ViewData["CartItemsLength"]);
 }
-
+@section Css{
+    <!-- Card Css -->
+    <link href="~/node_modules/card/dist/jquery.card.css" />
+}
 <div><br /><br /><br /></div>
-
 <form id="payment-form" asp-controller="Order" asp-action="Checkout">
     <div class="row">
         <div class="col-md-9 mb-3">
@@ -99,7 +101,6 @@
         </div>
     </div>
 </form>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -116,14 +117,10 @@
         </div>
     </div>
 </div>
-
-@section Css{
-    <!-- Card Css -->
-    <link href="~/node_modules/card/dist/jquery.card.css" />
-}
-
 @section Scripts{
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <!-- jQuery Validation JS -->
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/additional-methods.min.js"></script>
     <!-- Order Custom JS -->
     <script src="~/customPagesJs/order.js"></script>
     <!-- Card JS -->
