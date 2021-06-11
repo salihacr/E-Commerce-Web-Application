@@ -90,3 +90,10 @@ a {
 .bg-e-pazar-gradient {
     background-image: linear-gradient(to right, #386ded, #3b4dd4);
 }
+
+.shadow {
+    position: relative;
+    -moz-box-shadow: 0 0 20px 20px #888;
+    -webkit-box-shadow: 0 0 20px 20px#888;
+    box-shadow: 0 0 20px 20px #888;
+}

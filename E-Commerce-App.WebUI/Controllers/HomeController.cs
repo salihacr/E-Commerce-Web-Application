@@ -12,7 +12,6 @@ namespace E_Commerce_App.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-
         private readonly IMapper _mapper;
         private readonly IProductService _productService;
         private readonly IService<Image> _imageService;
@@ -28,7 +27,7 @@ namespace E_Commerce_App.WebUI.Controllers
         {
             string page = "1";
             Convert.ToInt32(page);
-            const int pageSize = 4;
+            const int pageSize = 12;
             if (string.IsNullOrEmpty(query))
             {
                 var productListViewModel1 = new ProductListViewModel()
@@ -86,8 +85,7 @@ namespace E_Commerce_App.WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProducts(string page)
         {
-            Convert.ToInt32(page);
-            const int pageSize = 4;
+            const int pageSize = 12;
             var productListViewModel = new ProductListViewModel()
             {
                 PageInfo = new PageInfo
@@ -102,11 +100,9 @@ namespace E_Commerce_App.WebUI.Controllers
         }
         [Route("/GetSearchedProducts/{query}/{page}")]
         [HttpGet]
-        public async Task<IActionResult> GetSearchResults(string query, string page)
+        public async Task<IActionResult> GetSearchResults(string query, string page="1")
         {
-            // string page = "1";
-            Convert.ToInt32(page);
-            const int pageSize = 4;
+            const int pageSize = 12;
             var productListViewModel = new ProductListViewModel()
             {
                 PageInfo = new PageInfo

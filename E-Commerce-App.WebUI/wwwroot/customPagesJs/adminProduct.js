@@ -51,7 +51,7 @@
                 required: $("#mainImageId").val() === "" && $("#imgpreview").attr('src') === undefined,
                 extension: "png|jpg|JPEG|svg|"
             },
-            "allImages[]": {
+            "allImages": {
                 extension: "png|jpg|JPEG|svg|JFIF|GIF",
                 maxsize: 20971520,
             },
@@ -76,7 +76,7 @@
                 required: REQUIRED_INPUT_MESSAGE,
                 extension: "Yalnızca resim formatında ekleme yapabilirsiniz."
             },
-            "allImages[]": {
+            "allImages": {
                 extension: "Yalnızca resim formatında ekleme yapabilirsiniz.",
                 maxsize: "Tüm resimler en fazla 20 MB boyutunda olabilir."
             }

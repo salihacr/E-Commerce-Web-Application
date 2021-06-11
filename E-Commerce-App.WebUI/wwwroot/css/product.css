@@ -1,9 +1,4 @@
-﻿/*!
- * Start Bootstrap - Busines Frontpage (https://startbootstrap.com/template-overviews/business-frontpage)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-business-frontpage/blob/master/LICENSE)
- */
-body {
+﻿body {
     padding-top: 56px;
 }
 
@@ -107,11 +102,15 @@ body {
             transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
 
+
 .card-button {
+    border: 1px solid #386ded;
+    background-image: linear-gradient(to right, #386ded, #3b4dd4) !important;
+    color: #fff !important;
     text-align: center;
     text-transform: uppercase;
     font-size: 15px;
-    padding: 9px;
+    border-radius:0.3em;
 }
 
     .card-button a {
@@ -121,6 +120,7 @@ body {
 .card-button-inner {
     padding: 10px;
     border-radius: 3px;
+    color: #fff !important;
 }
 
     .card-button-inner:hover {
@@ -128,20 +128,51 @@ body {
         color: #fff !important;
     }
 
-.wish-button:hover {
-    background-image: linear-gradient(to right, #386ded, #3b4dd4);
-    color: red;
-}
-
-.wish-button {
-    border: 1px solid #386ded;
-    background-image: linear-gradient(to right, #386ded, #3b4dd4) !important;
-    color: #fff;
-}
 
 .shadow {
     position: relative;
     -moz-box-shadow: 0 0 20px 20px #888;
     -webkit-box-shadow: 0 0 20px 20px#888;
     box-shadow: 0 0 20px 20px #888;
+}
+
+#productImage {
+    height: 20em;
+}
+
+#card-bg {
+    background: #f8f9fa;
+    transition: 1.0s;
+}
+
+    #card-bg:hover {
+        -ms-transform: scale(1.1); /* IE 9 */
+        -webkit-transform: scale(1.1); /* Safari 3-8 */
+        transform: scale(1.1);
+    }
+
+.wrapper {
+    margin: 60px auto;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 1.25em;
+}
+
+#pagination-demo {
+    display: inline-block;
+    margin-bottom: 1.75em;
+}
+
+    #pagination-demo li {
+        display: inline-block;
+    }
+
+.page-content {
+    background: #eee;
+    display: inline-block;
+    padding: 10px;
+    width: 100%;
+    max-width: 660px;
 }

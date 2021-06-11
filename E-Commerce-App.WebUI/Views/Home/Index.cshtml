@@ -1,30 +1,20 @@
 ﻿@model E_Commerce_App.WebUI.ViewModels.ProductListViewModel
-@{
-    Layout = "_Layout";
-}
+@{ Layout = "_Layout";}
 @section Css{
-    <!-- Product Css -->
+    <!-- Product Card Css -->
     <link rel="stylesheet" href="~/css/product.css" />
-
-    <style>
-        #productImage {
-            height: 22em;
-        }
-        /* CSS KODLARI BURAYA */
-    </style>
 }
 
 @section Campaigns{
     @await Component.InvokeAsync("Campaigns")
 }
 <br />
-@await Component.InvokeAsync("Categories")
+@*@await Component.InvokeAsync("Categories")*@
+<hr />
 <br />
 <div class="row" id="productsArea">
 
 </div>
-<!--  TODO eğer sepete ekle yapınca kullanıcı login olmamışsa login sayfasına yönlendir
-    parametre olark returnurl kullan controller kısmında kontrol edilir-->
 <div class="wrapper">
     <div class="container">
         <div class="row">
@@ -37,31 +27,15 @@
     </div>
 </div>
 @section Scripts{
+    <!-- Twbs-Pagination JS -->
     <script src="~/node_modules/twbs-pagination/jquery.twbsPagination.min.js"></script>
+
+    <!-- Home Custom JS -->
+    <script src="~/customPagesJs/home.js"></script>
     <script>
-
-        function getUrlVars() {
-            var vars = [], hash;
-            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-            for (var i = 0; i < hashes.length; i++) {
-                hash = hashes[i].split('=');
-                vars.push(hash[0]);
-                vars[hash[0]] = hash[1];
-            }
-            return vars;
-        }
-
-        // todo yine bir regex işlemi qğer query varsa oraya istek at yoksa normal page a istek at
         $('#pagination-demo').twbsPagination({
 
-            // \/Admin\/Product\/Add Regex for add url
-            // \/Admin\/Product\/Edit\/\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b Regex for Edit Url
-            // şuan guid kullanma
-
-            // https://localhost:44373/Home/Index?query=%C3%BCr%C3%BCn
-            // boş ise url normal
-            // query = ""
-            totalPages: @Model.PageInfo.GetTotalPage(), // todo sayıları arama kriterine göre değiştir
+            totalPages: @Model.PageInfo.GetTotalPage(),
             visiblePages: 6,
             next: 'Sonraki',
             prev: 'Önceki',
@@ -71,14 +45,8 @@
 
                 var url = "@Context.Request.Path@Context.Request.QueryString";
                 url = decodeURI(url);
-                console.log(url);
 
                 var query = decodeURI(getUrlVars()["query"]);
-
-
-                console.log(query);
-
-
 
                 const queryUrlRegex = new RegExp('(\/Home\/Index[(\?)]query=(.)*)');
 
@@ -91,8 +59,6 @@
                     actionUrl = '/GetProducts/';
                     data = '{page:' + page + '}';
                 }
-                console.log(actionUrl);
-                //fetch content and render here
                 $.ajax({
                     type: 'GET',
                     url: actionUrl + page,
@@ -102,7 +68,6 @@
                     success: function (res) {
                         $("#productsArea").html("");
                         var products = res.data.products;
-                        console.log(res.data);
                         for (var i = 0; i < products.length; i++) {
                             console.log(products.length);
                             $("#productsArea").append(product(products, i));
@@ -111,92 +76,5 @@
                 });
             }
         });
-
-        function getPrice(data, index) {
-            let html = ``;
-            var normalPrice = (data[index].price).toFixed(0);
-            if (data[index].discount != null && data[index].discount > 0) {
-
-                var discountedPrice = (data[index].price - ((data[index].price * data[index].discount) / 100)).toFixed(2);
-
-
-                html = `<p class="dress-card-para"><span class="dress-card-price">${discountedPrice + "&nbsp;₺"}</span>
-                        <span class="dress-card-crossed">${normalPrice}&nbsp;₺</span><small class="dress-card-off float-right">&ensp; (% ${data[index].discount})</small>
-                        </p>`
-            }
-            else {
-                html = `<p class="dress-card-para"><span class="dress-card-price">${normalPrice} &nbsp;₺ &ensp;</span></p>`;
-            }
-            return html;
-        }
-        string_chop = function (str, size) {
-            if (str == null) return [];
-            str = String(str);
-            size = ~~size;
-            return size > 0 ? str.match(new RegExp('.{1,' + size + '}', 'g')) : [str];
-        }
-        function product(data, index) {
-            var productName = string_chop(data[index].name, 15)[0];
-            let html =
-                `
-                <div class="col-md-3">
-                    <div class="dress-card shadow p-1" id="card-bg">
-                        <div class="dress-card-head">
-                            <img class="dress-card-img-top img-fluid" src="/img/${data[index].mainImage}" alt="" id="productImage"/>
-                        </div>
-                        <div class="dress-card-body">
-                            <h6 class="dress-card-title">${productName}</h6>
-                            <hr/>
-                            <p class="dress-card-para"> ${ getPrice(data, index) } </p>
-                            <div class="row">
-                              <div class="col-md-12 card-button"><a href="/product/${data[index].url}"><div class="card-button-inner wish-button">İncele </div></a></div>
-                            </div>
-                      </div>
-                    </div>
-                </div>
-                `;
-            return html;
-        }
-
-
     </script>
 }
-<style>
-    #card-bg {
-        background: #f8f9fa;
-        transition: 1.0s;
-    }
-
-        #card-bg:hover {
-            -ms-transform: scale(1.1); /* IE 9 */
-            -webkit-transform: scale(1.1); /* Safari 3-8 */
-            transform: scale(1.1);
-
-        }
-
-    .wrapper {
-        margin: 60px auto;
-        text-align: center;
-    }
-
-    h1 {
-        margin-bottom: 1.25em;
-    }
-
-    #pagination-demo {
-        display: inline-block;
-        margin-bottom: 1.75em;
-    }
-
-        #pagination-demo li {
-            display: inline-block;
-        }
-
-    .page-content {
-        background: #eee;
-        display: inline-block;
-        padding: 10px;
-        width: 100%;
-        max-width: 660px;
-    }
-</style>
