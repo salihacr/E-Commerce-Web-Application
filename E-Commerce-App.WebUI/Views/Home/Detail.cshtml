@@ -20,10 +20,8 @@
     <!-- Lightslider Css -->
     <link href="~/node_modules/lightslider/dist/css/lightslider.min.css" rel="stylesheet" />
 }
-<br />
 <form asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.ProductDto.Id" id="product-detail-form">
-    <br />
-    <br />
+    <div><br /><br /></div>
     <div class="pd-wrap">
         <div class="container">
             <div class="row">
@@ -63,45 +61,51 @@
                             </div>
                         </div>
                         <p>@Model.ProductDto.ShortDescription</p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="hidden" name="productId" value="@product.Id">
-                                <label for="size">Renk</label><br />
-                                <div class="toolbar">
-                                    <div id="myColorSelector" class="colorSelector">
-                                        @if (Model.SelectedColors != null)
-                                        {
-                                            @foreach (var color in Model.SelectedColors)
-                                            {
-                                                <label class="buttonContainer">
-                                                    <input type="radio" name="color" value="@color.Name" checked>
-                                                    <div class="colorOption" style="background:@color.Code"></div>
-                                                </label>
-                                            }
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="product-count">
+                        @if (Model.ProductDto.IsActive)
+                        {
                             <div class="row">
                                 <div class="col-md-6">
-                                    <small>Adet</small>
-                                    <div class="display-flex">
-                                        <div class="qtyminus">-</div>
-                                        <input type="text" name="quantity" value="1" class="qty">
-                                        <div class="qtyplus">+</div>
+                                    <input type="hidden" name="productId" value="@product.Id">
+                                    <label for="size">Renk</label><br />
+                                    <div class="toolbar">
+                                        <div id="myColorSelector" class="colorSelector">
+                                            @if (Model.SelectedColors != null)
+                                            {
+                                                @foreach (var color in Model.SelectedColors)
+                                                {
+                                                    <label class="buttonContainer">
+                                                        <input type="radio" name="color" value="@color.Name" checked>
+                                                        <div class="colorOption" style="background:@color.Code"></div>
+                                                    </label>
+                                                }
+                                            }
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    @if (Model.ProductDto.IsActive)
-                                    {
+                            </div>
+                            <br />
+                            <div class="product-count">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <small>Adet</small>
+                                        <div class="display-flex">
+                                            <div class="qtyminus">-</div>
+                                            <input type="text" name="quantity" value="1" class="qty">
+                                            <div class="qtyplus">+</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+
                                         <button type="submit" class="float-right round-black-btn">Sepete Ekle</button>
-                                    }
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
+                        else
+                        {
+
+                        }
                     </div>
                 </div>
             </div>

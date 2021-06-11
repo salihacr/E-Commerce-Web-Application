@@ -42,7 +42,7 @@ namespace E_Commerce_App.WebUI.Controllers
             var userId = _userManager.GetUserId(User);
             await _cartService.AddToCart(userId, productId, quantity, price, color);
 
-            return Json(new { isValid = true, message = "Ürün sepete eklendi." });
+            return Json(new { success = true, message = "Ürün sepete eklendi." });
         }
 
         [HttpPost]
@@ -54,7 +54,7 @@ namespace E_Commerce_App.WebUI.Controllers
 
             return Json(new
             {
-                isValid = true,
+                success = true,
                 message = Messages.JSON_REMOVE_MESSAGE("Ürün"),
                 data = await CartHelper.GetProductsFromCart(_cartService, _userManager, User)
             });

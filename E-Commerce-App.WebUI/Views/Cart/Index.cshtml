@@ -1,23 +1,19 @@
-﻿@{Layout = "_Layout";}
-@model E_Commerce_App.WebUI.ViewModels.CartViewModel
-@* site.css de site-color1 diye özellik tanımla sitenin ana renginin oldugu,
-    baslik renkleri text renkleri vb.*@
-<br />
-<br />
-<br />
-<br />
+﻿@model E_Commerce_App.WebUI.ViewModels.CartViewModel
+@{Layout = "_Layout";}
+@section Css{
 
+}
+<div><br /><br /><br /><br /></div>
 @if (Model.CartItems.Count > 0)
 {
     <h4>Sepetim</h4>
-    <br />
     <div class="row">
-
-        <div class="col-md-9 mb-2" id="cartItems">
-
+        <div class="col-md-9 mb-2">
+            <div class="card p-5 shadow" id="cartItems">
+            </div>
         </div>
-        <div class="col-md-3">
-            <div class="card p-3">
+        <div class="col-md-3" style="position: -webkit-sticky; position: sticky; top: 7em;">
+            <div class="card p-3 shadow">
                 <h6 class="mb-3">Ödenecek Tutar</h6>
                 <h4 class="mb-5">@Model.GetTotalPrice() <small><b>TL</b></small></h4>
                 <a class="btn btn-outline-primary" href="/order/checkout">Alışverişi tamamla</a>
@@ -33,106 +29,8 @@ else
         <span>Sepetini <b>E-Pazar'ın</b> fırsatlarla dolu dünyasından doldurmak için aşağıdaki ürünleri incelemeye başlayabilirsin.</span>
     </div>
 }
-@* kampanyaları ekle *@
 
 @section Scripts{
-    @* sil metodunda dönen data olacagi icin html yeniden ekrana basilir. *@
-
-    <script>
-        function cartItemComponent(data, index) {
-            let html = ``;
-
-            html = `
-<div class="row">
-                    <div class="col-md-2"><img src="/img/${data[index].imageUrl}" width="100" height="100" /></div>
-                    <div class="col-md-8">
-                        <h6>${data[index].name}</h6>
-                        <br />
-                        <h5> ${data[index].cartItemDto.price * data[index].cartItemDto.quantity} TL</h5>
-                    </div>
-                    <div class="col-md-1">
-                        Adet
-                        <p style="text-align:center">${data[index].cartItemDto.quantity}</p>
-                    </div>
-                    <div class="col-md-1">
-                            <button class="btn btn-danger" onclick="removeCartItem('${data[index].cartItemDto.productId}')"><i class="fas fa-trash"></i></button>
-                    </div>
-</div><hr />`;
-            return html;
-        }
-
-        function getCartItems() {
-            var len = 0;
-            $.ajax({
-                type: 'GET',
-                url: "/GetCartItems",
-                contentType: false,
-                processData: false,
-                success: function (response) {
-                    var data = response.data.cartItems;
-                    len = data.length;
-                    console.log(response);
-                    for (var i = 0; i < data.length; i++) {
-                        $("#cartItems").append(cartItemComponent(data, i));
-                    }
-                }
-            })
-            return len;
-        }
-
-        removeCartItem = productId => {
-
-            const state = {
-                productId: productId
-            };
-            console.log(state);
-            try {
-                $.ajax({
-                    type: 'POST',
-                    url: `/RemoveFromCart/${productId}`,
-                    data: state,
-                    contentType: false,
-                    processData: false,
-                    success: function (res) {
-                        $("#cartItems").html("");
-                        var len = getCartItems();
-
-                        if (len < 1) {
-                            location.reload();
-                        }
-                    },
-                    error: function (err) {
-                        console.log(err)
-                    }
-                })
-            }
-            catch (ex) {
-                console.log(ex)
-            }
-            return false;
-        }
-
-        getCartItems();
-
-    </script>
-}
-@section Css{
-    <style>
-
-        .icon {
-            animation: MoveUpDown 2s linear infinite;
-            position: relative;
-            color: dodgerblue;
-        }
-
-        @@keyframes MoveUpDown {
-            0%, 100% {
-                bottom: 0;
-            }
-
-            50% {
-                bottom: 20px;
-            }
-        }
-    </style>
+    <!-- Cart Custom JS -->
+    <script src="~/customPagesJs/cart.js"></script>
 }

@@ -71,4 +71,6 @@ setTimeout(() => {
 }, 1000);
 
 var colorList = document.getElementsByName('color');
-colorList[0].checked = true;
+if (colorList.length > 0) {
+    colorList[0].checked = true;
+}

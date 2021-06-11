@@ -97,3 +97,20 @@ a {
     -webkit-box-shadow: 0 0 20px 20px#888;
     box-shadow: 0 0 20px 20px #888;
 }
+
+
+.icon {
+    animation: MoveUpDown 2s linear infinite;
+    position: relative;
+    color: dodgerblue;
+}
+
+@keyframes MoveUpDown {
+    0%, 100% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 20px;
+    }
+}
