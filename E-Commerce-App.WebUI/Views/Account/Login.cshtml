@@ -1,16 +1,13 @@
-﻿@model E_Commerce_App.WebUI.ViewModels.UserViewModel.LoginViewModel
-@{
-    Layout = null;
-}
-
+﻿@{ Layout = null;}
+@model E_Commerce_App.WebUI.ViewModels.UserViewModel.LoginViewModel
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="~/node_modules/@@fortawesome/fontawesome-free/css/all.min.css" />
     <link rel="stylesheet" href="~/css/signin-up.css" />
     <!-- Toastr Css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="~/css/toastr.min.css" />
 </head>
 <body>
     <div class="overlay">
@@ -22,14 +19,11 @@
                 </header>
                 <br>
                 <div class="field-set">
-
                     <span class="input-item">
                         <i class="fa fa-user-circle"></i>
                     </span>
                     <input type="text" class="form-input" asp-for="@Model.Email" id="txt-input" placeholder="Email adres" required>
-
                     <br>
-
                     <span class="input-item">
                         <i class="fa fa-key"></i>
                     </span>
@@ -40,69 +34,22 @@
                     <br>
                     <button class="log-in"> Giriş Yap </button>
                 </div>
-
                 <div class="other">
-                    <button class="btn submits frgt-pass"><a href="/Account/ForgotPassword">Şifremi Unuttum</a></button>
+                    <button class="btn submits frgt-pass">Şifremi Unuttum</button>
                     <button class="btn submits sign-up">
-                        <a href="/Account/Register">
-                            Kayıt Ol
-                            <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        </a>
+                        Kayıt Ol
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </form>
     </div>
+    <!-- Bootstrap & Jquery -->
     <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Toastr JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script>
-
-        toastr.options = {
-            "positionClass": "toast-bottom-right",
-        }
-
-        $('#login-form').on('submit', function (event) {
-            var formData = new FormData($('#login-form')[0]);
-            $.ajax({
-                type: 'POST',
-                url: "/Account/Login",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (res) {
-                    if (res.success) {
-                        toastr.success("Giriş başarılı.");
-                        setTimeout(() => { window.location.href = res.redirectUrl; }, 2000);
-                    } else {
-                        toastr.warning(res.message);
-                    }
-                },
-                error: function (err) {
-                    toastr.error("Beklenmedik bir hata meydana geldi");
-                }
-            });
-            return false;
-        });
-        function show() {
-            var p = document.getElementById('pwd');
-            p.setAttribute('type', 'text');
-        }
-        function hide() {
-            var p = document.getElementById('pwd');
-            p.setAttribute('type', 'password');
-        }
-        var pwShown = 0;
-        document.getElementById("eye").addEventListener("click", function () {
-            if (pwShown == 0) {
-                pwShown = 1;
-                show();
-            } else {
-                pwShown = 0;
-                hide();
-            }
-        }, false);
-    </script>
+    <script src="~/js/toastr.min.js"></script>
+    <!-- Account Custom JS -->
+    <script src="~/customPagesJs/account.js"></script>
 </body>
 </html>

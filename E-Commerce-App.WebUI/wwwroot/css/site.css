@@ -1,6 +1,7 @@
 ﻿body {
     font-family: 'Poppins', sans-serif !important;
 }
+
 #toast-container > .toast-success {
     background-color: #28a745 !important;
 }
@@ -16,6 +17,7 @@
 #toast-container > .toast-error {
     background-color: #bd2130 !important;
 }
+
 #toast-container > div {
     opacity: 1 !important;
 }
@@ -53,6 +55,7 @@ input[type=file]::file-selector-button:hover {
 .margin-10 {
     margin-top: -10px;
 }
+
 td {
     vertical-align: middle !important;
 }
@@ -60,6 +63,30 @@ td {
 th {
     vertical-align: middle !important;
 }
-a{
-    text-decoration:none !important;
+
+a {
+    text-decoration: none !important;
+}
+
+.a-hover {
+    transition: 0.4s !important;
+}
+
+    .a-hover:hover {
+        color: #3b4dd4 !important;
+    }
+
+#btn-search {
+    background-image: linear-gradient(to right, #386ded, #3b4dd4);
+    border-radius: 0px 16px 16px 0px;
+    outline: 0 !important;
+    transition: 1.0s !important;
+}
+
+    #btn-search:hover {
+        background-image: linear-gradient(to right, #3b4dd4, #386ded);
+    }
+
+.bg-e-pazar-gradient {
+    background-image: linear-gradient(to right, #386ded, #3b4dd4);
 }

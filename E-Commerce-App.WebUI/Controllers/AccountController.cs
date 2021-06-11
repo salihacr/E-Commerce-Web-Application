@@ -49,7 +49,7 @@ namespace E_Commerce_App.WebUI.Controllers
         public async Task<IActionResult> Profile()
         {
             var user = await _userManager.GetUserAsync(User);
-            var model = new UserAccountViewModel() { FullName = user.FullName, Email = user.Email, NewPassword="", RePassword="" };
+            var model = new UserAccountViewModel() { FullName = user.FullName, Email = user.Email, NewPassword = "", RePassword = "" };
             return View(model);
         }
         public async Task<IActionResult> ProfileEdit(UserAccountViewModel model)
@@ -58,7 +58,7 @@ namespace E_Commerce_App.WebUI.Controllers
             {
                 var user = await _userManager.GetUserAsync(User);
 
-                if ((model.Email.Equals(user.Email) && model.FullName.Equals(user.FullName)) 
+                if ((model.Email.Equals(user.Email) && model.FullName.Equals(user.FullName))
                     && string.IsNullOrEmpty(model.NewPassword))
                 {
                     return Redirect("/my-profile");
@@ -72,7 +72,7 @@ namespace E_Commerce_App.WebUI.Controllers
                     await _userManager.AddPasswordAsync(user, model.NewPassword);
                 }
                 await _userManager.UpdateAsync(user);
-                return Json(new {success=true, message = "Profil bilgileri başarıyla güncellendi." });
+                return Json(new { success = true, message = "Profil bilgileri başarıyla güncellendi." });
             }
             return Redirect(nameof(Profile));
         }
@@ -125,7 +125,7 @@ namespace E_Commerce_App.WebUI.Controllers
             {
                 var user = await _userManager.FindByEmailAsync(model.Email);
 
-                if (user == null) return Json(new { message = "Email adresi veya parola hatalı.", errorType=1 });
+                if (user == null) return Json(new { message = "Email adresi veya parola hatalı.", errorType = 1 });
 
                 if (!await _userManager.IsEmailConfirmedAsync(user))
                     return Json(new { message = "Email adresinizi onaylamak için lütfen maillerinizi kontrol ediniz.", errorType = 2 });
@@ -138,7 +138,7 @@ namespace E_Commerce_App.WebUI.Controllers
                     return Json(new { success = true, redirectUrl = "/" });// Redirect(model.ReturnUrl ?? "~/");
                 }
 
-                else return Json(new { message = "Email adresi veya parola hatalı.", errorType=1 });
+                else return Json(new { message = "Email adresi veya parola hatalı.", errorType = 1 });
             }
             return View(model);
         }
@@ -148,7 +148,6 @@ namespace E_Commerce_App.WebUI.Controllers
         {
             if (userId == null || token == null)
             {
-                //CreateMessage("geçersiz token", "geçersiz token", "danger");
                 return View();
             }
             var user = await _userManager.FindByIdAsync(userId);
@@ -160,10 +159,10 @@ namespace E_Commerce_App.WebUI.Controllers
                     // cart objesini oluşturalım
                     await _cartService.InitializeCart(user.Id);
                     //CreateMessage("hesabınız onaylandı", "hesabınız onaylandı.", "success");
+                    //return Json(new { success=true, redirectUrl="/account/login", message="Kullanıcı kaydınız tamamlandı. Giriş yapabilirsiniz." });
                     return RedirectToAction(nameof(Login));
                 }
             }
-            //CreateMessage("böyle biri yok", "böyle biri yok", "warning");
             return Json(new { message = "Böyle bir kullanıcı bulunamadı." });
         }
 
@@ -176,7 +175,7 @@ namespace E_Commerce_App.WebUI.Controllers
                 // email exist control
                 if (await EmailExist(model.Email)) return Json(new { message = "E-mail adresi ile zaten kayıt yapılmış.", errorType = 3 });
 
-                var user = new User { FullName = model.FullName, Email = model.Email, UserName = model.FullName.Replace(" ", "") };
+                var user = new User { FullName = model.FullName, Email = model.Email, UserName = model.Email };
                 var resultUser = await _userManager.CreateAsync(user, model.Password);
 
 
@@ -184,14 +183,25 @@ namespace E_Commerce_App.WebUI.Controllers
                 await _userManager.AddToRoleAsync(user, "customer");
                 if (resultUser.Succeeded)
                 {
-                    // generate token
-                    var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var baseUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, token = token });
+                    try
+                    {
+                        // generate token
+                        var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                        var baseUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, token = token });
 
-                    // email operations
-                    await SendVerificationEmail(user, user.Email, baseUrl);
-
-                    return Json(new { message = "Kullanıcı kaydı başarılı. Lütfen mail adresinizi doğrulayın.", success=true });
+                        // email operations
+                        await SendVerificationEmail(user, user.Email, baseUrl);
+                        return Json(new { success = true, redirectUrl = "/account/login", message = "Kullanıcı kaydı başarılı. Lütfen mail adresinizi doğrulayın." });
+                    }
+                    catch (Exception)
+                    {
+                        await _userManager.DeleteAsync(user);
+                        return Json(new { success = false, redirectUrl = "/account/register", message = "Kullanıcı kaydında hata yaşandı. Lütfen daha sonra tekrar deneyiniz." });
+                    }
+                }
+                else if (!resultUser.Succeeded)
+                {
+                    return Json(new { message = "Parola en az, 6 karakter, 1 büyük harf, 1 sayısal ifade ve 1 noktalama işareti içermelidir.", success = false });
                 }
             }
             return View(model);

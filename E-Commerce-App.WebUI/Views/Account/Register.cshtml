@@ -1,12 +1,15 @@
-﻿@model E_Commerce_App.WebUI.ViewModels.UserViewModel.RegisterViewModel
-@{Layout = null;}
-
+﻿@{Layout = null;}
+@model E_Commerce_App.WebUI.ViewModels.UserViewModel.RegisterViewModel
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="~/node_modules/@@fortawesome/fontawesome-free/css/all.min.css" />
     <link rel="stylesheet" href="~/css/signin-up.css" />
+    <!-- Toastr Css -->
+    <link rel="stylesheet" href="~/css/toastr.min.css" />
+    <!-- Sweet Alert2 Css -->
+    <link href="~/node_modules/sweetalert2/dist/sweetalert2.all.min.css" />
 </head>
 <body>
     <div class="overlay">
@@ -21,19 +24,19 @@
                 <br>
                 <div class="field-set">
                     <span class="input-item">
-                        <i class="fa fa-user-circle"></i>
+                        <i class="fa fa-user"></i>
                     </span>
                     <input type="text" class="form-input" asp-for="@Model.FullName" id="txt-input" placeholder="Ad soyad" required>
                     <br />
                     <span class="input-item">
                         <i class="fa fa-envelope"></i>
                     </span>
-                    <input type="text" class="form-input" asp-for="@Model.Email" id="txt-input" placeholder="Email adres" required>
+                    <input type="email" class="form-input" asp-for="@Model.Email" id="txt-input" placeholder="Email adres" required>
                     <br>
                     <span class="input-item">
                         <i class="fa fa-key"></i>
                     </span>
-                    <input type="password" class="form-input" asp-for="@Model.Password" placeholder="Parola" id="pwd" required>
+                    <input type="password" class="form-input" asp-for="@Model.Password" placeholder="Parola" id="pwd" required autocomplete="new-password">
                     <span>
                         <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
                     </span>
@@ -47,50 +50,14 @@
         </form>
     </div>
 
+    <!-- Bootstrap & Jquery -->
     <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Toastr JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script>
-        $('#register-form').on('submit', function (event) {
-            var formData = new FormData($('#register-form')[0]);
-            $.ajax({
-                type: 'POST',
-                url: "/Account/Register",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (res) {
-                    if (res.success) {
-                        window.location.href = res.redirectUrl;
-                    } else {
-                        toastr.warning(res.message);
-                    }
-                },
-                error: function (err) {
-                    toastr.error("Beklenmedik bir hata meydana geldi");
-                }
-            });
-            return false;
-        });
-        function show() {
-            var p = document.getElementById('pwd');
-            p.setAttribute('type', 'text');
-        }
-        function hide() {
-            var p = document.getElementById('pwd');
-            p.setAttribute('type', 'password');
-        }
-        var pwShown = 0;
-        document.getElementById("eye").addEventListener("click", function () {
-            if (pwShown == 0) {
-                pwShown = 1;
-                show();
-            } else {
-                pwShown = 0;
-                hide();
-            }
-        }, false);
-    </script>
+    <script src="~/js/toastr.min.js"></script>
+    <!-- Account Custom JS -->
+    <script src="~/customPagesJs/account.js"></script>
+    <!-- Sweet Alert2 JS  -->
+    <script src="~/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>

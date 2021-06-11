@@ -57,6 +57,5 @@ namespace E_Commerce_App.WebUI.Controllers
             }
             return Json(new { success=false, message="Profil güncellemesinde hata yaşandı, tekrar deneyiniz.", redirectUrl = "/Admin/Profile" });
         }
-
     }
 }
