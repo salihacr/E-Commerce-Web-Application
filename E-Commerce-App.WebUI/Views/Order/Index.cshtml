@@ -56,12 +56,12 @@
                                     }
                                     @if (list.orderItems[i].HasComment)
                                     {
-                                        <a onclick="showInPopupWithId(@list.orderItems[i].Id, @action, 'Değerlendir')"
+                                        <a onclick="showInPopupWithId(@list.orderItems[i].Id, '@Url.Action("CommentAddOrEdit", "Order", new { id = list.ratings[i].Id }, Context.Request.Scheme)', 'Değerlendir')"
                                            class="btn btn-secondary text-white"><i class="fas fa-pencil-alt"></i> Değerlendir</a>
                                     }
                                     else
                                     {
-                                        <a onclick="showInPopupWithId(@list.orderItems[i].Id, @action,'Değerlendir')"
+                                        <a onclick="showInPopupWithId(@list.orderItems[i].Id, '@Url.Action("CommentAddOrEdit", "Order", null, Context.Request.Scheme)','Değerlendir')"
                                            class="btn btn-success btn-block text-white"><i class="fas fa-plus-circle"></i> Değerlendir</a>
                                     }
                                     <hr />

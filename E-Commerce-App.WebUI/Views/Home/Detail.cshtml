@@ -104,7 +104,7 @@
                         }
                         else
                         {
-
+                            <small class="text-danger">Ürün listeden kaldırılmıştır.</small>
                         }
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                         @Html.Raw(Model.ProductDto.Description)
                     </div>
                     <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-                        <div class="card">
+                        <div class="card shadow">
                             <div class="card-body">
                                 @if (Model.Ratings.Count < 1)
                                 {
@@ -134,6 +134,8 @@
                                 {
                                     foreach (var item in Model.Ratings)
                                     {
+                                        var date = (DateTime)item.CreationDate;
+                                        <small>@date.ToString("dd MMMM yyyy", CultureInfo.CreateSpecificCulture("tr"))</small>
                                         <div class="star-area" data-point="@item.Point">
                                             <span class="fa fa-star @(item.Point>0 ?"checked":"")"></span>
                                             <span class="fa fa-star @(item.Point>1 ?"checked":"")"></span>

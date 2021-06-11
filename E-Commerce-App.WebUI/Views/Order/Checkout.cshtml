@@ -1,356 +1,131 @@
 ﻿@model E_Commerce_App.WebUI.ViewModels.OrderViewModel
-@{ Layout = "_Layout";
+@{
+    Layout = "_Layout";
     int cartItemLen = Convert.ToInt32(ViewData["CartItemsLength"]);
 }
 
 <div><br /><br /><br /></div>
 
-@* sipariş başarılı sayfasına yönlendirme olsun. window.location.href *@
-@if (cartItemLen >= 0)
-{
-    <form id="payment-form" asp-controller="Order" asp-action="Checkout">
-        <div class="row">
-            <div class="col-md-9 mb-3">
-                <div class="card p-5">
-                    Teslimat bilgileri
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <small>Ad</small>
-                            <input class="form-control" asp-for="@Model.OrderDto.FirstName" placeholder="Teslim alacak kişinin adı" value="Test" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <small>Soyad</small>
-                            <input class="form-control" asp-for="@Model.OrderDto.LastName" placeholder="Teslim alacak kişinin soyadı" value="User" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <small>Telefon</small>
-                            <input type="number" asp-for="@Model.OrderDto.Phone" class="form-control" placeholder="Teslim alacak kişinin telefon numarası" value="5556664433" />
-                        </div>
+<form id="payment-form" asp-controller="Order" asp-action="Checkout">
+    <div class="row">
+        <div class="col-md-9 mb-3">
+            <div class="card p-5 shadow">
+                Teslimat bilgileri
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <small>Ad</small>
+                        <input class="form-control" asp-for="@Model.OrderDto.FirstName" placeholder="Teslim alacak kişinin adı" value="Test" />
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <small>Şehir</small>
-                            <select asp-for="@Model.OrderDto.City" id="il" class="form-control">
-                                <option value="">Seçiniz...</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <small>İlçe</small>
-                            <select asp-for="@Model.OrderDto.District" id="ilce" class="form-control">
-                                <option value="">Seçiniz...</option>
-                            </select>
-                        </div>
+                    <div class="form-group col-md-3">
+                        <small>Soyad</small>
+                        <input class="form-control" asp-for="@Model.OrderDto.LastName" placeholder="Teslim alacak kişinin soyadı" value="User" />
                     </div>
-                    <div class="form-group">
-                        <small>Adres</small>
-                        <textarea asp-for="@Model.OrderDto.Address" class="form-control" placeholder="Tam adres"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <small>Not</small>
-                        <textarea asp-for="@Model.OrderDto.Note" class="form-control" placeholder="Not"></textarea>
+                    <div class="form-group col-md-6">
+                        <small>Telefon</small>
+                        <input type="number" asp-for="@Model.OrderDto.Phone" class="form-control" placeholder="Teslim alacak kişinin telefon numarası" value="5556664433" />
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3" style="position: -webkit-sticky; position: sticky; top: 7em;">
-                <div class="card p-3">
-                    <h6 class="mb-3">Ödenecek Tutar</h6>
-                    <h4 class="mb-5">@Model.CartViewModel.GetTotalPrice() <small><b>TL</b></small></h4>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="contract">
-                        <label class="form-check-label" for="flexCheckChecked">
-                            <a data-toggle="modal" data-target="#exampleModalCenter">
-                                <small>Ön bilgilendirme formunu ve Mesafeli satış sözleşmesini onaylıyorum.</small>
-                            </a>
-                        </label>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <small>Şehir</small>
+                        <select asp-for="@Model.OrderDto.City" id="il" class="form-control">
+                            <option value="">Seçiniz...</option>
+                        </select>
                     </div>
-                    <button class="btn btn-outline-primary btn-block mt-2" href="/order/checkout">Alışverişi tamamla</button>
+                    <div class="form-group col-md-6">
+                        <small>İlçe</small>
+                        <select asp-for="@Model.OrderDto.District" id="ilce" class="form-control">
+                            <option value="">Seçiniz...</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-9 mb-3">
-                <div class="card p-5">
-                    Ödeme bilgileri
-                    <div class="row">
-                        <div class="col-md-6 mt-1">
-                            <div class="form-group">
-                                <small>Kart numarası</small>
-                                <input asp-for="@Model.CardNumber" class="form-control" placeholder="•••• •••• •••• ••••" id="number" value="5528790000000008" />
-                            </div>
-                            <div class="form-group">
-                                <small>Kart üzerindeki isim</small>
-                                <input asp-for="@Model.CardHolderName" class="form-control" id="name" placeholder="Kart sahibinin adı ve soyadı" value="Test User" />
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <small>Son kullanma tarihi</small>
-                                    <input type="hidden" asp-for="@Model.ExpirationYear" id="expiry-year" value="2030" />
-                                    <input type="hidden" asp-for="@Model.ExpirationMonth" id="expiry-month" value="12" />
-                                    <input class="form-control" id="expiry" placeholder="Ay/Yıl" name="expiry" value="12/2030" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <small>Güvenlik kodu</small>
-                                    <input asp-for="@Model.Cvc" class="form-control" id="cvc" placeholder="CVC/CVV" value="123" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mt-4">
-                            <div class="credit-card"></div>
-                        </div>
-                    </div>
-
+                <div class="form-group">
+                    <small>Adres</small>
+                    <textarea asp-for="@Model.OrderDto.Address" class="form-control" placeholder="Tam adres"></textarea>
+                </div>
+                <div class="form-group">
+                    <small>Not</small>
+                    <textarea asp-for="@Model.OrderDto.Note" class="form-control" placeholder="Not"></textarea>
                 </div>
             </div>
         </div>
-    </form>
+        <div class="col-md-3" style="position: -webkit-sticky; position: sticky; top: 7em;">
+            <div class="card p-3 shadow">
+                <h6 class="mb-3">Ödenecek Tutar</h6>
+                <h4 class="mb-5">@Model.CartViewModel.GetTotalPrice() <small><b>TL</b></small></h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="contract">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        <a data-toggle="modal" data-target="#exampleModalCenter" class="a-hover">
+                            <small>Ön bilgilendirme formunu ve Mesafeli satış sözleşmesini onaylıyorum.</small>
+                        </a>
+                    </label>
+                </div>
+                <button class="btn btn-outline-primary btn-block mt-2" href="/order/checkout">Alışverişi tamamla</button>
+            </div>
+        </div>
+        <div class="col-md-9 mb-3">
+            <div class="card p-5 shadow">
+                Ödeme bilgileri
+                <div class="row">
+                    <div class="col-md-6 mt-1">
+                        <div class="form-group">
+                            <small>Kart numarası</small>
+                            <input asp-for="@Model.CardNumber" class="form-control" placeholder="•••• •••• •••• ••••" id="number" value="5528790000000008" />
+                        </div>
+                        <div class="form-group">
+                            <small>Kart üzerindeki isim</small>
+                            <input asp-for="@Model.CardHolderName" class="form-control" id="name" placeholder="Kart sahibinin adı ve soyadı" value="Test User" />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <small>Son kullanma tarihi</small>
+                                <input type="hidden" asp-for="@Model.ExpirationYear" id="expiry-year" value="2030" />
+                                <input type="hidden" asp-for="@Model.ExpirationMonth" id="expiry-month" value="12" />
+                                <input class="form-control" id="expiry" placeholder="Ay/Yıl" name="expiry" value="12/2030" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <small>Güvenlik kodu</small>
+                                <input asp-for="@Model.Cvc" class="form-control" id="cvc" placeholder="CVC/CVV" value="123" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <div class="credit-card"></div>
+                    </div>
+                </div>
 
-}
-else
-{
-    Context.Response.Redirect("/");
-}
+            </div>
+        </div>
+    </div>
+</form>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Mesafeli satış sözleşmesi</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget maximus erat, sed auctor eros. Integer fringilla turpis tellus, id blandit neque egestas vel. Praesent arcu sem, accumsan at molestie a, posuere sed mi. Donec iaculis vel metus a fermentum. Mauris blandit ligula et ornare scelerisque. Mauris urna sapien, auctor nec nibh vel, vestibulum tincidunt nunc. Sed dapibus mauris vitae eros pellentesque elementum ut ut erat. In tincidunt purus vitae eros tempus pulvinar. Aliquam nec risus condimentum, ultrices est eget, volutpat sem. Sed nec ligula sit amet nisi sodales egestas. Nulla ut interdum nunc, non auctor lectus. Pellentesque ornare nibh eget ligula molestie, interdum auctor neque gravida. In eu erat facilisis, luctus turpis posuere, bibendum leo. Nullam eleifend mauris non leo sagittis, nec congue ex vestibulum.
             </div>
         </div>
     </div>
 </div>
 
-@* dto yu required olarak etiketle *@
 @section Css{
+    <!-- Card Css -->
     <link href="~/node_modules/card/dist/jquery.card.css" />
 }
 
-@* Shadow card diye css stili olsun kesin. *@
-
 @section Scripts{
-    <script>
-
-        //$(".navbar").removeClass("fixed-top");
-
-        $('#expiry').keyup(function () {
-            var expiry = $("#expiry").val();
-
-            var arr = expiry.split("/");
-
-            $("#expiry-month").val(arr[0].trim());
-            $("#expiry-year").val(arr[1].trim());
-
-        });
-
-    </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <!-- Order Custom JS -->
+    <script src="~/customPagesJs/order.js"></script>
+    <!-- Card JS -->
     <script src="~/node_modules/card/dist/card.js"></script>
-    <script>
-
-        const REQUIRED_INPUT_MESSAGE = "Bu alanın doldurulması zorunludur."
-        $('#payment-form').validate({
-            rules: {
-                "OrderDto.FirstName": {
-                    required: true,
-                    minlength: 2,
-                    maxlength: 50
-                },
-                "OrderDto.LastName": {
-                    required: true,
-                    minlength: 2,
-                    maxlength: 50
-                },
-                "OrderDto.Phone": {
-                    required: true,
-                    minlength: 10,
-                    maxlength: 10
-                },
-                "OrderDto.City": {
-                    required: true,
-                },
-                "OrderDto.Address": {
-                    required: true,
-                    minlength: 10,
-                    maxlength: 120
-                },
-                "CardNumber": {
-                    required: true,
-                    minlength: 16,
-                    maxlength: 19
-                },
-                "CardHolderName": {
-                    required: true,
-                    minlength: 3,
-                    maxlength: 20
-                },
-                "expiry": {
-                    required: true,
-                },
-                "Cvc": {
-                    required: true,
-                },
-                "contract": {
-                    required: true,
-                },
-            },
-            messages: {
-                "OrderDto.FirstName": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                    minlength: "2",
-                    maxlength: "50"
-                },
-                "OrderDto.LastName": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                    minlength: "2",
-                    maxlength: "50"
-                },
-                "OrderDto.Phone": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                    minlength: "10",
-                    maxlength: "10"
-                },
-                "OrderDto.City": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                },
-                "OrderDto.Address": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                    minlength: "10",
-                    maxlength: "120"
-                },
-                "CardNumber": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                    minlength: "16",
-                    maxlength: "19"
-                },
-                "CardHolderName": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                    minlength: "3",
-                    maxlength: "20"
-                },
-                "expiry": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                },
-                "Cvc": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                },
-                "contract": {
-                    required: REQUIRED_INPUT_MESSAGE,
-                }
-            },
-            errorElement: 'span',
-            errorPlacement: function (error, element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass('is-invalid');
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass('is-invalid');
-            }
-        });
-
-
-        $('#payment-form').on('submit', function (event) {
-            var formData = new FormData();
-            var serializedArr = $("#payment-form").serializeArray();
-            serializedArr.forEach((d) => {
-                formData.append(d.name, d.value);
-                console.log(d.name + " " + d.value);
-            });
-            if ($('#payment-form').valid() === true) {
-                var formData = new FormData();
-                var serializedArr = $("#payment-form").serializeArray();
-                serializedArr.forEach((d) => {
-                    formData.append(d.name, d.value);
-                    console.log(d.name + " " + d.value);
-                });
-                $.ajax({
-                    type: 'POST',
-                    url: "/Order/Checkout",
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: async function (res) {
-                        if (res.success) {
-                            await Swal.fire(
-                                'Sipariş Başarılı !',
-                                `${res.message}`,
-                                'success'
-                            )
-                            window.location.href = "/";
-                        }
-                        else
-                            Swal.fire(
-                                'Kayıt Hatası !',
-                                `${res.message}`,
-                                'error'
-                            )
-                    },
-                    error: function (err) {
-                        console.log(err)
-                    }
-                });
-                //to prevent default form submit event
-                //event.preventDefault();
-                return false;
-            }
-            else {
-                event.preventDefault();
-                toastr.warning("Lütfen gerekli alanları doldurun.")
-            }
-        });
-
-
-    </script>
-    <script>
-        $.getJSON("/json/tr-iller-bolgeler.json", function (sonuc) {
-            $.each(sonuc, function (index, value) {
-                var row = "";
-                var il = value.il.toUpperCase();
-                row += '<option value="' + value.il + '">' + il + '</option>';
-                $("#il").append(row);
-            })
-        });
-        $("#il").on("change", function () {
-            var il = $(this).val();
-            console.log(il);
-            $("#ilce").attr("disabled", false).html("<option value=''>Seçin..</option>");
-            $.getJSON("/json/tr-iller-ilceler.json", function (sonuc) {
-                $.each(sonuc, function (index, value) {
-                    var row = "";
-                    if (value.il == il) {
-                        var ilce = value.ilce.toUpperCase();
-                        row += '<option value="' + value.ilce + '">' + ilce + '</option>';
-                        $("#ilce").append(row);
-                    }
-                });
-            });
-        });
-    </script>
-
-
-    <script>
-        var card = new Card({
-            form: '#payment-form',
-            container: '.credit-card',
-            formSelectors: {
-                numberInput: 'input#number',
-                expiryInput: 'input#expiry',
-                cvcInput: 'input#cvc',
-                nameInput: 'input#name'
-            },
-            placeholders: {
-                number: '•••• •••• •••• ••••',
-                name: 'AD SOYAD',
-                expiry: '••/••',
-                cvc: '•••'
-            }
-        });
-    </script>
 }

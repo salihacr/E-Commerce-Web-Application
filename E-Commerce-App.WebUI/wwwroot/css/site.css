@@ -69,6 +69,7 @@ a {
 }
 
 .a-hover {
+    color: black !important;
     transition: 0.4s !important;
 }
 
