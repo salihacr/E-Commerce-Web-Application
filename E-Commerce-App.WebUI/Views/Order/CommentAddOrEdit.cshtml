@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label asp-for="@Model.Rating.Comment" class="control-label">Yorum</label>
                 <div class="input-group">
-                    <input type="text" asp-for="@Model.Rating.Comment" class="form-control" id="categoryName" placeholder="Yorumunuz" />
+                    <textarea asp-for="@Model.Rating.Comment" class="form-control" id="categoryName" placeholder="Yorumunuz"></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -29,7 +29,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <div class="col-md-6 offset-md-3">
+                <div class="">
                     <input type="submit" value="Kaydet" class="btn btn-primary btn-block" />
                 </div>
             </div>
@@ -37,86 +37,5 @@
     </div>
 </div>
 
-<script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="~/node_modules/jquery-validation/dist/additional-methods.min.js"></script>
-
-<script>
-
-    $(document).ready(function () {
-
-        $('#comment-form').on('submit', function (event) {
-
-            const REQUIRED_INPUT_MESSAGE = "Bu alanın doldurulması zorunludur.";
-
-            $('#comment-form').validate({
-                rules: {
-                    "Rating.Comment": {
-                        required: true,
-                        maxlength: 50,
-                        minlength: 2
-                    },
-                    "Rating.Point": {
-                        required: true,
-                    },
-                },
-                messages: {
-                    "Rating.Comment": {
-                        required: REQUIRED_INPUT_MESSAGE,
-                    },
-                    "Rating.Point": {
-                        required: REQUIRED_INPUT_MESSAGE,
-                    },
-                },
-                errorElement: 'span',
-                errorPlacement: function (error, element) {
-                    error.addClass('invalid-feedback');
-                    element.closest('.form-group').append(error);
-                },
-                highlight: function (element, errorClass, validClass) {
-                    $(element).addClass('is-invalid');
-                },
-                unhighlight: function (element, errorClass, validClass) {
-                    $(element).removeClass('is-invalid');
-                }
-            });
-
-            if ($('#comment-form').valid() === true) {
-                var form = document.getElementById('comment-form');
-                var action = form.getAttribute("action");
-                var formdata = new FormData($("#comment-form")[0]);
-
-                try {
-                    $.ajax({
-                        type: 'POST',
-                        url: action,
-                        data: formdata,
-                        contentType: false,
-                        processData: false,
-                        success: async function (res) {
-                            if (res.isValid) {
-                                $('#form-modal .modal-body').html('');
-                                $('#form-modal .modal-title').html('');
-                                $('#form-modal').modal('hide');
-                                toastr.success(res.message);
-                                setTimeout(() => { window.location.href = res.redirectUrl;}, 1000)
-                            }
-                            else
-                                $('#form-modal .modal-body').html(res.html);
-                        },
-                        error: function (err) {
-                            Swal.fire('Kayıt Hatası !', 'error')
-                        }
-                    })
-                    //to prevent default form submit event
-                    return false;
-                } catch (ex) {
-                    Swal.fire('Kayıt Hatası !', 'error')
-                }
-            }
-            event.preventDefault();
-            return false;
-        });
-
-
-    });
-</script>
+<!-- Comment Add Edit Custom JS yetmesse validatörü ekle -->
+<script src="~/customPagesJs/orderComment.js"></script>
