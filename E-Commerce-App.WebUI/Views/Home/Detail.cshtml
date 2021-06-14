@@ -66,11 +66,12 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <input type="hidden" name="productId" value="@product.Id">
-                                    <label for="size">Renk</label><br />
-                                    <div class="toolbar">
-                                        <div id="myColorSelector" class="colorSelector">
-                                            @if (Model.SelectedColors != null)
-                                            {
+                                    @if (Model.SelectedColors.Count() > 0)
+                                    {
+                                        <label for="size">Renk</label><br />
+                                        <div class="toolbar">
+                                            <div id="myColorSelector" class="colorSelector">
+
                                                 @foreach (var color in Model.SelectedColors)
                                                 {
                                                     <label class="buttonContainer">
@@ -78,9 +79,9 @@
                                                         <div class="colorOption" style="background:@color.Code"></div>
                                                     </label>
                                                 }
-                                            }
+                                            </div>
                                         </div>
-                                    </div>
+                                    }
                                 </div>
                             </div>
                             <br />

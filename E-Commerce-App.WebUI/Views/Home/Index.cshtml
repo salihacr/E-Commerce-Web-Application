@@ -59,6 +59,7 @@
                     actionUrl = '/GetProducts/';
                     data = '{page:' + page + '}';
                 }
+                console.log(actionUrl);
                 $.ajax({
                     type: 'GET',
                     url: actionUrl + page,

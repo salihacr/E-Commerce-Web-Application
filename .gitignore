@@ -369,7 +369,4 @@ FodyWeavers.xsd
 
 node_modules
 
-wwwroot\img
 appsettings.json
-*.PNG
-*.jpg

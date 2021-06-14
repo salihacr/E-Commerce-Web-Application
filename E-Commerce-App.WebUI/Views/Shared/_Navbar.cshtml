@@ -30,9 +30,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="col-md-6">
-            <form action="~/">
+            <form action="/Home/Index">
                 <div class="input-group">
-                    <input type="text" id="searchForm" class="form-control" name="query" placeholder="Aramak istediğiniz ürünü yazın." style="border-radius: 16px 0px 0px 16px;outline: 0 !important;" required />
+                    <input type="text" id="searchForm" class="form-control" name="query" value="@ViewData["query"]" placeholder="Aramak istediğiniz ürünü yazın." style="border-radius: 16px 0px 0px 16px;outline: 0 !important;" required />
                     <div class="input-group-append">
                         <button class="btn text-white" type="submit" id="btn-search">
                             <i class="fa fa-search"></i>

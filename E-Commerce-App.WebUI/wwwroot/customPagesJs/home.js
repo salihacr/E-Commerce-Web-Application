@@ -37,7 +37,8 @@ function getPrice(data, index) {
     return html;
 }
 function product(data, index) {
-    var productName = string_chop(data[index].name, 15)[0];
+    var productName = string_chop(data[index].name, 20)[0];
+    productName = productName.length >= 20 ? productName + "..." : productName;
     let html =
         `
         <div class="col-md-3 mb-5">
@@ -46,7 +47,7 @@ function product(data, index) {
                     <img class="dress-card-img-top img-fluid" src="/img/${data[index].mainImage}" alt="" id="productImage"/>
                 </div>
                 <div class="dress-card-body">
-                    <h6 class="dress-card-title">${productName}</h6>
+                    <small class="dress-card-title">${productName}</small>
                     <hr/>
                     <p class="dress-card-para"> ${getPrice(data, index)} </p>
                     <div class="row">

@@ -97,27 +97,27 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 727, DateTimeKind.Local).AddTicks(4018),
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 397, DateTimeKind.Local).AddTicks(3201),
                             ImageAltTag = "iphone kampanya",
-                            ImagePath = "/images/iphone-kampanya.png",
+                            ImagePath = "iphone-kampanya.png",
                             IsActive = false,
                             IsHome = true
                         },
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 727, DateTimeKind.Local).AddTicks(4115),
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 397, DateTimeKind.Local).AddTicks(3321),
                             ImageAltTag = "samsung tv kampanya",
-                            ImagePath = "/images/samsung-tv-kampanya.png",
+                            ImagePath = "samsung-tv-kampanya.png",
                             IsActive = false,
                             IsHome = true
                         },
                         new
                         {
                             Id = 3,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 727, DateTimeKind.Local).AddTicks(4119),
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 397, DateTimeKind.Local).AddTicks(3326),
                             ImageAltTag = "pc kampanya",
-                            ImagePath = "/images/pc-kampanya.png",
+                            ImagePath = "pc-kampanya.png",
                             IsActive = false,
                             IsHome = true
                         });
@@ -229,7 +229,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5811),
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 396, DateTimeKind.Local).AddTicks(4891),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Telefon",
@@ -238,7 +238,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5896),
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 396, DateTimeKind.Local).AddTicks(4986),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Bilgisayar",
@@ -247,7 +247,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5900),
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 396, DateTimeKind.Local).AddTicks(4990),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Tv, Ev Elektroniği",
@@ -256,7 +256,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 4,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5902),
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 396, DateTimeKind.Local).AddTicks(4992),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Bilgisayar Parçaları",
@@ -265,7 +265,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 5,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5904),
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 396, DateTimeKind.Local).AddTicks(4994),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Foto, Kamera",
@@ -274,7 +274,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 6,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5910),
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 396, DateTimeKind.Local).AddTicks(5000),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Aksesuar",
@@ -283,7 +283,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 7,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5912),
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 396, DateTimeKind.Local).AddTicks(5002),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Oyun, Hobi",
@@ -292,7 +292,7 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = 8,
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 726, DateTimeKind.Local).AddTicks(5914),
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 396, DateTimeKind.Local).AddTicks(5004),
                             IsActive = true,
                             IsMainCategory = false,
                             Name = "Ev, Mutfak",
@@ -609,86 +609,439 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             Id = "1",
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 723, DateTimeKind.Local).AddTicks(7232),
-                            Description = "aciklama 1",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 393, DateTimeKind.Local).AddTicks(5773),
+                            Description = "Xiaomi Redmi Note 10",
                             Discount = 5.0,
                             IsActive = true,
                             IsHome = true,
-                            MainImage = "none",
-                            Name = "Ürün 1",
-                            Price = 1000.0,
+                            MainImage = "xiaomi-redmi-note10.jpg",
+                            Name = "Xiaomi Redmi Note 10",
+                            Price = 4000.0,
                             ShortDescription = "lorem ipsum dat color...",
-                            Url = "product1"
+                            Url = "xiaomi-redmi-note10"
                         },
                         new
                         {
                             Id = "2",
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 725, DateTimeKind.Local).AddTicks(5177),
-                            Description = "aciklama 2",
-                            Discount = 5.0,
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4242),
+                            Description = "Iphone 12 | Apple",
+                            Discount = 2.0,
                             IsActive = true,
                             IsHome = true,
-                            MainImage = "none",
-                            Name = "Ürün 2",
-                            Price = 1200.0,
+                            MainImage = "iphone12.png",
+                            Name = "Iphone 12 | Apple",
+                            Price = 12000.0,
                             ShortDescription = "lorem ipsum dat color...",
-                            Url = "product2"
+                            Url = "iphone12-apple"
                         },
                         new
                         {
                             Id = "3",
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 725, DateTimeKind.Local).AddTicks(5288),
-                            Description = "aciklama 3",
-                            Discount = 5.0,
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4370),
+                            Description = "Iphone 11 | Apple",
                             IsActive = true,
                             IsHome = true,
-                            MainImage = "none",
-                            Name = "Ürün 3",
-                            Price = 1300.0,
+                            MainImage = "iphone11.jpg",
+                            Name = "Iphone 11 | Apple",
+                            Price = 10000.0,
                             ShortDescription = "lorem ipsum dat color...",
-                            Url = "product3"
+                            Url = "iphone11-apple"
                         },
                         new
                         {
                             Id = "4",
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 725, DateTimeKind.Local).AddTicks(5293),
-                            Description = "aciklama 4",
-                            Discount = 5.0,
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4375),
+                            Description = "Iphone SE2 | Apple",
                             IsActive = true,
                             IsHome = true,
-                            MainImage = "none",
-                            Name = "Ürün 4",
-                            Price = 1400.0,
+                            MainImage = "iphonese.jpg",
+                            Name = "Iphone SE2 | Apple",
+                            Price = 8500.0,
                             ShortDescription = "lorem ipsum dat color...",
-                            Url = "product4"
+                            Url = "iphonese2-apple"
                         },
                         new
                         {
                             Id = "5",
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 725, DateTimeKind.Local).AddTicks(5296),
-                            Description = "aciklama 5",
-                            Discount = 10.0,
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4378),
+                            Description = "Iphone 8 Plus | Apple",
                             IsActive = true,
                             IsHome = true,
-                            MainImage = "none",
-                            Name = "Ürün 5",
-                            Price = 1500.0,
+                            MainImage = "iphone8plus.jpg",
+                            Name = "Iphone 8 Plus | Apple",
+                            Price = 6758.0,
                             ShortDescription = "lorem ipsum dat color...",
-                            Url = "product5"
+                            Url = "iphone8plus-apple"
                         },
                         new
                         {
                             Id = "6",
-                            CreationDate = new DateTime(2021, 6, 8, 0, 3, 45, 725, DateTimeKind.Local).AddTicks(5305),
-                            Description = "aciklama 6",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4387),
+                            Description = "Iphone 8 | Apple",
+                            Discount = 3.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "iphone8.jpg",
+                            Name = "Iphone 8 | Apple",
+                            Price = 5800.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "iphone8-apple"
+                        },
+                        new
+                        {
+                            Id = "7",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4391),
+                            Description = "Samsung Galaxy S21",
+                            Discount = 5.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "samsung-galaxy-s21.jpg",
+                            Name = "Samsung Galaxy S21",
+                            Price = 9000.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "samsung-galaxy-s21"
+                        },
+                        new
+                        {
+                            Id = "8",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4394),
+                            Description = "Samsung Galaxy S10",
+                            Discount = 10.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "samsung-galaxy-s10.jpg",
+                            Name = "Samsung Galaxy S10",
+                            Price = 6000.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "samsung-galaxy-s10"
+                        },
+                        new
+                        {
+                            Id = "9",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4397),
+                            Description = "Samsung Galaxy M20",
+                            Discount = 15.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "samsung-galaxy-m20.jpg",
+                            Name = "Samsung Galaxy M20",
+                            Price = 4000.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "samsung-galaxy-m20"
+                        },
+                        new
+                        {
+                            Id = "10",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4402),
+                            Description = "Samsung Galaxy A50",
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "samsung-galaxy-a50.jpg",
+                            Name = "Samsung Galaxy A50",
+                            Price = 4500.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "samsung-galaxy-a50"
+                        },
+                        new
+                        {
+                            Id = "11",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4404),
+                            Description = "Xiaomi Redmi Note 8",
+                            Discount = 5.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "xiaomi-redmi-note8.jpg",
+                            Name = "Xiaomi Redmi Note 8",
+                            Price = 2600.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "xiaomi-redmi-note8"
+                        },
+                        new
+                        {
+                            Id = "12",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4407),
+                            Description = "Macbook Pro M1 | Apple",
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "macbook-pro-m1.jfif",
+                            Name = "Macbook Pro M1 | Apple",
+                            Price = 16000.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "macbook-pro-m1"
+                        },
+                        new
+                        {
+                            Id = "13",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4410),
+                            Description = "Macbook Pro 19 | Apple",
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "macbook-pro-19.jfif",
+                            Name = "Macbook Pro 19 | Apple",
+                            Price = 21000.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "macbook-pro-19"
+                        },
+                        new
+                        {
+                            Id = "14",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4413),
+                            Description = "Macbook Air || Apple",
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "macbook-air.jfif",
+                            Name = "Macbook Air | Apple",
+                            Price = 14000.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "macbook-air"
+                        },
+                        new
+                        {
+                            Id = "15",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4416),
+                            Description = "Huawei P9 Lite 2017",
+                            Discount = 2.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "huawei-p9-lite-2017.jpg",
+                            Name = "Huawei P9 Lite 2017",
+                            Price = 1850.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "huawei-p9-lite-2017"
+                        },
+                        new
+                        {
+                            Id = "16",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4419),
+                            Description = "Monster Game Notebook",
+                            Discount = 5.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "monster-notebook.jpg",
+                            Name = "Monster Notebook",
+                            Price = 8560.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "monster-notebook"
+                        },
+                        new
+                        {
+                            Id = "17",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4424),
+                            Description = "Dell Laptop Pc İş İstasyonu",
+                            Discount = 8.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "dell-is-istasyonu.jpg",
+                            Name = "Dell Laptop Pc",
+                            Price = 14500.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "dell-is-istasyonu"
+                        },
+                        new
+                        {
+                            Id = "18",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4429),
+                            Description = "Asus Zenbook Laptop Pc",
+                            Discount = 1.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "asus-zenbook.jpg",
+                            Name = "Asus Zenbook Laptop",
+                            Price = 12000.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "asus-zenbook"
+                        },
+                        new
+                        {
+                            Id = "19",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4432),
+                            Description = "Arçelik Buzdolabı",
+                            Discount = 5.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "arcelik-buzdolabi.png",
+                            Name = "Arçelik Buzdolabı",
+                            Price = 4600.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "arcelik-buzdolabi"
+                        },
+                        new
+                        {
+                            Id = "20",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4434),
+                            Description = "Bosch Çamaşır Makinesi",
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "bosch-camasir-makinesi.jpg",
+                            Name = "Bosch Çamaşır Makinesi",
+                            Price = 3528.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "bosch-camasir-makinesi"
+                        },
+                        new
+                        {
+                            Id = "21",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4437),
+                            Description = "Canon EOS 750D",
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "canon-eos750d.jpg",
+                            Name = "Canon EOS 750D",
+                            Price = 6540.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "canon-eos750d"
+                        },
+                        new
+                        {
+                            Id = "22",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4439),
+                            Description = "Nikon D5600",
+                            Discount = 5.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "nikon-d5600.jpg",
+                            Name = "Nikon D5600",
+                            Price = 5980.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "nikon-d5600"
+                        },
+                        new
+                        {
+                            Id = "23",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4442),
+                            Description = "LG Nanocell Tv",
+                            Discount = 10.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "lg-nanocell-tv.jpg",
+                            Name = "LG Nanocell Tv",
+                            Price = 11000.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "lg-nanocell-tv"
+                        },
+                        new
+                        {
+                            Id = "24",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4445),
+                            Description = "Samsung 4K Curved Tv",
+                            Discount = 9.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "samsung-curved-tv.png",
+                            Name = "Samsung 4K Curved Tv",
+                            Price = 12000.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "samsung-curved-tv"
+                        },
+                        new
+                        {
+                            Id = "25",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4448),
+                            Description = "Apple Watch SE",
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "apple-watch-se.png",
+                            Name = "Apple Watch SE",
+                            Price = 2550.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "apple-watch-se"
+                        },
+                        new
+                        {
+                            Id = "26",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4451),
+                            Description = "Xiaomi Mi Band",
+                            Discount = 12.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "xioami-mi-band.jpg",
+                            Name = "Xiaomi Mi Band",
+                            Price = 600.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "xioami-mi-band"
+                        },
+                        new
+                        {
+                            Id = "27",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4470),
+                            Description = "Mouse Razer",
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "razer-mouse.jpg",
+                            Name = "Mouse Razer",
+                            Price = 150.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "razer-mouse"
+                        },
+                        new
+                        {
+                            Id = "28",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4473),
+                            Description = "Klavye Razer",
+                            Discount = 10.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "razer-klavye.jpg",
+                            Name = "Klavye Razer",
+                            Price = 685.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "razer-klavye"
+                        },
+                        new
+                        {
+                            Id = "29",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4476),
+                            Description = "steelseries-kulaklık",
+                            Discount = 5.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "steelseries-kulaklik.jpg",
+                            Name = "steelseries-kulaklık",
+                            Price = 975.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "steelseries-kulaklik"
+                        },
+                        new
+                        {
+                            Id = "30",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4478),
+                            Description = "air-pods",
+                            Discount = 5.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "air-pods.jfif",
+                            Name = "air-pods",
+                            Price = 4000.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "air-pods"
+                        },
+                        new
+                        {
+                            Id = "31",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4481),
+                            Description = "Playstation 5",
+                            Discount = 7.0,
+                            IsActive = true,
+                            IsHome = true,
+                            MainImage = "playstation5.jpg",
+                            Name = "Playstation 5",
+                            Price = 12000.0,
+                            ShortDescription = "lorem ipsum dat color...",
+                            Url = "playstation5"
+                        },
+                        new
+                        {
+                            Id = "32",
+                            CreationDate = new DateTime(2021, 6, 14, 20, 43, 40, 395, DateTimeKind.Local).AddTicks(4484),
+                            Description = "Playstation 4",
                             Discount = 20.0,
                             IsActive = true,
                             IsHome = true,
-                            MainImage = "none",
-                            Name = "Ürün 6",
-                            Price = 2000.0,
+                            MainImage = "playstation4.jpg",
+                            Name = "Playstation 4",
+                            Price = 6000.0,
                             ShortDescription = "lorem ipsum dat color...",
-                            Url = "product6"
+                            Url = "playstation4"
                         });
                 });
 
@@ -714,23 +1067,8 @@ namespace E_Commerce_App.Data.Migrations
                         },
                         new
                         {
-                            ProductId = "1",
-                            CategoryId = 2
-                        },
-                        new
-                        {
-                            ProductId = "1",
-                            CategoryId = 3
-                        },
-                        new
-                        {
                             ProductId = "2",
                             CategoryId = 1
-                        },
-                        new
-                        {
-                            ProductId = "2",
-                            CategoryId = 2
                         },
                         new
                         {
@@ -740,17 +1078,152 @@ namespace E_Commerce_App.Data.Migrations
                         new
                         {
                             ProductId = "4",
-                            CategoryId = 2
+                            CategoryId = 1
                         },
                         new
                         {
                             ProductId = "5",
-                            CategoryId = 3
+                            CategoryId = 1
                         },
                         new
                         {
                             ProductId = "6",
+                            CategoryId = 1
+                        },
+                        new
+                        {
+                            ProductId = "7",
+                            CategoryId = 1
+                        },
+                        new
+                        {
+                            ProductId = "8",
+                            CategoryId = 1
+                        },
+                        new
+                        {
+                            ProductId = "9",
+                            CategoryId = 1
+                        },
+                        new
+                        {
+                            ProductId = "10",
+                            CategoryId = 1
+                        },
+                        new
+                        {
+                            ProductId = "11",
+                            CategoryId = 1
+                        },
+                        new
+                        {
+                            ProductId = "12",
+                            CategoryId = 2
+                        },
+                        new
+                        {
+                            ProductId = "13",
+                            CategoryId = 2
+                        },
+                        new
+                        {
+                            ProductId = "14",
+                            CategoryId = 2
+                        },
+                        new
+                        {
+                            ProductId = "15",
+                            CategoryId = 1
+                        },
+                        new
+                        {
+                            ProductId = "16",
+                            CategoryId = 2
+                        },
+                        new
+                        {
+                            ProductId = "17",
+                            CategoryId = 2
+                        },
+                        new
+                        {
+                            ProductId = "18",
+                            CategoryId = 2
+                        },
+                        new
+                        {
+                            ProductId = "19",
+                            CategoryId = 8
+                        },
+                        new
+                        {
+                            ProductId = "20",
+                            CategoryId = 8
+                        },
+                        new
+                        {
+                            ProductId = "21",
+                            CategoryId = 5
+                        },
+                        new
+                        {
+                            ProductId = "22",
+                            CategoryId = 5
+                        },
+                        new
+                        {
+                            ProductId = "23",
+                            CategoryId = 3
+                        },
+                        new
+                        {
+                            ProductId = "24",
+                            CategoryId = 3
+                        },
+                        new
+                        {
+                            ProductId = "25",
+                            CategoryId = 6
+                        },
+                        new
+                        {
+                            ProductId = "26",
+                            CategoryId = 6
+                        },
+                        new
+                        {
+                            ProductId = "27",
                             CategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = "28",
+                            CategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = "29",
+                            CategoryId = 4
+                        },
+                        new
+                        {
+                            ProductId = "30",
+                            CategoryId = 6
+                        },
+                        new
+                        {
+                            ProductId = "31",
+                            CategoryId = 7
+                        },
+                        new
+                        {
+                            ProductId = "32",
+                            CategoryId = 7
+                        },
+                        new
+                        {
+                            ProductId = "29",
+                            CategoryId = 6
                         });
                 });
 

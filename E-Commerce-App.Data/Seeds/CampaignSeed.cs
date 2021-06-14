@@ -12,9 +12,9 @@ namespace E_Commerce_App.Data.Seeds
         {
             List<Campaign> campaigns = new List<Campaign>
             {
-                new Campaign(){Id=1, ImagePath="/images/iphone-kampanya.png", ImageAltTag="iphone kampanya", IsHome=true, CreationDate=DateTime.Now },
-                new Campaign(){Id=2, ImagePath="/images/samsung-tv-kampanya.png", ImageAltTag="samsung tv kampanya", IsHome=true, CreationDate=DateTime.Now },
-                new Campaign(){Id=3, ImagePath="/images/pc-kampanya.png", ImageAltTag="pc kampanya", IsHome=true, CreationDate=DateTime.Now },
+                new Campaign(){Id=1, ImagePath="iphone-kampanya.png", ImageAltTag="iphone kampanya", IsHome=true, CreationDate=DateTime.Now },
+                new Campaign(){Id=2, ImagePath="samsung-tv-kampanya.png", ImageAltTag="samsung tv kampanya", IsHome=true, CreationDate=DateTime.Now },
+                new Campaign(){Id=3, ImagePath="pc-kampanya.png", ImageAltTag="pc kampanya", IsHome=true, CreationDate=DateTime.Now },
             };
             builder.HasData(campaigns);
         }
