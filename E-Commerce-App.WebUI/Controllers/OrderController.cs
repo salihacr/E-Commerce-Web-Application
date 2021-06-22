@@ -54,7 +54,7 @@ namespace E_Commerce_App.WebUI.Controllers
             var toComment = new List<string>();// yes, no olsun
 
             // orderitemları sırala bir önceki ile aynı ise ekleme değilse ekle
-            orderItems = orderItems.OrderBy(p => p.ProductId).ToList();
+            //orderItems = orderItems.OrderBy(p => p.ProductId).ToList();
 
             for (int i = 0; i < orderItems.Count; i++)
             {
@@ -73,7 +73,7 @@ namespace E_Commerce_App.WebUI.Controllers
             }
             var model = new UserOrderViewModel()
             {
-                OrderItems = _mapper.Map<List<OrderItemDto>>(orderItems).OrderBy(p => p.OrderId).ToList(),
+                OrderItems = _mapper.Map<List<OrderItemDto>>(orderItems),
                 OrderDates = orderDates,
                 Ratings = ratings,
                 ToComment = toComment
@@ -155,7 +155,7 @@ namespace E_Commerce_App.WebUI.Controllers
                         {
                             Id = i.Id,
                             ProductId = i.ProductId,
-                            Price = (double)i.Price,
+                            Price = (int)i.Price,
                             Quantity = i.Quantity,
                             Color = i.Color
                         },

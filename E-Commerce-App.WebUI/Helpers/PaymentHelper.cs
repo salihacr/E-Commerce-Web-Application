@@ -27,8 +27,8 @@ namespace E_Commerce_App.WebUI.Helpers
 
             request.Locale = Locale.TR.ToString();
             request.ConversationId = new Random().Next(1111111, 9999999) + "__" + Guid.NewGuid().ToString();
-            request.Price = orderModel.CartViewModel.GetTotalPrice().ToString();
-            request.PaidPrice = orderModel.CartViewModel.GetTotalPrice().ToString();
+            request.Price = Convert.ToInt32(orderModel.CartViewModel.GetTotalPrice()).ToString();
+            request.PaidPrice = Convert.ToInt32(orderModel.CartViewModel.GetTotalPrice()).ToString();
             request.Currency = Currency.TRY.ToString();
             request.Installment = 1;
             request.BasketId = "B67832";

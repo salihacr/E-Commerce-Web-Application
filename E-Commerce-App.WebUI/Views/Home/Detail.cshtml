@@ -85,23 +85,26 @@
                                 </div>
                             </div>
                             <br />
-                            <div class="product-count">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <small>Adet</small>
-                                        <div class="display-flex">
-                                            <div class="qtyminus">-</div>
-                                            <input type="text" name="quantity" value="1" class="qty">
-                                            <div class="qtyplus">+</div>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="product-count">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <small>Adet</small>
+                                            <div class="display-flex">
+                                                <div class="qtyminus">-</div>
+                                                <input type="text" name="quantity" value="1" class="qty">
+                                                <div class="qtyplus">+</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+
+                                            <button type="submit" class="float-right round-black-btn">Sepete Ekle</button>
+
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-
-                                        <button type="submit" class="float-right round-black-btn">Sepete Ekle</button>
-
-                                    </div>
                                 </div>
-                            </div>
+                            }
                         }
                         else
                         {

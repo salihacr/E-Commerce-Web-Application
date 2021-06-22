@@ -40,6 +40,12 @@ namespace E_Commerce_App.WebUI.Controllers
         public async Task<IActionResult> AddToCart(string productId, string color, int quantity, double price)
         {
             var userId = _userManager.GetUserId(User);
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Json(new { success = false, redirectUrl = "/Account/Login" });
+            }
+
             await _cartService.AddToCart(userId, productId, quantity, price, color);
 
             return Json(new { success = true, message = "Ürün sepete eklendi." });

@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
     @RenderSection("Css", false)
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     @await Html.PartialAsync("_Navbar")
     @RenderSection("Campaigns", required: false)
     <div class="container">

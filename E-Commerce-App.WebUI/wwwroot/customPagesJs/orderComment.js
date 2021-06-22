@@ -6,7 +6,7 @@
         rules: {
             "Rating.Comment": {
                 required: true,
-                maxlength: 50,
+                maxlength: 120,
                 minlength: 2
             },
             "Rating.Point": {

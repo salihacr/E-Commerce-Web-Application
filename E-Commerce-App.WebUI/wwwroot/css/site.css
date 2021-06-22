@@ -115,3 +115,24 @@ a {
         bottom: 20px;
     }
 }
+
+.footer {
+    background-image: linear-gradient(to right, #386ded, #3b4dd4);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 8px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+footer a {
+    text-decoration: none;
+    color: rgb(204, 204, 204) !important;
+}
+
+    footer a:hover {
+        color: #ff8000 !important;
+        text-decoration: none;
+    }

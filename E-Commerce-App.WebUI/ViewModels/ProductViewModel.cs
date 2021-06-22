@@ -11,7 +11,6 @@ namespace E_Commerce_App.WebUI.ViewModels
         public IEnumerable<CategoryDto> Categories { get; set; }
         public IEnumerable<ProductCategoryDto> SelectedCategories { get; set; }
         public IEnumerable<ImageDto> Images { get; set; }
-        // TODO comments tablosu eklenecek
         public IEnumerable<ColorDto> Colors { get; set; }
         public IEnumerable<ColorDto> SelectedColors { get; set; }
         public List<RatingDto> Ratings { get; set; }

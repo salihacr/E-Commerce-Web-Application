@@ -16,7 +16,7 @@ namespace E_Commerce_App.WebUI.ViewModels
     {
         public int CartId { get; set; }
         public List<CartItemViewModel> CartItems { get; set; }
-        public double GetTotalPrice() => CartItems.Sum(i => i.CartItemDto.Price * i.CartItemDto.Quantity);
+        public int GetTotalPrice() => (int)CartItems.Sum(i => i.CartItemDto.Price * i.CartItemDto.Quantity);
     }
     public class CartItemViewModel
     {

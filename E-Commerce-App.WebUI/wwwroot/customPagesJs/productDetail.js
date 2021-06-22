@@ -44,17 +44,19 @@
                             'success'
                         )
                     }
+                    else if (res.success == false) {
+                        window.location.href = res.redirectUrl
+                    }
                 },
                 error: function (err) {
                 }
             });
-            return false;
         } catch (ex) {
             toastr.success("Ürün sepete eklenemedi.")
         }
 
         event.preventDefault();
-        return false;
+        //return false;
     });
 
 });
